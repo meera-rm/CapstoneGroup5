@@ -1,8 +1,8 @@
-#CapstoneGroup5
+## CapstoneGroup5
 
-#TEAM
+## TEAM
 
-#Taryne Leach
-#KamNotCam
-#DerekPeterson
-#Meera Ramesh
+## Taryne Leach
+## KamNotCam
+## DerekPeterson
+## Meera Ramesh
