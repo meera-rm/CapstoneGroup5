@@ -1,4 +1,3 @@
-// http://vitaly-t.github.io/pg-promise/module-pg-promise.html
 const pgp = require('pg-promise')();
 require('dotenv').config();
 
@@ -9,6 +8,7 @@ const cn = process.env.DATABASE_URL
       port: process.env.DB_PORT,
       database: process.env.DB_NAME,
     };
+
 const db = pgp(cn);
 
 module.exports = db;

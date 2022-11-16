@@ -1,12 +1,14 @@
-// DEPENDENCIES
+const express = require('express');
+const app = require('./app');
+
+const colors = require('colors');
+
 require('dotenv').config();
-const app = require('./app.js');
 
-// CONFIGURATION
+const { PORT } = process.env;
 
-const PORT = process.env.PORT || 3010;
+const message = 'Listening on port';
 
-// LISTEN
 app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
+  console.log(`${message}  `.cyan + PORT.magenta);
 });
