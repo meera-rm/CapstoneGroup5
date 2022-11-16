@@ -29,18 +29,15 @@ CREATE TABLE books(
 --     ON DELETE CASCADE
 -- )
 
-DROP DATABASE IF EXISTS teachers_table;
 
-CREATE DATABASE teachers_table
 
 DROP TABLE IF EXISTS teachers;
 
 CREATE TABLE teachers(
     teacher_id SERIAL PRIMARY KEY,
-    class TEXT NOT NULL,
     teacher_name TEXT NOT NULL,
     school_name TEXT NOT NULL,
-    school_district TEXT NOT NULL,
+    school_district INTEGER,
     school_address TEXT NOT NULL,
     zipcode INTEGER,
     state_name TEXT NOT NULL,
