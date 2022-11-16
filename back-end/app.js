@@ -1,24 +1,20 @@
-// DEPENDENCIES
-
 const express = require('express');
+
+const app = express();
 const cors = require('cors');
 
-//configuration
-const app = express(); //invoke express and save in app
+const bookController = require('./controllers/bookController.js');
 
-//Middleware
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
-// ROUTES
-//home route
-
-app.use('/', (req, res) => {
-  res.send('Welcome to Scholar Sheep');
+app.get('/', (req, res) => {
+  res.status(200).send('Welcome to Scholar Sheep!');
 });
+app.use('/api/books', bookController);
 
 app.get('*', (req, res) => {
-  res.status(404).send('Not found');
+  res.status(403).send('Not Found!');
 });
 
 module.exports = app;
