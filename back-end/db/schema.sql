@@ -15,9 +15,7 @@ CREATE TABLE books(
     book_picture TEXT,
     reading_level TEXT NOT NULL
 )
-    -- student_id INT NOT NULL REFERENCES teacher(teahcer_id) ON DELETE CASCADE
-    -- teacher_id INT NOT NULL REFERENCES student(studen_id) ON DELETE CASCADE
--- )
+ 
 
 -- --create the comments table
 -- DROP TABLE IF EXISTS comments;
@@ -28,8 +26,6 @@ CREATE TABLE books(
 --     teachers_id INTEGER REFERENCES student(student_id)
 --     ON DELETE CASCADE
 -- )
-
-
 
 DROP TABLE IF EXISTS teachers;
 
@@ -43,3 +39,37 @@ CREATE TABLE teachers(
     state_name TEXT NOT NULL,
     class_subject TEXT NOT NULL
 )
+
+DROP TABLE IF EXISTS students;
+
+CREATE TABLE students(
+    student_id SERIAL PRIMARY KEY,
+    student_name  TEXT NOT NULL,
+    parent_name TEXT NOT NULL,
+    parent_email TEXT NOT NULL,
+    student_email TEXT NOT NULL,
+    academic_year TEXT NOT NULL,
+    reading_level TEXT NOT NULL,
+    role TEXT  NOT NULL,
+    password TEXT NOT NULL,
+    id_of_teacher INTEGER REFERENCES teachers(teacher_id)
+    ON DELETE CASCADE
+);
+
+
+DROP TABLE IF EXISTS logs;
+
+CREATE TABLE logs(
+    log_id  SERIAL PRIMARY KEY, 
+    reading_inference TEXT NOT NULL,
+    reading_minutes TEXT NOT NULL,
+    date_read timestamp DEFAULT CURRENT_TIMESTAMP,
+    pages_read INTEGER NOT NULL,
+    role TEXT  NOT NULL,
+    id_of_book INTEGER REFERENCES books(book_id)
+    ON DELETE CASCADE
+    id_of_student INTEGER REFERENCES students(student_id)
+    ON DELETE CASCADE
+    id_of_teacher INTEGER REFERENCES teachers(teacher_id)
+    ON DELETE CASCADE
+);
