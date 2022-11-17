@@ -73,9 +73,9 @@ const upDateTeacher = async (id, teachers) => {
 };
 
 module.exports = {
-    allTeachers,
-    oneTeacher,
-    deleteTeacher,
+	allTeachers,
+	oneTeacher,
+	deleteTeacher,
 	createTeacher,
 	upDateTeacher,
 };
