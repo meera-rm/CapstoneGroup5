@@ -145,6 +145,8 @@ students.delete('/:studentId', async (req, res) => {
 });
 
 //nested reviews route
-students.use("/:logId/logs", logsController);
+
+students.use('/:logId/logs', logsController);
 
 module.exports = students;
+
