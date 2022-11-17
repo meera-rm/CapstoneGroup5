@@ -2,6 +2,9 @@ const express = require('express');
 const teachers = express.Router();
 const db = require('../db/dbConfig');
 
+const reviewsController = require("./reviews");
+teachers.use("/:teacher_id/students", studentController);
+
 const {
 	allTeachers,
 	oneTeacher,
