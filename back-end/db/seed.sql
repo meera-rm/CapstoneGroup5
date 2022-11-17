@@ -7,7 +7,7 @@ INSERT INTO books(book_title,book_author,isbn_number,publication,book_picture,re
 
 
 INSERT INTO teachers(teacher_id,teacher_name,school_name,school_district,school_address,zipcode,state_name,class_subject) VALUES
-('Ms.Fundy', 'P.S. 152', '2', '725 East 23rd St',11210, 'NY'),
-('Ms Perez', 'P.S. 152', '2', '725 East 23rd St', 11210, 'NY'),
-('Mr.Edmundson','P.S. 315','4', '2310 Glenwood Rd', 11210, 'NY'),
-('Ms.Blackmond', 'P.S. 075', '13', '735 West End Ave', 10025, 'NY')
+('Ms.Fundy', 'P.S. 152', '2', '725 East 23rd St',11210, 'NY', 'Reading'),
+('Ms Perez', 'P.S. 152', '2', '725 East 23rd St', 11210, 'NY', 'History'),
+('Mr.Edmundson','P.S. 315','4', '2310 Glenwood Rd', 11210, 'NY', 'English'),
+('Ms.Blackmond', 'P.S. 075', '13', '735 West End Ave', 10025, 'NY', 'Reading')
