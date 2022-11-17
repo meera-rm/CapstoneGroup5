@@ -81,9 +81,7 @@ students.post('/new', checkPicture, async (req, res) => {
   } catch (error) {
     // console.log('Caught in error');
     console.log(error.message);
-    res
-      .status(404)
-      .json({ success: false, message: 'Student cannot be added' });
+    res.status(404).json({ success: false, message: 'Student cannot be added' });
   }
 });
 
@@ -147,6 +145,8 @@ students.delete('/:studentId', async (req, res) => {
 });
 
 //nested reviews route
+
 students.use('/:logId/logs', logsController);
 
 module.exports = students;
+
