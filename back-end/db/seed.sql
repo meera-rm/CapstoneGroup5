@@ -11,3 +11,13 @@ INSERT INTO teachers(teacher_id,teacher_name,school_name,school_district,school_
 ('Ms Perez', 'P.S. 152', '2', '725 East 23rd St', 11210, 'NY', 'History'),
 ('Mr.Edmundson','P.S. 315','4', '2310 Glenwood Rd', 11210, 'NY', 'English'),
 ('Ms.Blackmond', 'P.S. 075', '13', '735 West End Ave', 10025, 'NY', 'Reading')
+
+
+ INSERT INTO students( student_name,parent_name,parent_email,
+    student_email , academic_year ,reading_level ,student_password ) VALUES
+    ('Celia Edward','Thomas Edward','thomas@gmail.com','celia_edward@nycschools.org','2022-2023','G','afghp345','1'),
+    ('Jade Duncan','Christine Duncan','christine@msn.com','jade_duncan@nycschools.org','2022-2023','H','tybl8213','1'),
+    ('Barry Lioudis','Norma Lioudis','norma@a0l.com','barry_lioudis@nycschools.org','2022-2023','I','dlspr052','1')
+    
+INSERT INTO logs('I loved that the owl was so brave',30,20,'student',
+    0, 1,2,)
