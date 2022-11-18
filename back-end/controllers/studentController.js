@@ -1,12 +1,13 @@
 //controls the routes the way it goes for
 const express = require('express');
 
-const { oneTeacher } = require('../queries/teachers.js');
 //access to being able to things like get or set, update or delete
 const students = express.Router({ mergeParams: true });
-// const commentsController = require('./commentsController');
-//import db
+
 const db = require('../db/dbConfig');
+
+const logController = require('./logController.js');
+students.use('/:studentId/logs', logController);
 
 //import validation
 const {
@@ -17,10 +18,7 @@ const {
   deleteStudent,
 } = require('../queries/students');
 
-const { checkPicture } = require('../validations/checkStudents');
-
-//any() coming from the pg promise, first argument is sql command,
-//.any can be used when it is returning all or none
+const { checkPicture } = require('../validations/checkBooks');
 
 //Index
 students.get('/', async (req, res) => {
@@ -115,9 +113,5 @@ students.delete('/:studentId', async (req, res) => {
     });
   }
 });
-
-//nested reviews route
-
-students.use('/:logId/logs', logsController);
 
 module.exports = students;
