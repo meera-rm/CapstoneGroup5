@@ -5,27 +5,27 @@ import { FaLinkedin } from 'react-icons/fa';
 import './Footer.css';
 
 const Footer = () => {
-  return (
-    <footer className='site-footer'>
-      <div className='container'>
-        <hr />
-      </div>
-      <div className='container'>
-        <div className='row'>
-          <div className='col-md-8 col-sm-6 col-xs-12'>
-            <p
-              className='copyright-text'
-              style={{
-                color: 'white',
-                fontSize: '1rem',
-                margin: '1rem auto',
-                textAlign: 'center',
-              }}
-            >
-              Copyright &copy; 2022 All Rights Reserved by Team Scholar Sheep
-            </p>
-          </div>
-          {/* <div className='col-md-4 col-sm-6 col-xs-12'>
+	return (
+		<footer className='site-footer'>
+			<div className='container'>
+				<hr />
+			</div>
+			<div className='container'>
+				<div className='row'>
+					<div className='col-md-8 col-sm-6 col-xs-12'>
+						<p
+							className='copyright-text'
+							style={{
+								color: 'white',
+								fontSize: '1rem',
+								margin: '1rem auto',
+								textAlign: 'center',
+							}}
+						>
+							Copyright &copy; 2022 All Rights Reserved by Team Scholar Sheep
+						</p>
+					</div>
+					{/* <div className='col-md-4 col-sm-6 col-xs-12'>
             <ul className='social-icons'>
            
               <li>
@@ -48,10 +48,10 @@ const Footer = () => {
               </li>
             </ul>
           </div> */}
-        </div>
-      </div>
-    </footer>
-  );
+				</div>
+			</div>
+		</footer>
+	);
 };
 
 export default Footer;

@@ -6,9 +6,10 @@
   align-items: center;
   height: 4rem;
   font-size: 20px;
-  background-color: black;
+  background-color: teal;
+  
 }
 .nav > button {
   background-color: transparent;
-  color: #737373;
+  font-family: Georgia;
 }
