@@ -16,7 +16,7 @@ function Contact() {
         Scholar Sheep
       </h1>
       <div className='home-header'>
-        {/* <ContactPage /> */}
+        <ContactPage />
       </div>
     </motion.div>
   );
