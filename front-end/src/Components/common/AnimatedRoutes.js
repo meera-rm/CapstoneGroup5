@@ -13,6 +13,7 @@ import ShowBooks from '../../Pages/Books/ShowBooks';
 import EditBooks from '../../Pages/Books/EditBooks';
 import StudentIndex from '../../Pages/Student/StudentIndex';
 import TeacherIndex from '../../Pages/Teacher/TeacherIndex';
+import TeacherSignUp from '../../Pages/TeacherSignUp';
 //This component to define navbar animate tranisitons
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -24,7 +25,7 @@ const AnimatedRoutes = () => {
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
-
+            <Route path='/teacher-signup' element={<TeacherSignUp />}></Route>
             <Route path='/books'>
               <Route index element={<IndexBooks />} />
               <Route path=':id' element={<ShowBooks />} />

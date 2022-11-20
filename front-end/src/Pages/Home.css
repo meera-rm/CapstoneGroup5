@@ -9,14 +9,28 @@
 }
 h1{
   font-size:3rem;
+  color: teal;
+  font-family: 'Georgia'
 }
 .home-header {
   text-align: center;
   width: 800px;
   margin: 6rem auto;
   font-size: 2.5rem;
-  font-weight: 600;
-  color: green;
-  font-family: 'Courier New', Courier, monospace;
+  font-weight: 450;
+  color: teal;
+  font-family: Georgia;
   backdrop-filter: blur(5px);
+}
+
+.home-button {
+  background-color: teal;
+  font-family: Georgia;
+  width: 20%;
+  color: white;
+}
+
+.flexing {
+  display: flex;
+  font-size: x-large;
 }
