@@ -1,16 +1,17 @@
 import AllBooks from '../../Components/index/AllBooks';
-import {motion} from 'framer-motion'
+import { HelmetProvider, Helmet } from "react-helmet-async";
 
 const IndexBooks = () => {
   return (
-    <motion.div
-    initial={{ opacity: 0, scale: 0.5 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.5 }}  
-    className='Index'  >
-      
+   
+    <div>
+    <HelmetProvider>
+    <Helmet>
+      <title>Scholar Sheep  | Books | All</title>
+    </Helmet>
+  </HelmetProvider>
       <AllBooks />
-    </motion.div>
+   </div>
   );
 };
 

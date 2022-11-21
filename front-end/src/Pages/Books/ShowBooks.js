@@ -1,16 +1,15 @@
 import BookDetails from '../../Components/show/BookDetails';
-import { motion } from "framer-motion"
-import './ShowBooks.css';
-
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 const ShowBooks = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5 }}
-    >
+    <div>
+    <HelmetProvider>
+    <Helmet>
+      <title>Scholar Sheep  | Books | Show</title>
+    </Helmet>
+  </HelmetProvider>
       <BookDetails />
-    </motion.div>
+    </div>
   );
 };
 

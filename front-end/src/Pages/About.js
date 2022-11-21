@@ -4,21 +4,11 @@ const About = () => {
     <div>
       <HelmetProvider>
         <Helmet>
-          <title>Scholar Sheep | About</title>
+          <title>ScholarSheep| About</title>
         </Helmet>
       </HelmetProvider>
-      {/* <h1
-				style={{
-					color: 'teal',
-					margin: '6rem auto',
-					textAlign: 'center',
-					fontFamily: 'Georgia',
-      
-				}}
-			>
-				Scholar Sheep
-			</h1> */}
       <h1 className='text-center text-teal-600 mt-6'>Scholar Sheep</h1>
+
       <div className='home-header'>
         <p
           style={{
