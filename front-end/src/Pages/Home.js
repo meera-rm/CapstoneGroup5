@@ -1,21 +1,16 @@
 import './Home.css';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom'
-// import { HelmetProvider, Helmet } from "react-helmet-async";
+
+import { Link } from 'react-router-dom' import { HelmetProvider, Helmet } from "react-helmet-async";
 const Home = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5 }}
-      className='home' >
-      {/* <HelmetProvider>
+    <div>
+       <HelmetProvider>
       <Helmet>
-        <title>TrackerLux| Home</title>
+        <title>Scholar Sheep| Home</title>
       </Helmet>
-    </HelmetProvider> */}
-      <h1 style={{ color: 'teal', margin: '6rem auto',textAlign: 'center' }}>
-      Welcome to Scholar Sheep
+    </HelmetProvider> 
+    <h1 className='text-3xl m-12 text-center font-bold font-mono text-green-600/100'> 
+     Welcome to Scholar Sheep
       </h1>
       <div className='home-header'>
       <button className="home-button">Teacher Login</button> &nbsp; <Link to="/teacher-signup"> <button className="home-button">Teacher Sign Up</button></Link>
@@ -31,7 +26,7 @@ const Home = () => {
        <p> We at Scholar Sheep want to get parents involved with their children's education. It has been proven that children perform better when parents take an active role. We are bridging the gap between parent child relationships.</p>
        </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
