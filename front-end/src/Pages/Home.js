@@ -18,7 +18,7 @@ const Home = () => {
       Welcome to Scholar Sheep
       </h1>
       <div className='home-header'>
-      <button className="home-button">Teacher Login</button> &nbsp; <Link to="/teacher-signup"> <button className="home-button">Teacher Sign Up</button></Link>
+      <Link to="/teacher-login"> <button className="home-button">Teacher Login</button></Link> &nbsp; <Link to="/teacher-signup"> <button className="home-button">Teacher Sign Up</button></Link>
       <br></br>
       <button className="home-button">Parent Login</button> &nbsp; <button className="home-button">Parent Sign Up</button>
         <br></br>
