@@ -18,6 +18,8 @@ const {
   deleteStudent,
 } = require('../queries/students');
 
+const {oneTeacher} = require('../queries/teachers');
+
 const { checkPicture } = require('../validations/checkBooks');
 
 //Index
@@ -113,5 +115,18 @@ students.delete('/:studentId', async (req, res) => {
     });
   }
 });
+
+
+//One to many for teacher and student
+students.get('/:teacherId', async (req, res) => {
+  const {teacherId} = req.params;
+  const teacher = await oneTeacher(teacherId);
+  if (teacher) {
+    res.json(teacher)
+  } else {
+    res.status(404).json({error: `Teacher with the id ${teacherId} not found.`})
+  }
+
+})
 
 module.exports = students;

@@ -10,5 +10,5 @@ const { PORT } = process.env;
 const message = 'Listening on port';
 
 app.listen(PORT, () => {
-  console.log(`${message}  `.cyan + PORT.magenta);
+  console.log(`${message}` + PORT);
 });
