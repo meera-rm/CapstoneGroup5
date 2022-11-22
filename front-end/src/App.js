@@ -12,8 +12,9 @@ const App = () => {
 			<main>
 				<NavBar />
 				<AnimatedRoutes />
-				{/* <Footer /> */>
-				
+
+				{/* <Footer /> */}
+
 			</main>
 		</div>
 	);
