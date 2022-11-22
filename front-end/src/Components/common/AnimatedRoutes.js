@@ -28,6 +28,7 @@ import NewLog from '../../Pages/Logs/NewLog';
 import ShowLogs from '../../Pages/Logs/ShowLogs';
 import EditLogs from '../../Pages/Logs/EditLogs';
 
+
 import TeacherSignUp from '../../Pages/TeacherSignUp';
 import TeacherLogin from '../../Pages/TeacherLogin';
 import ParentLogin from '../../Pages/ParentLogin';
@@ -46,10 +47,12 @@ const AnimatedRoutes = () => {
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
 
+
             <Route path='/teacher-signup' element={<TeacherSignUp />}></Route>
             <Route path="/teacher-login" element={<TeacherLogin />}></Route>
             <Route path="/parent-login" element={<ParentLogin />}></Route>
             <Route path="/parent-signup" element={<ParentSignUp />}></Route>
+
 
             <Route path='/books'>
               <Route index element={<IndexBooks />} />
@@ -57,18 +60,21 @@ const AnimatedRoutes = () => {
               <Route path=':id' element={<ShowBooks />} />
               <Route path=':id/edit' element={<EditBooks />} />
             </Route>
+            
             <Route path='/students'>
               <Route index element={<StudentIndex />} />
               <Route path='new' element={<StudentNew />} />
               <Route path=':id' element={<StudentShow />} />
               <Route path=':id/edit' element={<StudentEdit />} />
             </Route>
+            
             <Route path='/teachers'>
               <Route index element={<TeacherIndex />} />
               <Route path='new' element={<TeacherNew />} />
               <Route path=':id' element={<TeacherShow />} />
               <Route path=':id/edit' element={<TeacherEdit />} />
             </Route>
+            
             <Route path='/logs'>
               <Route index element={<IndexLogs />} />
               <Route path='new' element={<NewLog />} />
@@ -85,6 +91,9 @@ const AnimatedRoutes = () => {
 };
 
 export default AnimatedRoutes;
+
+
+
 
 // import React from 'react';
 // import { AnimatePresence } from 'framer-motion';

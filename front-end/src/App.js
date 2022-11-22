@@ -5,6 +5,8 @@ import NavBar from './Components/common/NavBar';
 import AnimatedRoutes from './Components/common/AnimatedRoutes';
 
 const App = () => {
+
+
 	return (
 		<div className='App'>
 			<main>
@@ -15,6 +17,7 @@ const App = () => {
 			</main>
 		</div>
 	);
+
 
 };
 
