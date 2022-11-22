@@ -1,26 +1,15 @@
-
-  // const TailwindCSSButton =(props)=>{
-  //   return(
-  //     <button className='bg-teal-600 text-black font-medium px-4 py-2 rounded hover:bg-teal-500 inline-block'> {props.children}</button>
-  //   )
-  // }
-  
-        {/* <TailwindCSSButton>TailwindCSS</TailwindCSSButton> */}
-    
-
 import './Home.css';
 import { Link } from 'react-router-dom';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
-
+import homepic from '../Components/asset/boyandmother.webp';
 
 const Home = () => {
-
   // const TailwindCSSButton =(props)=>{
   //   return(
   //     <button className='bg-teal-600 text-black font-medium px-4 py-2 rounded hover:bg-teal-500 inline-block'> {props.children}</button>
   //   )
   // }
-  
+
   return (
     <div>
       <HelmetProvider>
@@ -29,84 +18,57 @@ const Home = () => {
         </Helmet>
       </HelmetProvider>
 
-    
-      <h1 className='text-3xl m-12 text-center font-bold font-mono text-green-600/100'>
-       
-        Welcome to Scholar Sheep
-
-      </h1>
       <div className='text-center'>
-        {/* <p>
-          {' '}
-          Analyzing the characters and emotions through the eyes of the author
-        </p> */}
-       <div className='home-header'> 
+        <h1 className='text-3xl m-12 text-center font-bold font-mono text-green-600/100'>
+          Welcome to Scholar Sheep
+        </h1>
 
-      <h1 className='text-3xl m-12 text-center font-bold font-mono text-green-600/100'>
-        Welcome to Scholar Sheep
+        <div class='mt-40 max-w-lg mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl'>
+          <div class='md:flex'>
+            <div class='md:shrink-0'>
+              <img
+                class='h-96 w-full object-cover md:h-full md:w-80'
+                src={homepic}
+                alt='Modern building architecture'
+              />
+            </div>
+            <div class='p-8'>
+              <p class='block mt-1 text-lg leading-tight font-medium text-black hover:underline'>
+                Cultivating reading habits among children{' '}
+              </p>
+              <p class='mt-2 text-slate-500'>
+                The average American has a reading level equivalent to a seventh
+                or eight grade child. During the pandemic children's reading
+                scores fell across the nation. Scholar Sheep hopes to improve
+                the reading and ignite the passion for reading in today's
+                children.
+              </p>
+              <p class='mt-2 text-slate-500'>
+                {' '}
+                We at Scholar Sheep want to get parents involved with their
+                children's education. It has been proven that children perform
+                better when parents take an active role. We are bridging the gap
+                between parent child relationships.
+              </p>
+            </div>
+          </div>
 
-      </h1>
+          {/* <div className='home-header'> */}
 
-      <div className='text-center'>
-        {/* <p>
-          {' '}
-          Analyzing the characters and emotions through the eyes of the author
-        </p> */}
-       <div className='home-header'> 
-        <button className='home-button'>Teacher Login</button> &nbsp;{' '}
-        <Link to='/teacher-signup'>
-          {' '}
-          <button className='home-button'>Teacher Sign Up</button>
-        </Link>
-
-      <div className='home-header'>
-
-
-        <button className='home-button'>Teacher Login</button> &nbsp;{' '}
-        <Link to='/teacher-signup'>
-          {' '}
-          <button className='home-button'>Teacher Sign Up</button>
-        </Link>
-
-      <Link to="/teacher-login"> <button className="home-button">Teacher Login</button></Link> &nbsp; <Link to="/teacher-signup"> <button className="home-button">Teacher Sign Up</button></Link>
+          {/* <Link to="/teacher-login"> <button className="home-button">Teacher Login</button></Link> &nbsp; <Link to="/teacher-signup"> <button className="home-button">Teacher Sign Up</button></Link>
       <br></br>
       <Link to="/parent-login"><button className="home-button">Parent Login</button></Link> &nbsp; <Link to="/parent-signup"><button className="home-button">Parent Sign Up</button></Link> 
+      </div> */}
 
-        <div className='flexing'>
-          <img
-            src='https://img.freepik.com/premium-vector/child-boy-mother-read-book-learn-lesson-mom-help-kid-home-school-online-education_352905-268.jpg?w=2000'
-            alt=''
-          />
+          {/*  </div>
+       <TailwindCSSButton>TailwindCSS</TailwindCSSButton> 
+      </div>*/}
+
+          {/* </div> */}
         </div>
-        <div className='flexing'>
-          <p>
-            The average American has a reading level equivalent to a seventh or
-            eight grade child. During the pandemic children's reading scores
-            fell across the nation. Scholar Sheep hopes to improve the reading
-            skills and ignite the passion for reading in today's children.
-          </p>
-
-
-          <p>
-            {' '}
-            We at Scholar Sheep want to get parents involved with their
-            children's education. It has been proven that children perform
-            better when parents take an active role. We are bridging the gap
-            between parent child relationships.
-          </p>
-        </div>
-
-        </div>
-        {/* <TailwindCSSButton>TailwindCSS</TailwindCSSButton> */}
       </div>
-
-      {/* </div> */}
-
-      </div>
-
-
     </div>
   );
 };
 
-
+export default Home;

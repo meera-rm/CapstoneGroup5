@@ -63,24 +63,21 @@ const Navbar = () => {
                 <Link to='/about'>
                   <p className=''>About</p>
                 </Link>
-                <Link to='/contact'>
-                  <p className=''>Contact</p>
-                </Link>
               </div>
-              <div>
-                <Link to='joinUs'>
-                  <p className=' capitalize bg-green-400 w-32  text-center rounded-md'>
+              <div className='flex space-x-4'>
+                <Link to='/signUp'>
+                  <p className=' capitalize bg-green-400 w-20  text-center rounded-md'>
                     Sign up
                   </p>
                 </Link>
-                {/* <Link to='/login'>
+                <Link to='/signUp'>
                   <p
-                    className='mt-4 capitalize bg-green-400 w-32 text-center rounded-md'
+                    className='capitalize bg-green-400 w-20 text-center rounded-md'
                     onClick={handleNavLinkDisappear}
                   >
                     Log In
                   </p>
-                </Link> */}
+                </Link> 
               </div>
             </div>
           </nav>
@@ -121,11 +118,6 @@ const Navbar = () => {
                     About
                   </p>
                 </Link>
-                <Link to='/contact'>
-                  <p className='mt-2' onClick={handleNavLinkDisappear}>
-                    Contact
-                  </p>
-                </Link>
                 <Link to='/signUp'>
                   <p
                     className='mt-4 capitalize bg-green-400 w-32 text-center rounded-md'
@@ -135,14 +127,14 @@ const Navbar = () => {
                     Sign Up
                   </p>
                 </Link>
-                {/* <Link to='/login'>
+                <Link to='/login'>
                   <p
                     className='mt-4 capitalize bg-green-400 w-32 text-center rounded-md'
                     onClick={handleNavLinkDisappear}
                   >
                     Log In
                   </p>
-                </Link> */}
+                </Link>
               </div>
             </div>
           )}
@@ -153,75 +145,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-//import React from 'react';
-// import { Link } from 'react-router-dom';
-// import logo from '../asset/ScholarSheep.png';
-
-// import './NavBar.css';
-// const NavBar = () => {
-// 	return (
-// 		<nav className='nav'>
-// 			<div>
-// 				<img
-// 					style={{ width: '50px', height: '50px', background: 'transparent' }}
-// 					src={logo}
-// 					alt='sheep reading a book'
-// 				/>
-// 			</div>
-// 			<button>
-// 				<Link
-// 					style={{
-// 						textDecoration: 'none',
-// 						color: 'white',
-// 						fontSize: '1rem',
-// 						padding: '0 1rem',
-// 					}}
-// 					to='/'
-// 				>
-// 					Home
-// 				</Link>
-// 			</button>
-// 			<button>
-// 				<Link
-// 					style={{
-// 						textDecoration: 'none',
-// 						color: 'white',
-// 						fontSize: '1rem',
-// 						padding: '0 1rem',
-// 					}}
-// 					to='/books'
-// 				>
-// 					Books
-// 				</Link>
-// 			</button>
-// 			<button>
-// 				<Link
-// 					style={{
-// 						textDecoration: 'none',
-// 						color: 'white',
-// 						fontSize: '1rem',
-// 						padding: '0 1rem',
-// 					}}
-// 					to='/about'
-// 				>
-// 					About
-// 				</Link>
-// 			</button>
-// 			<button>
-// 				<Link
-// 					style={{
-// 						textDecoration: 'none',
-// 						color: 'white',
-// 						fontSize: '1rem',
-// 						padding: '0 1rem',
-// 					}}
-// 					to='/contact'
-// 				>
-// 					Contact
-// 				</Link>
-// 			</button>
-// 		</nav>
-// 	);
-// };
-// export default NavBar;
