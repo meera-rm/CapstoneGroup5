@@ -36,7 +36,7 @@ const deleteTeacher = async (id) => {
 const createTeacher = async (teachers) => {
   try {
     return await db.one(
-      'INSERT INTO teachers (teacher_name, school_name, school_district, school_address,zipcode, state_name, class_subject,teacging_grade) VALUES ($1, $2, $3, $4, $5, $6, $7 , $8 ) RETURNING *',
+      'INSERT INTO teachers (teacher_name, school_name, school_district, school_address,zipcode, state_name, class_subject,teaching_grade) VALUES ($1, $2, $3, $4, $5, $6, $7 , $8 ) RETURNING *',
       [
         teachers.teacher_name,
         teachers.school_name,
@@ -45,7 +45,7 @@ const createTeacher = async (teachers) => {
         teachers.zipcode,
         teachers.state_name,
         teachers.class_subject,
-        teachers.teaching_grade
+        teachers.teaching_grade,
       ]
     );
   } catch (error) {
@@ -68,7 +68,7 @@ const upDateTeacher = async (id, teachers) => {
         teachers.zipcode,
         teachers.state_name,
         teachers.class_subject,
-        teachers.teaching_grade
+        teachers.teaching_grade,
       ]
     );
   } catch (error) {

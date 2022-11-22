@@ -29,18 +29,20 @@ const createBook = async (book) => {
     isbn_number,
     publication,
     book_picture,
+    grade,
     reading_level,
   } = book;
 
   try {
     return await db.any(
-      'INSERT INTO books (book_title, book_author, isbn_number, publication, book_picture,reading_level) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+      'INSERT INTO books (book_title, book_author, isbn_number, publication, book_picture,grade,reading_level) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
       [
         book_title,
         book_author,
         isbn_number,
         publication,
         book_picture,
+        grade,
         reading_level,
       ]
     );
@@ -58,11 +60,12 @@ const updateBook = async (book, bookId) => {
     isbn_number,
     publication,
     book_picture,
+    grade,
     reading_level,
   } = book;
   try {
     return await db.one(
-      'UPDATE books SET book_title=$1, book_author=$2, isbn_number=$3, publication=$4, book_picture=$5,reading_level=$6 where book_id=$7 RETURNING *',
+      'UPDATE books SET book_title=$1, book_author=$2, isbn_number=$3, publication=$4, book_picture=$5,grade=$6,reading_level=$7 where book_id=$8 RETURNING *',
       [
         book_title,
         book_author,
