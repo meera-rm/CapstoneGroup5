@@ -28,6 +28,7 @@ CREATE TABLE teachers(
     state_name TEXT NOT NULL,
     class_subject TEXT NOT NULL,
     teaching_grade INTEGER NOT NULL
+    
 );
 
 

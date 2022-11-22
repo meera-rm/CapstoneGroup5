@@ -25,7 +25,7 @@ const TeacherSignUp = () => {
 
 	const handleSignUp = (teachers) => {
 		axios
-			.post(`${API}/teacher-signup`, teachers)
+			.get(`${API}/teacher-signup`, teachers)
 			.then(() => {
 				navigate(`/teacher-login`);
 			})
@@ -83,7 +83,7 @@ const TeacherSignUp = () => {
 				/>
 				<br></br>
 				<br></br>
-				<label htmlFor='teacher-name'>School Name</label>
+				<label htmlFor='school-name'>School Name</label>
 				<br></br>
 				<input
 					id='school_name'
@@ -141,6 +141,16 @@ const TeacherSignUp = () => {
 					type='text'
 					// need to add grade into teacher database
 					value={teachers.grade}
+					onChange={newSignUp}
+				/>
+				<br></br>
+				<br></br>
+				<label htmlFor='password'>Password</label>
+				<br></br>
+				<input
+					id='password'
+					type='text'
+					value={teachers.password}
 					onChange={newSignUp}
 				/>
 				<br></br>

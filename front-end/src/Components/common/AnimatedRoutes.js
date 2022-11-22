@@ -15,6 +15,8 @@ import StudentIndex from '../../Pages/Student/StudentIndex';
 import TeacherIndex from '../../Pages/Teacher/TeacherIndex';
 import TeacherSignUp from '../../Pages/TeacherSignUp';
 import TeacherLogin from '../../Pages/TeacherLogin';
+import ParentLogin from '../../Pages/ParentLogin';
+import ParentSignUp from '../../Pages/ParentSignUp';
 //This component to define navbar animate tranisitons
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -28,6 +30,8 @@ const AnimatedRoutes = () => {
             <Route path='/contact' element={<Contact />} />
             <Route path='/teacher-signup' element={<TeacherSignUp />}></Route>
             <Route path="/teacher-login" element={<TeacherLogin />}></Route>
+            <Route path="/parent-login" element={<ParentLogin />}></Route>
+            <Route path="/parent-signup" element={<ParentSignUp />}></Route>
             <Route path='/books'>
               <Route index element={<IndexBooks />} />
               <Route path=':id' element={<ShowBooks />} />

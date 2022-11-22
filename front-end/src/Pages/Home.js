@@ -20,7 +20,7 @@ const Home = () => {
       <div className='home-header'>
       <Link to="/teacher-login"> <button className="home-button">Teacher Login</button></Link> &nbsp; <Link to="/teacher-signup"> <button className="home-button">Teacher Sign Up</button></Link>
       <br></br>
-      <button className="home-button">Parent Login</button> &nbsp; <button className="home-button">Parent Sign Up</button>
+      <Link to="/parent-login"><button className="home-button">Parent Login</button></Link> &nbsp; <Link to="/parent-signup"><button className="home-button">Parent Sign Up</button></Link> 
         <br></br>
         <div className="flexing">
       <img src="https://img.freepik.com/premium-vector/child-boy-mother-read-book-learn-lesson-mom-help-kid-home-school-online-education_352905-268.jpg?w=2000" alt="" />
