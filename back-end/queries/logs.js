@@ -21,15 +21,15 @@ const getALog = async (id) => {
 const createLog = async (log) => {
   try {
     const newLog = await db.one(
-      'INSERT INTO logs (inference,reading_minutes,pages_read,date_read,role_name,book_id,student_id ) VALUES($1, $2, $3, $4, $5, $6, $7,$8) RETURNING *',
+      'INSERT INTO logs (reading_inference,reading_minutes,pages_read,date_read,role_name,books_id,students_id ) VALUES($1, $2, $3, $4, $5, $6, $7,$8) RETURNING *',
       [
-        log.inference,
+        log.reading_inference,
         log.reading_minutes,
         log.pages_read,
         log.role_name,
         log.date_read,
-        log.book_id,
-        log.student_id,
+        log.books_id,
+        log.students_id,
       ]
     );
     return newLog;
@@ -53,15 +53,15 @@ const deleteLog = async (id) => {
 const updateLog = async (id, student) => {
   try {
     const updatedLog = await db.one(
-      'UPDATE logs SET inference=$1,reading_minutes=$2,pages_read=$3,role_name=$4,date_read=$5,book_id=$6,student_id=$7  where log_id=$10 RETURNING *',
+      'UPDATE logs SET reading_inference=$1,reading_minutes=$2,pages_read=$3,role_name=$4,date_read=$5,books_id=$6,students_id=$7  where log_id=$10 RETURNING *',
       [
-        log.inference,
+        log.reading_inference,
         log.reading_minutes,
         log.pages_read,
         log.role_name,
         log.date_read,
-        log.book_id,
-        log.student_id,
+        log.books_id,
+        log.students_id,
       ]
     );
     return updatedLog;

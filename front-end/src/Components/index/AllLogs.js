@@ -15,21 +15,21 @@ const AllLogs = () => {
   useEffect(() => {
     axios
       .get(`${API}/api/logs`)
-        // .then((response) => console.log(response.data))
+      // .then((response) => console.log(response.data))
        .then((response) => setLogData(response.data))
       .catch((e) => console.error('catch', e));
    
-      axios
-      .get(`${API}/api/books/:${logData.books_id}`)
-      //  .then((response) => console.log(response.data))
-      .then((response) => setBookData(response.data.payload))
-      .catch((e) => console.error('catch', e));
+      // axios
+      // .get(`${API}/api/books/:${logData.books_id}`)
+      // //  .then((response) => console.log(response.data))
+      // .then((response) => setBookData(response.data.payload))
+      // .catch((e) => console.error('catch', e));
 
-      axios
-      .get(`${API}/api/books/:${logData.students_id}`)
-      //  .then((response) => console.log(response.data))
-      .then((response) => setStudentData(response.data.payload))
-      .catch((e) => console.error('catch', e));
+      // axios
+      // .get(`${API}/api/books/:${logData.students_id}`)
+      // //  .then((response) => console.log(response.data))
+      // .then((response) => setStudentData(response.data.payload))
+      // .catch((e) => console.error('catch', e));
 
   }, [logId]);
  
