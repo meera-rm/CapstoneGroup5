@@ -1,24 +1,16 @@
 .cards {
   margin: 0 auto;
-  width: 500px;
-  height: 300px;
+  width: 50%;
 }
 .cards > p {
   margin-left: 1rem;
-  text-align: center;
 }
 
-img {
-  margin: 0 auto;
-  text-align: center;
-  width: 300px;
-  height: 300px;
-}
 .show-btns {
   padding: 1rem;
   background: transparent;
   border-radius: 1rem;
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 .show-btns:hover {
   background: rgb(65, 194, 159);
@@ -27,7 +19,7 @@ img {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  padding: 8rem;
+  padding: 4rem 0;
 }
 .items {
   padding: 0 0 0 1rem;

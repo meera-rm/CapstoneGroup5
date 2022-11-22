@@ -1,11 +1,13 @@
 import './Home.css';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 const Home = () => {
+
   // const TailwindCSSButton =(props)=>{
   //   return(
   //     <button className='bg-teal-600 text-black font-medium px-4 py-2 rounded hover:bg-teal-500 inline-block'> {props.children}</button>
   //   )
   // }
+  
   return (
     <div>
       <HelmetProvider>
@@ -13,41 +15,17 @@ const Home = () => {
           <title>Scholar Sheep| Home</title>
         </Helmet>
       </HelmetProvider>
-      {/* <div className='bg-hero-image w-full h-screen bg-color bg-center flex items-center px-4'> */}
+    
       <h1 className='text-3xl m-12 text-center font-bold font-mono text-green-600/100'>
-        {/* style={{ color: 'green', margin: '6rem auto',textAlign: 'center' }}> */}
+       
         Welcome to Scholar Sheep
       </h1>
       <div className='text-center'>
-        <p>
+        {/* <p>
           {' '}
           Analyzing the characters and emotions through the eyes of the author
-        </p>
-        {/* <TailwindCSSButton>TailwindCSS</TailwindCSSButton> */}
-      </div>
-
-      {/* </div> */}
-    </div>
-  );
-};
-
-import './Home.css';
-
-import { Link } from 'react-router-dom';
-import { HelmetProvider, Helmet } from 'react-helmet-async';
-
-const Home = () => {
-  return (
-    <div>
-      <HelmetProvider>
-        <Helmet>
-          <title>Scholar Sheep| Home</title>
-        </Helmet>
-      </HelmetProvider>
-      <h1 className='text-3xl m-12 text-center font-bold font-mono text-green-600/100'>
-        Welcome to Scholar Sheep
-      </h1>
-      <div className='home-header'>
+        </p> */}
+       <div className='home-header'> 
         <button className='home-button'>Teacher Login</button> &nbsp;{' '}
         <Link to='/teacher-signup'>
           {' '}
@@ -79,9 +57,13 @@ const Home = () => {
             between parent child relationships.
           </p>
         </div>
+        </div>
+        {/* <TailwindCSSButton>TailwindCSS</TailwindCSSButton> */}
       </div>
+
+      {/* </div> */}
     </div>
   );
 };
 
-export default Home;
+
