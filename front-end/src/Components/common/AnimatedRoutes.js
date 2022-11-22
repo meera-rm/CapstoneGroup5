@@ -28,7 +28,11 @@ import NewLog from '../../Pages/Logs/NewLog';
 import ShowLogs from '../../Pages/Logs/ShowLogs';
 import EditLogs from '../../Pages/Logs/EditLogs';
 
-// import Register from '../../Pages/Register';
+import TeacherSignUp from '../../Pages/TeacherSignUp';
+import TeacherLogin from '../../Pages/TeacherLogin';
+import ParentLogin from '../../Pages/ParentLogin';
+import ParentSignUp from '../../Pages/ParentSignUp';
+
 //This component to define navbar animate tranisitons
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -40,8 +44,13 @@ const AnimatedRoutes = () => {
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
-            {/* <Route path='/login' element={<LogIn/>} />  
-            <Route path='/signup' element={<Register />} />   */}
+
+
+            <Route path='/teacher-signup' element={<TeacherSignUp />}></Route>
+            <Route path="/teacher-login" element={<TeacherLogin />}></Route>
+            <Route path="/parent-login" element={<ParentLogin />}></Route>
+            <Route path="/parent-signup" element={<ParentSignUp />}></Route>
+
             <Route path='/books'>
               <Route index element={<IndexBooks />} />
               <Route path='new' element={<NewBooks />} />
@@ -76,6 +85,11 @@ const AnimatedRoutes = () => {
 };
 
 export default AnimatedRoutes;
+
+
+
+
+
 
 // import React from 'react';
 // import { AnimatePresence } from 'framer-motion';
