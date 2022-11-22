@@ -50,12 +50,17 @@ const AnimatedRoutes = () => {
             <Route path='/signUp'>
             <Route index element={<SignUp/>} />
             <Route path='teacher-signup' element={<TeacherSignUp />}></Route>
+          
+            <Route path="parent-signup" element={<ParentSignUp />}></Route>
+            </Route>
+            <Route path='/login'>
+            <Route index element={<SignUp/>} />
             <Route path="teacher-login" element={<TeacherLogin />}></Route>
             <Route path="parent-login" element={<ParentLogin />}></Route>
-            <Route path="parent-signup" element={<ParentSignUp />}></Route>
             </Route>
 
             <Route path='/books'>
+             
               <Route index element={<IndexBooks />} />
               <Route path='new' element={<NewBooks />} />
               <Route path=':id' element={<ShowBooks />} />

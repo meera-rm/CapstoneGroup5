@@ -70,7 +70,7 @@ const Navbar = () => {
                     Sign up
                   </p>
                 </Link>
-                <Link to='/signUp'>
+                <Link to='/Login'>
                   <p
                     className='capitalize bg-green-400 w-20 text-center rounded-md'
                     onClick={handleNavLinkDisappear}

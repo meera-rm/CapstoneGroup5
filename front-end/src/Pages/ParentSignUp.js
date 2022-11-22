@@ -48,15 +48,13 @@ const ParentSignUp = () => {
 			<h1>Parent Account Sign Up</h1>
 			<br></br>
 			<br></br>
-
-			<img
-				style={{
-					width: '400px',
-				}}
-				src='https://3.files.edl.io/a896/21/05/15/150929-e7565263-7af9-44c3-b0d5-616eb147afcf.png'
-				alt=''
-			/>
-
+			<div className='text-center'>
+				<img
+					className='w-56 h-56'
+					src='https://3.files.edl.io/a896/21/05/15/150929-e7565263-7af9-44c3-b0d5-616eb147afcf.png'
+					alt=''
+				/>
+			</div>
 			<br></br>
 			<div
 				style={{
@@ -71,6 +69,7 @@ const ParentSignUp = () => {
 						type='text'
 						value={students.parent_name}
 						onChange={newSignUp}
+						required
 					/>
 					<br></br>
 					<br></br>
@@ -82,6 +81,7 @@ const ParentSignUp = () => {
 						type='email'
 						value={students.parent_email}
 						onChange={newSignUp}
+						required
 					/>
 					<br></br>
 					<br></br>
@@ -92,6 +92,7 @@ const ParentSignUp = () => {
 						type='text'
 						value={students.student_name}
 						onChange={newSignUp}
+						required
 					/>
 					<br></br>
 					<br></br>
@@ -103,6 +104,7 @@ const ParentSignUp = () => {
 						type='text'
 						value={students.academic_year}
 						onChange={newSignUp}
+						required
 					/>
 					<br></br>
 					<br></br>
@@ -113,6 +115,7 @@ const ParentSignUp = () => {
 						type='text'
 						value={students.reading_level}
 						onChange={newSignUp}
+						required
 					/>
 					<br></br>
 					<br></br>
@@ -123,6 +126,7 @@ const ParentSignUp = () => {
 						type='text'
 						value={students.password}
 						onChange={newSignUp}
+						required
 					/>
 					<br></br>
 					<br></br>
