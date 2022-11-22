@@ -18,7 +18,7 @@ const {
   deleteStudent,
 } = require('../queries/students');
 
-const {oneTeacher} = require('../queries/teachers');
+const { getALog } = require('../queries/logs.js');
 
 const { checkPicture } = require('../validations/checkBooks');
 
@@ -116,17 +116,17 @@ students.delete('/:studentId', async (req, res) => {
   }
 });
 
-
-//One to many for teacher and student
-students.get('/:teacherId', async (req, res) => {
-  const {teacherId} = req.params;
-  const teacher = await oneTeacher(teacherId);
-  if (teacher) {
-    res.json(teacher)
+//Show student log
+students.get('/:id', async (req, res) => {
+  const { id } = req.params;
+  const log = await getALog(id);
+  if (log) {
+    res.json(log);
   } else {
-    res.status(404).json({error: `Teacher with the id ${teacherId} not found.`})
+    res.status(404).json({ error: `Log with the id ${id} not found.` });
   }
+});
 
-})
+
 
 module.exports = students;

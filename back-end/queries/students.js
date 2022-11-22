@@ -74,10 +74,30 @@ const updateStudent = async (id, student) => {
   }
 };
 
+const getStudentLog = async (id, student) => {
+  try {
+    const studentLog = await db.one(
+      'UPDATE logs SET inference=$1,reading_minutes=$2,pages_read=$3,role_name=$4,date_read=$5,book_id=$6,student_id=$7  where log_id=$10 RETURNING *',
+      [
+        log.inference,
+        log.reading_minutes,
+        log.pages_read,
+        log.role_name,
+        log.date_read,
+        log.book_id,
+        log.student_id,
+      ]
+    );
+    return studentLog;
+  } catch (error) {
+    return error;
+  }
+};
 
 module.exports = {
   getAllStudents,
   getAStudent,
+  getStudentLog,
   createStudent,
   deleteStudent,
   updateStudent,

@@ -69,6 +69,8 @@ const updateLog = async (id, student) => {
     return error;
   }
 };
+
+
 module.exports = {
   getAllLogs,
   getALog,
