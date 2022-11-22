@@ -6,15 +6,19 @@ import AnimatedRoutes from './Components/common/AnimatedRoutes';
 
 const App = () => {
 
+
 	return (
 		<div className='App'>
 			<main>
 				<NavBar />
 				<AnimatedRoutes />
+
 				{/* <Footer /> */}
+
 			</main>
 		</div>
 	);
+
 
 };
 
