@@ -116,16 +116,6 @@ students.delete('/:studentId', async (req, res) => {
   }
 });
 
-//Show student log
-students.get('/:id', async (req, res) => {
-  const { id } = req.params;
-  const log = await getALog(id);
-  if (log) {
-    res.json(log);
-  } else {
-    res.status(404).json({ error: `Log with the id ${id} not found.` });
-  }
-});
 
 
 
