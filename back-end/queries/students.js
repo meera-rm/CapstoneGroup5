@@ -78,7 +78,6 @@ const updateStudent = async (id, student) => {
 module.exports = {
   getAllStudents,
   getAStudent,
-  getStudentLog,
   createStudent,
   deleteStudent,
   updateStudent,
