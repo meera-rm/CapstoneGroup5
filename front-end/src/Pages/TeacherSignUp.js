@@ -25,7 +25,7 @@ const TeacherSignUp = () => {
 
 	const handleSignUp = (teachers) => {
 		axios
-			.post(`${API}/teacher-signup`, teachers)
+			.get(`${API}/teacher-signup`, teachers)
 			.then(() => {
 				navigate(`/teacher-login`);
 			})
@@ -41,9 +41,27 @@ const TeacherSignUp = () => {
 
 	return (
 		// need to center this div
-		<div>
+		<div style={{
+			textAlign: 'center',
+			fontamily: 'Georgia',
+		}}>
 			<h1>Teacher Account Sign Up</h1>
-			<form onSubmit={handleForm}>
+			<br></br>
+			<br></br>
+
+		
+				<img  style={{
+					width: '400px',
+				}}src="https://t4.ftcdn.net/jpg/03/28/10/15/360_F_328101522_ezzWWm1FylxgfdUj6tnVskLgszJBUWsz.jpg" alt=""/>
+			
+			
+			<div style={{ 
+				
+				fontFamily: 'Georgia',
+			}}>
+			<form 
+				onSubmit={handleForm} 
+			>
 				<label htmlFor='teacher-name'>Teacher Name</label>
 				<br></br>
 				<input
@@ -52,6 +70,7 @@ const TeacherSignUp = () => {
 					value={teachers.teacher_name}
 					onChange={newSignUp}
 				/>
+				<br></br>
 				<br></br>
 				{/* think we need to add email to database? */}
 				<label htmlFor='teacher-email'>Teacher Email</label>
@@ -63,7 +82,8 @@ const TeacherSignUp = () => {
 					onChange={newSignUp}
 				/>
 				<br></br>
-				<label htmlFor='teacher-name'>School Name</label>
+				<br></br>
+				<label htmlFor='school-name'>School Name</label>
 				<br></br>
 				<input
 					id='school_name'
@@ -71,6 +91,7 @@ const TeacherSignUp = () => {
 					value={teachers.school_name}
 					onChange={newSignUp}
 				/>
+				<br></br>
 				<br></br>
 				<label htmlFor='school-district'>School District</label>
 				<br></br>
@@ -81,6 +102,7 @@ const TeacherSignUp = () => {
 					onChange={newSignUp}
 				/>
 				<br></br>
+				<br></br>
 				<label htmlFor='teacher-name'>Class Subject</label>
 				<br></br>
 				<input
@@ -90,7 +112,9 @@ const TeacherSignUp = () => {
 					onChange={newSignUp}
 				/>
 				<br></br>
+				<br></br>
 				<label htmlFor='school-address'>School Address</label>
+				<br></br>
 				<br></br>
 				<input
 					id='school-address'
@@ -98,6 +122,7 @@ const TeacherSignUp = () => {
 					value={teachers.school_address}
 					onChange={newSignUp}
 				/>
+				<br></br>
 				<br></br>
 				<label htmlFor='zipcode'>Zipcode</label>
 				<br></br>
@@ -107,6 +132,7 @@ const TeacherSignUp = () => {
 					value={teachers.zipcode}
 					onChange={newSignUp}
 				/>
+				<br></br>
 				<br></br>
 				<label htmlFor='grade'>Grade</label>
 				<br></br>
@@ -118,7 +144,25 @@ const TeacherSignUp = () => {
 					onChange={newSignUp}
 				/>
 				<br></br>
+				<br></br>
+				<label htmlFor='password'>Password</label>
+				<br></br>
+				<input
+					id='password'
+					type='text'
+					value={teachers.password}
+					onChange={newSignUp}
+				/>
+				<br></br>
+				<br></br>
+				<button style={{
+					width: '10%',
+					backgroundColor: 'teal',
+					color: 'white',
+					fontFamily: 'Georgia',
+				}}>Create Account</button>
 			</form>
+			</div>
 		</div>
 	);
 };

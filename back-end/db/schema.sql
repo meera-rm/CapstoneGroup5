@@ -11,8 +11,9 @@ CREATE TABLE books(
     book_title TEXT NOT NULL,
     book_author TEXT NOT NULL,
     isbn_number TEXT NOT NULL,
-    publication TEXT,
-    book_picture TEXT,
+    publication TEXT NOT NULL,
+    book_picture TEXT NOT NULL,
+    grade INTEGER NOT NULL,
     reading_level TEXT NOT NULL
 );
     
@@ -28,6 +29,7 @@ CREATE TABLE teachers(
     state_name TEXT NOT NULL,
     class_subject TEXT NOT NULL,
     teaching_grade INTEGER NOT NULL
+    
 );
 
 

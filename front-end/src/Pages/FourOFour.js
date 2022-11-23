@@ -1,14 +1,16 @@
 import PageNotFound from '../Components/pagenotfound/PageNotFound.js';
-import {motion} from 'framer-motion';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 
 const FourOFour = () => {
   return (
-    <motion.div
-    initial={{ opacity: 0, scale: 0.5 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.5 }}>
+    <div>
+      <HelmetProvider>
+        <Helmet>
+          <title>Scholar Sheep | Not Found</title>
+        </Helmet>
+      </HelmetProvider>
       <PageNotFound />
-    </motion.div>
+    </div>
   );
 };
 export default FourOFour;

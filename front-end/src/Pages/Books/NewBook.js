@@ -1,15 +1,17 @@
 import NewBooks from '../../Components/new/NewBooks';
-import { motion } from 'framer-motion';
 
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 const NewBook = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5 }}>
-      <h2 style={{ textAlign: 'center' }}>Add Books</h2>
+    <div>
+      <HelmetProvider>
+        <Helmet>
+          <title>Scholar Sheep | Books | New</title>
+        </Helmet>
+      </HelmetProvider>
+      <h2 className='text-center mt-4'>New Book</h2>
       <NewBooks />
-    </motion.div>
+    </div>
   );
 };
 
