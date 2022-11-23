@@ -98,4 +98,6 @@ teachers.delete('/:id', async (req, res) => {
   }
 });
 
+
+
 module.exports = teachers;

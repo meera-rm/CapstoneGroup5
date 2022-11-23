@@ -2,15 +2,16 @@
 
 ## Team Members
 
-### Meera Ramesh
 
-### Taryne Leach
+## Meera Ramesh
 
-### Kedari Matthews
+## Taryne Leach
 
-### Derek Peterson
+## Kedari Matthews
 
-### Important Links
+## Derek Peterson
+
+## Important Links
 
 - Deployed API server [https://scholarsheep.onrender.com/]
 - Delpyed Front-End [https://scholarsheeplog.netlify.app/]

@@ -18,6 +18,8 @@ const {
   deleteStudent,
 } = require('../queries/students');
 
+const { getALog } = require('../queries/logs.js');
+
 const { checkPicture } = require('../validations/checkBooks');
 
 //Index
@@ -113,5 +115,8 @@ students.delete('/:studentId', async (req, res) => {
     });
   }
 });
+
+
+
 
 module.exports = students;
