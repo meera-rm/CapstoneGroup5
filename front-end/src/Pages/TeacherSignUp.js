@@ -1,170 +1,198 @@
-import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-const API = process.env.REACT_APP_API_URL;
 
-const TeacherSignUp = () => {
-	const navigate = useNavigate();
-	const id = useParams();
-	const [teachers, setTeachers] = useState({
-		id: '',
-		teacher_name: '',
+function Form() {
+	const [page, setPage] = useState(0);
+	const [formData, setFormData] = useState({
 		teacher_email: '',
+		password: '',
+		// confirmPassword: "",
+		teacher_name: '',
 		school_name: '',
-		school_district: '',
 		school_address: '',
 		zipcode: '',
+		school_district: '',
 		class_subject: '',
-		password: '',
 	});
 
-	const newSignUp = (event) => {
-		setTeachers({ ...teachers, [event.target.id]: event.target.value });
-	};
+	function PersonalInfo({ formData, setFormData }) {
+		return (
+			<div className='personal-info-container'>
+				<div className='mt-6'>
+					<label className='text-left px-4' htmlFor='teacher-name'>
+						Teacher Name
+					</label>
+					<input className="outline"
+						type='text'
+						placeholder='Teacher Name...'
+						value={formData.teacher_name}
+						onChange={(e) => {
+							setFormData({ ...formData, teacher_name: e.target.value });
+						}}
+						required
+					/>
+				</div>
 
-	const handleSignUp = (teachers) => {
-		axios
-			.get(`${API}/teacher-signup`, teachers)
-			.then(() => {
-				navigate(`/teacher-login`);
-			})
-			.catch((error) => {
-				console.warn(error);
-			});
-	};
+				<div className='mt-6'>
+					<label className='text-left px-4' htmlFor='school-name'>
+						School Name
+					</label>
+					<input className="outline"
+						type='text'
+						placeholder='School Name...'
+						value={formData.school_name}
+						onChange={(e) => {
+							setFormData({ ...formData, school_name: e.target.value });
+						}}
+						required
+					/>
+				</div>
+				<div className='mt-6'>
+					<label className='text-left px-4' htmlFor='school-address'>
+						School Address
+					</label>
+					<input className="outline"
+						type='text'
+						placeholder='School Address...'
+						value={formData.school_address}
+						onChange={(e) => {
+							setFormData({ ...formData, school_address: e.target.value });
+						}}
+						required
+					/>
+				</div>
+				<div className='mt-6'>
+					<label className='text-left px-4' htmlFor='zipcode'>
+						Zipcode
+					</label>
+					<input className="outline"
+						type='number'
+						placeholder='Zipcode...'
+						value={formData.zipcode}
+						onChange={(e) => {
+							setFormData({ ...formData, zipcode: e.target.value });
+						}}
+						required
+					/>
+				</div>
+			</div>
+		);
+	}
 
-	const handleForm = (event) => {
-		event.preventDefault();
-		handleSignUp(teachers, id);
+	function SignUpInfo({ formData, setFormData }) {
+		return (
+			<div className='sign-up-container'>
+				<div className='mt-6'>
+					<label className='text-left px-4' htmlFor='teacher-email'>
+						Teacher Email
+					</label>
+					<input className="outline"
+						type='email'
+						placeholder='Email...'
+						value={formData.teacher_email}
+						onChange={(event) =>
+							setFormData({ ...formData, teacher_email: event.target.value })
+						}
+						required
+					/>
+				</div>
+				<div className='mt-6'>
+					<label className='text-left px-4' htmlFor='password'>
+						Password
+					</label>
+					<input className="outline"
+						type='password'
+						placeholder='Password...'
+						value={formData.password}
+						onChange={(event) =>
+							setFormData({ ...formData, password: event.target.value })
+						}
+						required
+					/>
+				</div>
+				<div className='mt-6'>
+					<label className='text-left px-4' htmlFor='school-district'>
+						School District
+					</label>
+					<input className="outline"
+						type='text'
+						placeholder='School District...'
+						value={formData.school_district}
+						onChange={(event) =>
+							setFormData({ ...formData, school_district: event.target.value })
+						}
+						required
+					/>
+				</div>
+
+				<div className='mt-6'>
+					<label className='text-left px-4' htmlFor='class-subject'>
+						Class Subject
+					</label>
+					<input className="outline"
+						type='text'
+						placeholder='Class Subject...'
+						value={formData.class_subject}
+						onChange={(event) =>
+							setFormData({ ...formData, class_subject: event.target.value })
+						}
+						required
+					/>
+				</div>
+			</div>
+		);
+	}
+	const FormTitles = ['Sign Up', 'Personal Info'];
+
+	const PageDisplay = () => {
+		if (page === 0) {
+			return <SignUpInfo formData={formData} setFormData={setFormData} />;
+		}
+		// if (page === 1)
+		else {
+			return <PersonalInfo formData={formData} setFormData={setFormData} />;
+		}
 	};
 
 	return (
-		// need to center this div
-		<div style={{
-			textAlign: 'center',
-			fontamily: 'Georgia',
-		}}>
-			<h1>Teacher Account Sign Up</h1>
-			<br></br>
-			<br></br>
-
-		
-				<img  style={{
-					width: '400px',
-				}}src="https://t4.ftcdn.net/jpg/03/28/10/15/360_F_328101522_ezzWWm1FylxgfdUj6tnVskLgszJBUWsz.jpg" alt=""/>
-			
-			
-			<div style={{ 
-				
-				fontFamily: 'Georgia',
-			}}>
-			<form 
-				onSubmit={handleForm} 
-			>
-				<label htmlFor='teacher-name'>Teacher Name</label>
-				<br></br>
-				<input
-					id='teacher_name'
-					type='text'
-					value={teachers.teacher_name}
-					onChange={newSignUp}
-				/>
-				<br></br>
-				<br></br>
-				{/* think we need to add email to database? */}
-				<label htmlFor='teacher-email'>Teacher Email</label>
-				<br></br>
-				<input
-					id='teacher_name'
-					type='email'
-					value={teachers.teacher_name}
-					onChange={newSignUp}
-				/>
-				<br></br>
-				<br></br>
-				<label htmlFor='school-name'>School Name</label>
-				<br></br>
-				<input
-					id='school_name'
-					type='text'
-					value={teachers.school_name}
-					onChange={newSignUp}
-				/>
-				<br></br>
-				<br></br>
-				<label htmlFor='school-district'>School District</label>
-				<br></br>
-				<input
-					id='school-district'
-					type='text'
-					value={teachers.school_district}
-					onChange={newSignUp}
-				/>
-				<br></br>
-				<br></br>
-				<label htmlFor='teacher-name'>Class Subject</label>
-				<br></br>
-				<input
-					id='teacher_name'
-					type='text'
-					value={teachers.class_subject}
-					onChange={newSignUp}
-				/>
-				<br></br>
-				<br></br>
-				<label htmlFor='school-address'>School Address</label>
-				<br></br>
-				<br></br>
-				<input
-					id='school-address'
-					type='text'
-					value={teachers.school_address}
-					onChange={newSignUp}
-				/>
-				<br></br>
-				<br></br>
-				<label htmlFor='zipcode'>Zipcode</label>
-				<br></br>
-				<input
-					id='zipcode'
-					type='text'
-					value={teachers.zipcode}
-					onChange={newSignUp}
-				/>
-				<br></br>
-				<br></br>
-				<label htmlFor='grade'>Grade</label>
-				<br></br>
-				<input
-					id='grade'
-					type='text'
-					// need to add grade into teacher database
-					value={teachers.grade}
-					onChange={newSignUp}
-				/>
-				<br></br>
-				<br></br>
-				<label htmlFor='password'>Password</label>
-				<br></br>
-				<input
-					id='password'
-					type='text'
-					value={teachers.password}
-					onChange={newSignUp}
-				/>
-				<br></br>
-				<br></br>
-				<button style={{
-					width: '10%',
-					backgroundColor: 'teal',
-					color: 'white',
-					fontFamily: 'Georgia',
-				}}>Create Account</button>
-			</form>
+		<div className='form'>
+			<div className='progressbar'>
+				<div
+					style={{
+						width: page === 0 ? '50%' : '100%',
+					}}
+				></div>
+			</div>
+			<div className='form-container'>
+				<div className='header'>
+					<h1>{FormTitles[page]}</h1>
+				</div>
+				<div className='body'>{PageDisplay()}</div>
+				<div className='footer'>
+					<button
+						disabled={page === 0}
+						onClick={() => {
+							setPage((currPage) => currPage - 1);
+						}}
+					>
+						Prev
+					</button>
+					<button
+						onClick={() => {
+							if (page === FormTitles.length - 1) {
+								alert('FORM SUBMITTED');
+								console.log(formData);
+							} else {
+								setPage((currPage) => currPage + 1);
+							}
+						}}
+					>
+						{page === FormTitles.length - 1 ? 'Submit' : 'Next'}
+					</button>
+				</div>
 			</div>
 		</div>
 	);
-};
+}
 
-export default TeacherSignUp;
+export default Form;
