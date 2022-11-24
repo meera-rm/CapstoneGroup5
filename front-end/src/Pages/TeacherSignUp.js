@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import child from '../Components/asset/teachersignup.jpeg';
 
 function Form() {
 	const [page, setPage] = useState(0);
@@ -22,7 +22,8 @@ function Form() {
 					<label className='text-left px-4' htmlFor='teacher-name'>
 						Teacher Name
 					</label>
-					<input className="outline"
+					<input
+						className='outline'
 						type='text'
 						placeholder='Teacher Name...'
 						value={formData.teacher_name}
@@ -37,7 +38,8 @@ function Form() {
 					<label className='text-left px-4' htmlFor='school-name'>
 						School Name
 					</label>
-					<input className="outline"
+					<input
+						className='outline'
 						type='text'
 						placeholder='School Name...'
 						value={formData.school_name}
@@ -51,7 +53,8 @@ function Form() {
 					<label className='text-left px-4' htmlFor='school-address'>
 						School Address
 					</label>
-					<input className="outline"
+					<input
+						className='outline'
 						type='text'
 						placeholder='School Address...'
 						value={formData.school_address}
@@ -65,7 +68,8 @@ function Form() {
 					<label className='text-left px-4' htmlFor='zipcode'>
 						Zipcode
 					</label>
-					<input className="outline"
+					<input
+						className='outline'
 						type='number'
 						placeholder='Zipcode...'
 						value={formData.zipcode}
@@ -82,11 +86,15 @@ function Form() {
 	function SignUpInfo({ formData, setFormData }) {
 		return (
 			<div className='sign-up-container'>
+				<div class='flex items-center justify-center mb-6'>
+					<img class=' h-18 w-64 rounded-3xl' src={child} alt='' />
+				</div>
 				<div className='mt-6'>
 					<label className='text-left px-4' htmlFor='teacher-email'>
 						Teacher Email
 					</label>
-					<input className="outline"
+					<input
+						className='outline'
 						type='email'
 						placeholder='Email...'
 						value={formData.teacher_email}
@@ -100,7 +108,8 @@ function Form() {
 					<label className='text-left px-4' htmlFor='password'>
 						Password
 					</label>
-					<input className="outline"
+					<input
+						className='outline'
 						type='password'
 						placeholder='Password...'
 						value={formData.password}
@@ -114,7 +123,8 @@ function Form() {
 					<label className='text-left px-4' htmlFor='school-district'>
 						School District
 					</label>
-					<input className="outline"
+					<input
+						className='outline'
 						type='text'
 						placeholder='School District...'
 						value={formData.school_district}
@@ -129,7 +139,8 @@ function Form() {
 					<label className='text-left px-4' htmlFor='class-subject'>
 						Class Subject
 					</label>
-					<input className="outline"
+					<input
+						className='outline'
 						type='text'
 						placeholder='Class Subject...'
 						value={formData.class_subject}
