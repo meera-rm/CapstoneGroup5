@@ -51,9 +51,9 @@ const NewBooks = () => {
             </label>
             <input
               id='book_title'
-              name='book_title'
-              value={newBook.book_title}
               type='text'
+              value={newBook.book_title}
+              name='book_title'
               onChange={onInputChange}
               placeholder='Book title'
               required
