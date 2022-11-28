@@ -29,7 +29,7 @@ const AllTeachers = () => {
     </div>
     <div className='mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16'>
       {/* <div className='max-w-sm rounded overflow-hidden shadow-lg '> */}
-      {teacherData.map((teacher) => {
+      {teacherData?.map((teacher) => {
         return (
           <section
             className='border rounded-md  hover:shadow-md'
