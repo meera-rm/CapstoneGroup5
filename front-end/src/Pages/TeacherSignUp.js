@@ -1,209 +1,202 @@
-import React, { useState } from 'react';
-import child from '../Components/asset/teachersignup.jpeg';
 
-function Form() {
-	const [page, setPage] = useState(0);
-	const [formData, setFormData] = useState({
-		teacher_email: '',
-		password: '',
-		// confirmPassword: "",
-		teacher_name: '',
-		school_name: '',
-		school_address: '',
-		zipcode: '',
-		school_district: '',
-		class_subject: '',
-	});
+import React, { useState } from "react";
+import FirstForm from "../Components/TeacherForm/FirstForm";
+import SecondForm from "../Components/TeacherForm/SecondForm";
+import ThirdForm from "../Components/TeacherForm/ThirdForm";
+import teacher from '../Components/asset/teachersign.jpeg';
 
-	function PersonalInfo({ formData, setFormData }) {
-		return (
-			<div className='personal-info-container'>
-				<div className='mt-6'>
-					<label className='text-left px-4' htmlFor='teacher-name'>
-						Teacher Name
-					</label>
-					<input
-						className='outline'
-						type='text'
-						placeholder='Teacher Name...'
-						value={formData.teacher_name}
-						onChange={(e) => {
-							setFormData({ ...formData, teacher_name: e.target.value });
-						}}
-						required
-					/>
-				</div>
+const TeacherSignUp = () => {
+  const formList = ["FirstForm", "SecondForm", "ThirdForm"];
 
-				<div className='mt-6'>
-					<label className='text-left px-4' htmlFor='school-name'>
-						School Name
-					</label>
-					<input
-						className='outline'
-						type='text'
-						placeholder='School Name...'
-						value={formData.school_name}
-						onChange={(e) => {
-							setFormData({ ...formData, school_name: e.target.value });
-						}}
-						required
-					/>
-				</div>
-				<div className='mt-6'>
-					<label className='text-left px-4' htmlFor='school-address'>
-						School Address
-					</label>
-					<input
-						className='outline'
-						type='text'
-						placeholder='School Address...'
-						value={formData.school_address}
-						onChange={(e) => {
-							setFormData({ ...formData, school_address: e.target.value });
-						}}
-						required
-					/>
-				</div>
-				<div className='mt-6'>
-					<label className='text-left px-4' htmlFor='zipcode'>
-						Zipcode
-					</label>
-					<input
-						className='outline'
-						type='number'
-						placeholder='Zipcode...'
-						value={formData.zipcode}
-						onChange={(e) => {
-							setFormData({ ...formData, zipcode: e.target.value });
-						}}
-						required
-					/>
-				</div>
-			</div>
-		);
-	}
+  const formLength = formList.length;
 
-	function SignUpInfo({ formData, setFormData }) {
-		return (
-			<div className='sign-up-container'>
-				<div class='flex items-center justify-center mb-6'>
-					<img class=' h-18 w-64 rounded-3xl' src={child} alt='' />
-				</div>
-				<div className='mt-6'>
-					<label className='text-left px-4' htmlFor='teacher-email'>
-						Teacher Email
-					</label>
-					<input
-						className='outline'
-						type='email'
-						placeholder='Email...'
-						value={formData.teacher_email}
-						onChange={(event) =>
-							setFormData({ ...formData, teacher_email: event.target.value })
-						}
-						required
-					/>
-				</div>
-				<div className='mt-6'>
-					<label className='text-left px-4' htmlFor='password'>
-						Password
-					</label>
-					<input
-						className='outline'
-						type='password'
-						placeholder='Password...'
-						value={formData.password}
-						onChange={(event) =>
-							setFormData({ ...formData, password: event.target.value })
-						}
-						required
-					/>
-				</div>
-				<div className='mt-6'>
-					<label className='text-left px-4' htmlFor='school-district'>
-						School District
-					</label>
-					<input
-						className='outline'
-						type='text'
-						placeholder='School District...'
-						value={formData.school_district}
-						onChange={(event) =>
-							setFormData({ ...formData, school_district: event.target.value })
-						}
-						required
-					/>
-				</div>
+  const [page, setPage] = useState(0);
 
-				<div className='mt-6'>
-					<label className='text-left px-4' htmlFor='class-subject'>
-						Class Subject
-					</label>
-					<input
-						className='outline'
-						type='text'
-						placeholder='Class Subject...'
-						value={formData.class_subject}
-						onChange={(event) =>
-							setFormData({ ...formData, class_subject: event.target.value })
-						}
-						required
-					/>
-				</div>
-			</div>
-		);
-	}
-	const FormTitles = ['Sign Up', 'Personal Info'];
+  const handlePrev = () => {
+    setPage(page === 0 ? formLength - 1 : page - 1);
+  };
+  const handleNext = () => {
+    setPage(page === formLength - 1 ? 0 : page + 1);
+  };
 
-	const PageDisplay = () => {
-		if (page === 0) {
-			return <SignUpInfo formData={formData} setFormData={setFormData} />;
-		}
-		// if (page === 1)
-		else {
-			return <PersonalInfo formData={formData} setFormData={setFormData} />;
-		}
-	};
+  const initialValues = {
+    // name: "",
+    // lastname: "",
+    // password: "",
+    // confirmPassword: "",
+    // username: "",
+    // city: "1",
+    // address: "",
+    // zip: "",
+    // terms: "",
+    teacher_email: '',
+    password: '',
+    teacher_name: '',
+    lastname:'',
+    school_name: '',
+    school_address: '',
+    zipcode: '',
+    school_district: '',
+    class_subject: '',
+  };
+  const [values, setValues] = useState(initialValues);
 
-	return (
-		<div className='form'>
-			<div className='progressbar'>
-				<div
-					style={{
-						width: page === 0 ? '50%' : '100%',
-					}}
-				></div>
-			</div>
-			<div className='form-container'>
-				<div className='header'>
-					<h1>{FormTitles[page]}</h1>
-				</div>
-				<div className='body'>{PageDisplay()}</div>
-				<div className='footer'>
-					<button
-						disabled={page === 0}
-						onClick={() => {
-							setPage((currPage) => currPage - 1);
-						}}
-					>
-						Prev
-					</button>
-					<button
-						onClick={() => {
-							if (page === FormTitles.length - 1) {
-								alert('FORM SUBMITTED');
-								console.log(formData);
-							} else {
-								setPage((currPage) => currPage + 1);
-							}
-						}}
-					>
-						{page === FormTitles.length - 1 ? 'Submit' : 'Next'}
-					</button>
-				</div>
-			</div>
-		</div>
-	);
-}
+  const handleForms = () => {
+    switch (page) {
+      case 0: {
+        return (
+          <div>
+            <FirstForm formValues={values} onChange={onChange}></FirstForm>
+          </div>
+        );
+      }
+      case 1: {
+        return (
+          <SecondForm
+            formValues={values}
+            onChange={onChange}
+            // option={states}
+          ></SecondForm>
+        );
+      }
+      case 2: {
+        return <ThirdForm formValues={values} onChange={onChange}></ThirdForm>;
+      }
+      default:
+        return null;
+    }
+  };
 
-export default Form;
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await setTimeout(() => {
+      console.log("form", values);
+    }, 2000);
+    console.log(response)
+    return response;
+  };
+
+  const setForm = (e) => {
+    const name = e.target.innerText;
+    switch (name) {
+      case "Person Info": {
+        return setPage(0);
+      }
+      case "Other Info": {
+        return setPage(1);
+      }
+      case "Login Info": {
+        return setPage(2);
+      }
+      default:
+        setPage(0);
+    }
+  };
+
+  const onChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setValues({ ...values, [name]: type === "checkbox" ? checked : value });
+  };
+
+  return (
+    <div className="grid  place-content-center items-center h-screen place-items-center  -mt-6">
+      <div className='flex items-center mt-4 mb-2 justify-center'>
+        <img className=' h-18 w-40 rounded-full' src={teacher} alt='' />
+      </div>
+       <ul className="flex justify-between w-full">
+        <li
+          onClick={setForm}
+          className={
+            page === 0 ? "bg-teal-600 w-2/6 rounded-lg  " : "bg: transparent"
+          }
+        >
+          <div className="flex items-center ">
+           
+            <span
+              className={
+                page === 0
+                  ? "ml-2 text-black font-medium"
+                  : "ml-2 text-teal-500 cursor-pointer"
+              }
+            >
+             Step 1
+            </span>
+          </div>
+        </li>
+        <li
+          onClick={setForm}
+          className={
+            page === 1 ? "bg-teal-600  w-2/6 rounded-lg" : "bg: transparent "
+          }
+        >
+          <div className="flex items-center">
+           
+            <span
+              className={
+                page === 1
+                  ? "ml-2 text-black font-medium"
+                  : "ml-2 text-teal-500 cursor-pointer"
+              }
+            >
+              Step 2{" "}
+            </span>
+          </div>
+        </li>
+        <li
+          onClick={setForm}
+          className={
+            page === 2 ? "bg-teal-600 w-2/6 rounded-lg" : "bg: transparent"
+          }
+        >
+          <div className="flex items-center">
+           
+            <span
+              className={
+                page === 2
+                  ? "ml-2 text-black font-medium"
+                  : "ml-2 text-teal-500 cursor-pointer"
+              }
+            >
+              {" "}
+              Step 3{" "}
+            </span>
+          </div>
+        </li>
+      </ul> 
+     
+      <div className="flex-1">{handleForms()}
+      </div>
+      <div className="grid grid-cols-2 gap-4 mt-4 place-content-center items-center">
+        
+        <button
+          onClick={handlePrev}
+          className="bg-teal-500  hover:bg-teal-600 rounded-md text-gray-800 font-bold py-2 px-4 disabled:bg-gray-400 "
+          disabled={page === 0}
+        >
+          Prev
+        </button>
+        {page === 2 ? (
+          <button
+            onClick={handleSubmit}
+            className="bg-teal-500 hover:bg-teal-600 rounded-md text-gray-800 font-bold py-2 px-4 "
+          >
+            Submit
+          </button>
+        ) : (
+          <button
+            onClick={handleNext}
+            className="bg-teal-500 hover:bg-teal-600 rounded-md text-gray-800 font-bold py-2 px-4 "
+          >
+            Next
+          </button>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default TeacherSignUp;
+
+					
