@@ -28,6 +28,7 @@ const TeacherLogin = () => {
     //     .catch((error) => {
     //         console.warn(error);
     //     });
+
   };
 
   const handleForm = (event) => {
@@ -36,56 +37,6 @@ const TeacherLogin = () => {
   };
 
   return (
-    // <div
-    //   style={{
-    //     textAlign: 'center',
-    //     fontFamily: 'Georgia',
-    //   }}
-    // >
-    //   <h1>Teacher Login</h1>
-    //   <div className='flex items-center justify-center'>
-    //     <img
-    //       src='https://t3.ftcdn.net/jpg/01/36/07/10/360_F_136071004_G0M4VBj0VIfkk3eWcV1tF83aKoNMs7Gz.jpg'
-    //       alt=''
-    //     />
-    //   </div>
-    //   <form
-    //     className='p-10 bg-white rounded-lg drop-shadow-lg space-y-4'
-    //     onSubmit={handleForm}
-    //   >
-    //     <div>
-    //       <label htmlFor='email'>Enter Email</label> &nbsp;
-    //       <input
-    //         className='outline'
-    //         id='teacher_email'
-    //         type='email'
-    //         value={teachers.teacher_email}
-    //         onChange={teachLogin}
-    //       />
-    //     </div>
-
-    //     <div>
-    //       <label htmlFor='password'>Enter Password</label> &nbsp;
-    //       <input
-    //         className='outline'
-    //         id='teacher-password'
-    //         type='text'
-    //         value={teachers.teacher_password}
-    //         onChange={teachLogin}
-    //       />
-    //     </div>
-
-    //     <button className='outline'>Log In</button>
-
-    //     <p>
-    //       Not yet registered?
-    //       <a href='/teacher-signup' alt=''>
-    //         {' '}
-    //         Sign Up!
-    //       </a>
-    //     </p>
-    //   </form>
-    // </div>
     <div>
       {/* <h1 class='text-center'>Parent Login</h1> */}
       <div class='flex items-center justify-center'>
@@ -155,6 +106,7 @@ const TeacherLogin = () => {
           </a>
         </div>
       </div>
+
     </div>
   );
 };

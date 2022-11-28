@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import FirstForm from "../Components/TeacherForm/FirstForm";
 import SecondForm from "../Components/TeacherForm/SecondForm";
@@ -66,12 +67,7 @@ const TeacherSignUp = () => {
     }
   };
 
-  // const states = [
-  //   { id: "0", name: "Paris" },
-  //   { id: "1", name: "London" },
-  //   { id: "2", name: "Berlin" },
-  //   { id: "3", name: "Warsaw" },
-  // ];
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -202,3 +198,5 @@ const TeacherSignUp = () => {
 };
 
 export default TeacherSignUp;
+
+					

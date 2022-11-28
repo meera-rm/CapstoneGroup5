@@ -5,6 +5,7 @@ import { useState } from 'react';
 const API = process.env.REACT_APP_API_URL;
 
 const TeacherSignUp = () => {
+
   const navigate = useNavigate();
   const id = useParams();
   const [teachers, setTeachers] = useState({
