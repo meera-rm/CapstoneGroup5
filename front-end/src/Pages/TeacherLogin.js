@@ -44,15 +44,20 @@ const handleLogIn = (teachers) => {
     <div style={{
         textAlign: 'center',
         fontFamily: 'Georgia',
+
     }}>
         <br></br>
-        <h1>Teacher Login</h1>
+        <h1 className="text-gray-700 pb-8 font-bold text-2xl">Teacher Login</h1>
         <br></br>
         <br></br>
+        
         <img src="https://t3.ftcdn.net/jpg/01/36/07/10/360_F_136071004_G0M4VBj0VIfkk3eWcV1tF83aKoNMs7Gz.jpg" alt="" />
-        <form onSubmit={handleForm}>
-            <label htmlFor='email'>Enter Email</label> &nbsp;
-            <input
+        
+        <br></br>
+        <form onSubmit={handleForm} className="bg-white shadow-md rounded px-24 pt-16 pb-10 mb-8 rounded-md ">
+            
+            <label  className="block text-gray-700 text-sm font-bold mb-2" htmlFor='email'>Enter Email</label> &nbsp;
+            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id='teacher_email'
 					type='email'
 					value={teachers.teacher_email}
@@ -61,8 +66,8 @@ const handleLogIn = (teachers) => {
             </input>
             <br></br>
             <br></br>
-            <label htmlFor='password'>Enter Password</label> &nbsp;
-            <input
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor='password'>Enter Password</label> &nbsp;
+            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
             id="teacher-password"
             type="text"
             value={teachers.teacher_password}
