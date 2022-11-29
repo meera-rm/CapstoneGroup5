@@ -18,7 +18,10 @@ const {
   deleteStudent,
 } = require('../queries/students');
 
-const { getALog } = require('../queries/logs.js');
+const {
+  //addNewLogToStudent,
+  getAllLogsForStudent,
+} = require('../queries/students.js');
 
 const { checkPicture } = require('../validations/checkBooks');
 
@@ -38,7 +41,7 @@ students.get('/', async (req, res) => {
   }
 });
 
-// //Show
+//Show
 students.get('/:studentId', async (req, res) => {
   console.log('get one /:id');
   const { studentId } = req.params;
@@ -52,7 +55,7 @@ students.get('/:studentId', async (req, res) => {
   }
 });
 
-// //CREATE
+//CREATE
 students.post('/new', checkPicture, async (req, res) => {
   const newStudent = req.body;
   try {
@@ -62,16 +65,16 @@ students.post('/new', checkPicture, async (req, res) => {
       payload: addStudent[0],
     });
   } catch (error) {
-    // console.log('Caught in error')
+    //console.log('Caught in error')
     res
       .status(404)
       .json({ success: false, message: 'Student cannot be added' });
   }
 });
 
-// //update
+//Update
 students.put('/:studentId', async (req, res) => {
-  console.log('Put /:studentId');
+  //console.log('Put /:studentId');
   const { studentId } = req.params;
 
   const updatedStudent = await updateStudent(req.body, studentId);
@@ -89,7 +92,7 @@ students.put('/:studentId', async (req, res) => {
   }
 });
 
-// //DELETE
+//DELETE
 students.delete('/:studentId', async (req, res) => {
   console.log('Delete /:studentId', req.body, req.params);
   const { studentId } = req.params;
@@ -116,7 +119,22 @@ students.delete('/:studentId', async (req, res) => {
   }
 });
 
+//Testing for many to many tables:
+students.get('/:studentId/logs', async (req, res) => {
+  const { studentId } = req.params;
+  const studentLogs = await getAllLogsForStudent(studentId);
+  res.json(studentLogs);
+});
 
+students.post('/:studentId/logs/:logId', async (req, res) => {
+  const { studentId, logId } = req.params;
+  const addNew = await addNewLogToStudent(studentId, logId);
+  if (addNew) {
+    res.status(201).json({ message: 'All is ok!' });
+  } else {
+    res.status(400).json({ info: addNew });
+  }
+});
 
 
 module.exports = students;

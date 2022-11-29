@@ -3,7 +3,8 @@
 \c reading_log
 
 INSERT INTO books(book_title,book_author,isbn_number,publication,book_picture,grade,reading_level) VALUES ('Night Owl',' Kim .C. Lee','978-0-578-71269-7','Kimberly Lee','https://images-us.bookshop.org/ingram/9780578712697.jpg?height=500&v=v2',3,'C'),('Cookie"s Week','Cindy Ward','Putnam Juvenile','9780399243267',
-'https://m.media-amazon.com/images/I/514iKUH5J2L._SY464_BO1,204,203,200_.jpg',3,'F');
+'https://m.media-amazon.com/images/I/514iKUH5J2L._SY464_BO1,204,203,200_.jpg',3,'F'), ('Daddy Hugs','Karen Katz','Putnam Juvenile','9781416941200',
+'https://m.media-amazon.com/images/I/51JOziLrMfL._SX420_BO1,204,203,200_.jpg',3,'C');
 
 
 INSERT INTO teachers(teacher_name,school_name,school_district,school_address,zipcode,state_name,class_subject,teaching_grade) VALUES
@@ -20,4 +21,7 @@ INSERT INTO students(student_name,parent_name,parent_email,
     ('Jade Duncan','Christine Duncan','christine@msn.com','jade_duncan@nycschools.org','2022-2023','H',1),
     ('Barry Lioudis','Norma Lioudis','norma@a0l.com','barry_lioudis@nycschools.org','2022-2023','I',1);
     
-INSERT INTO logs(reading_inference,reading_minutes,pages_read,role_name,books_id,students_id)VALUES('I loved that the owl was so brave',30,20,'student',2,3);
+INSERT INTO logs(reading_inference,reading_minutes,pages_read,role_name,student_name,books_id,students_id)VALUES('I loved that the owl was so brave',30,20,'student','Celia Edward',2,1), ('That was an amazing book, we love Cookie Week',45,30,'student','Jade Duncan',1,2),('We all love Daddy Hug',50,45,'student', 'Barry Lioudis',3,3);
+
+INSERT INTO students_logs(log_id, student_id)
+VALUES(1,1),(2,2),(3,3);

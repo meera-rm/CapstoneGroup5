@@ -75,10 +75,37 @@ const updateStudent = async (id, student) => {
 };
 
 
+
+//Testing for many to many relationships:
+const getAllLogsForStudent = async (id) => {
+  try {
+    const logsByStudent = await db.any(
+      `SELECT * FROM students_logs JOIN students ON students.id = students_logs.student_id JOIN logs ON logs.id = students_logs.log_id WHERE students_logs.student_id = 1`,
+      id
+    );
+    return logsByStudent;
+  } catch (err) {
+    return err;
+  }
+};
+
+// const addNewLogToStudent = async (studentId, logId) => {
+//   try {
+//     let add = await db.none(
+//       `INSERT INTO students_logs (student_id, log_id) VALUES ($1, $2)`, (studentId, logId)
+//     )
+//     return !add;
+//   }catch (err) {
+//     return err;
+//   }
+// }
+
 module.exports = {
-  getAllStudents,
   getAStudent,
   createStudent,
   deleteStudent,
   updateStudent,
+  getAllStudents,
+  //addNewLogToStudent,
+  getAllLogsForStudent,
 };
