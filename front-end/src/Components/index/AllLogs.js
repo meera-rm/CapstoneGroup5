@@ -15,8 +15,8 @@ const AllLogs = () => {
   useEffect(() => {
     axios
       .get(`${API}/api/logs`)
-      // .then((response) => console.log(response.data))
-       .then((response) => setLogData(response.data))
+     // .then((response) => console.log(response.data))
+      .then((response) => setLogData(response.data))
       .catch((e) => console.error('catch', e));
    
       // axios
@@ -53,8 +53,6 @@ const AllLogs = () => {
               className='border rounded-md  hover:shadow-md'
               key={log.log_id }
             >
-             
-          
               <div className='display-cards'>
                 <Link
                   className='text-center'

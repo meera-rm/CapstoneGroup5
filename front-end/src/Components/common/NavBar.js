@@ -70,7 +70,7 @@ const Navbar = () => {
                     Sign up
                   </p>
                 </Link>
-                <Link to='/Login'>
+                <Link to='/login'>
                   <p
                     className='capitalize bg-green-400 w-20 text-center rounded-md'
                     onClick={handleNavLinkDisappear}
@@ -118,7 +118,7 @@ const Navbar = () => {
                     About
                   </p>
                 </Link>
-                <Link to='/signUp'>
+                <Link to='/signup'>
                   <p
                     className='mt-4 capitalize bg-green-400 w-32 text-center rounded-md'
                     onClick={handleNavLinkDisappear}
