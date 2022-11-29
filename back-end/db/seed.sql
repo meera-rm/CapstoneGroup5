@@ -21,3 +21,12 @@ INSERT INTO students(student_name,parent_name,parent_email,
     ('Barry Lioudis','Norma Lioudis','norma@a0l.com','barry_lioudis@nycschools.org','2022-2023','I',1);
     
 INSERT INTO logs(reading_inference,reading_minutes,pages_read,role_name,books_id,students_id)VALUES('I loved that the owl was so brave',30,20,'student',2,3);
+
+INSERT INTO users(users_name,users_role,email,user_password) VALUES
+('Thomas Edward',"parent", 'thomas@gmail.com', 'celia08'),
+('Christine Duncan', 'parent', 'christine@msn.com','jade14'),
+('Norma Lioudis', 'parent', 'norma@a0l.com', 'barry10'),
+('Ms.Fundy', 'teacher', 'msfundy@gmail.com', 'fundyedu'),
+('Ms.Perez', 'teacher', 'msperez@gmail.com', 'perezedu'),
+('Mr.Edmundson', 'teacher', 'mredmundson@gmail.com', 'edmundsonedu'),
+('Ms.Blackmond', 'teacher', 'msblackmond@gmail.com', 'blackmondedu'),
