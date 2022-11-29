@@ -19,6 +19,7 @@ CREATE TABLE books(
     
 
 DROP TABLE IF EXISTS teachers;
+
 CREATE TABLE teachers(
     teacher_id SERIAL PRIMARY KEY,
     teacher_name TEXT NOT NULL,
@@ -31,7 +32,6 @@ CREATE TABLE teachers(
     teaching_grade INTEGER NOT NULL
     
 );
-
 
 
 DROP TABLE IF EXISTS students;
@@ -58,15 +58,7 @@ CREATE TABLE logs(
     reading_minutes TEXT NOT NULL,
     pages_read INTEGER NOT NULL,
     role_name TEXT NOT NULL,
-    student_name TEXT NOT NULL,
     books_id INTEGER REFERENCES books(book_id) ON DELETE CASCADE,
     students_id INTEGER REFERENCES students(student_id) ON DELETE CASCADE
 );
 
-DROP TABLE IF EXISTS students_logs;
-
-CREATE TABLE students_logs (
-    created TIMESTAMP DEFAULT NOW(),
-    log_id INTEGER,
-    student_id INTEGER
-)
