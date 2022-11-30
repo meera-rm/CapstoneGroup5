@@ -71,7 +71,7 @@ const FirstForm = ({ formValues, onChange }) => {
               <a href='/login/teacher-login'>
                 <span className='text-teal-700'>Login</span>
               </a>
-            </p>
+        </p>
         {/* <div className="flex items-center justify-between"></div> */}
       </form>
      </div>

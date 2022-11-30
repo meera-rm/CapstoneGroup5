@@ -6,7 +6,8 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import FourOFour from '../../Pages/FourOFour';
 import Home from '../../Pages/Home';
 import About from '../../Pages/About';
-// import Contact from '../../Pages/Contact';
+import Register from '../../Pages/Register';
+import Login from '../../Pages/Login';
 
 import IndexBooks from '../../Pages/Books/IndexBooks';
 import NewBooks from '../../Pages/Books/NewBook';
@@ -28,11 +29,12 @@ import NewLog from '../../Pages/Logs/NewLog';
 import ShowLogs from '../../Pages/Logs/ShowLogs';
 import EditLogs from '../../Pages/Logs/EditLogs';
 
-import SignUp from  '../../Pages/SignUp';
-import TeacherSignUp from '../../Pages/TeacherSignUp';
-import TeacherLogin from '../../Pages/TeacherLogin';
-import ParentLogin from '../../Pages/ParentLogin';
-import ParentSignUp from '../../Pages/ParentSignUp';
+// import SignUp from  '../../Pages/SignUp';
+// import TeacherSignUp from '../../Pages/TeacherSignUp';
+// import TeacherLogin from '../../Pages/TeacherLogin';
+// import ParentLogin from '../../Pages/ParentLogin';
+// import ParentSignUp from '../../Pages/ParentSignUp';
+
 
 
 //This component to define navbar animate tranisitons
@@ -46,18 +48,20 @@ const AnimatedRoutes = () => {
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
             {/* <Route path='/contact' element={<Contact />} /> */}
+            <Route path='/signup' element={<Register />} />
+            <Route path='/login' element={<Login />} />
 
-            <Route path='/signUp'>
+            {/* <Route path='/signUp'>
             <Route index element={<SignUp/>} />
             <Route path='teacher-signup' element={<TeacherSignUp />}></Route>
           
             <Route path="parent-signup" element={<ParentSignUp />}></Route>
-            </Route>
-            <Route path='/login'>
+            </Route> */}
+            {/* <Route path='/login'>
             <Route index element={<SignUp/>} />
             <Route path="teacher-login" element={<TeacherLogin />}></Route>
             <Route path="parent-login" element={<ParentLogin />}></Route>
-            </Route>
+            </Route> */}
 
             <Route path='/books'>
              
