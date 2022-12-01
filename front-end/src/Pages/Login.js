@@ -1,92 +1,94 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+import parentandchild from '../Components/asset/parentandchild.jpeg';
 import logoImage from '../Components/asset/ScholarSheep.png';
-import teacher from '../Components/asset/teacherlogin.jpeg';
+
 const API = process.env.REACT_APP_API_URL;
 
-const TeacherLogin = () => {
+const Login = () => {
   const navigate = useNavigate();
   const id = useParams();
-  const [teachers, setTeachers] = useState({
-    email: '',
-    teacher_password: '',
+  const [user, setUser] = useState({
+    
+    user_email: '',
+    user_password: ''
   });
 
-  const teachLogin = (event) => {
-    setTeachers({ ...teachers, [event.target.id]: event.target.value });
+  const userLogin = (event) => {
+    setUser({ ...user, [event.target.id]: event.target.value });
   };
 
   //  not sure if I need axios for this not sure how to add functionality
-  const handleLogIn = (teachers) => {
+  const handleLogIn = (user) => {
     console.log('Login successful');
     // axios
-    //     .post(`${API}/teacher-login`, teachers)
+    //     .post(`${API}/parent-login`, students)
     //     .then(() => {
-    //         navigate(`/teacher-page`);
+    //         navigate(`/parent-page`);
     //     })
     //     .catch((error) => {
     //         console.warn(error);
     //     });
-
   };
 
   const handleForm = (event) => {
     event.preventDefault();
-    handleLogIn(teachers, id);
+    handleLogIn(user, id);
   };
 
   return (
     <div>
       {/* <h1 class='text-center'>Parent Login</h1> */}
-      <div class='flex items-center justify-center'>
-        <img class='  mt-10 h-22 w-48 rounded-full' src={teacher} alt='' />
-      </div>
-      <div class='flex  -mt-24 items-center h-screen w-full bg-teal-lighter'>
+      {/* <div class='flex items-center justify-center'>
+      <img class=' h-22 w-48 rounded-full' src={parentandchild} alt='' />
+      </div> */}
+      <div class='flex  items-center h-screen w-full bg-teal-lighter'>
         <div class='w-full bg-white rounded shadow-lg p-8 m-2 md:max-w-sm md:mx-auto'>
           <div class='flex items-center justify-center'>
             <img class=' h-12 w-18 rounded-full' src={logoImage} alt='' />
           </div>
 
-          <h1 class='block w-full text-center text-grey-darkest '>
+          <h1 class='block w-full text-center text-grey-darkest mb-6'>
             {' '}
-            Teacher Login{' '}
+            Login{' '}
           </h1>
           <form
-            class='md:flex md:flex-wrap md:justify-between'
+            class='mb-4 md:flex md:flex-wrap md:justify-between'
             onSubmit={handleForm}
           >
+           
             <div class='flex flex-col mb-4 md:w-full'>
               <label
                 class='mb-2 uppercase font-bold text-lg text-grey-darkest'
-                htmlFor='email'
+                htmlFor='user_email'
               >
                 Email
               </label>
               <input
                 class='border py-2 px-3 text-grey-darkest'
                 type='email'
-                name='teacher_email'
-                id='teacher_email'
-                defaultValue={teachers.teacher_email}
-                onChange={teachLogin}
+                name='user_email'
+                id='user_email'
+                defaultValue={user.user_email}
+                onChange={userLogin}
               />
             </div>
 
             <div class='flex flex-col mb-6 md:w-full'>
               <label
                 class='mb-2 uppercase font-bold text-lg text-grey-darkest'
-                htmlFor='teacher-password'
+                htmlFor='user_password'
               >
                 Password
               </label>
               <input
                 class='border py-2 px-3 text-grey-darkest'
                 type='password'
-                name='teacher-passwordp'
-                id='teacher-password'
-                onChange={teachLogin}
-                defaultValue={teachers.teacher_password}
+                name='user_password'
+                id='user_password'
+                defaultValue={user.user_password}
+                onChange={userLogin}
               />
             </div>
 
@@ -100,15 +102,24 @@ const TeacherLogin = () => {
 
           <a
             class='block w-full text-center no-underline text-sm text-grey-dark hover:text-grey-darker'
-            href='/login'
+            href='/signup'
           >
             Not Registered yet?<span class='font-bold'>Sign Up</span>
           </a>
+          
+
         </div>
       </div>
-
     </div>
   );
 };
 
-export default TeacherLogin;
+export default Login;
+
+
+
+
+
+
+
+   

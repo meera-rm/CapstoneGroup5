@@ -20,8 +20,17 @@ INSERT INTO students(student_name,parent_name,parent_email,
     ('Celia Edward','Thomas Edward','thomas@gmail.com','celia_edward@nycschools.org','2022-2023','G',1),
     ('Jade Duncan','Christine Duncan','christine@msn.com','jade_duncan@nycschools.org','2022-2023','H',1),
     ('Barry Lioudis','Norma Lioudis','norma@a0l.com','barry_lioudis@nycschools.org','2022-2023','I',1);
-    
+
+
 INSERT INTO logs(reading_inference,reading_minutes,pages_read,role_name,student_name,books_id,students_id)VALUES('I loved that the owl was so brave',30,20,'student','Celia Edward',2,1), ('That was an amazing book, we love Cookie Week',45,30,'student','Jade Duncan',1,2),('We all love Daddy Hug',50,45,'student', 'Barry Lioudis',3,3);
 
-INSERT INTO students_logs(log_id, student_id)
-VALUES(1,1),(2,2),(3,3);
+
+INSERT INTO users(users_name,users_role,usser_email,user_password) VALUES
+('Thomas Edward',"parent", 'thomas@gmail.com', 'celia08'),
+('Christine Duncan', 'parent', 'christine@msn.com','jade14'),
+('Norma Lioudis', 'parent', 'norma@a0l.com', 'barry10'),
+('Ms.Fundy', 'teacher', 'msfundy@gmail.com', 'fundyedu'),
+('Ms.Perez', 'teacher', 'msperez@gmail.com', 'perezedu'),
+('Mr.Edmundson', 'teacher', 'mredmundson@gmail.com', 'edmundsonedu'),
+('Ms.Blackmond', 'teacher', 'msblackmond@gmail.com', 'blackmondedu')
+

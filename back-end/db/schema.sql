@@ -62,3 +62,15 @@ CREATE TABLE logs(
     students_id INTEGER REFERENCES students(student_id) ON DELETE CASCADE
 );
 
+
+DROP TABLE IF EXISTS users; 
+
+CREATE TABLE users(
+    users_id SERIAL PRIMARY KEY,
+    users_name TEXT NOT NULL,
+    -- not sure if we will need the field below
+    users_role TEXT NOT NULL,
+    users_email TEXT NOT NULL,
+    user_password TEXT NOT NULL
+);
+
