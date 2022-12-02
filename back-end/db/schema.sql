@@ -70,6 +70,6 @@ CREATE TABLE users(
     -- not sure if we will need the field below
     users_role TEXT NOT NULL,
     users_email TEXT NOT NULL,
-    user_password TEXT NOT NULL,
+    user_password TEXT NOT NULL
 
-)
+);
