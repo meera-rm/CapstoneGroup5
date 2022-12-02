@@ -19,6 +19,7 @@ CREATE TABLE books(
     
 
 DROP TABLE IF EXISTS teachers;
+
 CREATE TABLE teachers(
     teacher_id SERIAL PRIMARY KEY,
     teacher_name TEXT NOT NULL,
@@ -31,7 +32,6 @@ CREATE TABLE teachers(
     teaching_grade INTEGER NOT NULL
     
 );
-
 
 
 DROP TABLE IF EXISTS students;
@@ -62,6 +62,7 @@ CREATE TABLE logs(
     students_id INTEGER REFERENCES students(student_id) ON DELETE CASCADE
 );
 
+
 DROP TABLE IF EXISTS users; 
 
 CREATE TABLE users(
@@ -71,5 +72,5 @@ CREATE TABLE users(
     users_role TEXT NOT NULL,
     users_email TEXT NOT NULL,
     user_password TEXT NOT NULL
-
 );
+
