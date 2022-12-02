@@ -18,7 +18,7 @@ const {
 const { checkPicture } = require('../validations/checkBooks');
 
 //Index
-logs.get('/:studentId', async (req, res) => {
+logs.get('/', async (req, res) => {
   //console.log('get all /');
   const { studentId } = req.params;
   const allLogs = await getAllLogs(studentId);

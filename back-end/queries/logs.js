@@ -3,7 +3,7 @@ const db = require('../db/dbConfig.js');
 const getAllLogs = async (studentId) => {
   try {
     const allLogs = await db.any(
-      'SELECT * FROM logs WHERE student_id = $1',
+      'SELECT * FROM logs WHERE students_id = $1',
       studentId
     );
     return allLogs;
