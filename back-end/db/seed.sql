@@ -2,7 +2,9 @@
 
 \c reading_log
 
-INSERT INTO books(book_title,book_author,isbn_number,publication,book_picture,grade,reading_level) VALUES ('Night Owl',' Kim .C. Lee','978-0-578-71269-7','Kimberly Lee','https://images-us.bookshop.org/ingram/9780578712697.jpg?height=500&v=v2',3,'C'),('Cookie"s Week','Cindy Ward','Putnam Juvenile','9780399243267',
+INSERT INTO books(book_title,book_author,isbn_number,publication,book_picture,grade,reading_level) VALUES 
+('Night Owl',' Kim .C. Lee','978-0-578-71269-7','Kimberly Lee','https://images-us.bookshop.org/ingram/9780578712697.jpg?height=500&v=v2',3,'C'),
+('Cookie"s Week','Cindy Ward','Putnam Juvenile','9780399243267',
 'https://m.media-amazon.com/images/I/514iKUH5J2L._SY464_BO1,204,203,200_.jpg',3,'F'), ('Daddy Hugs','Karen Katz','Putnam Juvenile','9781416941200',
 'https://m.media-amazon.com/images/I/51JOziLrMfL._SX420_BO1,204,203,200_.jpg',3,'C');
 
@@ -22,15 +24,19 @@ INSERT INTO students(student_name,parent_name,parent_email,
     ('Barry Lioudis','Norma Lioudis','norma@a0l.com','barry_lioudis@nycschools.org','2022-2023','I',1);
 
 
-INSERT INTO logs(reading_inference,reading_minutes,pages_read,role_name,student_name,books_id,students_id)VALUES('I loved that the owl was so brave',30,20,'student','Celia Edward',2,1), ('That was an amazing book, we love Cookie Week',45,30,'student','Jade Duncan',1,2),('We all love Daddy Hug',50,45,'student', 'Barry Lioudis',3,3);
+INSERT INTO logs(reading_inference,reading_minutes,pages_read,role_name,student_name,books_id,students_id)VALUES
+('I loved that the owl was so brave',30,20,'student','Celia Edward',2,1),
+('I can remember days of the week now',45,30,'student','Celia Edward',1,1),
+('We all love Daddy Hug',50,45,'student', 'Barry Lioudis',3,3);
 
 
-INSERT INTO users(users_name,users_role,usser_email,user_password) VALUES
-('Thomas Edward',"parent", 'thomas@gmail.com', 'celia08'),
+
+INSERT INTO users(users_name,users_role,users_email,user_password) VALUES
+('Thomas Edward','parent', 'thomas@gmail.com', 'celia08'),
 ('Christine Duncan', 'parent', 'christine@msn.com','jade14'),
 ('Norma Lioudis', 'parent', 'norma@a0l.com', 'barry10'),
 ('Ms.Fundy', 'teacher', 'msfundy@gmail.com', 'fundyedu'),
 ('Ms.Perez', 'teacher', 'msperez@gmail.com', 'perezedu'),
 ('Mr.Edmundson', 'teacher', 'mredmundson@gmail.com', 'edmundsonedu'),
-('Ms.Blackmond', 'teacher', 'msblackmond@gmail.com', 'blackmondedu')
+('Ms.Blackmond', 'teacher', 'msblackmond@gmail.com', 'blackmondedu');
 

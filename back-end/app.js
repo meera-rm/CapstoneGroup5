@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.status(200).send('Welcome to Scholar Sheep!');
+	res.status(200).send('Welcome to Scholar Sheep!');
 });
 
 app.use('/api/books', bookController);
@@ -22,8 +22,7 @@ app.use('/api/logs', logController);
 app.use('/api/students', studentController);
 
 app.get('*', (req, res) => {
-  res.status(403).send('Not Found!');
+	res.status(403).send('Not Found!');
 });
-
 
 module.exports = app;
