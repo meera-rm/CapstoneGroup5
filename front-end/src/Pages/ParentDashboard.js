@@ -17,8 +17,9 @@ const ParentDashboard = () => {
     // something going on with our student back end
 	useEffect(() => {
 		axios
-			.get(`${API}/api/students/${id}`)
-			.then((response) => setStudents(response.data.payload))
+        .get(`${API}/api/students/${id}`)
+             .then((response) => console.log(response.data))
+			// .then((response) => setStudents(response.data.payload))
 			.catch((error) => console.error('catch', error));
 	});
 
