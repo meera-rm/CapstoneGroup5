@@ -76,9 +76,9 @@ const updateStudent = async (id, student) => {
 
 
 module.exports = {
-  getAllStudents,
   getAStudent,
   createStudent,
   deleteStudent,
   updateStudent,
+  getAllStudents,
 };

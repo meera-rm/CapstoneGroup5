@@ -71,6 +71,7 @@ const updateLog = async (id, student) => {
 };
 
 
+
 module.exports = {
   getAllLogs,
   getALog,
