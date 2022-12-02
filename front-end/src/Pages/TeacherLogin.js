@@ -23,7 +23,7 @@ const TeacherLogin = () => {
     // axios
     //     .post(`${API}/teacher-login`, teachers)
     //     .then(() => {
-    //         navigate(`/teacher-page`);
+    //         navigate(`/teacher-dashboard`);
     //     })
     //     .catch((error) => {
     //         console.warn(error);

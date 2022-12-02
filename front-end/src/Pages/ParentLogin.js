@@ -24,7 +24,7 @@ const ParentLogin = () => {
     // axios
     //     .post(`${API}/parent-login`, students)
     //     .then(() => {
-    //         navigate(`/parent-page`);
+    //         navigate(`/parent-dashboard`);
     //     })
     //     .catch((error) => {
     //         console.warn(error);
