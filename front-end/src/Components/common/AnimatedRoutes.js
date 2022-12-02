@@ -29,6 +29,8 @@ import NewLog from '../../Pages/Logs/NewLog';
 import ShowLogs from '../../Pages/Logs/ShowLogs';
 import EditLogs from '../../Pages/Logs/EditLogs';
 
+import ParentDashboard from '../../Pages/ParentDashboard';
+
 // import SignUp from  '../../Pages/SignUp';
 // import TeacherSignUp from '../../Pages/TeacherSignUp';
 // import TeacherLogin from '../../Pages/TeacherLogin';
@@ -92,6 +94,7 @@ const AnimatedRoutes = () => {
               <Route path=':id/edit' element={<EditLogs />} />
             </Route>
 
+            <Route path="/parent-dashboard" element={<ParentDashboard/>}/>
             <Route path='*' element={<FourOFour />} />
           </Routes>
         </AnimatePresence>
