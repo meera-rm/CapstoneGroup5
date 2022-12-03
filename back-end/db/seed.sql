@@ -24,10 +24,10 @@ INSERT INTO students(student_name,parent_name,parent_email,
 
 
 
-INSERT INTO logs(reading_inference,reading_minutes,pages_read,role_name,student_name,books_id,students_id)VALUES
-('I loved that the owl was so brave',30,20,'student','Celia Edward',2,1),
-('I can remember days of the week now',45,30,'student','Celia Edward',1,1),
-('We all love Daddy Hug',50,45,'student', 'Barry Lioudis',3,3);
+INSERT INTO logs(reading_inference,reading_minutes,pages_read,role_name,books_id,students_id)VALUES
+('I loved that the owl was so brave',30,20,'student',2,1),
+('I can remember days of the week now',45,30,'student',1,1),
+('We all love Daddy Hug',50,45,'student',3,3);
 
 
 
