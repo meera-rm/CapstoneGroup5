@@ -17,12 +17,11 @@ const {
 
 const { checkPicture } = require('../validations/checkBooks');
 
-
 //Index
 logs.get('/', async (req, res) => {
-  console.log('get all /');
-
-  const allLogs = await getAllLogs();
+  //console.log('get all /');
+  const { studentId } = req.params;
+  const allLogs = await getAllLogs(studentId);
   try {
     if (allLogs[0]) {
       res.status(200).json(allLogs);
@@ -49,7 +48,7 @@ logs.get('/:logId', async (req, res) => {
 });
 
 // //CREATE
-logs.post('/new',  async (req, res) => {
+logs.post('/new', async (req, res) => {
   const newLog = req.body;
   try {
     const addLog = await createLog(newLog);
@@ -111,6 +110,5 @@ logs.delete('/:logId', async (req, res) => {
 });
 
 //nested reviews route
-
 
 module.exports = logs;

@@ -32,6 +32,7 @@ INSERT INTO logs(reading_inference,reading_minutes,pages_read,role_name,books_id
 
 
 
+
 INSERT INTO users(users_name,users_role,users_email,user_password) VALUES
 ('Thomas Edward','parent', 'thomas@gmail.com', 'celia08'),
 ('Christine Duncan', 'parent', 'christine@msn.com','jade14'),
