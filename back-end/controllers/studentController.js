@@ -24,8 +24,8 @@ const { checkPicture } = require('../validations/checkBooks');
 //Index
 students.get('/', async (req, res) => {
   console.log('get all /');
-
-  const allStudents = await getAllStudents();
+  const {teacherId} = req.params;
+  const allStudents = await getAllStudents(teacherId);
   try {
     if (allStudents[0]) {
       res.status(200).json(allStudents);
