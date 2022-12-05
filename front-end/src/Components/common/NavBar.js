@@ -42,27 +42,29 @@ const Navbar = () => {
                 <Link to='/'>
                   <p className=''>Home</p>
                 </Link>
+                <Link to='/about'>
+                  <p className=''>About</p>
+                </Link>
                 <Link to='/books'>
                   <p className=''>Books</p>
-                </Link>
-                <Link to='/students'>
-                  <p className='' onClick={handleNavLinkDisappear}>
-                    Students
-                  </p>
                 </Link>
                 <Link to='/teachers'>
                   <p className='' onClick={handleNavLinkDisappear}>
                     Teachers
                   </p>
                 </Link>
-                <Link to='/logs'>
+                 <Link to='/students'>
+                  <p className='' onClick={handleNavLinkDisappear}>
+                    Students
+                  </p>
+                </Link>
+               
+                {/* <Link to='/logs'>
                   <p className='' onClick={handleNavLinkDisappear}>
                     Logs
                   </p>
-                </Link>
-                <Link to='/about'>
-                  <p className=''>About</p>
-                </Link>
+                </Link>  */}
+                
               </div>
               <div className='flex space-x-4'>
                 <Link to='/signUp'>

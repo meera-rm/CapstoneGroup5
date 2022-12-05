@@ -72,6 +72,7 @@ const updateBook = async (book, bookId) => {
         isbn_number,
         publication,
         book_picture,
+        grade,
         reading_level,
         bookId,
       ]

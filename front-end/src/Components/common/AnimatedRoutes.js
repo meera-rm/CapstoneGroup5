@@ -29,6 +29,11 @@ import NewLog from '../../Pages/Logs/NewLog';
 import ShowLogs from '../../Pages/Logs/ShowLogs';
 import EditLogs from '../../Pages/Logs/EditLogs';
 
+import IndexComments from '../../Pages/Comment/IndexComments';
+import NewComment from '../../Pages/Comment/NewComment';
+import ShowComments from '../../Pages/Comment/ShowComments';
+import EditComments from '../../Pages/Comment/EditComments';
+
 import ParentDashboard from '../../Pages/ParentDashboard';
 
 // import SignUp from  '../../Pages/SignUp';
@@ -93,6 +98,14 @@ const AnimatedRoutes = () => {
               <Route path=':id' element={<ShowLogs />} />
               <Route path=':id/edit' element={<EditLogs />} />
             </Route>
+
+            <Route path='/comments'>
+              <Route index element={<IndexComments />} />
+              <Route path='new' element={<NewComment />} />
+              <Route path=':id' element={<ShowComments />} />
+              <Route path=':id/edit' element={<EditComments />} />
+            </Route>
+
 
             <Route path="/parent-dashboard" element={<ParentDashboard/>}/>
             <Route path='*' element={<FourOFour />} />

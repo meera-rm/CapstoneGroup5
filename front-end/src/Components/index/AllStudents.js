@@ -20,14 +20,14 @@ const AllStudents = () => {
 
   return (
     <div className='px-16 py-6 md:col-span-2 '>
-      <h2 className='text-center text-indigo-600 '>Books</h2>
-      <div className='text-center '>
+      <h2 className='text-center text-indigo-600 '>Students</h2>
+      {/* <div className='text-center '>
         <Link to={`/students/new`}>
           <button className=' btn bg-indigo-500 px-4 py-4 rounded text-white hover:bg-teal-400'>
             Add Students{' '}
           </button>
         </Link>
-      </div>
+      </div> */}
       <div className='mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16'>
         {/* <div className='max-w-sm rounded overflow-hidden shadow-lg '> */}
         {students?.map((student) => {
