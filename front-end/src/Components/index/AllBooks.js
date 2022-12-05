@@ -17,11 +17,11 @@ const AllBooks = () => {
   }, [bookData]);
 
   return (
-    <div className='px-16 py-6 md:col-span-2 '>
+    <div className='px-10 py-6 md:col-span-2 '>
       <h2 className='text-center text-indigo-600 '>Books</h2>
       <div className='text-center '>
         <Link to={`/books/new`}>
-          <button className=' btn bg-indigo-500 px-4 py-4 rounded text-white hover:bg-teal-400'>
+          <button className=' btn bg-indigo-500 px-4 py-4 rounded text-white hover:bg-indigo-400'>
             Add Books{' '}
           </button>
         </Link>
@@ -31,25 +31,26 @@ const AllBooks = () => {
         {bookData?.map((book) => {
           return (
             <section
-              className='border rounded-md  hover:shadow-md'
+              className='justify-items-center'
+              // rounded-sm  hover:shadow-sm'
               key={book.book_id + book.book_name}
             >
-              <div className='display-cards'>
+              <div>
                 <Link
                   className='text-center'
                   to={`/books/` + book.book_id}
                   key={book.book_id}
                 >
                   <img
-                    className='text-center'
+                    className='text-center object-contain h-52 w-72'
                     src={`${book.book_picture}`}
                     alt=''
                   />
 
                   {/* </div>
                <div> */}
-                  <p className='text-center'>id: {book.book_id}</p>
-                  <p className='text-center'>
+                  <p className='align-middle'>id: {book.book_id}</p>
+                  <p className='content-center'>
                     Reading Level: {book.reading_level}
                   </p>
                 </Link>

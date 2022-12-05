@@ -15,7 +15,10 @@ const {
   deleteLog,
 } = require('../queries/logs');
 
-const { checkPicture } = require('../validations/checkBooks');
+
+const commentController = require("./commentController");
+logs.use("/:logId/comments", commentController);
+
 
 //Index
 logs.get('/', async (req, res) => {
@@ -109,6 +112,6 @@ logs.delete('/:logId', async (req, res) => {
   }
 });
 
-//nested reviews route
+
 
 module.exports = logs;
