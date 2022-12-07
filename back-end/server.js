@@ -1,14 +1,14 @@
 const express = require('express');
 const app = require('./app');
 
-const colors = require('colors');
-
 require('dotenv').config();
 
-const { PORT } = process.env;
+const { PORT } = process.env || 3010;
 
 const message = 'Listening on port';
 
+console.log(message);
+
 app.listen(PORT, () => {
-  console.log(`${message}  `.cyan + PORT.magenta);
+  console.log(`${message}` + PORT);
 });

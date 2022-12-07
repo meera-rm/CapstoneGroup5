@@ -1,5 +1,6 @@
 ## Welcome to Scholar Sheep! - CapstoneGroup5
 
+
 ![Scholar Sheep](asset/img/ScholarSheep.png)
 
 ## Team Members
@@ -12,12 +13,26 @@
 
 ### Important Links
 
+
+### Team Members
+
+
+### Meera Ramesh
+
+### Taryne Leach
+
+### Derek Peterson
+
+## Important Links
+
+
 - Deployed API server [https://scholarsheep.onrender.com/]
 - Delpyed Front-End [https://scholarsheeplog.netlify.app/]
 
 - Trello [https://trello.com/b/xEt8mcfz/reading-app]
 - Wireframe [https://whimsical.com/scholar-sheep-HvM2SyXKVAXAuC28BCXtKs]
 - ERD [https://miro.com/app/board/uXjVPEOVPts=/]
+
 
 ## Overview
 
@@ -52,7 +67,7 @@ You must have a seperate terminal to run the back end locally and must run simul
 - npm install
 - node server.js
 
-### .env
+## .env
 
 - PORT=3010
 - PG_HOST=localhost
@@ -67,3 +82,4 @@ You must have a seperate terminal to run the back end locally and must run simul
 ## Deployment
 
 Our app is deployed with Render for the back end and Netlify for the front end. You may choose to use different hosting sites.
+

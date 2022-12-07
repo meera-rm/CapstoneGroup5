@@ -1,8 +1,11 @@
 const db = require('../db/dbConfig.js');
 
-const getAllLogs = async () => {
+const getAllLogs = async (studentId) => {
   try {
-    const allLogs = await db.any('SELECT * FROM logs');
+    const allLogs = await db.any(
+      'SELECT * FROM logs WHERE students_id = $1',
+      studentId
+    );
     return allLogs;
   } catch (error) {
     return error;
@@ -69,6 +72,7 @@ const updateLog = async (id, student) => {
     return error;
   }
 };
+
 module.exports = {
   getAllLogs,
   getALog,

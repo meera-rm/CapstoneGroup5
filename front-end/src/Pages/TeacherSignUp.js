@@ -1,170 +1,202 @@
-import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useState } from 'react';
 
-const API = process.env.REACT_APP_API_URL;
+import React, { useState } from "react";
+import FirstForm from "../Components/TeacherForm/FirstForm";
+import SecondForm from "../Components/TeacherForm/SecondForm";
+import ThirdForm from "../Components/TeacherForm/ThirdForm";
+import teacher from '../Components/asset/teachersign.jpeg';
 
 const TeacherSignUp = () => {
-	const navigate = useNavigate();
-	const id = useParams();
-	const [teachers, setTeachers] = useState({
-		id: '',
-		teacher_name: '',
-		teacher_email: '',
-		school_name: '',
-		school_district: '',
-		school_address: '',
-		zipcode: '',
-		class_subject: '',
-		password: '',
-	});
+  const formList = ["FirstForm", "SecondForm", "ThirdForm"];
 
-	const newSignUp = (event) => {
-		setTeachers({ ...teachers, [event.target.id]: event.target.value });
-	};
+  const formLength = formList.length;
 
-	const handleSignUp = (teachers) => {
-		axios
-			.get(`${API}/teacher-signup`, teachers)
-			.then(() => {
-				navigate(`/teacher-login`);
-			})
-			.catch((error) => {
-				console.warn(error);
-			});
-	};
+  const [page, setPage] = useState(0);
 
-	const handleForm = (event) => {
-		event.preventDefault();
-		handleSignUp(teachers, id);
-	};
+  const handlePrev = () => {
+    setPage(page === 0 ? formLength - 1 : page - 1);
+  };
+  const handleNext = () => {
+    setPage(page === formLength - 1 ? 0 : page + 1);
+  };
 
-	return (
-		// need to center this div
-		<div style={{
-			textAlign: 'center',
-			fontamily: 'Georgia',
-		}}>
-			<h1>Teacher Account Sign Up</h1>
-			<br></br>
-			<br></br>
+  const initialValues = {
+    // name: "",
+    // lastname: "",
+    // password: "",
+    // confirmPassword: "",
+    // username: "",
+    // city: "1",
+    // address: "",
+    // zip: "",
+    // terms: "",
+    teacher_email: '',
+    password: '',
+    teacher_name: '',
+    lastname:'',
+    school_name: '',
+    school_address: '',
+    zipcode: '',
+    school_district: '',
+    class_subject: '',
+  };
+  const [values, setValues] = useState(initialValues);
 
-		
-				<img  style={{
-					width: '400px',
-				}}src="https://t4.ftcdn.net/jpg/03/28/10/15/360_F_328101522_ezzWWm1FylxgfdUj6tnVskLgszJBUWsz.jpg" alt=""/>
-			
-			
-			<div style={{ 
-				
-				fontFamily: 'Georgia',
-			}}>
-			<form 
-				onSubmit={handleForm} 
-			>
-				<label htmlFor='teacher-name'>Teacher Name</label>
-				<br></br>
-				<input
-					id='teacher_name'
-					type='text'
-					value={teachers.teacher_name}
-					onChange={newSignUp}
-				/>
-				<br></br>
-				<br></br>
-				{/* think we need to add email to database? */}
-				<label htmlFor='teacher-email'>Teacher Email</label>
-				<br></br>
-				<input
-					id='teacher_name'
-					type='email'
-					value={teachers.teacher_name}
-					onChange={newSignUp}
-				/>
-				<br></br>
-				<br></br>
-				<label htmlFor='school-name'>School Name</label>
-				<br></br>
-				<input
-					id='school_name'
-					type='text'
-					value={teachers.school_name}
-					onChange={newSignUp}
-				/>
-				<br></br>
-				<br></br>
-				<label htmlFor='school-district'>School District</label>
-				<br></br>
-				<input
-					id='school-district'
-					type='text'
-					value={teachers.school_district}
-					onChange={newSignUp}
-				/>
-				<br></br>
-				<br></br>
-				<label htmlFor='teacher-name'>Class Subject</label>
-				<br></br>
-				<input
-					id='teacher_name'
-					type='text'
-					value={teachers.class_subject}
-					onChange={newSignUp}
-				/>
-				<br></br>
-				<br></br>
-				<label htmlFor='school-address'>School Address</label>
-				<br></br>
-				<br></br>
-				<input
-					id='school-address'
-					type='text'
-					value={teachers.school_address}
-					onChange={newSignUp}
-				/>
-				<br></br>
-				<br></br>
-				<label htmlFor='zipcode'>Zipcode</label>
-				<br></br>
-				<input
-					id='zipcode'
-					type='text'
-					value={teachers.zipcode}
-					onChange={newSignUp}
-				/>
-				<br></br>
-				<br></br>
-				<label htmlFor='grade'>Grade</label>
-				<br></br>
-				<input
-					id='grade'
-					type='text'
-					// need to add grade into teacher database
-					value={teachers.grade}
-					onChange={newSignUp}
-				/>
-				<br></br>
-				<br></br>
-				<label htmlFor='password'>Password</label>
-				<br></br>
-				<input
-					id='password'
-					type='text'
-					value={teachers.password}
-					onChange={newSignUp}
-				/>
-				<br></br>
-				<br></br>
-				<button style={{
-					width: '10%',
-					backgroundColor: 'teal',
-					color: 'white',
-					fontFamily: 'Georgia',
-				}}>Create Account</button>
-			</form>
-			</div>
-		</div>
-	);
+  const handleForms = () => {
+    switch (page) {
+      case 0: {
+        return (
+          <div>
+            <FirstForm formValues={values} onChange={onChange}></FirstForm>
+          </div>
+        );
+      }
+      case 1: {
+        return (
+          <SecondForm
+            formValues={values}
+            onChange={onChange}
+            // option={states}
+          ></SecondForm>
+        );
+      }
+      case 2: {
+        return <ThirdForm formValues={values} onChange={onChange}></ThirdForm>;
+      }
+      default:
+        return null;
+    }
+  };
+
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await setTimeout(() => {
+      console.log("form", values);
+    }, 2000);
+    console.log(response)
+    return response;
+  };
+
+  const setForm = (e) => {
+    const name = e.target.innerText;
+    switch (name) {
+      case "Person Info": {
+        return setPage(0);
+      }
+      case "Other Info": {
+        return setPage(1);
+      }
+      case "Login Info": {
+        return setPage(2);
+      }
+      default:
+        setPage(0);
+    }
+  };
+
+  const onChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setValues({ ...values, [name]: type === "checkbox" ? checked : value });
+  };
+
+  return (
+    <div className="grid  place-content-center items-center h-screen place-items-center  -mt-6">
+      <div className='flex items-center mt-4 mb-2 justify-center'>
+        <img className=' h-18 w-40 rounded-full' src={teacher} alt='' />
+      </div>
+       <ul className="flex justify-between w-full">
+        <li
+          onClick={setForm}
+          className={
+            page === 0 ? "bg-teal-600 w-2/6 rounded-lg  " : "bg: transparent"
+          }
+        >
+          <div className="flex items-center ">
+           
+            <span
+              className={
+                page === 0
+                  ? "ml-2 text-black font-medium"
+                  : "ml-2 text-teal-500 cursor-pointer"
+              }
+            >
+             Step 1
+            </span>
+          </div>
+        </li>
+        <li
+          onClick={setForm}
+          className={
+            page === 1 ? "bg-teal-600  w-2/6 rounded-lg" : "bg: transparent "
+          }
+        >
+          <div className="flex items-center">
+           
+            <span
+              className={
+                page === 1
+                  ? "ml-2 text-black font-medium"
+                  : "ml-2 text-teal-500 cursor-pointer"
+              }
+            >
+              Step 2{" "}
+            </span>
+          </div>
+        </li>
+        <li
+          onClick={setForm}
+          className={
+            page === 2 ? "bg-teal-600 w-2/6 rounded-lg" : "bg: transparent"
+          }
+        >
+          <div className="flex items-center">
+           
+            <span
+              className={
+                page === 2
+                  ? "ml-2 text-black font-medium"
+                  : "ml-2 text-teal-500 cursor-pointer"
+              }
+            >
+              {" "}
+              Step 3{" "}
+            </span>
+          </div>
+        </li>
+      </ul> 
+     
+      <div className="flex-1">{handleForms()}
+      </div>
+      <div className="grid grid-cols-2 gap-4 mt-4 place-content-center items-center">
+        
+        <button
+          onClick={handlePrev}
+          className="bg-teal-500  hover:bg-teal-600 rounded-md text-gray-800 font-bold py-2 px-4 disabled:bg-gray-400 "
+          disabled={page === 0}
+        >
+          Prev
+        </button>
+        {page === 2 ? (
+          <button
+            onClick={handleSubmit}
+            className="bg-teal-500 hover:bg-teal-600 rounded-md text-gray-800 font-bold py-2 px-4 "
+          >
+            Submit
+          </button>
+        ) : (
+          <button
+            onClick={handleNext}
+            className="bg-teal-500 hover:bg-teal-600 rounded-md text-gray-800 font-bold py-2 px-4 "
+          >
+            Next
+          </button>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default TeacherSignUp;
+
+					

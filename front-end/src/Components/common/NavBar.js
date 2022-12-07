@@ -42,27 +42,29 @@ const Navbar = () => {
                 <Link to='/'>
                   <p className=''>Home</p>
                 </Link>
+                <Link to='/about'>
+                  <p className=''>About</p>
+                </Link>
                 <Link to='/books'>
                   <p className=''>Books</p>
-                </Link>
-                <Link to='/students'>
-                  <p className='' onClick={handleNavLinkDisappear}>
-                    Students
-                  </p>
                 </Link>
                 <Link to='/teachers'>
                   <p className='' onClick={handleNavLinkDisappear}>
                     Teachers
                   </p>
                 </Link>
-                <Link to='/logs'>
+                 <Link to='/students'>
+                  <p className='' onClick={handleNavLinkDisappear}>
+                    Students
+                  </p>
+                </Link>
+               
+                {/* <Link to='/logs'>
                   <p className='' onClick={handleNavLinkDisappear}>
                     Logs
                   </p>
-                </Link>
-                <Link to='/about'>
-                  <p className=''>About</p>
-                </Link>
+                </Link>  */}
+                
               </div>
               <div className='flex space-x-4'>
                 <Link to='/signUp'>
@@ -70,14 +72,14 @@ const Navbar = () => {
                     Sign up
                   </p>
                 </Link>
-                <Link to='/Login'>
+                <Link to='/login'>
                   <p
                     className='capitalize bg-green-400 w-20 text-center rounded-md'
                     onClick={handleNavLinkDisappear}
                   >
                     Log In
                   </p>
-                </Link> 
+                </Link>
               </div>
             </div>
           </nav>
@@ -118,7 +120,7 @@ const Navbar = () => {
                     About
                   </p>
                 </Link>
-                <Link to='/signUp'>
+                <Link to='/signup'>
                   <p
                     className='mt-4 capitalize bg-green-400 w-32 text-center rounded-md'
                     onClick={handleNavLinkDisappear}
