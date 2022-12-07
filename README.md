@@ -3,28 +3,11 @@
 
 ![Scholar Sheep](asset/img/ScholarSheep.png)
 
-## Team Members
-
-### Meera Ramesh
-
-### Taryne Leach
-
-### Derek Peterson
-
-### Important Links
-
-
 ### Team Members
-
-
 ### Meera Ramesh
-
 ### Taryne Leach
-
 ### Derek Peterson
-
-## Important Links
-
+### Important Links
 
 - Deployed API server [https://scholarsheep.onrender.com/]
 - Delpyed Front-End [https://scholarsheeplog.netlify.app/]

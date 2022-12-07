@@ -1,4 +1,3 @@
-
 import React from 'react';
 import NewLogs from '../new/NewLogs';
 import NewStudents from '../new/NewStudents';
@@ -22,7 +21,6 @@ const Modal = ({ showModal, setShowModal, choice }) => {
 
           <div className='relative p-6 flex-auto'>
             {choice === 1 ? <NewStudents /> : <NewLogs />}
-            
           </div>
           <div className='flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b'>
             <button
@@ -40,8 +38,3 @@ const Modal = ({ showModal, setShowModal, choice }) => {
 };
 
 export default Modal;
-
-          
-
-
-]
