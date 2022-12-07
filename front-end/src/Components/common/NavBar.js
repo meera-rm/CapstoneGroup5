@@ -53,7 +53,7 @@ const Navbar = () => {
                     Teachers
                   </p>
                 </Link>
-]
+
                  <Link to='/students'>
 
                   <p className='' onClick={handleNavLinkDisappear}>

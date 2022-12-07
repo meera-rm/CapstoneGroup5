@@ -14,13 +14,10 @@ const AllLogs = () => {
   useEffect(() => {
     axios
       .get(`${API}/api/comments`)
-     // .then((response) => console.log(response.data))
+      // .then((response) => console.log(response.data))
       .then((response) => setComments(response.data))
       .catch((e) => console.error('catch', e));
-
   }, [logId]);
- 
-
 
   return (
     <div className='px-16 py-6 md:col-span-2 '>
@@ -32,13 +29,13 @@ const AllLogs = () => {
           </button>
         </Link>
       </div>
-      <div className='mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16'>
+      <div className='mt-2 grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16'>
         {/* <div className='max-w-sm rounded overflow-hidden shadow-lg '> */}
         {comments?.map((comment) => {
           return (
             <section
               className='border rounded-md  hover:shadow-md'
-              key={comment.comment_id }
+              key={comment.comment_id}
             >
               <div className='display-cards'>
                 <Link
@@ -48,8 +45,9 @@ const AllLogs = () => {
                 >
                   {/* </div>
                <div> */}
-                  <p className='text-center'>Teachers Comments: {comment.teacher_comment}</p>
-                 
+                  <p className='text-center'>
+                    Teachers Comments: {comment.teacher_comment}
+                  </p>
                 </Link>
               </div>
             </section>
@@ -58,7 +56,6 @@ const AllLogs = () => {
         {/* </div> */}
       </div>
     </div>
-    
   );
 };
 

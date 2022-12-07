@@ -93,7 +93,7 @@ const TeacherDetails = () => {
             Add Students{' '}
           </button>
           {/* </Link> */}
-          <Link to={'/students'}>
+          <Link to={'/teachers/'}>
             <button className='bg-indigo-500 text-center px-6 py-4 text-white rounded hover:bg-indigo-400'>
               Back{' '}
             </button>
@@ -165,14 +165,14 @@ const TeacherDetails = () => {
                         </Link>
                       </td>
 
-                      <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
+                      {/* <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
                         <Link
                           className='font-bold text-black-700 hover:underline'
                           to={`/logs/${student.student_id}`}
                         >
                           {student.reading_minutes}
                         </Link>
-                      </td>
+                      </td> */}
 
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                         {/* <div className='flex'> */}

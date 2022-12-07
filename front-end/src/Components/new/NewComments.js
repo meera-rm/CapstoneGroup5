@@ -6,14 +6,14 @@ import { useNavigate, useParams, Link } from 'react-router-dom';
 const API = process.env.REACT_APP_API_URL;
 
 const NewComments = (props) => {
-  console.log(props)
+  console.log(props);
   const navigate = useNavigate();
   let { id } = useParams();
 
-// const {log}=props
-// const {log_id}=log
+  // const {log}=props
+  // const {log_id}=log
   // date_read,reading_inference,reading_minutes,pages_read,books_id,students_id
- 
+
   const [newComment, setNewComment] = useState({
     // log_id: log_id,
     // date_read: date_read,
@@ -22,7 +22,7 @@ const NewComments = (props) => {
     // pages_read: pages_read,
     // books_id: books_id,
     // students_id: students_id,
-    teacher_comments:''
+    teacher_comments: '',
   });
 
   const handleTextChange = (event) => {
@@ -48,7 +48,6 @@ const NewComments = (props) => {
   };
 
   return (
-
     // <div className='add-trans'>
     <div className='flex flex-col text-center h-screen items-center justify-center  '>
       <div className='rounded-md  text-black lg:w-2/5 md:w-3/5 w-4/5'>
@@ -58,8 +57,8 @@ const NewComments = (props) => {
               Teachers Comments
             </label>
 
-            <input className='border-2 border-black-700 outline'
-
+            <input
+              className='border-2 border-black-700 outline'
               id='teacher_comments'
               name='teacher_comments'
               value={newComment.teacher_comments}
@@ -75,7 +74,7 @@ const NewComments = (props) => {
           <div className='justify-center ml-6 space-x-6 '>
             <input className=' px-5  py-3 rounded bg-teal-500' type='submit' />
             {/* <button lassName=' px-5  py-3 rounded bg-teal-500' className='second'></button> */}
-            <Link to={`/logs`}>
+            <Link to={`/students/${id}`}>
               <button className=' px-5  py-3 rounded bg-teal-500'>
                 Cancel{' '}
               </button>
