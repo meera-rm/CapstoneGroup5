@@ -16,6 +16,8 @@ const NewLogs = (props) => {
     book_title: '',
     reading_minutes: '',
     pages_read: '',
+    books_id: '',
+    students_id: id,
   });
 
   const handleTextChange = (event) => {
@@ -112,29 +114,34 @@ const NewLogs = (props) => {
         </div>
 
         {/* <div className='mb-4'>
-        <label
-          className='block text-black text-sm font-bold mb-1'
-          htmlFor='reading_minutes'
-        >
-          Minutes Read:
-        </label>
-        <input
-          className='shadow appearance-none border rounded w-full py-2 px-1 text-black border-2 border-black-700 outline'
-          id='reading_minutes'
-          type='number'
-          name='reading_minutes'
-          value={newLog.reading_minutes}
-          placeholder='Reading minutes'
-          onChange={handleTextChange}
-          required
-        />
-      </div> */}
+
+          <label
+            className='block text-black text-sm font-bold mb-1'
+            htmlFor='books_id'
+          >
+            Book Id:
+          </label>
+          <input
+            className='select-none shadow appearance-none border rounded w-full py-2 px-1 text-black border-2 border-black-700 outline'
+            id='books_id'
+            type='text'
+            name='books_id'
+            value={newLog.books_id}
+            placeholder='books_id'
+            onChange={handleTextChange}
+            required
+          />
+        </div> */}
+
+
 
         {/* <div className='add-btn'> */}
         <div className='md:justify-center ml-6 space-x-6 '>
           <input className=' px-5 py-3 rounded bg-teal-500' type='submit' />
           {/* <button lassName=' px-5  py-3 rounded bg-teal-500' className='second'></button> */}
+
           <Link to={`/students`}>
+
             <button className=' px-5 py-3 rounded bg-teal-500'>Cancel </button>
           </Link>
         </div>

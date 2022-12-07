@@ -19,6 +19,7 @@ const NewStudents = (props) => {
     grade: '',
     academic_year: '',
     reading_level: '',
+    teachers_id:id
   });
 
   const handleTextChange = (event) => {
