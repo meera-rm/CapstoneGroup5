@@ -1,11 +1,16 @@
 const db = require('../db/dbConfig.js');
 
-const getAllComments = async (commentId) => {
+const getAllComments = async (logId) => {
+  let allComments;
   try {
-    const allComments = await db.any(
-      'SELECT * FROM comments where logs_id=$1',
-      commentId
-    );
+    if (!logId) {
+      allComments = await db.any('SELECT * FROM comments ');
+    } else {
+      allComments = await db.any(
+        'SELECT * FROM comments where logs_id=$1',
+        logId
+      );
+    }
     return allComments;
   } catch (error) {
     return error;
@@ -25,11 +30,14 @@ const getComment = async (id) => {
 };
 
 const newComment = async (comment) => {
+  let { teacher_comments, logs_id, teachers_id } = comment;
+
   try {
     const newComment = await db.one(
-      'INSERT INTO comments (teacher_comments, logs_id) VALUES($1, $2 ) RETURNING *',
-      [comment.teacher_comments, comment.logs_id]
+      'INSERT INTO comments (teacher_comments, logs_id,teachers_id) VALUES($1, $2 ,$3) RETURNING *',
+      [teacher_comments, logs_id, teachers_id]
     );
+    // console.log('new Comment in queries',newComment)
     return newComment;
   } catch (error) {
     return error;
@@ -48,12 +56,16 @@ const deleteComment = async (id) => {
   }
 };
 
-const updateComment = async (id, comment) => {
+const updateComment = async (comment, commentId) => {
+  let { teacher_comments, logs_id, teachers_id } = comment;
+
   try {
     const updatedComment = await db.one(
-      'UPDATE comments SET teacher_comments=$1,log_id=$2 where comment_id=$3 RETURNING *',
-      [comment.teacher_comments, comment.logs_id, id]
+      'UPDATE comments SET teacher_comments=$1, logs_id=$2, teachers_id=$3 where comment_id=$4 RETURNING *',
+      [teacher_comments, logs_id, teachers_id, commentId]
     );
+
+    console.log('update comment', updatedComment);
     return updatedComment;
   } catch (error) {
     return error;

@@ -30,7 +30,6 @@ CREATE TABLE teachers(
     state_name TEXT NOT NULL,
     class_subject TEXT NOT NULL,
     teaching_grade TEXT NOT NULL
-    
 );
 
 
@@ -69,8 +68,8 @@ CREATE TABLE comments(
     comment_id SERIAL PRIMARY KEY,
     teacher_comments TEXT NOT NULL,
     logs_id INTEGER REFERENCES logs(log_id) ON UPDATE CASCADE ON DELETE CASCADE,
-    -- teachers_id INTEGER REFERENCES teachers(teacher_id)
-    --   ON UPDATE CASCADE ON DELETE CASCADE
+    teachers_id INTEGER REFERENCES teachers(teacher_id)
+      ON UPDATE CASCADE ON DELETE CASCADE
     );
 
 

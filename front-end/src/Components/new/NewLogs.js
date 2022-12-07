@@ -11,14 +11,11 @@ const NewLogs = (props) => {
 
   //declare states
   const [newLog, setNewLog] = useState({
-    log_id: '',
-    date_read: '',
+    log_id:'',
     reading_inference: '',
+    book_title: '',
     reading_minutes: '',
     pages_read: '',
-    role_name: '',
-    books_id: '',
-    students_id: '',
   });
 
   const handleTextChange = (event) => {
@@ -54,30 +51,12 @@ const NewLogs = (props) => {
       <div className='mb-4'>
         <label
           className='block text-black text-sm font-bold mb-1 '
-          htmlFor='book_title'
-        >
-          Book Title
-        </label>
-        <input
-          className='shadow appearance-none border rounded w-full py-2 px-1 text-black'
-          id='book_title'
-          name='book_title'
-          value={newLog.book_title}
-          type='text'
-          onChange={handleTextChange}
-          placeholder='Book Title'
-          required
-        />
-      </div>
-      <div className='mb-4'>
-        <label
-          className='block text-black text-sm font-bold mb-1 '
           htmlFor='reading_inference'
         >
           Reading Inference:
         </label>
         <input
-          className='shadow appearance-none border rounded w-full py-2 px-1 text-black'
+          className='shadow appearance-none border rounded w-full py-2 px-1 text-black border-2 border-black-700 outline'
           id='reading_inference'
           name='reading_inference'
           value={newLog.reading_inference}
@@ -89,13 +68,31 @@ const NewLogs = (props) => {
       </div>
       <div className='mb-4'>
         <label
+          className='block text-black text-sm font-bold mb-1 '
+          htmlFor='book_title'
+        >
+          Book Title
+        </label>
+        <input
+          className='shadow appearance-none border rounded w-full py-2 px-1 text-black border-2 border-black-700 outline'
+          id='book_title'
+          name='book_title'
+          value={newLog.book_title}
+          type='text'
+          onChange={handleTextChange}
+          placeholder='Book Title'
+          required
+        />
+      </div>
+      <div className='mb-4'>
+        <label
           className='block text-black text-sm font-bold mb-1'
           htmlFor='pages_read'
         >
           Pages Read:
         </label>
         <input
-          className='shadow appearance-none border rounded w-full py-2 px-1 text-black'
+          className='shadow appearance-none border rounded w-full py-2 px-1 text-black border-2 border-black-700 outline'
           id='pages_read'
           type='number'
           name='pages_read'
@@ -113,16 +110,34 @@ const NewLogs = (props) => {
           Minutes Read:
         </label>
         <input
-          className='shadow appearance-none border rounded w-full py-2 px-1 text-black'
+          className='shadow appearance-none border rounded w-full py-2 px-1 text-black border-2 border-black-700 outline'
           id='reading_minutes'
           type='number'
           name='reading_minutes'
-          value={newLog.pages_read}
+          value={newLog.reading_minutes}
           placeholder='Reading minutes'
           onChange={handleTextChange}
           required
         />
       </div>
+      {/* <div className='mb-4'>
+        <label
+          className='block text-black text-sm font-bold mb-1'
+          htmlFor='reading_minutes'
+        >
+          Minutes Read:
+        </label>
+        <input
+          className='shadow appearance-none border rounded w-full py-2 px-1 text-black border-2 border-black-700 outline'
+          id='reading_minutes'
+          type='number'
+          name='reading_minutes'
+          value={newLog.reading_minutes}
+          placeholder='Reading minutes'
+          onChange={handleTextChange}
+          required
+        />
+      </div> */}
 
       {/* <div className='add-btn'> */}
       <div className='md:justify-center ml-6 space-x-6 '>

@@ -10,7 +10,7 @@ import { MdTableView } from 'react-icons/md';
 import { FaEdit } from 'react-icons/fa';
 
 const API = process.env.REACT_APP_API_URL;
-console.log(API);
+
 const TeacherDetails = () => {
   const [teacher, setTeacher] = useState([]);
   const [studentData, setStudentData] = useState([]);
@@ -36,10 +36,11 @@ const TeacherDetails = () => {
     axios
       .get(`${API}/api/teachers/${id}/students`)
       .then((response) => {
-        setStudentData(response.data.payload);
+        // console.log(response.data)
+        setStudentData(response.data);
       })
       .catch(() => navigate('/not-found'));
-  }, [id, navigate, teacher]);
+  }, [id, navigate, studentData]);
 
   //Delete functions
   const handleDelete = () => {
@@ -50,14 +51,17 @@ const TeacherDetails = () => {
       })
       .catch((e) => console.error(e));
   };
+
   const [currentPage, setCurrentPage] = useState(1);
 
-  const [studentsPerPage] = useState(6);
+  const [studentsPerPage] = useState(2);
 
   const indexOfLastRecord = currentPage * studentsPerPage;
   const indexOfFirstRecord = indexOfLastRecord - studentsPerPage;
-  const currentRecords = 
-  studentData.slice(indexOfFirstRecord,indexOfLastRecord );
+  const currentRecords = studentData.slice(
+    indexOfFirstRecord,
+    indexOfLastRecord
+  );
   const nPages = Math.ceil(studentData.length / studentsPerPage);
 
   return (
@@ -160,14 +164,14 @@ const TeacherDetails = () => {
                           {/* <Book log={log} books={books} /> */}
                         </Link>
                       </td>
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                      {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                         <Link
                           className='font-bold text-black-700 hover:underline'
                           to={`/logs/${student.student_id}`}
                         >
                           {student.reading_minutes}
                         </Link>
-                      </td>
+                      </td> */}
 
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                         {/* <div className='flex'> */}

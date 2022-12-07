@@ -16,11 +16,9 @@ const NewStudents = (props) => {
     parent_name: '',
     parent_email: '',
     student_email: '',
+    grade: '',
     academic_year: '',
     reading_level: '',
-    role: '',
-    password: '',
-    id_of_teacher: '',
   });
 
   const handleTextChange = (event) => {
@@ -37,7 +35,7 @@ const NewStudents = (props) => {
     event.preventDefault();
     console.log('inhandlesumbit', student);
     axios
-      .post(`${API}/api/students`, student)
+      .post(`${API}/api/students/new`, student)
       .then(() => {
         console.log('added');
         navigate(`/students`);
@@ -48,14 +46,14 @@ const NewStudents = (props) => {
   return (
     // <div className='add-trans'>
     <div className='flex flex-col text-center h-screen items-center justify-center '>
-      <div className='rounded-md  py-4 px-6 text-black lg:w-2/5 md:w-3/5 w-4/5'>
+      <div className='rounded-md py-4 px-6 text-black lg:w-2/5 md:w-3/5 w-4/5'>
         <form onSubmit={handleSubmit}>
-         
           <div className='mb-4'>
             <label className='py-6' htmlFor='parent_name'>
               Parent Name:{' '}
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='parent_name'
               type='text'
               name='parent_name'
@@ -70,6 +68,7 @@ const NewStudents = (props) => {
               Student Name:{' '}
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='student_name'
               type='text'
               name='student_name'
@@ -84,6 +83,7 @@ const NewStudents = (props) => {
               Parent Email:{' '}
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='parent_email'
               name='parent_email'
               type='text'
@@ -99,11 +99,27 @@ const NewStudents = (props) => {
               Student Email{' '}
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='student_email'
               type='text'
               name='student_email'
               value={student.student_email}
               placeholder='student_email'
+              onChange={handleTextChange}
+              required
+            />
+          </div>
+          <div className='mb-4'>
+            <label className='py-6' htmlFor='grade'>
+              Grade{' '}
+            </label>
+            <input
+              className='border-2 border-black-700 outline'
+              id='grade'
+              type='text'
+              name='grade'
+              value={student.grade}
+              placeholder='grade'
               onChange={handleTextChange}
               required
             />
@@ -114,6 +130,7 @@ const NewStudents = (props) => {
               Academic Year:{' '}
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='academic_year'
               type='text'
               name='academic_year'
@@ -128,6 +145,7 @@ const NewStudents = (props) => {
               Reading Level:{' '}
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='reading_level'
               type='text'
               name='reading_level'
@@ -137,30 +155,13 @@ const NewStudents = (props) => {
               required
             />
           </div>
-          {/* <div>
-            <label className='py-6' htmlFor='role'>
-              Role:
-            </label>
-            <input
-              id='role'
-              type='text'
-              name='role'
-              value={student.role}
-              onChange={handleTextChange}
-              placeholder='role'
-              required
-            />
-          </div> */}
-          
+
           <br />
           {/* <div className='add-btn'> */}
           <div className='justify-center ml-6 space-x-6 '>
             <input className=' px-5  py-3 rounded bg-teal-500' type='submit' />
             {/* <button style={{ border: 'none' }} className='second'></button> */}
-            <Link
-            
-              to={`/students`}
-            >
+            <Link to={`/students`}>
               <button className=' px-5  py-3 rounded bg-teal-500'>
                 Cancel{' '}
               </button>

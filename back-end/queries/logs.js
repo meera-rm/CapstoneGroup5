@@ -1,8 +1,16 @@
 const db = require('../db/dbConfig.js');
 
-const getAllLogs = async () => {
+const getAllLogs = async (studentId) => {
+  let allLogs;
   try {
-    const allLogs = await db.any('SELECT * FROM logs');
+    if (!studentId) {
+      allLogs = await db.any('SELECT * FROM logs');
+    } else {
+      allLogs = await db.any(
+        'SELECT * FROM logs where students_id=$1',
+        studentId
+      );
+    }
     return allLogs;
   } catch (error) {
     return error;
@@ -19,19 +27,28 @@ const getALog = async (id) => {
 };
 
 const createLog = async (log) => {
+  let {
+    reading_inference,
+    book_title,
+    reading_minutes,
+    pages_read,
+    books_id,
+    students_id,
+  } = log;
+
   try {
     const newLog = await db.one(
-      'INSERT INTO logs (reading_inference,reading_minutes,pages_read,date_read,role_name,books_id,students_id ) VALUES($1, $2, $3, $4, $5, $6, $7,$8) RETURNING *',
+      'INSERT INTO logs ( reading_inference,book_title,reading_minutes,pages_read,books_id,students_id ) VALUES($1, $2, $3, $4, $5, $6) RETURNING *',
       [
-        log.reading_inference,
-        log.reading_minutes,
-        log.pages_read,
-        log.role_name,
-        log.date_read,
-        log.books_id,
-        log.students_id,
+        reading_inference,
+        book_title,
+        reading_minutes,
+        pages_read,
+        books_id,
+        students_id,
       ]
     );
+    console.log('newlog', newLog);
     return newLog;
   } catch (error) {
     return error;
@@ -50,18 +67,26 @@ const deleteLog = async (id) => {
   }
 };
 
-const updateLog = async (id, student) => {
+const updateLog = async (log, logId) => {
+  let {
+    reading_inference,
+    book_title,
+    reading_minutes,
+    pages_read,
+    books_id,
+    students_id,
+  } = log;
   try {
     const updatedLog = await db.one(
-      'UPDATE logs SET reading_inference=$1,reading_minutes=$2,pages_read=$3,role_name=$4,date_read=$5,books_id=$6,students_id=$7  where log_id=$10 RETURNING *',
+      'UPDATE logs SET reading_inference=$1,book_title=$2,reading_minutes=$3,pages_read=$4,books_id=$5,students_id=$6 where log_id=$7 RETURNING *',
       [
-        log.reading_inference,
-        log.reading_minutes,
-        log.pages_read,
-        log.role_name,
-        log.date_read,
-        log.books_id,
-        log.students_id,
+        reading_inference,
+        book_title,
+        reading_minutes,
+        pages_read,
+        books_id,
+        students_id,
+        logId,
       ]
     );
     return updatedLog;
@@ -69,8 +94,6 @@ const updateLog = async (id, student) => {
     return error;
   }
 };
-
-
 
 module.exports = {
   getAllLogs,

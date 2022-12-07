@@ -15,14 +15,14 @@ const {
   deleteLog,
 } = require('../queries/logs');
 
-const commentController = require("./commentController");
-logs.use("/:logId/comments", commentController);
+const commentController = require('./commentController');
+logs.use('/:logId/comments', commentController);
 
 //Index
 logs.get('/', async (req, res) => {
   console.log('get all /');
-
-  const allLogs = await getAllLogs();
+  const { studentId } = req.params;
+  const allLogs = await getAllLogs(studentId);
   try {
     if (allLogs[0]) {
       res.status(200).json(allLogs);
@@ -49,8 +49,9 @@ logs.get('/:logId', async (req, res) => {
 });
 
 // //CREATE
-logs.post('/new',  async (req, res) => {
+logs.post('/new', async (req, res) => {
   const newLog = req.body;
+  console.log(newLog);
   try {
     const addLog = await createLog(newLog);
     res.status(200).json({
@@ -67,19 +68,13 @@ logs.post('/new',  async (req, res) => {
 logs.put('/:logId', async (req, res) => {
   console.log('Put /:logId');
   const { logId } = req.params;
-
-  const updatedLog = await updateLog(req.body, logId);
-
-  if (updatedLog.id) {
-    res.status(200).json({
-      success: true,
-      payload: updatedLog,
-    });
-  } else {
-    res.status(404).json({
-      success: false,
-      payload: 'bad request',
-    });
+  try {
+    const updatedLog = await updateLog(req.body, logId);
+    // console.log('inupdate query', updatedLog);
+    res.status(200).json({ success: true, payload: updatedLog });
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({ success: false, message: 'Log cannot be updated' });
   }
 });
 
@@ -109,6 +104,5 @@ logs.delete('/:logId', async (req, res) => {
     });
   }
 });
-
 
 module.exports = logs;

@@ -57,9 +57,6 @@ const LogDetails = () => {
             Pages Read: <span className='font-semibold'>{log.pages_read}</span>
           </p>
           <p className='font-bold'>
-            Role:<span className='font-semibold'>{log.role_name}</span>
-          </p>
-          <p className='font-bold'>
             Books Id:<span className='font-semibold'>{log.books_id}</span>
           </p>
           <p className='font-bold'>
