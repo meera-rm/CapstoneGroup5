@@ -290,9 +290,9 @@ const StudentDetails = () => {
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm '>
 
                         {/* {showText ?( */}
-<Link
+                      <Link
                          className='font-bold text-black-700 hover:underline'
-                          to={`/logs/${log.log_id}`}
+                          to={`/logs/${log.log_id}`}>
 
                           <Comment log={log} comments={comments} />
                         </Link>

@@ -36,15 +36,11 @@ const TeacherDetails = () => {
     axios
       .get(`${API}/api/teachers/${id}/students`)
       .then((response) => {
-
         // console.log(response.data)
         setStudentData(response.data);
       })
       .catch(() => navigate('/not-found'));
   }, [id, navigate, studentData]);
-
-        
-
 
   //Delete functions
   const handleDelete = () => {
@@ -55,15 +51,6 @@ const TeacherDetails = () => {
       })
       .catch((e) => console.error(e));
   };
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const [studentsPerPage] = useState(6);
-
-  const indexOfLastRecord = currentPage * studentsPerPage;
-  const indexOfFirstRecord = indexOfLastRecord - studentsPerPage;
-  const currentRecords = 
-  studentData.slice(indexOfFirstRecord,indexOfLastRecord );
-  const nPages = Math.ceil(studentData.length / studentsPerPage);
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -152,7 +139,7 @@ const TeacherDetails = () => {
                 {currentRecords?.map((student) => {
                   return (
                     <tr key={student.student_id}>
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                      <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
                         <Link
                           className='font-bold text-black-700 hover:underline'
                           to={`/logs/${student.student_id}`}
@@ -160,7 +147,7 @@ const TeacherDetails = () => {
                           {student.student_id}
                         </Link>
                       </td>
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                      <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
                         <Link
                           className='font-bold text-black-700 hover:underline'
                           to={`/logs/${student.student_id}`}
@@ -168,7 +155,7 @@ const TeacherDetails = () => {
                           {student.student_name}
                         </Link>
                       </td>
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm '>
+                      <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm '>
                         <Link
                           className='font-bold text-black-700 hover:underline'
                           to={`/logs/${student.student_id}`}
@@ -177,18 +164,15 @@ const TeacherDetails = () => {
                           {/* <Book log={log} books={books} /> */}
                         </Link>
                       </td>
-<
-                      {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
 
+                      <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
                         <Link
                           className='font-bold text-black-700 hover:underline'
                           to={`/logs/${student.student_id}`}
                         >
                           {student.reading_minutes}
                         </Link>
-
-                      </td> */}
-
+                      </td>
 
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                         {/* <div className='flex'> */}
