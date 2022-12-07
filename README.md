@@ -3,16 +3,6 @@
 
 ![Scholar Sheep](asset/img/ScholarSheep.png)
 
-## Team Members
-
-### Meera Ramesh
-
-### Taryne Leach
-
-### Derek Peterson
-
-### Important Links
-
 
 ### Team Members
 
