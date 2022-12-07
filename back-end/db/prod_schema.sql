@@ -19,6 +19,7 @@ CREATE TABLE books(
     
 
 DROP TABLE IF EXISTS teachers;
+
 CREATE TABLE teachers(
     teacher_id SERIAL PRIMARY KEY,
     teacher_name TEXT NOT NULL,
@@ -29,8 +30,8 @@ CREATE TABLE teachers(
     state_name TEXT NOT NULL,
     class_subject TEXT NOT NULL,
     teaching_grade TEXT NOT NULL
-);
 
+);
 
 
 DROP TABLE IF EXISTS students;
@@ -41,10 +42,10 @@ CREATE TABLE students(
     parent_name TEXT NOT NULL,
     parent_email TEXT NOT NULL,
     student_email TEXT NOT NULL,
-    grade TEXT NOT NULL,
+    grade TEXT NOT  NULL,
     academic_year TEXT NOT NULL,
     reading_level TEXT NOT NULL,
-    teachers_id INTEGER REFERENCES teachers(teacher_id)
+    teachers_id INTEGER REFERENCES teachers(teacher_id) ON UPDATE CASCADE
     ON DELETE CASCADE
 );
 
@@ -58,8 +59,8 @@ CREATE TABLE logs(
     book_title TEXT NOT NULL,
     reading_minutes INTEGER NOT NULL,
     pages_read INTEGER NOT NULL,
-    books_id INTEGER REFERENCES books(book_id) ON DELETE CASCADE,
-    students_id INTEGER REFERENCES students(student_id) ON DELETE CASCADE
+    books_id INTEGER REFERENCES books(book_id)  ON UPDATE CASCADE ON DELETE CASCADE,
+    students_id INTEGER REFERENCES students(student_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS comments;
@@ -67,12 +68,11 @@ DROP TABLE IF EXISTS comments;
 CREATE TABLE comments(
     comment_id SERIAL PRIMARY KEY,
     teacher_comments TEXT NOT NULL,
-    -- books_id INTEGER REFERENCES books(book_id) ON UPDATE CASCADE ON DELETE CASCADE,
-    -- students_id INTEGER REFERENCES students(student_id)   ON UPDATE CASCADE ON DELETE CASCADE,
-    logs_id INTEGER REFERENCES logs(log_id)   ON UPDATE CASCADE ON DELETE CASCADE
-    -- teachers_id INTEGER REFERENCES teachers(teacher_id)
-    --   ON UPDATE CASCADE ON DELETE CASCADE
+    logs_id INTEGER REFERENCES logs(log_id) ON UPDATE CASCADE ON DELETE CASCADE,
+    teachers_id INTEGER REFERENCES teachers(teacher_id)
+      ON UPDATE CASCADE ON DELETE CASCADE
     );
+
 
 DROP TABLE IF EXISTS users; 
 

@@ -27,10 +27,10 @@ INSERT INTO logs(reading_inference,book_title,reading_minutes,pages_read,books_i
 ('I can remember days of the week now','Cookie"s Week',45,30,1,1),
 ('We all love Daddy Hug','Daddy Hugs',50,45,3,3);
 
-INSERT INTO comments(teacher_comments,logs_id)VALUES
-('Great Understanding of the Book',1),
-('Great Job learning days of week',2),
-('How does the character feel?',3);
+INSERT INTO comments(teacher_comments,logs_id,teachers_id)VALUES
+('Great Understanding of the Book',1,1),
+('Great Job learning days of week',2,1),
+('How does the character feel?',3,2);
 
 
 INSERT INTO users(users_name,users_role,users_email,user_password) VALUES
