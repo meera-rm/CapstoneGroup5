@@ -16,6 +16,7 @@ const NewBooks = () => {
     isbn_number: '',
     publication: '',
     book_picture: '',
+    grade: '',
     reading_level: '',
   });
 
@@ -50,6 +51,7 @@ const NewBooks = () => {
               Title:{''}
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='book_title'
               type='text'
               value={newBook.book_title}
@@ -64,6 +66,7 @@ const NewBooks = () => {
               Author:{' '}
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='book_author'
               type='text'
               name='book_author'
@@ -77,6 +80,7 @@ const NewBooks = () => {
               ISBN :{' '}
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='isbn_number'
               type='text'
               name='isbn_number'
@@ -90,6 +94,7 @@ const NewBooks = () => {
               Publication:{' '}
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='publication'
               name='publication'
               type='text'
@@ -105,6 +110,7 @@ const NewBooks = () => {
               Image:{' '}
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='book_picture'
               type='text'
               name='book_picture'
@@ -115,11 +121,27 @@ const NewBooks = () => {
             />
           </div>
           <div className='mb-4'>
+            <label className='py-6 ' htmlFor='grade'>
+              Grade:{' '}
+            </label>
+            <input
+              className='border-2 border-black-700 outline'
+              id='grade'
+              type='text'
+              name='grade'
+              value={newBook.grade}
+              placeholder='students Grade'
+              onChange={onInputChange}
+              required
+            />
+          </div>
+          <div className='mb-4'>
             <label className='py-6' htmlFor='reading_level'>
               {' '}
               Level:{'  '}{' '}
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='reading_level'
               type='text'
               name='reading_level'

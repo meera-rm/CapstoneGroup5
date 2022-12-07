@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <React.Fragment>
       <section className='bg-teal-500'>
-        <nav className='w-full h-12 px-5 flex items-center justify-between md:w-4/5 md:mx-auto'>
+        <nav className='w-full h-12 px-4 flex items-center justify-between md:w-4/5 md:mx-auto'>
           <div className='realtive flex-grow'>
             <img
               src={logoImage}
@@ -36,9 +36,9 @@ const Navbar = () => {
           </div>
 
           {/* large screen */}
-          <nav className='hidden md:block md:container pl-10'>
+          <nav className='hidden md:block md:container pl-4'>
             <div className='flex justify-between text-xl'>
-              <div className='flex text-white space-x-4'>
+              <div className='flex text-white space-x-2'>
                 <Link to='/'>
                   <p className=''>Home</p>
                 </Link>
@@ -53,20 +53,23 @@ const Navbar = () => {
                     Teachers
                   </p>
                 </Link>
+]
                  <Link to='/students'>
+
                   <p className='' onClick={handleNavLinkDisappear}>
                     Students
                   </p>
                 </Link>
-               
+
                 {/* <Link to='/logs'>
                   <p className='' onClick={handleNavLinkDisappear}>
                     Logs
                   </p>
+
                 </Link>  */}
-                
+
               </div>
-              <div className='flex space-x-4'>
+              <div className='flex space-x-2'>
                 <Link to='/signUp'>
                   <p className=' capitalize bg-green-400 w-20  text-center rounded-md'>
                     Sign up
@@ -95,14 +98,14 @@ const Navbar = () => {
                     Home
                   </p>
                 </Link>
+                <Link to='/about'>
+                  <p className='mt-2' onClick={handleNavLinkDisappear}>
+                    About
+                  </p>
+                </Link>
                 <Link to='/books'>
                   <p className='mt-2' onClick={handleNavLinkDisappear}>
                     Books
-                  </p>
-                </Link>
-                <Link to='/students'>
-                  <p className='mt-2' onClick={handleNavLinkDisappear}>
-                    Students
                   </p>
                 </Link>
                 <Link to='/teachers'>
@@ -110,16 +113,18 @@ const Navbar = () => {
                     Teachers
                   </p>
                 </Link>
+                <Link to='/students'>
+                  <p className='mt-2' onClick={handleNavLinkDisappear}>
+                    Students
+                  </p>
+                </Link>
+                {/* 
                 <Link to='/logs'>
                   <p className='mt-2' onClick={handleNavLinkDisappear}>
                     Logs
                   </p>
-                </Link>
-                <Link to='/about'>
-                  <p className='mt-2' onClick={handleNavLinkDisappear}>
-                    About
-                  </p>
-                </Link>
+                </Link> */}
+
                 <Link to='/signup'>
                   <p
                     className='mt-4 capitalize bg-green-400 w-32 text-center rounded-md'

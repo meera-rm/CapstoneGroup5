@@ -26,7 +26,7 @@ const AllBooks = () => {
           </button>
         </Link>
       </div>
-      <div className='mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16'>
+      <div className='mt-14 grid md:grid-cols-3 lg:grid-cols-4 gap-10 lg:gap-16'>
         {/* <div className='max-w-sm rounded overflow-hidden shadow-lg '> */}
         {bookData?.map((book) => {
           return (
@@ -44,7 +44,7 @@ const AllBooks = () => {
                   <img
                     className='text-center object-contain h-52 w-72'
                     src={`${book.book_picture}`}
-                    alt=''
+                    alt={book.book_picture}
                   />
 
                   {/* </div>

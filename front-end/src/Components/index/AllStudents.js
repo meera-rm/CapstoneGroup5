@@ -33,7 +33,7 @@ const AllStudents = () => {
         {students?.map((student) => {
           return (
             <section
-              className='border rounded-md  hover:shadow-md'
+              className='border-2 border-indigo-300 rounded-md pl-2 hover:shadow-md'
               key={student.student_id + student.student_name}
             >
               <div className='display-cards'>

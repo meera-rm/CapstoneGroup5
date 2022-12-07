@@ -57,7 +57,9 @@ const NewComments = (props) => {
             <label className='py-6' htmlFor='teacher_comments'>
               Teachers Comments
             </label>
-            <input
+
+            <input className='border-2 border-black-700 outline'
+
               id='teacher_comments'
               name='teacher_comments'
               value={newComment.teacher_comments}

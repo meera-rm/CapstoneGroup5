@@ -11,7 +11,6 @@ const NewTeachers = () => {
 
   //declare states
   const [teacher, setTeacher] = useState({
-    teacher_id: '',
     teacher_name: '',
     school_name: '',
     school_district: '',
@@ -19,6 +18,7 @@ const NewTeachers = () => {
     zipcode: '',
     state_name: '',
     class_subject: '',
+    teaching_grade: '',
   });
 
   const handleTextChange = (event) => {
@@ -35,7 +35,7 @@ const NewTeachers = () => {
     event.preventDefault();
     console.log('inhandlesumbit', teacher);
     axios
-      .post(`${API}/api/teachers`, teacher)
+      .post(`${API}/api/teachers/new`, teacher)
       .then(() => {
         console.log('added');
         navigate(`/teachers`);
@@ -53,6 +53,7 @@ const NewTeachers = () => {
               TeacherName:
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='teacher_name'
               name='teacher_name'
               value={teacher.teacher_name}
@@ -66,6 +67,7 @@ const NewTeachers = () => {
               School Name:
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='school_name'
               type='text'
               name='school_name'
@@ -79,6 +81,7 @@ const NewTeachers = () => {
               School Disctrict:
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='school_district'
               type='text'
               name='school_district'
@@ -92,6 +95,7 @@ const NewTeachers = () => {
               School Address:
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='school_address'
               name='school_address'
               type='text'
@@ -106,6 +110,7 @@ const NewTeachers = () => {
               ZipCode:{' '}
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='zipcode'
               type='text'
               name='zipcode'
@@ -119,6 +124,7 @@ const NewTeachers = () => {
               State Name:
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='state_name'
               type='text'
               name='state_name'
@@ -132,11 +138,26 @@ const NewTeachers = () => {
               Subject:
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='class_subject'
               type='text'
               name='class_subject'
               value={teacher.class_subject}
               placeholder='class_subject'
+              onChange={handleTextChange}
+            />
+          </div>
+          <div className='mb-4'>
+            <label className='py-6' htmlFor='teaching_grade'>
+              Teaching Grade:
+            </label>
+            <input
+              className='border-2 border-black-700 outline'
+              id='teaching_grade'
+              type='text'
+              name='teaching_grade'
+              value={teacher.teaching_grade}
+              placeholder='teaching_grade'
               onChange={handleTextChange}
             />
           </div>
