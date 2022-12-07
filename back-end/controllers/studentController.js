@@ -27,7 +27,7 @@ students.get('/', async (req, res) => {
 
   const {teacherId} = req.params;
   const allStudents = await getAllStudents(teacherId);
-  
+
   try {
     if (allStudents[0]) {
       res.status(200).json(allStudents);

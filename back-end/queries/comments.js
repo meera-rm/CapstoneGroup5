@@ -1,5 +1,6 @@
 const db = require('../db/dbConfig.js');
 
+
 const getAllComments = async (logId) => {
   let allComments;
   try {
@@ -11,6 +12,7 @@ const getAllComments = async (logId) => {
         logId
       );
     }
+
     return allComments;
   } catch (error) {
     return error;
@@ -30,6 +32,7 @@ const getComment = async (id) => {
 };
 
 const newComment = async (comment) => {
+
   let { teacher_comments, logs_id, teachers_id } = comment;
 
   try {
@@ -38,6 +41,7 @@ const newComment = async (comment) => {
       [teacher_comments, logs_id, teachers_id]
     );
     // console.log('new Comment in queries',newComment)
+
     return newComment;
   } catch (error) {
     return error;
@@ -56,6 +60,7 @@ const deleteComment = async (id) => {
   }
 };
 
+
 const updateComment = async (comment, commentId) => {
   let { teacher_comments, logs_id, teachers_id } = comment;
 
@@ -66,6 +71,7 @@ const updateComment = async (comment, commentId) => {
     );
 
     console.log('update comment', updatedComment);
+
     return updatedComment;
   } catch (error) {
     return error;

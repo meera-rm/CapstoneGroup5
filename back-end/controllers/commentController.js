@@ -15,7 +15,9 @@ const {
 
 //Index
 comments.get('/', async (req, res) => {
-  const { logId } = req.params;
+
+  const { logId }=req.params;
+
   console.log('get all /');
   try {
     const allcomments = await getAllComments(logId);
@@ -41,7 +43,9 @@ comments.get('/:commentId', async (req, res) => {
 });
 
 // //CREATE
-comments.post('/new', async (req, res) => {
+
+comments.post('/new',  async (req, res) => {
+
   const newcomment = req.body;
   try {
     const addcomment = await newComment(newcomment);

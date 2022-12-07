@@ -1,6 +1,7 @@
 const db = require('../db/dbConfig.js');
 
 const getAllLogs = async (studentId) => {
+
   let allLogs;
   try {
     if (!studentId) {
@@ -11,6 +12,7 @@ const getAllLogs = async (studentId) => {
         studentId
       );
     }
+
     return allLogs;
   } catch (error) {
     return error;

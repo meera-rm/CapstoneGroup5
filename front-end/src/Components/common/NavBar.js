@@ -53,7 +53,9 @@ const Navbar = () => {
                     Teachers
                   </p>
                 </Link>
-                <Link to='/students'>
+]
+                 <Link to='/students'>
+
                   <p className='' onClick={handleNavLinkDisappear}>
                     Students
                   </p>
@@ -63,7 +65,9 @@ const Navbar = () => {
                   <p className='' onClick={handleNavLinkDisappear}>
                     Logs
                   </p>
-                </Link> */}
+
+                </Link>  */}
+
               </div>
               <div className='flex space-x-2'>
                 <Link to='/signUp'>

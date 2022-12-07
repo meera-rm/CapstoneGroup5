@@ -6,7 +6,9 @@ import Pagination from '../features/Pagination';
 import NewLogs from '../new/NewLogs';
 
 import Comment from './Comment';
-import NewComments from '../new/NewComments';
+
+import NewComments from '../new/NewComments'
+
 import Modal from '../features/Modal';
 import { MdDelete } from 'react-icons/md';
 import { MdTableView } from 'react-icons/md';
@@ -24,11 +26,14 @@ const StudentDetails = () => {
   //Popup code
   const [showModal, setShowModal] = useState(false);
 
+
   const [showText, setShowText] = useState(false);
   const onClick = () => setShowText(true);
 
+
   let navigate = useNavigate();
   let { id } = useParams();
+  
 
   useEffect(() => {
     axios
@@ -36,6 +41,37 @@ const StudentDetails = () => {
       .then((response) => {
         setStudent(response.data);
         // console.log(response.data);
+
+      })
+      .catch(() => navigate('/not-found'));
+  }, [id, navigate]);
+
+  useEffect(() => {
+    axios
+      .get(`${API}/api/students/${id}/logs`)
+      .then((response) => {
+        // console.log(response.data);
+        setLogData(response.data);
+      })
+      .catch(() => navigate('/not-found'));
+  }, [id, navigate]);
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`${API}/api/books`)
+  //     .then((response) => {
+  //       // console.log(response.data.payload);
+  //       setBooks(response.data.payload);
+  //     })
+  //     .catch(() => navigate('/not-found'));
+  // }, [id, navigate]);
+
+  useEffect(() => {
+    axios
+      .get(`${API}/api/comments`)
+      .then((response) => {
+        setComments(response.data.payload);
+
       })
       .catch(() => navigate('/not-found'));
   }, [id, navigate]);
@@ -96,6 +132,7 @@ const StudentDetails = () => {
           Student Dashboard
         </h2>
       </div>
+
       <div>
         <p className='font-bold'>
           Student Name:{'   '}
@@ -115,6 +152,8 @@ const StudentDetails = () => {
         </p>
       </div>
 
+
+    
       <div className='py-8'>
         <div className=' mt-10 flex md:justify-center ml-6 space-x-6'>
           {/* <Link to={'/logs/new'}> */}
@@ -124,20 +163,22 @@ const StudentDetails = () => {
           >
             Add Logs{' '}
           </button>
-          {/* </Link> */}
+
+
+          {/* </Link> */}                
+
           <Link to={'/students'}>
             <button className='bg-indigo-500 text-center px-6 py-4 text-white rounded hover:bg-indigo-400'>
               Back{' '}
             </button>
           </Link>
+
         </div>
+        
         {showModal ? (
           <>
-            <Modal
-              showModal={showModal}
-              setShowModal={setShowModal}
-              choice={choice}
-            />
+          <Modal showModal={showModal} setShowModal={setShowModal} choice={choice}/>
+
           </>
         ) : null}
 
@@ -145,7 +186,9 @@ const StudentDetails = () => {
           <div className='inline-block min-w-full shadow-md rounded-lg overflow-hidden'>
             <table className='min-w-full leading-normal'>
               <thead>
-                <tr>
+
+                <tr >
+
                   <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
                     Id
                   </th>
@@ -156,9 +199,11 @@ const StudentDetails = () => {
                     Book Title
                   </th>
                   <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+
                     Book Id
                   </th>
                   <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+
                     Minutes Read
                   </th>
                   <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
@@ -204,6 +249,7 @@ const StudentDetails = () => {
                           className='font-bold text-black-700 hover:underline'
                           to={`/logs/${log.log_id}`}
                         >
+
                           {log.book_title}
                           {/* <Book log={log} books={books} /> */}
                         </Link>
@@ -216,7 +262,6 @@ const StudentDetails = () => {
                           {log.books_id}
                           {/* <Book log={log} books={books} /> */}
                         </Link>
-                      </td>
 
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                         <Link
@@ -243,11 +288,12 @@ const StudentDetails = () => {
                         </Link>
                       </td>
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm '>
+
                         {/* {showText ?( */}
-                        <Link
-                          className='font-bold text-black-700 hover:underline'
+<Link
+                         className='font-bold text-black-700 hover:underline'
                           to={`/logs/${log.log_id}`}
-                        >
+
                           <Comment log={log} comments={comments} />
                         </Link>
                         {/* ) */}
@@ -266,6 +312,18 @@ const StudentDetails = () => {
                           </Link>
                           {/* )
                          } */}
+
+                          {comments.teacher_comments}
+                        </Link>
+                      </td>
+                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                        <div className='ml-3 p-3 text-sm text-indigo-900'>
+                          <Link to={`/comments/new`}>
+                            <button className=' bg-teal-500 px-6 py-4 text-black rounded ' >
+                              <MdAddComment />{' '}
+                            </button>
+                          </Link>
+
                         </div>
                       </td>
                       {/*  <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
@@ -322,3 +380,6 @@ const StudentDetails = () => {
 };
 
 export default StudentDetails;
+
+
+

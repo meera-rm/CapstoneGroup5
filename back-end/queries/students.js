@@ -1,6 +1,7 @@
 const db = require('../db/dbConfig.js');
 
 const getAllStudents = async (teacherId) => {
+
   let allStudents;
   try {
     if (!teacherId) {
@@ -12,6 +13,7 @@ const getAllStudents = async (teacherId) => {
       );
     }
    
+
     return allStudents;
   } catch (error) {
     return error;

@@ -15,12 +15,16 @@ const {
   deleteLog,
 } = require('../queries/logs');
 
-const commentController = require('./commentController');
-logs.use('/:logId/comments', commentController);
+
+
+const commentController = require("./commentController");
+logs.use("/:logId/comments", commentController);
+
 
 //Index
 logs.get('/', async (req, res) => {
-  console.log('get all /');
+  //console.log('get all /');
+
   const { studentId } = req.params;
   const allLogs = await getAllLogs(studentId);
   try {
@@ -104,5 +108,6 @@ logs.delete('/:logId', async (req, res) => {
     });
   }
 });
+
 
 module.exports = logs;

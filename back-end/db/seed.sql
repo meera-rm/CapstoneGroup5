@@ -16,8 +16,8 @@ INSERT INTO teachers(teacher_name,school_name,school_district,school_address,zip
 
 
 
-INSERT INTO students(student_name,parent_name,parent_email,
-    student_email,grade,academic_year,reading_level,teachers_id) VALUES
+
+INSERT INTO students(student_name,parent_name,parent_email,student_email,grade,academic_year,reading_level,teachers_id) VALUES
     ('Celia Edward','Thomas Edward','thomas@gmail.com','celia_edward@nycschools.org','1','2022-2023','G',1),
     ('Jade Duncan','Christine Duncan','christine@msn.com','jade_duncan@nycschools.org','1','2022-2023','H',1),
     ('Barry Lioudis','Norma Lioudis','norma@a0l.com','barry_lioudis@nycschools.org','1','2022-2023','I',1);

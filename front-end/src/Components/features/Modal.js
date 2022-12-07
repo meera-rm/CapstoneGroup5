@@ -1,3 +1,4 @@
+
 import React from 'react';
 import NewLogs from '../new/NewLogs';
 import NewStudents from '../new/NewStudents';
@@ -39,3 +40,8 @@ const Modal = ({ showModal, setShowModal, choice }) => {
 };
 
 export default Modal;
+
+          
+
+
+]

@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Comment = ({ log, comments }) => {
   console.log('From comments', log, comments);
   const commentTitle = comments.filter((comment) => {
