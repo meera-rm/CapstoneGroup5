@@ -248,17 +248,18 @@ const StudentDetails = () => {
                         </Link>
                       </td>
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm '>
-                        {!showText ? (
-                          <Link
-                            className='font-bold text-black-700 hover:underline'
-                            to={`/logs/${log.log_id}`}
-                          >
-                            <Comment log={log} comments={comments} />
-                          </Link>
-                        ) : (
-                          //  {/*</td>
-                          //  <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                          //     <div className='ml-3 p-3 text-sm text-indigo-900'> */}
+                        {/* {showText ?( */}
+                      <Link
+                         className='font-bold text-black-700 hover:underline'
+                          to={`/logs/${log.log_id}`}>
+
+                          <Comment log={log} comments={comments} />
+                        </Link>
+                        {/* ) */}
+                      </td>
+                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                        <div className='ml-3 p-3 text-sm text-indigo-900'>
+                          {/* // : ( */}
                           <Link to={`/comments/new`}>
                             <button
                               className=' bg-teal-500 px-6 py-4 text-black rounded '

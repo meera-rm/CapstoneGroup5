@@ -114,6 +114,7 @@ const NewLogs = (props) => {
         </div>
 
         {/* <div className='mb-4'>
+
           <label
             className='block text-black text-sm font-bold mb-1'
             htmlFor='books_id'
@@ -132,11 +133,15 @@ const NewLogs = (props) => {
           />
         </div> */}
 
+
+
         {/* <div className='add-btn'> */}
         <div className='md:justify-center ml-6 space-x-6 '>
           <input className=' px-5 py-3 rounded bg-teal-500' type='submit' />
           {/* <button lassName=' px-5  py-3 rounded bg-teal-500' className='second'></button> */}
-          <Link to={`/students/${id}`}>
+
+          <Link to={`/students`}>
+
             <button className=' px-5 py-3 rounded bg-teal-500'>Cancel </button>
           </Link>
         </div>
