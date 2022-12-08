@@ -19,7 +19,7 @@ const NewStudents = (props) => {
     grade: '',
     academic_year: '',
     reading_level: '',
-    teachers_id:id
+    teachers_id: id,
   });
 
   const handleTextChange = (event) => {
@@ -156,8 +156,19 @@ const NewStudents = (props) => {
               required
             />
           </div>
+          <div className='mb-4'>
+            <label className='py-6' htmlFor='reading_level'>
+              Teachers Id:{' '}
+            </label>
+            <input
+              className='select-none border-2 border-black-700 outline'
+              id='teachers_id'
+              type='text'
+              name='teachers_id'
+              value={id}
+            />
+          </div>
 
-          <br />
           {/* <div className='add-btn'> */}
           <div className='justify-center ml-6 space-x-6 '>
             <input className=' px-5  py-3 rounded bg-teal-500' type='submit' />

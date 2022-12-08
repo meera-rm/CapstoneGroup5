@@ -2,10 +2,11 @@
 
 \c reading_log
 
+
 INSERT INTO books(book_title,book_author,isbn_number,publication,book_picture,grade,reading_level) VALUES 
 ('Night Owl',' Kim .C. Lee','978-0-578-71269-7','Kimberly Lee','https://images-us.bookshop.org/ingram/9780578712697.jpg?height=500&v=v2','K','C'),
-('Cookie"s Week','Cindy Ward','Putnam Juvenile','9780399243267','https://m.media-amazon.com/images/I/514iKUH5J2L._SY464_BO1,204,203,200_.jpg','1','F'),
-('Daddy Hugs','Karen Katz','Putnam Juvenile','9781416941200','https://m.media-amazon.com/images/I/51JOziLrMfL._SX420_BO1,204,203,200_.jpg','K','C');
+('Cookie"s Week','Cindy Ward','9780399243267','Putnam Juvenile','https://m.media-amazon.com/images/I/514iKUH5J2L._SY464_BO1,204,203,200_.jpg','1','F'),
+('Daddy Hugs','Karen Katz','9781416941200','Putnam Juvenile','https://m.media-amazon.com/images/I/51JOziLrMfL._SX420_BO1,204,203,200_.jpg','K','C');
 
 
 INSERT INTO teachers(teacher_name,school_name,school_district,school_address,zipcode,state_name,class_subject,teaching_grade) VALUES
