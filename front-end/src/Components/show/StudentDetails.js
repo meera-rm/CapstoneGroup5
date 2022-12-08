@@ -26,10 +26,6 @@ const StudentDetails = () => {
   //Popup code
   const [showModal, setShowModal] = useState(false);
 
-  const [showText, setShowText] = useState(true);
-  const [toggleButton, showToggleButton] = useState(false);
-  const onClick = () => setShowText(true);
-
   let navigate = useNavigate();
   let { id } = useParams();
 
@@ -90,6 +86,10 @@ const StudentDetails = () => {
   const indexOfFirstRecord = indexOfLastRecord - logsPerPage;
   const currentRecords = logData.slice(indexOfFirstRecord, indexOfLastRecord);
   const nPages = Math.ceil(logData.length / logsPerPage);
+
+  const [message, setMessage] = useState(true);
+
+  const onClick = () => setMessage(false);
 
   return (
     <div className='container mx-auto px-4 sm:px-8'>
@@ -186,7 +186,7 @@ const StudentDetails = () => {
                 </tr>
               </thead>
               <tbody>
-                {currentRecords.map((log) => {
+                {currentRecords.map((log, index) => {
                   return (
                     <tr key={log.log_id}>
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
@@ -194,7 +194,7 @@ const StudentDetails = () => {
                           className='font-bold text-black-700 hover:underline'
                           to={`/logs/${log.log_id}`}
                         >
-                          {log.log_id}
+                          {index + 1}
                         </Link>
                       </td>
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
@@ -248,18 +248,17 @@ const StudentDetails = () => {
                         </Link>
                       </td>
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm '>
-                        {/* {showText ?( */}
-                      <Link
-                         className='font-bold text-black-700 hover:underline'
-                          to={`/logs/${log.log_id}`}>
-
-                          <Comment log={log} comments={comments} />
-                        </Link>
-                        {/* ) */}
-                      </td>
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                        {/* <div className='ml-3 p-3 text-sm text-indigo-900'> */}
-                          {/* // : ( */}
+                        {message ? (
+                          <Link
+                            className='font-bold text-black-700 hover:underline'
+                            to={`/logs/${log.log_id}`}
+                          >
+                            {<Comment log={log} comments={comments} />}
+                          </Link>
+                        ) : (
+                          // </td>
+                          // <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                          //  <div className='ml-3 p-3 text-sm text-indigo-900'>
                           <Link to={`/comments/new`}>
                             <button
                               className=' bg-teal-500 px-6 py-4 text-black rounded '
@@ -268,7 +267,7 @@ const StudentDetails = () => {
                               <MdAddComment />{' '}
                             </button>
                           </Link>
-                        {/* )} */}
+                        )}
                         {/* </div> */}
                       </td>
 

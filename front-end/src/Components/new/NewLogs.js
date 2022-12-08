@@ -66,7 +66,7 @@ const NewLogs = (props) => {
         <div className='mb-4'>
           <label htmlFor='reading_inference'>Reading Inference:</label>
           <input
-            className='shadow appearance-none border rounded w-full py-2 px-1 text-black'
+            className='shadow appearance-none border rounded w-full py-2 px-1 text-black border-2 border-black-700 outline'
             id='reading_inference'
             name='reading_inference'
             value={newLog.reading_inference}
@@ -133,15 +133,12 @@ const NewLogs = (props) => {
           />
         </div> */}
 
-
-
         {/* <div className='add-btn'> */}
         <div className='md:justify-center ml-6 space-x-6 '>
           <input className=' px-5 py-3 rounded bg-teal-500' type='submit' />
           {/* <button lassName=' px-5  py-3 rounded bg-teal-500' className='second'></button> */}
 
           <Link to={`/students`}>
-
             <button className=' px-5 py-3 rounded bg-teal-500'>Cancel </button>
           </Link>
         </div>

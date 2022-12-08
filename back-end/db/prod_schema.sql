@@ -16,7 +16,6 @@ CREATE TABLE books(
     grade TEXT NOT NULL,
     reading_level TEXT NOT NULL
 );
-    
 
 DROP TABLE IF EXISTS teachers;
 
