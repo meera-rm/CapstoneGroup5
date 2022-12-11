@@ -73,3 +73,10 @@ CREATE TABLE users(
     user_password TEXT NOT NULL
 
 )
+
+CREATE TABLE firebase(
+    firebase_id SERIAL PRIMARY KEY,
+    firebase_email TEXT NOT NULL,
+    id INT REFERENCES users(users_id)
+
+)

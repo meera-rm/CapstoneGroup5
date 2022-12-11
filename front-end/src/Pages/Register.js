@@ -5,7 +5,7 @@ import { useState } from 'react';
 import logoImage from '../Components/asset/ScholarSheep.png';
 import app from "../firebase";
 
-const Register = () => {
+const Register = ({register, setRegister, hasRegistered, setHasRegistered}) => {
 	const navigate = useNavigate();
 	const id = useParams();
 	const [user, setUser] = useState({
@@ -21,18 +21,47 @@ const Register = () => {
 
 	const auth = getAuth(app);
 
+	// const getRegistered = () => {
+	// 	signInWithEmailAndPassword(auth, user.user_email, user.user_password)
+	// 		.then((userCredential) => {
+	// 			const user = userCredential.user;
+	// 			console.log(user)
+	// 			if (user) {
+	// 				alert(`Welcome to your login ${user.email}!`);
+	// 				// console.log(user.user_email)
+	// 				setSignedIn(true);
+	// 				setSignedInUser(user);
+	// 				navigate('/');
+	// 			}
+	// 			// ...
+	// 		})
+	// 		.catch((error) => {
+	// 			const errorCode = error.code;
+	// 			console.log(`${user.user_email} is not registered`);
+	// 			const errorMessage = error.message;
+	// 		});
+	// };
+
+	// const handleSubmit = (event) => {
+	// 	event.preventDefault();
+	// 	console.log(user);
+	// 	login();
+	// };
+
+
 	const handleSignUp = () => {
 		createUserWithEmailAndPassword(
 			auth,
-			user.user_firstName,
-			user.user_lastName,
+			// user.user_firstName,
+			// user.user_lastName,
 			user.user_email,
 			user.user_password
 		)
 			.then((userCredential) => {
 				const user = userCredential.user;
+				console.log(user ,'has registered')
 				if (user) {
-					alert(`${user.user_email} account successfully created`);
+					alert(`${user.email} account successfully created`);
 					navigate('/login');
 				}
 			})
@@ -70,7 +99,7 @@ const Register = () => {
 						onSubmit={handleSubmit}
 					>
 						<div class='flex flex-col mb-4 md:w-full'>
-							<label
+							{/* <label
 								class='mb-2 uppercase font-bold text-lg text-grey-darkest'
 								htmlFor='user_firstName'
 							>
@@ -83,10 +112,10 @@ const Register = () => {
 								id='user_firstName'
 								defaultValue={user.user_firstName}
 								onChange={handleChange}
-							/>
+							/> */}
 						</div>
 						<div class='flex flex-col mb-4 md:w-full'>
-							<label
+							{/* <label
 								class='mb-2 uppercase font-bold text-lg text-grey-darkest'
 								htmlFor='user_LastName'
 							>
@@ -99,7 +128,7 @@ const Register = () => {
 								id='user_lastName'
 								defaultValue={user.user_lastName}
 								onChange={handleChange}
-							/>
+							/> */}
 						</div>
 						<div class='flex flex-col mb-4 md:w-full'>
 							<label

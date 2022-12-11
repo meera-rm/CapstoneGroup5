@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import logoImage from '../Components/asset/ScholarSheep.png';
 import app from '../firebase';
 
-const Login = () => {
+const Login = ({ signedIn, setSignedIn, signedInUser, setSignedInUser }) => {
 	const navigate = useNavigate();
 	const id = useParams();
 	const [user, setUser] = useState({
@@ -23,9 +23,13 @@ const Login = () => {
 		signInWithEmailAndPassword(auth, user.user_email, user.user_password)
 			.then((userCredential) => {
 				const user = userCredential.user;
+				console.log(user)
 				if (user) {
-					alert(`Welcome to your login ${user.user_email}!`);
-					navigate('/home');
+					alert(`Welcome to your login ${user.email}!`);
+					// console.log(user.user_email)
+					setSignedIn(true);
+					setSignedInUser(user);
+					navigate('/');
 				}
 				// ...
 			})
