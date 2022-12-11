@@ -2,14 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+import Pagination from '../features/Pagination';
+import Modal from '../features/Modal';
+
+import { MdDelete } from 'react-icons/md';
+import { MdTableView } from 'react-icons/md';
+import { FaEdit } from 'react-icons/fa';
+
 const API = process.env.REACT_APP_API_URL;
-console.log(API);
+
 const TeacherDetails = () => {
   const [teacher, setTeacher] = useState([]);
+  const [studentData, setStudentData] = useState([]);
+  const [choice] = useState(1);
 
   let navigate = useNavigate();
 
   let { id } = useParams();
+
+  //Popup code
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     axios
@@ -19,6 +31,16 @@ const TeacherDetails = () => {
       })
       .catch(() => navigate('/not-found'));
   }, [id, navigate, teacher]);
+
+  useEffect(() => {
+    axios
+      .get(`${API}/api/teachers/${id}/students`)
+      .then((response) => {
+        // console.log(response.data)
+        setStudentData(response.data);
+      })
+      .catch(() => navigate('/not-found'));
+  }, [id, navigate, studentData]);
 
   //Delete functions
   const handleDelete = () => {
@@ -30,75 +52,177 @@ const TeacherDetails = () => {
       .catch((e) => console.error(e));
   };
 
-  return (
-    <div class='max-h-screen grid place-items-center font-mono'>
-      <div class='bg-white h-24 w-64 rounded-md'></div>
-      <h2 className='font-bold mb-6 text-3xl'>Teacher Details</h2>
-      <article className='text-center '>
-        <div>
-          <p className='font-bold'>
-            Id:
-            <span className='font-semibold'>{teacher.teacher_id}</span>
-          </p>
-          <p className='font-bold'>
-            Teacher Name:
-            <span className='font-semibold'>{teacher.teacher_name}</span>
-          </p>
-          <p className='font-bold'>
-            School Name:
-            <span className='font-semibold'>{teacher.school_name}</span>
-          </p>
-          <p className='font-bold'>
-            School Address :{' '}
-            <span className='font-semibold'>{teacher.school_address}</span>
-          </p>
-          <p className='font-bold'>
-            School District:{' '}
-            <span className='font-semibold'>{teacher.school_district}</span>
-          </p>
-          <p className='font-bold'>
-            Zipcode :<span className='font-semibold'>{teacher.zipcode}</span>
-          </p>
-          <p className='font-bold'>
-            State Name:
-            <span className='font-semibold'>{teacher.state_name}</span>
-          </p>
-          <p className='font-bold'>
-            Class Subject:
-            <span className='font-semibold'>{teacher.class_subject}</span>
-          </p>
-        </div>
+  const [currentPage, setCurrentPage] = useState(1);
 
-        <div className=' mt-10 flex justify-center ml-6 space-x-6'>
-          <div>
-            {' '}
-            <Link to={'/teachers'}>
-              <button className='bg-teal-500 px-6 py-4 rounded text-white'>
-                Back{' '}
-              </button>
-            </Link>
-          </div>
-          <div>
-            {' '}
-            <Link to={`/teachers/${id}/edit`}>
-              <button className='bg-teal-500 px-6 py-4 rounded text-white'>
-                Edit{' '}
-              </button>
-            </Link>
-          </div>
-          <div>
-            {' '}
-            <Link to={'/teachers'}>
-              <button
-                className='bg-teal-500 px-6 py-4 rounded text-white'
-                onClick={handleDelete}
-              >
-                Delete
-              </button>
-            </Link>
+  const [studentsPerPage] = useState(2);
+
+  const indexOfLastRecord = currentPage * studentsPerPage;
+  const indexOfFirstRecord = indexOfLastRecord - studentsPerPage;
+  const currentRecords = studentData.slice(
+    indexOfFirstRecord,
+    indexOfLastRecord
+  );
+  const nPages = Math.ceil(studentData.length / studentsPerPage);
+
+  return (
+    <div className='container mx-auto px-4 sm:px-8'>
+      <div>
+        <h2 className="font-bold mt-10 mb-6 text-center text-3xl'">
+          Teacher Dashboard
+        </h2>
+      </div>
+      <p className='font-bold'>
+        Teacher Name:
+        <span className='font-semibold'>{teacher.teacher_name}</span>
+      </p>
+      <p className='font-bold'>
+        Teacher Grade:
+        <span className='font-semibold'>{teacher.teaching_grade}</span>
+      </p>
+      <p className='font-bold'>
+        School Name:{' '}
+        <span className='font-semibold'>{teacher.school_name}</span>
+      </p>
+      <div className='py-8'>
+        <div className=' mt-10 flex md:justify-center ml-6 space-x-6'>
+          {/* <Link to={'/logs/new'}> */}
+          <button
+            className='bg-indigo-500 text-center px-6 py-4 text-white rounded hover:bg-indigo-400'
+            onClick={() => setShowModal(true)}
+          >
+            Add Students{' '}
+          </button>
+          {/* </Link> */}
+          <Link to={'/teachers/'}>
+            <button className='bg-indigo-500 text-center px-6 py-4 text-white rounded hover:bg-indigo-400'>
+              Back{' '}
+            </button>
+          </Link>
+        </div>
+        {showModal ? (
+          <>
+            <Modal
+              showModal={showModal}
+              setShowModal={setShowModal}
+              choice={choice}
+            />
+          </>
+        ) : null}
+
+        <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
+          <div className='inline-block min-w-full shadow-md rounded-lg overflow-hidden'>
+            <table className='min-w-full leading-normal'>
+              <thead>
+                <tr>
+                  <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                    Id
+                  </th>
+                  <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                    Student Name
+                  </th>
+                  <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                    Reading Level
+                  </th>
+
+                  <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                    View
+                  </th>
+                  <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                    Edit
+                  </th>
+                  <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                    Delete
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {currentRecords?.map((student) => {
+                  return (
+                    <tr key={student.student_id}>
+                      <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
+                        <Link
+                          className='font-bold text-black-700 hover:underline'
+                          to={`/logs/${student.student_id}`}
+                        >
+                          {student.student_id}
+                        </Link>
+                      </td>
+                      <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
+                        <Link
+                          className='font-bold text-black-700 hover:underline'
+                          to={`/logs/${student.student_id}`}
+                        >
+                          {student.student_name}
+                        </Link>
+                      </td>
+                      <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm '>
+                        <Link
+                          className='font-bold text-black-700 hover:underline'
+                          to={`/logs/${student.student_id}`}
+                        >
+                          {student.reading_level}
+                          {/* <Book log={log} books={books} /> */}
+                        </Link>
+                      </td>
+
+                      {/* <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
+
+                        <Link
+                          className='font-bold text-black-700 hover:underline'
+                          to={`/logs/${student.student_id}`}
+                        >
+                          {student.reading_minutes}
+                        </Link>
+
+                      </td> */}
+
+                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                        {/* <div className='flex'> */}
+                        {/* <div className="flex-shrink-0 w-10 h-10"> */}
+                        <div className='ml-3 p-3 text-sm text-indigo-900'>
+                          <Link to={`/students/${id}`}>
+                            <button className=' bg-teal-500 px-6 py-4 text-black rounded '>
+                              <MdTableView />{' '}
+                            </button>
+                          </Link>
+                        </div>
+                      </td>
+                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                        <div className='ml-3 p-3 text-sm text-indigo-900'>
+                          <Link to={`/teachers/${id}/edit`}>
+                            <button className=' bg-teal-500 px-6 py-4 text-black rounded '>
+                              <FaEdit />{' '}
+                            </button>
+                          </Link>
+                        </div>
+                      </td>
+                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                        <div className='ml-3 p-3 text-sm text-indigo-900'>
+                          <Link to={`/teachers/${id}/students/`}>
+                            <button
+                              className=' bg-teal-500 px-6 py-4 text-black rounded '
+                              onClick={handleDelete}
+                            >
+                              <MdDelete />{' '}
+                            </button>
+                          </Link>
+                        </div>
+                        {/* </div> */}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+
+            <Pagination
+              nPages={nPages}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+            />
           </div>
         </div>
-      </article>
+      </div>
     </div>
   );
 };

@@ -31,6 +31,13 @@ import ShowLogs from '../../Pages/Logs/ShowLogs';
 import EditLogs from '../../Pages/Logs/EditLogs';
 import app from '../../firebase';
 
+import IndexComments from '../../Pages/Comment/IndexComments';
+import NewComment from '../../Pages/Comment/NewComment';
+import ShowComments from '../../Pages/Comment/ShowComments';
+import EditComments from '../../Pages/Comment/EditComments';
+
+import ParentDashboard from '../../Pages/ParentDashboard';
+
 // import SignUp from  '../../Pages/SignUp';
 // import TeacherSignUp from '../../Pages/TeacherSignUp';
 // import TeacherLogin from '../../Pages/TeacherLogin';
@@ -84,6 +91,7 @@ const AnimatedRoutes = () => {
             <Route path="parent-login" element={<ParentLogin />}></Route>
             </Route> */}
 
+
 						<Route path='/books'>
 							<Route index element={<IndexBooks />} />
 							<Route path='new' element={<NewBooks />} />
@@ -118,6 +126,7 @@ const AnimatedRoutes = () => {
 			</main>
 		</div>
 	);
+
 };
 
 export default AnimatedRoutes;

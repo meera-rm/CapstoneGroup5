@@ -44,46 +44,33 @@ teachers.get('/:id', async (req, res) => {
 
 // creating a teacher (new)
 teachers.post('/new', async (req, res) => {
-  const creating = await createTeacher(req.body);
-  if (creating) {
+  const newTeacher = req.body;
+
+  try {
+    const addTeacher = await createTeacher(newTeacher);
+    console.log(addTeacher);
     res.status(200).json({
-      sucess: true,
-      payload: {
-        teacher_name: creating.teacher_name,
-        school_name: creating.school_name,
-        school_district: creating.school_district,
-        school_address: creating.school_address,
-        zipcode: creating.zipcode,
-        state_name: creating.state_name,
-        class_subject: creating.class_subject,
-      },
+      success: true,
+      payload: addTeacher[0],
     });
-  } else {
-    res.status(500).json({ error: 'Teacher account creation error!' });
+  } catch (error) {
+    res
+      .status(404)
+      .json({ success: false, message: 'Teacher cannot be added' });
   }
 });
 
-// update teacher
-teachers.put('/:id/edit', async (req, res) => {
-  const { id } = req.params;
-  const { body } = req;
-  const upDating = await upDateTeacher(id, body);
-  if (upDating.id) {
-    res.status(200).json({
-      sucess: true,
-      payload: {
-        id: upDating.id,
-        teacher_name: upDating.teacher_name,
-        school_name: upDating.school_name,
-        school_district: upDating.school_district,
-        school_address: upDating.school_address,
-        zipcode: upDating.zipcode,
-        state_name: upDating.state_name,
-        class_subject: upDating.class_subject,
-      },
-    });
-  } else {
-    res.status(500).json({ error: 'Teacher update fail!' });
+teachers.put('/:teacherId', async (req, res) => {
+  const { teacherId } = req.params;
+  try {
+    const updatedTeacher = await updateTeacher(req.body, teacherId);
+    console.log('inupdate query', updatedTeacher);
+    res.status(200).json({ success: true, payload: updatedTeacher });
+  } catch (error) {
+    console.log(error);
+    res
+      .status(404)
+      .json({ success: false, message: 'Teacher cannot be updated' });
   }
 });
 
@@ -97,7 +84,5 @@ teachers.delete('/:id', async (req, res) => {
     res.status(404).json({ success: false, payload: { id: undefined } });
   }
 });
-
-
 
 module.exports = teachers;

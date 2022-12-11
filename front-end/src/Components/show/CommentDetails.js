@@ -6,8 +6,8 @@ import axios from 'axios';
 
 const API = process.env.REACT_APP_API_URL;
 
-const LogDetails = () => {
-  const [log, setLog] = useState([]);
+const CommentDetails = () => {
+  const [comment, setComment] = useState([]);
 
   let navigate = useNavigate();
 
@@ -17,17 +17,17 @@ const LogDetails = () => {
     axios
       .get(`${API}/api/logs/${id}`)
       .then((response) => {
-        setLog(response.data);
+        setComment(response.data);
       })
       .catch(() => navigate('/not-found'));
-  }, [id, navigate, log]);
+  }, [id, navigate, comment]);
 
   //Delete functions
   const handleDelete = () => {
     axios
-      .delete(`${API}/api/logs/${id}`)
+      .delete(`${API}/api/comments/${id}`)
       .then(() => {
-        navigate('/logs');
+        navigate('/comments');
       })
       .catch((e) => console.error(e));
   };
@@ -35,32 +35,28 @@ const LogDetails = () => {
   return (
     <div className='max-h-screen grid place-items-center font-mono'>
       <div className='bg-white h-24 w-64 rounded-md'></div>
-      <h2 className='font-bold mb-6 text-3xl'>Log Details</h2>
+      <h2 className='font-bold mb-6 text-3xl'>Comment Details</h2>
       <article className='text-center '>
         <div>
           <p className='font-bold'>
             Id:
-            <span className='font-semibold'>{log.log_id}</span>
+            <span className='font-semibold'>{comment.comment_id}</span>
           </p>
           <p className='font-bold'>
-            Date Read:<span className='font-semibold'>{log.date_read}</span>
+            Teachers Comments:<span className='font-semibold'>{comment.teacher_comments}</span>
+          </p>
+         
+          <p className='font-bold'>
+            Books Id:<span className='font-semibold'>{comment.books_id}</span>
           </p>
           <p className='font-bold'>
-            Reading Inference:
-            <span className='font-semibold'>{log.reading_inference}</span>
+            Student Id:<span className='font-semibold'>{comment.students_id}</span>
           </p>
           <p className='font-bold'>
-            Reading_minutes :{' '}
-            <span className='font-semibold'>{log.reading_minutes}</span>
+            Log Id:<span className='font-semibold'>{comment.logs_id}</span>
           </p>
           <p className='font-bold'>
-            Pages Read: <span className='font-semibold'>{log.pages_read}</span>
-          </p>
-          <p className='font-bold'>
-            Books Id:<span className='font-semibold'>{log.books_id}</span>
-          </p>
-          <p className='font-bold'>
-            Student Id:<span className='font-semibold'>{log.students_id}</span>
+            Teacher Id:<span className='font-semibold'>{comment.teachers_id}</span>
           </p>
         </div>
 
@@ -97,4 +93,4 @@ const LogDetails = () => {
   );
 };
 
-export default LogDetails;
+export default CommentDetails;

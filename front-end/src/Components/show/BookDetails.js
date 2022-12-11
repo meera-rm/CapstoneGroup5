@@ -40,6 +40,13 @@ const BookDetails = () => {
       <article className='text-center'>
         <div>
           <p className='font-bold'>
+            <img
+              className='text-center object-contain h-52 w-96'
+              src={`${book.book_picture}`}
+              alt={book.book_picture}
+            />
+          </p>
+          <p className='font-bold'>
             {' '}
             Id:
             <span className='font-semibold'>{book.book_id}</span>
@@ -55,13 +62,12 @@ const BookDetails = () => {
             ISBN : <span className='font-semibold'>{book.isbn_number}</span>
           </p>
           <p className='font-bold'>
-            Publication: <span className='font-semibold'>{book.publication}</span>
+            Publication:{' '}
+            <span className='font-semibold'>{book.publication}</span>
           </p>
           <p className='font-bold'>
-            Picture :<span className='font-semibold'>{book.book_picture}</span>
-          </p>
-          <p className='font-bold'>
-            Reading Level:<span className='font-semibold'>{book.reading_level}</span>
+            Reading Level:
+            <span className='font-semibold'>{book.reading_level}</span>
           </p>
         </div>
 

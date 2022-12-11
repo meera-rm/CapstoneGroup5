@@ -18,16 +18,18 @@ const Navbar = () => {
   return (
     <React.Fragment>
       <section className='bg-teal-500'>
-        <nav className='w-full h-12 px-5 flex items-center justify-between md:w-4/5 md:mx-auto'>
+        <nav className='w-full h-12 px-4 flex items-center justify-between md:w-4/5 md:mx-auto'>
           <div className='realtive flex-grow'>
-            <img
-              src={logoImage}
-              alt='logo'
-              className='absolute -left-1 -top-0 w-12 h-12'
-            />
+            <Link to='/'>
+              <img
+                src={logoImage}
+                alt='logo'
+                className='absolute -left-1 -top-0 w-12 h-12'
+              />
+            </Link>
           </div>
 
-          <div className='text-2xl text-white md:hidden'>
+          <div className='text-2xl text-black md:hidden'>
             {menu === false ? (
               <AiOutlineMenu onClick={handleMenu} />
             ) : (
@@ -36,46 +38,49 @@ const Navbar = () => {
           </div>
 
           {/* large screen */}
-          <nav className='hidden md:block md:container pl-10'>
+          <nav className='hidden md:block md:container pl-90'>
             <div className='flex justify-between text-xl'>
-              <div className='flex text-white space-x-4'>
-                <Link to='/'>
+              <div className='flex text-black space-x-8'>
+                {/* <Link to='/'>
                   <p className=''>Home</p>
+                </Link> */}
+                <Link to='/about'>
+                  <p className=''>ABOUT</p>
                 </Link>
                 <Link to='/books'>
-                  <p className=''>Books</p>
-                </Link>
-                <Link to='/students'>
-                  <p className='' onClick={handleNavLinkDisappear}>
-                    Students
-                  </p>
+                  <p className=''>BOOKS</p>
                 </Link>
                 <Link to='/teachers'>
                   <p className='' onClick={handleNavLinkDisappear}>
-                    Teachers
+                    TEACHERS
                   </p>
                 </Link>
-                <Link to='/logs'>
+
+                <Link to='/students'>
+                  <p className='' onClick={handleNavLinkDisappear}>
+                    STUDENTS
+                  </p>
+                </Link>
+
+                {/* <Link to='/logs'>
                   <p className='' onClick={handleNavLinkDisappear}>
                     Logs
                   </p>
-                </Link>
-                <Link to='/about'>
-                  <p className=''>About</p>
-                </Link>
+
+                </Link>  */}
               </div>
-              <div className='flex space-x-4'>
+              <div className='flex space-x-6 pl-90'>
                 <Link to='/signUp'>
-                  <p className=' capitalize bg-green-400 w-20  text-center rounded-md'>
-                    Sign up
+                  <p className=' bg-green-400 w-20 text-center rounded-md'>
+                    SIGN UP
                   </p>
                 </Link>
                 <Link to='/login'>
                   <p
-                    className='capitalize bg-green-400 w-20 text-center rounded-md'
+                    className='bg-green-400 w-20 text-center rounded-md'
                     onClick={handleNavLinkDisappear}
                   >
-                    Log In
+                    LOG IN
                   </p>
                 </Link>
               </div>
@@ -86,31 +91,11 @@ const Navbar = () => {
         {/* mobile screen */}
         <nav className='md:hidden'>
           {menu && (
-            <div className='text-xl border-t text-white mx-5'>
+            <div className='text-xl border-t text-black mx-5'>
               <div className='space-y-6 py-4 '>
                 <Link to='/'>
                   <p className='mt-2' onClick={handleNavLinkDisappear}>
                     Home
-                  </p>
-                </Link>
-                <Link to='/books'>
-                  <p className='mt-2' onClick={handleNavLinkDisappear}>
-                    Books
-                  </p>
-                </Link>
-                <Link to='/students'>
-                  <p className='mt-2' onClick={handleNavLinkDisappear}>
-                    Students
-                  </p>
-                </Link>
-                <Link to='/teachers'>
-                  <p className='mt-2' onClick={handleNavLinkDisappear}>
-                    Teachers
-                  </p>
-                </Link>
-                <Link to='/logs'>
-                  <p className='mt-2' onClick={handleNavLinkDisappear}>
-                    Logs
                   </p>
                 </Link>
                 <Link to='/about'>
@@ -118,6 +103,28 @@ const Navbar = () => {
                     About
                   </p>
                 </Link>
+                <Link to='/books'>
+                  <p className='mt-2' onClick={handleNavLinkDisappear}>
+                    Books
+                  </p>
+                </Link>
+                <Link to='/teachers'>
+                  <p className='mt-2' onClick={handleNavLinkDisappear}>
+                    Teachers
+                  </p>
+                </Link>
+                <Link to='/students'>
+                  <p className='mt-2' onClick={handleNavLinkDisappear}>
+                    Students
+                  </p>
+                </Link>
+                {/* 
+                <Link to='/logs'>
+                  <p className='mt-2' onClick={handleNavLinkDisappear}>
+                    Logs
+                  </p>
+                </Link> */}
+
                 <Link to='/signup'>
                   <p
                     className='mt-4 capitalize bg-green-400 w-32 text-center rounded-md'

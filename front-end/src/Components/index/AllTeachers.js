@@ -10,16 +10,17 @@ const AllTeachers = () => {
   const [teacherData, setTeacherData] = useState([]);
 
   useEffect(() => {
-    axios.get(`${API}/api/teachers`)
-    //  .then((response) => console.log(response.data))
+    axios
+      .get(`${API}/api/teachers`)
+      //  .then((response) => console.log(response.data))
       .then((response) => setTeacherData(response.data.payload))
       .catch((e) => console.error('catch', e));
-    
   }, [teacherData]);
 
   return (
     <div className='px-16 py-6 md:col-span-2 '>
-    <h2 className='text-center text-indigo-600 '>Books</h2>
+
+    <h2 className='text-center text-indigo-600 '>Teachers</h2>
     <div className='text-center '>
       <Link to={`/teachers/new`}>
         <button className=' btn bg-indigo-500 px-4 py-4 rounded text-white hover:bg-teal-400'>
@@ -42,30 +43,28 @@ const AllTeachers = () => {
                 key={teacher.teacher_id}
               >
                 {/* <img
+
                   className='text-center'
                   src={`${book.book_picture}`}
                   alt=''
                 /> */}
 
-                {/* </div>
+                  {/* </div>
              <div> */}
-                <p className='text-center'>Teacher Name: {teacher.teacher_name}</p>
-                <p className='text-center'>Subject:{teacher.class_subject}</p>
-                <p className='text-center'>
-                  Grade: {teacher.teaching_grade}
-                </p>
-              </Link>
-            </div>
-          </section>
-        );
-      })}
-      {/* </div> */}
+                  <p className='text-center'>
+                    Teacher Name: {teacher.teacher_name}
+                  </p>
+                  <p className='text-center'>Subject:{teacher.class_subject}</p>
+                  <p className='text-center'>Grade: {teacher.teaching_grade}</p>
+                </Link>
+              </div>
+            </section>
+          );
+        })}
+        {/* </div> */}
+      </div>
     </div>
-  </div>
   );
 };
 
 export default AllTeachers;
-
-
-

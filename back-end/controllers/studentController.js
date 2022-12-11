@@ -18,7 +18,6 @@ const {
   deleteStudent,
 } = require('../queries/students');
 
-const { getALog } = require('../queries/logs.js');
 
 const { checkPicture } = require('../validations/checkBooks');
 
@@ -26,7 +25,9 @@ const { checkPicture } = require('../validations/checkBooks');
 students.get('/', async (req, res) => {
   console.log('get all /');
 
-  const allStudents = await getAllStudents();
+  const {teacherId} = req.params;
+  const allStudents = await getAllStudents(teacherId);
+
   try {
     if (allStudents[0]) {
       res.status(200).json(allStudents);
@@ -38,7 +39,7 @@ students.get('/', async (req, res) => {
   }
 });
 
-// //Show
+//Show
 students.get('/:studentId', async (req, res) => {
   console.log('get one /:id');
   const { studentId } = req.params;
@@ -52,9 +53,10 @@ students.get('/:studentId', async (req, res) => {
   }
 });
 
-// //CREATE
-students.post('/new', checkPicture, async (req, res) => {
+//CREATE
+students.post('/new',  async (req, res) => {
   const newStudent = req.body;
+  // console.log(newStudent)
   try {
     const addStudent = await createStudent(newStudent);
     res.status(200).json({
@@ -62,34 +64,31 @@ students.post('/new', checkPicture, async (req, res) => {
       payload: addStudent[0],
     });
   } catch (error) {
-    // console.log('Caught in error')
+    
     res
       .status(404)
       .json({ success: false, message: 'Student cannot be added' });
   }
 });
 
-// //update
+//Update
 students.put('/:studentId', async (req, res) => {
-  console.log('Put /:studentId');
   const { studentId } = req.params;
-
+  try {
   const updatedStudent = await updateStudent(req.body, studentId);
-
-  if (updatedStudent.id) {
-    res.status(200).json({
-      success: true,
-      payload: updatedStudent,
-    });
-  } else {
-    res.status(404).json({
-      success: false,
-      payload: 'bad request',
-    });
+  console.log('inupdate query',updatedStudent)
+    res.status(200).json({ success: true, payload: updatedStudent });
+  } catch (error) {
+    console.log(error);
+    res
+      .status(404)
+      .json({ success: false, message: 'Book info cannot be updated' });
   }
+ 
+ 
 });
 
-// //DELETE
+//DELETE
 students.delete('/:studentId', async (req, res) => {
   console.log('Delete /:studentId', req.body, req.params);
   const { studentId } = req.params;
@@ -115,7 +114,6 @@ students.delete('/:studentId', async (req, res) => {
     });
   }
 });
-
 
 
 

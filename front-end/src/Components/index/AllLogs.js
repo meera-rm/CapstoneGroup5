@@ -1,39 +1,42 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-
+import { Link, useParams, useNavigate } from 'react-router-dom';
 // import Table from 'react-bootstrap/Table';
-
+import Student from './Student.js';
 const API = process.env.REACT_APP_API_URL;
 
 const AllLogs = () => {
   const [logData, setLogData] = useState([]);
   const [bookData, setBookData] = useState([]);
   const [studentData, setStudentData] = useState([]);
-  let { logId } = useParams();
+  let navigate = useNavigate();
+  let { id } = useParams();
 
   useEffect(() => {
     axios
       .get(`${API}/api/logs`)
-     // .then((response) => console.log(response.data))
+      // .then((response) => console.log(response.data))
       .then((response) => setLogData(response.data))
       .catch((e) => console.error('catch', e));
-   
-      // axios
-      // .get(`${API}/api/books/:${logData.books_id}`)
-      // //  .then((response) => console.log(response.data))
-      // .then((response) => setBookData(response.data.payload))
-      // .catch((e) => console.error('catch', e));
+  }, [logData]);
 
-      // axios
-      // .get(`${API}/api/books/:${logData.students_id}`)
-      // //  .then((response) => console.log(response.data))
-      // .then((response) => setStudentData(response.data.payload))
-      // .catch((e) => console.error('catch', e));
+  //   useEffect(() => {
+  //axios
+  // .get(`${API}/api/books/:${logData.books_id}`)
+  // //  .then((response) => console.log(response.data))
+  // .then((response) => setBookData(response.data.payload))
+  // .catch((e) => console.error('catch', e));
+  // }, [logData]);
 
-  }, [logId]);
- 
-
+  useEffect(() => {
+    axios
+      .get(`${API}/api/students`)
+      // console.log(response.data.payload))
+      .then((response) => {
+        setStudentData(response.data);
+      })
+      .catch((e) => navigate('/not-found'));
+  }, [navigate]);
 
   return (
     <div className='px-16 py-6 md:col-span-2 '>
@@ -51,7 +54,7 @@ const AllLogs = () => {
           return (
             <section
               className='border rounded-md  hover:shadow-md'
-              key={log.log_id }
+              key={log.log_id}
             >
               <div className='display-cards'>
                 <Link
@@ -59,7 +62,7 @@ const AllLogs = () => {
                   to={`/logs/` + log.log_id}
                   key={log.log_id}
                 >
-                    <img
+                  <img
                     className='text-center'
                     src={`${bookData.book_picture}`}
                     alt=''
@@ -67,10 +70,15 @@ const AllLogs = () => {
 
                   {/* </div>
                <div> */}
-                  <p className='text-center'>Student Name: {log.pages_read}</p>
+
+                  <p className='text-center'>
+                    Student Name:{' '}
+                    <Student log={log} studentData={studentData} />
+                  </p>
+                  <p className='text-center'>Pages Read: {log.pages_read}</p>
                   <p className='text-center'>Log Id: {log.log_id}</p>
                   <p className='text-center'>
-                   Minutes Read: {log.reading_minutes}
+                    Minutes Read: {log.reading_minutes}
                   </p>
                 </Link>
               </div>
@@ -80,7 +88,6 @@ const AllLogs = () => {
         {/* </div> */}
       </div>
     </div>
-    
   );
 };
 
