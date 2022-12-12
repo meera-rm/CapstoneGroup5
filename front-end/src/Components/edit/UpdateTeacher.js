@@ -54,11 +54,14 @@ const UpdateTeacher = () => {
   return (
     // <div className='edit-teacher'>
     <div className='flex flex-col text-center h-screen items-center justify-center '>
-    <div className='rounded-md  py-4 px-6 text-black lg:w-2/5 md:w-3/5 w-4/5'></div>
+      <div className='rounded-md  py-4 px-6 text-black lg:w-2/5 md:w-3/5 w-4/5'></div>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label  className='py-6' htmlFor='teacherName'>TeacherName:</label>
+        <div className='pb-4'>
+          <label className='py-6' htmlFor='teacherName'>
+            TeacherName:
+          </label>
           <input
+            className='border-2 border-black-700 outline'
             id='teacherName'
             name='teacherName'
             value={teacher.teacher_name}
@@ -67,9 +70,12 @@ const UpdateTeacher = () => {
             placeholder='Teacher name'
           />
         </div>
-        <div>
-          <label   className='py-6' htmlFor='schoolname'>School Name:</label>
+        <div className='pb-4'>
+          <label className='py-6' htmlFor='schoolname'>
+            School Name:
+          </label>
           <input
+            className='border-2 border-black-700 outline'
             id='schoolname'
             type='text'
             name='schoolname'
@@ -78,9 +84,12 @@ const UpdateTeacher = () => {
             onChange={onInputChange}
           />
         </div>
-        <div>
-          <label   className='py-6' htmlFor='school_district'>School Disctrict:</label>
+        <div className='pb-4'>
+          <label className='py-6' htmlFor='school_district'>
+            School District:
+          </label>
           <input
+            className='border-2 border-black-700 outline'
             id='school_district'
             type='text'
             name='school_district'
@@ -88,9 +97,12 @@ const UpdateTeacher = () => {
             onChange={onInputChange}
           />
         </div>
-        <div>
-          <label  className='py-6' htmlFor='school_address'>School Address:</label>
+        <div className='pb-4'>
+          <label className='py-6' htmlFor='school_address'>
+            School Address:
+          </label>
           <input
+            className='border-2 border-black-700 outline'
             id='school_address'
             name='school_address'
             type='text'
@@ -100,9 +112,12 @@ const UpdateTeacher = () => {
           />
         </div>
 
-        <div>
-          <label  className='py-6' htmlFor='zipcode'>Cover Image: </label>
+        <div className='pb-4'>
+          <label className='py-6' htmlFor='zipcode'>
+            Zip Code:{' '}
+          </label>
           <input
+            className='border-2 border-black-700 outline'
             id='zipcode'
             type='text'
             name='zipcode'
@@ -111,9 +126,12 @@ const UpdateTeacher = () => {
             onChange={onInputChange}
           />
         </div>
-        <div>
-          <label  className='py-6' htmlFor='state_name'>Reading Level:</label>
+        <div className='pb-4'>
+          <label className='py-6' htmlFor='state_name'>
+            State:
+          </label>
           <input
+            className='border-2 border-black-700 outline'
             id='state_name'
             type='state_name'
             name='state_name'
@@ -121,9 +139,12 @@ const UpdateTeacher = () => {
             onChange={onInputChange}
           />
         </div>
-        <div>
-          <label  className='py-6' htmlFor='class_subject'>Reading Level:</label>
+        <div className='pb-4'>
+          <label className='py-6' htmlFor='class_subject'>
+            Class Subject:
+          </label>
           <input
+            className='border-2 border-black-700 outline'
             id='class_subject'
             type='class_subject'
             name='class_subject'
@@ -132,13 +153,9 @@ const UpdateTeacher = () => {
           />
         </div>
 
-        <div
-          
-          className='justify-center ml-6 space-x-6'
-        >
+        <div className='justify-center ml-6 space-x-6'>
           {/* <div> */}
           <input
-            
             className='px-5  py-3 rounded bg-teal-500'
             type='submit'
             value='submit'
@@ -146,12 +163,7 @@ const UpdateTeacher = () => {
           {/* </div>
           <div> */}
           <Link to={`/teachers/${id}`}>
-            <button
-             
-              className='px-5  py-3 rounded bg-teal-500'
-            >
-              Back
-            </button>
+            <button className='px-5  py-3 rounded bg-teal-500'>Back</button>
           </Link>
           {/* </div> */}
         </div>

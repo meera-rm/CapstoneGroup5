@@ -24,6 +24,7 @@ import StudentIndex from '../../Pages/Student/StudentIndex';
 import StudentNew from '../../Pages/Student/StudentNew';
 import StudentShow from '../../Pages/Student/StudentShow';
 import StudentEdit from '../../Pages/Student/StudentEdit';
+import StudentView from '../../Pages/Student/StudentView';
 
 import IndexLogs from '../../Pages/Logs/IndexLogs';
 import NewLog from '../../Pages/Logs/NewLog';
@@ -35,7 +36,8 @@ import IndexComments from '../../Pages/Comment/IndexComments';
 import NewComment from '../../Pages/Comment/NewComment';
 import ShowComments from '../../Pages/Comment/ShowComments';
 import EditComments from '../../Pages/Comment/EditComments';
-
+import Information from '../../Pages/Information';
+import PrivacyPolicy from '../../Pages/PrivacyPolicy';
 import ParentDashboard from '../../Pages/ParentDashboard';
 
 // import SignUp from  '../../Pages/SignUp';
@@ -46,6 +48,22 @@ import ParentDashboard from '../../Pages/ParentDashboard';
 
 //This component to define navbar animate tranisitons
 const AnimatedRoutes = () => {
+
+  const location = useLocation();
+  return (
+    <div>
+      <main>
+        <AnimatePresence>
+          <Routes location={location} key={location.pathname}>
+            <Route path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            {/* <Route path='/contact' element={<Contact />} /> */}
+            <Route path='/signup' element={<Register />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/info' element={<Information/>}/>
+            <Route path='/policy' element={<PrivacyPolicy/>}/>
+            {/* <Route path='/signUp'>
+
 	// logging in
 	const [signedIn, setSignedIn] = useState(false);
 
@@ -80,6 +98,7 @@ const AnimatedRoutes = () => {
 						/>
 
 						{/* <Route path='/signUp'>
+
             <Route index element={<SignUp/>} />
             <Route path='teacher-signup' element={<TeacherSignUp />}></Route>
           
@@ -92,40 +111,51 @@ const AnimatedRoutes = () => {
             </Route> */}
 
 
-						<Route path='/books'>
-							<Route index element={<IndexBooks />} />
-							<Route path='new' element={<NewBooks />} />
-							<Route path=':id' element={<ShowBooks />} />
-							<Route path=':id/edit' element={<EditBooks />} />
-						</Route>
+            <Route path='/books'>
+              <Route index element={<IndexBooks />} />
+              <Route path='new' element={<NewBooks />} />
+              <Route path=':id' element={<ShowBooks />} />
+              <Route path=':id/edit' element={<EditBooks />} />
+            </Route>
 
-						<Route path='/students'>
-							<Route index element={<StudentIndex />} />
-							<Route path='new' element={<StudentNew />} />
-							<Route path=':id' element={<StudentShow />} />
-							<Route path=':id/edit' element={<StudentEdit />} />
-						</Route>
+            <Route path='/students'>
+              <Route index element={<StudentIndex />} />
+              <Route path='new' element={<StudentNew />} />
+              <Route path=':id' element={<StudentShow />} />
+              <Route path=':id/edit' element={<StudentEdit />} />
+              <Route path=':id/show' element={<StudentView />} />
+            </Route>
 
-						<Route path='/teachers'>
-							<Route index element={<TeacherIndex />} />
-							<Route path='new' element={<TeacherNew />} />
-							<Route path=':id' element={<TeacherShow />} />
-							<Route path=':id/edit' element={<TeacherEdit />} />
-						</Route>
 
-						<Route path='/logs'>
-							<Route index element={<IndexLogs />} />
-							<Route path='new' element={<NewLog />} />
-							<Route path=':id' element={<ShowLogs />} />
-							<Route path=':id/edit' element={<EditLogs />} />
-						</Route>
+            <Route path='/teachers'>
+              <Route index element={<TeacherIndex />} />
+              <Route path='new' element={<TeacherNew />} />
+              <Route path=':id' element={<TeacherShow />} />
+              <Route path=':id/edit' element={<TeacherEdit />} />
+              
+            </Route>
 
-						<Route path='*' element={<FourOFour />} />
-					</Routes>
-				</AnimatePresence>
-			</main>
-		</div>
-	);
+            <Route path='/logs'>
+              <Route index element={<IndexLogs />} />
+              <Route path='new' element={<NewLog />} />
+              <Route path=':id' element={<ShowLogs />} />
+              <Route path=':id/edit' element={<EditLogs />} />
+            </Route>
+
+            <Route path='/comments'>
+              <Route index element={<IndexComments />} />
+              <Route path='new' element={<NewComment />} />
+              <Route path=':id' element={<ShowComments />} />
+              <Route path=':id/edit' element={<EditComments />} />
+            </Route>
+
+            <Route path='/parent-dashboard' element={<ParentDashboard />} />
+            <Route path='*' element={<FourOFour />} />
+          </Routes>
+        </AnimatePresence>
+      </main>
+    </div>
+  );
 
 };
 

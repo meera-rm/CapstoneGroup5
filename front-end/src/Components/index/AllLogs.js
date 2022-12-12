@@ -71,13 +71,17 @@ const AllLogs = () => {
                   {/* </div>
                <div> */}
 
-                  <p className='text-center'>
+                  <p className='text-center border-2 border-indigo-300'>
                     Student Name:{' '}
                     <Student log={log} studentData={studentData} />
                   </p>
-                  <p className='text-center'>Pages Read: {log.pages_read}</p>
-                  <p className='text-center'>Log Id: {log.log_id}</p>
-                  <p className='text-center'>
+                  <p className='text-center border-2 border-indigo-300'>
+                    Pages Read: {log.pages_read}
+                  </p>
+                  <p className='text-center border-2 border-indigo-300'>
+                    Log Id: {log.log_id}
+                  </p>
+                  <p className='text-center border-2 border-indigo-300'>
                     Minutes Read: {log.reading_minutes}
                   </p>
                 </Link>

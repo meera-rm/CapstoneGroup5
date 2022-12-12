@@ -52,25 +52,26 @@ const UpdateBooks = () => {
     <div className='flex flex-col text-center h-screen items-center justify-center '>
       <div className='rounded-md  py-4 px-6 text-black lg:w-2/5 md:w-3/5 w-4/5'>
         <form onSubmit={handleSubmit}>
-          <div>
+          <div className='pb-4'>
             <label className='py-6' htmlFor='bookTitle'>
-              Booktitle:
+              Book Title:{' '}
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='bookTitle'
               name='bookTitle'
               value={book.book_title}
               type='text'
               onChange={onInputChange}
               placeholder='Book title'
-              required
             />
           </div>
-          <div>
+          <div className='pb-4'>
             <label className='py-6' htmlFor='author'>
-              Author:
+              Author:{' '}
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='author'
               type='text'
               name='author'
@@ -79,52 +80,54 @@ const UpdateBooks = () => {
               onChange={onInputChange}
             />
           </div>
-          <div>
+          <div className='pb-4'>
             <label className='py-6' htmlFor='isbn'>
-              ISBN Number:
+              ISBN Number:{' '}
             </label>
             <input
-              id='isnbe'
+              className='border-2 border-black-700 outline'
+              id='isbn'
               type='text'
               name='isbn'
               value={book.isbn_number}
               onChange={onInputChange}
             />
           </div>
-          <div>
+          <div className='pb-4'>
             <label className='py-6' htmlFor='publication'>
-              Publication:
+              Publication:{' '}
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='publication'
               name='publication'
               type='text'
-              required
               value={book.publication}
               placeholder='publication'
               onChange={onInputChange}
             />
           </div>
 
-          <div>
+          <div className='pb-4'>
             <label className='py-6' htmlFor='picture'>
               Cover Image:{' '}
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='picture'
               type='text'
               name='picture'
               value={book.book_picture}
               placeholder='picture'
               onChange={onInputChange}
-              required
             />
           </div>
-          <div>
+          <div className='pb-4'>
             <label className='py-6' htmlFor='readingLevel'>
-              Reading Level:
+              Reading Level:{' '}
             </label>
             <input
+              className='border-2 border-black-700 outline'
               id='readingLevel'
               type='text'
               name='readingLevel'
