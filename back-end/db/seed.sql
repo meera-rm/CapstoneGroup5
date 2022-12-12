@@ -34,6 +34,7 @@ INSERT INTO comments(teacher_comments,logs_id,teachers_id)VALUES
 
 
 INSERT INTO users(users_name,users_role,users_email,user_password) VALUES
+('Admin', 'admin', 'admin@scholarsheep.org', 'Sheeper'),
 ('Thomas Edward','parent', 'thomas@gmail.com', 'celia08'),
 ('Christine Duncan', 'parent', 'christine@msn.com','jade14'),
 ('Norma Lioudis', 'parent', 'norma@a0l.com', 'barry10'),

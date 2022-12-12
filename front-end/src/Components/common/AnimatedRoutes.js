@@ -1,6 +1,7 @@
 import React from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { useState } from 'react'
 
 // PAGES
 import FourOFour from '../../Pages/FourOFour';
@@ -28,6 +29,7 @@ import IndexLogs from '../../Pages/Logs/IndexLogs';
 import NewLog from '../../Pages/Logs/NewLog';
 import ShowLogs from '../../Pages/Logs/ShowLogs';
 import EditLogs from '../../Pages/Logs/EditLogs';
+import app from '../../firebase';
 
 import IndexComments from '../../Pages/Comment/IndexComments';
 import NewComment from '../../Pages/Comment/NewComment';
@@ -42,82 +44,89 @@ import ParentDashboard from '../../Pages/ParentDashboard';
 // import ParentLogin from '../../Pages/ParentLogin';
 // import ParentSignUp from '../../Pages/ParentSignUp';
 
-
-
 //This component to define navbar animate tranisitons
 const AnimatedRoutes = () => {
-  const location = useLocation();
-  return (
-    <div>
-      <main>
-        <AnimatePresence>
-          <Routes location={location} key={location.pathname}>
-            <Route path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
-            {/* <Route path='/contact' element={<Contact />} /> */}
-            <Route path='/signup' element={<Register />} />
-            <Route path='/login' element={<Login />} />
+	// logging in
+	const [signedIn, setSignedIn] = useState(false);
 
-            {/* <Route path='/signUp'>
+	const [signedInUser, setSignedInUser] = useState({});
+
+	// signing up /register
+
+  const [register, setRegister] = useState(false)
+
+  const [hasRegistered, setHasRegistered] = useState({})
+
+	const location = useLocation();
+	return (
+		<div>
+			<main>
+				<AnimatePresence>
+					<Routes location={location} key={location.pathname}>
+						<Route path='/' element={<Home />} />
+						<Route path='/about' element={<About />} />
+						{/* <Route path='/contact' element={<Contact />} /> */}
+						<Route path='/signup' element={<Register register = {register} setRegister = {setRegister} hasRegistered = {hasRegistered} setHasRegistered = {setHasRegistered} />} />
+						<Route
+							path='/login'
+							element={
+								<Login
+									signedIn={signedIn}
+									setSignedIn={setSignedIn}
+									signedInUser={signedInUser}
+									setSignedInUser={setSignedInUser}
+								/>
+							}
+						/>
+
+						{/* <Route path='/signUp'>
             <Route index element={<SignUp/>} />
             <Route path='teacher-signup' element={<TeacherSignUp />}></Route>
           
             <Route path="parent-signup" element={<ParentSignUp />}></Route>
             </Route> */}
-            {/* <Route path='/login'>
+						{/* <Route path='/login'>
             <Route index element={<SignUp/>} />
             <Route path="teacher-login" element={<TeacherLogin />}></Route>
             <Route path="parent-login" element={<ParentLogin />}></Route>
             </Route> */}
 
-            <Route path='/books'>
-             
-              <Route index element={<IndexBooks />} />
-              <Route path='new' element={<NewBooks />} />
-              <Route path=':id' element={<ShowBooks />} />
-              <Route path=':id/edit' element={<EditBooks />} />
-            </Route>
-            
-            <Route path='/students'>
-              <Route index element={<StudentIndex />} />
-              <Route path='new' element={<StudentNew />} />
-              <Route path=':id' element={<StudentShow />} />
-              <Route path=':id/edit' element={<StudentEdit />} />
-            </Route>
-            
-            <Route path='/teachers'>
-              <Route index element={<TeacherIndex />} />
-              <Route path='new' element={<TeacherNew />} />
-              <Route path=':id' element={<TeacherShow />} />
-              <Route path=':id/edit' element={<TeacherEdit />} />
-            </Route>
 
-            <Route path='/logs'>
-              <Route index element={<IndexLogs />} />
-              <Route path='new' element={<NewLog />} />
-              <Route path=':id' element={<ShowLogs />} />
-              <Route path=':id/edit' element={<EditLogs />} />
-            </Route>
+						<Route path='/books'>
+							<Route index element={<IndexBooks />} />
+							<Route path='new' element={<NewBooks />} />
+							<Route path=':id' element={<ShowBooks />} />
+							<Route path=':id/edit' element={<EditBooks />} />
+						</Route>
 
-            <Route path='/comments'>
-              <Route index element={<IndexComments />} />
-              <Route path='new' element={<NewComment />} />
-              <Route path=':id' element={<ShowComments />} />
-              <Route path=':id/edit' element={<EditComments />} />
-            </Route>
+						<Route path='/students'>
+							<Route index element={<StudentIndex />} />
+							<Route path='new' element={<StudentNew />} />
+							<Route path=':id' element={<StudentShow />} />
+							<Route path=':id/edit' element={<StudentEdit />} />
+						</Route>
 
+						<Route path='/teachers'>
+							<Route index element={<TeacherIndex />} />
+							<Route path='new' element={<TeacherNew />} />
+							<Route path=':id' element={<TeacherShow />} />
+							<Route path=':id/edit' element={<TeacherEdit />} />
+						</Route>
 
-            <Route path="/parent-dashboard" element={<ParentDashboard/>}/>
-            <Route path='*' element={<FourOFour />} />
-          </Routes>
-        </AnimatePresence>
-      </main>
-    </div>
-  );
+						<Route path='/logs'>
+							<Route index element={<IndexLogs />} />
+							<Route path='new' element={<NewLog />} />
+							<Route path=':id' element={<ShowLogs />} />
+							<Route path=':id/edit' element={<EditLogs />} />
+						</Route>
+
+						<Route path='*' element={<FourOFour />} />
+					</Routes>
+				</AnimatePresence>
+			</main>
+		</div>
+	);
+
 };
 
 export default AnimatedRoutes;
-
-
-
-
