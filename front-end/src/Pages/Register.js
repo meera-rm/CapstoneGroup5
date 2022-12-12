@@ -49,6 +49,7 @@ const Register = ({register, setRegister, hasRegistered, setHasRegistered}) => {
 	// };
 
 
+
 	const handleSignUp = () => {
 		createUserWithEmailAndPassword(
 			auth,
@@ -146,6 +147,7 @@ const Register = ({register, setRegister, hasRegistered, setHasRegistered}) => {
 								onChange={handleChange}
 							/>
 						</div>
+
 
 						<div class='flex flex-col mb-6 md:w-full'>
 							<label

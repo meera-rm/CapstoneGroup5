@@ -56,6 +56,7 @@ const NewBooks = () => {
               type='text'
               value={newBook.book_title}
               name='book_title'
+              autoComplete='off'
               onChange={onInputChange}
               placeholder='Book title'
               required
@@ -72,6 +73,7 @@ const NewBooks = () => {
               name='book_author'
               value={newBook.book_author}
               placeholder='author'
+              autoComplete='off'
               onChange={onInputChange}
             />
           </div>
@@ -85,6 +87,7 @@ const NewBooks = () => {
               type='text'
               name='isbn_number'
               placeholder='isbn number'
+              autoComplete='off'
               value={newBook.isbn_number}
               onChange={onInputChange}
             />
@@ -100,6 +103,7 @@ const NewBooks = () => {
               type='text'
               required
               value={newBook.publication}
+              autoComplete='off'
               placeholder='publication'
               onChange={onInputChange}
             />
@@ -115,6 +119,7 @@ const NewBooks = () => {
               type='text'
               name='book_picture'
               value={newBook.book_picture}
+              autoComplete='off'
               placeholder='cover image of book'
               onChange={onInputChange}
               required
@@ -130,6 +135,7 @@ const NewBooks = () => {
               type='text'
               name='grade'
               value={newBook.grade}
+              autoComplete='off'
               placeholder='students Grade'
               onChange={onInputChange}
               required
@@ -146,6 +152,7 @@ const NewBooks = () => {
               type='text'
               name='reading_level'
               placeholder='reading level'
+              autoComplete='off'
               value={newBook.reading_level}
               onChange={onInputChange}
               required
@@ -170,8 +177,3 @@ const NewBooks = () => {
 };
 
 export default NewBooks;
-
-// https://stackoverflow.com/questions/64495308/cascade-dropdown-using-react-hooks
-// https://codesandbox.io/s/react-cascading-select-c3hji
-// https://www.cluemediator.com/cascading-dropdown-in-react
-// https://stackoverflow.com/questions/54032379/call-two-functions-within-onchange-event-in-react

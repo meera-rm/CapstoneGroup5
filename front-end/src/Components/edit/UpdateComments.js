@@ -11,7 +11,7 @@ const UpdateComments = () => {
 
   const [comment, setComment] = useState({
     comment_id: '',
-    teacher_comments:'',
+    teacher_comments: '',
     books_id: '',
     students_id: '',
     logs_id: '',
@@ -58,10 +58,13 @@ const UpdateComments = () => {
           <label className='py-6' htmlFor='teacher_comments'>
             Comments
           </label>
+
           <input className='border-2 border-black-700 outline'
+
             id='teacher_comments'
             name='teacher_comments'
             value={comment.teacher_comments}
+            autoComplete='off'
             type='text'
             onChange={onInputChange}
             placeholder='Teacher Comments'
