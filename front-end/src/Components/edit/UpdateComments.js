@@ -58,8 +58,9 @@ const UpdateComments = () => {
           <label className='py-6' htmlFor='teacher_comments'>
             Comments
           </label>
-          <input
-            className='border-2 border-black-700 outline'
+
+          <input className='border-2 border-black-700 outline'
+
             id='teacher_comments'
             name='teacher_comments'
             value={comment.teacher_comments}

@@ -60,8 +60,9 @@ const UpdateLog = () => {
           <label className='py-6' htmlFor='reading_inference'>
             Inference:
           </label>
-          <input
-            className='border-2 border-black-700 outline'
+
+          <input className='border-2 border-black-700 outline'
+
             id='reading_inference'
             name='reading_inference'
             value={log.reading_inference}
@@ -74,8 +75,9 @@ const UpdateLog = () => {
           <label className='py-6' htmlFor='reading_minutes'>
             Minutes Read:
           </label>
-          <input
-            className='border-2 border-black-700 outline'
+
+          <input className='border-2 border-black-700 outline'
+
             id='reading_minutes'
             type='text'
             name='reading_minutes'
@@ -89,8 +91,9 @@ const UpdateLog = () => {
           <label className='py-6' htmlFor='pages_read'>
             Pages Read:
           </label>
-          <input
-            className='border-2 border-black-700 outline'
+
+          <input className='border-2 border-black-700 outline'
+
             id='pages_read'
             type='text'
             name='pages_read'
@@ -103,8 +106,9 @@ const UpdateLog = () => {
           <label className='py-6' htmlFor='books_id'>
             Book Id:
           </label>
-          <input
-            className='border-2 border-black-700 outline'
+
+          <input className='border-2 border-black-700 outline'
+
             id='books_id'
             name='books_id'
             type='text'

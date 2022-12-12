@@ -6,6 +6,7 @@ import { useNavigate, useParams, Link } from 'react-router-dom';
 const API = process.env.REACT_APP_API_URL;
 
 const NewStudentsModal = (props) => {
+
   const navigate = useNavigate();
   let { id } = useParams();
 
@@ -44,6 +45,7 @@ const NewStudentsModal = (props) => {
       .catch((c) => console.error('catch', c));
   };
 
+
   return (
     // <div className='add-trans'>
     // <div className='flex flex-col text-center h-screen items-center justify-center  '>
@@ -54,6 +56,7 @@ const NewStudentsModal = (props) => {
         onSubmit={handleSubmit}
       >
         <div className='mb-4'>
+
           <label className='py-6' htmlFor='parent_name'>
             Parent Name:{' '}
           </label>
@@ -195,3 +198,6 @@ const NewStudentsModal = (props) => {
 };
 
 export default NewStudentsModal;
+
+
+         
