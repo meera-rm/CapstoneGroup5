@@ -18,13 +18,16 @@ const Navbar = () => {
   return (
     <React.Fragment>
       <section className='bg-teal-500'>
+
         <nav className='w-full h-32 px-4 pt-4 pb-4 flex items-center justify-between md:w-4/5 md:mx-auto'>
           <div className='relative flex-grow'>
+
             <Link to='/'>
               <img
                 src={logoImage}
                 alt='logo'
                 className='absolute -left-40 -top-8 w-14 h-12'
+=
               />
             </Link>
           </div>
