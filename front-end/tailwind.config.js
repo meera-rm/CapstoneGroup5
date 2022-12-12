@@ -2,12 +2,12 @@
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: ['./src/**/*.{html,js}'],
   theme: {
     extend: {},
   },
   plugins: [],
-}
+};
 const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
   content: [
@@ -46,6 +46,23 @@ module.exports = {
       '2xl': '1660px',
       // => @media (min-width: 1536px) { ...  { ... }}
     },
+    height: {
+      76: '18rem',
+      78: '19rem',
+      82: '22rem',
+      97: '28rem',
+      98: '31rem',
+      99: '38rem',
+      100: '40rem',
+      'fit-content': 'fit-content(20em)',
+    },
+    backgroundSize: {
+      'auto': 'auto',
+      'cover': 'cover',
+      'contain': 'contain',
+      '50%': '50%',
+      '16': '4rem',
+    }
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/aspect-ratio')],
 };

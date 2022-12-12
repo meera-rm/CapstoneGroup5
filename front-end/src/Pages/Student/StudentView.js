@@ -1,7 +1,8 @@
-import UpdateStudent from '../../Components/edit/UpdateStudent';
 
+import StudentLogsView from '../../Components/show/StudentLogsView';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
-const TeacherEdit = () => {
+
+const StudentView = () => {
   return (
     <div>
       <HelmetProvider>
@@ -10,9 +11,9 @@ const TeacherEdit = () => {
         </Helmet>
       </HelmetProvider>
       <h2 className='text-center  mt-4'>Edit</h2>
-      <UpdateStudent />
+      <StudentLogsView />
     </div>
   );
 };
 
-export default TeacherEdit;
+export default StudentView;

@@ -17,7 +17,7 @@ import { FaEdit } from 'react-icons/fa';
 
 const API = process.env.REACT_APP_API_URL;
 
-const StudentDetails = () => {
+const StudentLogsView = () => {
   const [student, setStudent] = useState([]);
   const [logData, setLogData] = useState([]);
   const [bookData, setBookData] = useState([]);
@@ -50,13 +50,11 @@ const StudentDetails = () => {
   }, [id, navigate]);
 
   useEffect(() => {
-    axios
-      .get(`${API}/api/books`)
-      .then((response) => {
-        // console.log(response.data.payload);
-        setBookData(response.data.payload);
-      })
-  //     .catch(() => navigate('/not-found'));
+    axios.get(`${API}/api/books`).then((response) => {
+      // console.log(response.data.payload);
+      setBookData(response.data.payload);
+    });
+    //     .catch(() => navigate('/not-found'));
   }, [id, navigate]);
 
   useEffect(() => {
@@ -176,15 +174,15 @@ const StudentDetails = () => {
                     Reading thoughts
                   </th>
 
-                  <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                  {/* <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
                     Teacher Comments
-                  </th>
-                  {/* <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                  </th> */}
+                  <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
                     Add
-                  </th> */}
-                  {/* <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                  </th> 
+                   <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
                     Delete
-                  </th> */}
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -249,7 +247,7 @@ const StudentDetails = () => {
                           {log.reading_inference}
                         </Link>
                       </td>
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm '>
+                      {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm '>
                         {message ? (
                           <Link
                             className='font-bold text-black-700 hover:underline'
@@ -258,9 +256,9 @@ const StudentDetails = () => {
                             {<Comment log={log} comments={comments} />}
                           </Link>
                         ) : (
-                          // </td>
-                          // <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                          //  <div className='ml-3 p-3 text-sm text-indigo-900'>
+                          // </td> */}
+                           <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                            <div className='ml-3 p-3 text-sm text-indigo-900'>
                           <Link to={`/comments/new`}>
                             <button
                               className=' bg-teal-500 px-6 py-4 text-black rounded '
@@ -269,8 +267,8 @@ const StudentDetails = () => {
                               <MdAddComment />{' '}
                             </button>
                           </Link>
-                        )}
-                        {/* </div> */}
+                        {/* )} */}
+                        </div>
                       </td>
 
                       {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
@@ -295,7 +293,7 @@ const StudentDetails = () => {
                           </Link>
                         </div>
                       </td> */}
-                      {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
                           <Link to={`/students/{id}/Logs/`}>
                             <button
@@ -306,7 +304,7 @@ const StudentDetails = () => {
                             </button>
                           </Link>
                         </div>
-                      </td> */}
+                      </td>
                     </tr>
                   );
                 })}
@@ -325,4 +323,4 @@ const StudentDetails = () => {
   );
 };
 
-export default StudentDetails;
+export default StudentLogsView;

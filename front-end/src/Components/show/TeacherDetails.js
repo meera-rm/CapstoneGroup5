@@ -8,13 +8,15 @@ import Modal from '../features/Modal';
 import { MdDelete } from 'react-icons/md';
 import { MdTableView } from 'react-icons/md';
 import { FaEdit } from 'react-icons/fa';
-
+import StudentLogsView from './StudentLogsView';
 const API = process.env.REACT_APP_API_URL;
 
 const TeacherDetails = () => {
   const [teacher, setTeacher] = useState([]);
-  const [studentData, setStudentData] = useState([]);
+  const [student, setStudent] = useState([]);
   const [choice] = useState(1);
+  const [bookData, setBookData] = useState([]);
+  const [view, setView] = useState(false);
 
   let navigate = useNavigate();
 
@@ -37,10 +39,18 @@ const TeacherDetails = () => {
       .get(`${API}/api/teachers/${id}/students`)
       .then((response) => {
         // console.log(response.data)
-        setStudentData(response.data);
+        setStudent(response.data);
       })
       .catch(() => navigate('/not-found'));
-  }, [id, navigate, studentData]);
+  }, [id, navigate, student]);
+
+  useEffect(() => {
+    axios.get(`${API}/api/books`).then((response) => {
+      // console.log(response.data.payload);
+      setBookData(response.data.payload);
+    });
+    //     .catch(() => navigate('/not-found'));
+  }, [id, navigate]);
 
   //Delete functions
   const handleDelete = () => {
@@ -52,17 +62,18 @@ const TeacherDetails = () => {
       .catch((e) => console.error(e));
   };
 
+  const displayComponent = (event) => {
+    console.log('indisplayComponent');
+    setView(true);
+  };
   const [currentPage, setCurrentPage] = useState(1);
 
   const [studentsPerPage] = useState(2);
 
   const indexOfLastRecord = currentPage * studentsPerPage;
   const indexOfFirstRecord = indexOfLastRecord - studentsPerPage;
-  const currentRecords = studentData.slice(
-    indexOfFirstRecord,
-    indexOfLastRecord
-  );
-  const nPages = Math.ceil(studentData.length / studentsPerPage);
+  const currentRecords = student.slice(indexOfFirstRecord, indexOfLastRecord);
+  const nPages = Math.ceil(student.length / studentsPerPage);
 
   return (
     <div className='container mx-auto px-4 sm:px-8'>
@@ -105,6 +116,9 @@ const TeacherDetails = () => {
               showModal={showModal}
               setShowModal={setShowModal}
               choice={choice}
+              teacher={teacher}
+              student={student}
+              bookData={bookData}
             />
           </>
         ) : null}
@@ -142,7 +156,7 @@ const TeacherDetails = () => {
                       <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
                         <Link
                           className='font-bold text-black-700 hover:underline'
-                          to={`/logs/${student.student_id}`}
+                          to={`/students/${student.student_id}`}
                         >
                           {student.student_id}
                         </Link>
@@ -150,7 +164,7 @@ const TeacherDetails = () => {
                       <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
                         <Link
                           className='font-bold text-black-700 hover:underline'
-                          to={`/logs/${student.student_id}`}
+                          to={`/students/${student.student_id}`}
                         >
                           {student.student_name}
                         </Link>
@@ -158,10 +172,10 @@ const TeacherDetails = () => {
                       <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm '>
                         <Link
                           className='font-bold text-black-700 hover:underline'
-                          to={`/logs/${student.student_id}`}
+                          to={`/students/${student.student_id}`}
                         >
                           {student.reading_level}
-                          {/* <Book log={log} books={books} /> */}
+                          {/* <Book log={log} bookData={bookData} /> */}
                         </Link>
                       </td>
 
@@ -180,16 +194,20 @@ const TeacherDetails = () => {
                         {/* <div className='flex'> */}
                         {/* <div className="flex-shrink-0 w-10 h-10"> */}
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
-                          <Link to={`/students/${id}`}>
-                            <button className=' bg-teal-500 px-6 py-4 text-black rounded '>
+                          <Link to={`teachers/{id}/students/${student.student_id}}`}>
+                            <button
+                              className=' bg-teal-500 px-6 py-4 text-black rounded '
+                              onClick={(e) => setView(true)}
+                            >
                               <MdTableView />{' '}
                             </button>
+                            {view && <StudentLogsView />}
                           </Link>
                         </div>
                       </td>
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
-                          <Link to={`/teachers/${id}/edit`}>
+                          <Link to={`/students/${student.student_id}/edit`}>
                             <button className=' bg-teal-500 px-6 py-4 text-black rounded '>
                               <FaEdit />{' '}
                             </button>
