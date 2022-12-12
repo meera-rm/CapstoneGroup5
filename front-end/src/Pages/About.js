@@ -26,8 +26,8 @@ const About = () => {
           </h2>
 
           <p class='max-w-screen-md mx-auto text-center text-gray-500 md:text-lg'>
-            ScholarSheep Team is available for all your questions and we are an
-            email away.
+            If you have any questions or concerns, please contact us and we will
+            respond at our earliest convenience.
           </p>
         </div>
 
