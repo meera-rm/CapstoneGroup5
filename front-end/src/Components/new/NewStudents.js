@@ -59,6 +59,7 @@ const NewStudents = (props) => {
               type='text'
               name='parent_name'
               value={student.parent_name}
+              autoComplete='off'
               placeholder='parent name'
               onChange={handleTextChange}
               required
@@ -75,6 +76,7 @@ const NewStudents = (props) => {
               name='student_name'
               value={student.student_name}
               placeholder='student_name'
+              autoComplete='off'
               onChange={handleTextChange}
               required
             />
@@ -90,6 +92,7 @@ const NewStudents = (props) => {
               type='text'
               value={student.parent_email}
               placeholder='parent_email'
+              autoComplete='off'
               onChange={handleTextChange}
               required
             />
@@ -105,6 +108,7 @@ const NewStudents = (props) => {
               type='text'
               name='student_email'
               value={student.student_email}
+              autoComplete='off'
               placeholder='student_email'
               onChange={handleTextChange}
               required
@@ -120,6 +124,7 @@ const NewStudents = (props) => {
               type='text'
               name='grade'
               value={student.grade}
+              autoComplete='off'
               placeholder='grade'
               onChange={handleTextChange}
               required
@@ -137,6 +142,7 @@ const NewStudents = (props) => {
               name='academic_year'
               value={student.academic_year}
               onChange={handleTextChange}
+              autoComplete='off'
               placeholder='academic_year'
               required
             />
@@ -152,6 +158,7 @@ const NewStudents = (props) => {
               name='reading_level'
               value={student.reading_level}
               onChange={handleTextChange}
+              autoComplete='off'
               placeholder='reading_level'
               required
             />

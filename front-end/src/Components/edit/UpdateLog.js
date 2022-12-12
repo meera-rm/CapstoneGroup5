@@ -60,7 +60,8 @@ const UpdateLog = () => {
           <label className='py-6' htmlFor='reading_inference'>
             Inference:
           </label>
-          <input className='border-2 border-black-700 outline'
+          <input
+            className='border-2 border-black-700 outline'
             id='reading_inference'
             name='reading_inference'
             value={log.reading_inference}
@@ -73,11 +74,13 @@ const UpdateLog = () => {
           <label className='py-6' htmlFor='reading_minutes'>
             Minutes Read:
           </label>
-          <input className='border-2 border-black-700 outline'
+          <input
+            className='border-2 border-black-700 outline'
             id='reading_minutes'
             type='text'
             name='reading_minutes'
             value={log.reading_minutes}
+            autoComplete='off'
             placeholder='Minutes Read'
             onChange={onInputChange}
           />
@@ -86,11 +89,13 @@ const UpdateLog = () => {
           <label className='py-6' htmlFor='pages_read'>
             Pages Read:
           </label>
-          <input className='border-2 border-black-700 outline'
+          <input
+            className='border-2 border-black-700 outline'
             id='pages_read'
             type='text'
             name='pages_read'
             value={log.pages_read}
+            autoComplete='off'
             onChange={onInputChange}
           />
         </div>
@@ -98,11 +103,13 @@ const UpdateLog = () => {
           <label className='py-6' htmlFor='books_id'>
             Book Id:
           </label>
-          <input className='border-2 border-black-700 outline'
+          <input
+            className='border-2 border-black-700 outline'
             id='books_id'
             name='books_id'
             type='text'
             value={log.books_id}
+            autoComplete='off'
             placeholder='books_id'
             onChange={onInputChange}
           />

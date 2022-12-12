@@ -63,6 +63,7 @@ const NewComments = (props) => {
               name='teacher_comments'
               value={newComment.teacher_comments}
               type='text'
+              autoComplete='off'
               onChange={handleTextChange}
               placeholder='teacher_comments'
               required

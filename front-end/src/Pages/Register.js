@@ -70,6 +70,7 @@ const Register = () => {
                 type='text'
                 name='user_firstName'
                 id='user_firstName'
+                autoComplete='off'
                 defaultValue={user.user_firstName}
                 onChange={userSignUp}
               />
@@ -86,6 +87,7 @@ const Register = () => {
                 type='text'
                 name='user_lastName'
                 id='user_lastName'
+                autoComplete='off'
                 defaultValue={user.user_lastName}
                 onChange={userSignUp}
               />
@@ -102,6 +104,7 @@ const Register = () => {
                 type='email'
                 name='user_email'
                 id='user_email'
+                autoComplete='off'
                 defaultValue={user.user_email}
                 onChange={userSignUp}
               />
@@ -119,6 +122,7 @@ const Register = () => {
                 type='password'
                 name='user_password'
                 id='user_password'
+                autoComplete='off'
                 defaultValue={user.user_password}
                 onChange={userSignUp}
               />
@@ -128,7 +132,7 @@ const Register = () => {
               class='block bg-teal-600 hover:bg-teal-dark text-white uppercase text-lg mx-auto p-4 rounded'
               type='submit'
             >
-            Create Account
+              Create Account
             </button>
           </form>
 

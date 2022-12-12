@@ -66,6 +66,7 @@ const UpdateTeacher = () => {
             name='teacherName'
             value={teacher.teacher_name}
             type='text'
+            autoComplete='off'
             onChange={onInputChange}
             placeholder='Teacher name'
           />
@@ -80,6 +81,7 @@ const UpdateTeacher = () => {
             type='text'
             name='schoolname'
             value={teacher.school_name}
+            autoComplete='off'
             placeholder='schoolname'
             onChange={onInputChange}
           />
@@ -93,6 +95,7 @@ const UpdateTeacher = () => {
             id='school_district'
             type='text'
             name='school_district'
+            autoComplete='off'
             value={teacher.school_district}
             onChange={onInputChange}
           />
@@ -107,6 +110,7 @@ const UpdateTeacher = () => {
             name='school_address'
             type='text'
             value={teacher.school_address}
+            autoComplete='off'
             placeholder='school_address'
             onChange={onInputChange}
           />
@@ -122,6 +126,7 @@ const UpdateTeacher = () => {
             type='text'
             name='zipcode'
             value={teacher.zipcode}
+            autoComplete='off'
             placeholder='zipcode'
             onChange={onInputChange}
           />
@@ -135,6 +140,7 @@ const UpdateTeacher = () => {
             id='state_name'
             type='state_name'
             name='state_name'
+            autoComplete='off'
             value={teacher.state_name}
             onChange={onInputChange}
           />
@@ -148,6 +154,7 @@ const UpdateTeacher = () => {
             id='class_subject'
             type='class_subject'
             name='class_subject'
+            autoComplete='off'
             value={teacher.class_subject}
             onChange={onInputChange}
           />

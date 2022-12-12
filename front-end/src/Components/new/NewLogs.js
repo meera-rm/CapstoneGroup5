@@ -59,6 +59,7 @@ const NewLogs = (props) => {
             name='book_title'
             value={newLog.book_title}
             type='text'
+            autoComplete='off'
             onChange={handleTextChange}
             placeholder='Book Title'
           />
@@ -72,6 +73,7 @@ const NewLogs = (props) => {
             value={newLog.reading_inference}
             type='text'
             onChange={handleTextChange}
+            autoComplete='off'
             placeholder='Reading Inference'
             required
           />
@@ -90,6 +92,7 @@ const NewLogs = (props) => {
             name='pages_read'
             value={newLog.pages_read}
             placeholder='Pages read'
+            autoComplete='off'
             onChange={handleTextChange}
             required
           />
@@ -106,6 +109,7 @@ const NewLogs = (props) => {
             id='reading_minutes'
             type='number'
             name='reading_minutes'
+            autoComplete='off'
             value={newLog.reading_minutes}
             placeholder='Reading minutes'
             onChange={handleTextChange}

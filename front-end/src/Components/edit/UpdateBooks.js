@@ -62,6 +62,7 @@ const UpdateBooks = () => {
               name='bookTitle'
               value={book.book_title}
               type='text'
+              autoComplete='off'
               onChange={onInputChange}
               placeholder='Book title'
             />
@@ -76,6 +77,7 @@ const UpdateBooks = () => {
               type='text'
               name='author'
               value={book.book_author}
+              autoComplete='off'
               placeholder='author'
               onChange={onInputChange}
             />
@@ -90,6 +92,7 @@ const UpdateBooks = () => {
               type='text'
               name='isbn'
               value={book.isbn_number}
+              autoComplete='off'
               onChange={onInputChange}
             />
           </div>
@@ -103,6 +106,7 @@ const UpdateBooks = () => {
               name='publication'
               type='text'
               value={book.publication}
+              autoComplete='off'
               placeholder='publication'
               onChange={onInputChange}
             />
@@ -118,6 +122,7 @@ const UpdateBooks = () => {
               type='text'
               name='picture'
               value={book.book_picture}
+              autoComplete='off'
               placeholder='picture'
               onChange={onInputChange}
             />
@@ -132,6 +137,7 @@ const UpdateBooks = () => {
               type='text'
               name='readingLevel'
               value={book.reading_level}
+              autoComplete='off'
               onChange={onInputChange}
             />
           </div>

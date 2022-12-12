@@ -99,6 +99,7 @@ const UpdateStudent = () => {
             id='student_name'
             type='text'
             name='student_name'
+            autoComplete='off'
             value={student.student_name}
             onChange={onInputChange}
           />
@@ -113,6 +114,7 @@ const UpdateStudent = () => {
             name='parent_email'
             type='text'
             value={student.parent_email}
+            autoComplete='off'
             placeholder='parent_email'
             onChange={onInputChange}
           />
@@ -128,6 +130,7 @@ const UpdateStudent = () => {
             type='text'
             name='student_email'
             value={student.student_email}
+            autoComplete='off'
             placeholder='student_email'
             onChange={onInputChange}
           />
@@ -142,6 +145,7 @@ const UpdateStudent = () => {
             type='grade'
             name='grade'
             value={student.grade}
+            autoComplete='off'
             onChange={onInputChange}
           />
         </div>
@@ -154,6 +158,7 @@ const UpdateStudent = () => {
             id='academic_year'
             type='academic_year'
             name='academic_year'
+            autoComplete='off'
             value={student.academic_year}
             onChange={onInputChange}
           />
@@ -167,6 +172,7 @@ const UpdateStudent = () => {
             id='reading_level'
             type='reading_level'
             name='reading_level'
+            autoComplete='off'
             value={student.reading_level}
             onChange={onInputChange}
           />

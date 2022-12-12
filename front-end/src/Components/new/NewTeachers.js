@@ -58,6 +58,7 @@ const NewTeachers = () => {
               name='teacher_name'
               value={teacher.teacher_name}
               type='text'
+              autoComplete='off'
               onChange={handleTextChange}
               placeholder='Teacher name'
             />
@@ -72,6 +73,7 @@ const NewTeachers = () => {
               type='text'
               name='school_name'
               value={teacher.school_name}
+              autoComplete='off'
               placeholder='school_name'
               onChange={handleTextChange}
             />
@@ -87,6 +89,7 @@ const NewTeachers = () => {
               name='school_district'
               placeholder='school_district'
               value={teacher.school_district}
+              autoComplete='off'
               onChange={handleTextChange}
             />
           </div>
@@ -100,6 +103,7 @@ const NewTeachers = () => {
               name='school_address'
               type='text'
               value={teacher.school_address}
+              autoComplete='off'
               placeholder='school_address'
               onChange={handleTextChange}
             />
@@ -115,6 +119,7 @@ const NewTeachers = () => {
               type='text'
               name='zipcode'
               value={teacher.zipcode}
+              autoComplete='off'
               placeholder='zipcode'
               onChange={handleTextChange}
             />
@@ -129,6 +134,7 @@ const NewTeachers = () => {
               type='text'
               name='state_name'
               value={teacher.state_name}
+              autoComplete='off'
               placeholder='state_name'
               onChange={handleTextChange}
             />
@@ -143,6 +149,7 @@ const NewTeachers = () => {
               type='text'
               name='class_subject'
               value={teacher.class_subject}
+              autoComplete='off'
               placeholder='class_subject'
               onChange={handleTextChange}
             />
@@ -157,6 +164,7 @@ const NewTeachers = () => {
               type='text'
               name='teaching_grade'
               value={teacher.teaching_grade}
+              autoComplete='off'
               placeholder='teaching_grade'
               onChange={handleTextChange}
             />
