@@ -1,7 +1,7 @@
 import React from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { useState } from 'react'
+import { useState } from 'react';
 
 // PAGES
 import FourOFour from '../../Pages/FourOFour';
@@ -48,8 +48,19 @@ import ParentDashboard from '../../Pages/ParentDashboard';
 
 //This component to define navbar animate tranisitons
 const AnimatedRoutes = () => {
-
   const location = useLocation();
+
+  // logging in
+  const [signedIn, setSignedIn] = useState(false);
+
+  const [signedInUser, setSignedInUser] = useState({});
+
+  // signing up /register
+
+  const [register, setRegister] = useState(false);
+
+  const [hasRegistered, setHasRegistered] = useState({});
+
   return (
     <div>
       <main>
@@ -57,59 +68,44 @@ const AnimatedRoutes = () => {
           <Routes location={location} key={location.pathname}>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
+            <Route path='/info' element={<Information />} />
+            <Route path='/policy' element={<PrivacyPolicy />} />
             {/* <Route path='/contact' element={<Contact />} /> */}
-            <Route path='/signup' element={<Register />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/info' element={<Information/>}/>
-            <Route path='/policy' element={<PrivacyPolicy/>}/>
+            <Route
+              path='/signup'
+              element={
+                <Register
+                  register={register}
+                  setRegister={setRegister}
+                  hasRegistered={hasRegistered}
+                  setHasRegistered={setHasRegistered}
+                />
+              }
+            />
+            <Route
+              path='/login'
+              element={
+                <Login
+                  signedIn={signedIn}
+                  setSignedIn={setSignedIn}
+                  signedInUser={signedInUser}
+                  setSignedInUser={setSignedInUser}
+                />
+              }
+            />
+
             {/* <Route path='/signUp'>
-
-	// logging in
-	const [signedIn, setSignedIn] = useState(false);
-
-	const [signedInUser, setSignedInUser] = useState({});
-
-	// signing up /register
-
-  const [register, setRegister] = useState(false)
-
-  const [hasRegistered, setHasRegistered] = useState({})
-
-	const location = useLocation();
-	return (
-		<div>
-			<main>
-				<AnimatePresence>
-					<Routes location={location} key={location.pathname}>
-						<Route path='/' element={<Home />} />
-						<Route path='/about' element={<About />} />
-						{/* <Route path='/contact' element={<Contact />} /> */}
-						<Route path='/signup' element={<Register register = {register} setRegister = {setRegister} hasRegistered = {hasRegistered} setHasRegistered = {setHasRegistered} />} />
-						<Route
-							path='/login'
-							element={
-								<Login
-									signedIn={signedIn}
-									setSignedIn={setSignedIn}
-									signedInUser={signedInUser}
-									setSignedInUser={setSignedInUser}
-								/>
-							}
-						/>
-
-						{/* <Route path='/signUp'>
 
             <Route index element={<SignUp/>} />
             <Route path='teacher-signup' element={<TeacherSignUp />}></Route>
           
             <Route path="parent-signup" element={<ParentSignUp />}></Route>
             </Route> */}
-						{/* <Route path='/login'>
+            {/* <Route path='/login'>
             <Route index element={<SignUp/>} />
             <Route path="teacher-login" element={<TeacherLogin />}></Route>
             <Route path="parent-login" element={<ParentLogin />}></Route>
             </Route> */}
-
 
             <Route path='/books'>
               <Route index element={<IndexBooks />} />
@@ -126,13 +122,11 @@ const AnimatedRoutes = () => {
               <Route path=':id/show' element={<StudentView />} />
             </Route>
 
-
             <Route path='/teachers'>
               <Route index element={<TeacherIndex />} />
               <Route path='new' element={<TeacherNew />} />
               <Route path=':id' element={<TeacherShow />} />
               <Route path=':id/edit' element={<TeacherEdit />} />
-              
             </Route>
 
             <Route path='/logs'>
@@ -156,7 +150,6 @@ const AnimatedRoutes = () => {
       </main>
     </div>
   );
-
 };
 
 export default AnimatedRoutes;

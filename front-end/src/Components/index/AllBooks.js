@@ -31,7 +31,7 @@ const AllBooks = () => {
         {bookData?.map((book) => {
           return (
             <section
-              className='justify-items-center'
+              className='justify-items-center w-40 h-20'
               // rounded-sm  hover:shadow-sm'
               key={book.book_id + book.book_name}
             >
@@ -42,7 +42,7 @@ const AllBooks = () => {
                   key={book.book_id}
                 >
                   <img
-                    className='text-center object-contain h-52 w-72'
+                    className='text-center object-fit '
                     src={`${book.book_picture}`}
                     alt={book.book_picture}
                   />
