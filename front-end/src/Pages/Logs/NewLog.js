@@ -10,7 +10,9 @@ const NewLog = () => {
           <title>Scholar Sheep | Logs | New</title>
         </Helmet>
       </HelmetProvider>
-      <h2 className='text-center  mt-4'>New Logs</h2>
+      <h2 className='text-center mt-10  mb-5 text-5xl font-bold text-teal-600'>
+        New Logs
+      </h2>
       <NewLogs />
     </div>
   );

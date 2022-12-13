@@ -50,13 +50,11 @@ const StudentDetails = () => {
   }, [id, navigate]);
 
   useEffect(() => {
-    axios
-      .get(`${API}/api/books`)
-      .then((response) => {
-        // console.log(response.data.payload);
-        setBookData(response.data.payload);
-      })
-  //     .catch(() => navigate('/not-found'));
+    axios.get(`${API}/api/books`).then((response) => {
+      // console.log(response.data.payload);
+      setBookData(response.data.payload);
+    });
+    //     .catch(() => navigate('/not-found'));
   }, [id, navigate]);
 
   useEffect(() => {
@@ -94,7 +92,7 @@ const StudentDetails = () => {
   return (
     <div className='container mx-auto px-4 sm:px-8'>
       <div>
-        <h2 className="font-bold mt-10 mb-6 text-center text-3xl'">
+        <h2 className="font-bold mt-10 mb-5 text-center  text-teal-600 text-5xl'">
           Student Dashboard
         </h2>
       </div>

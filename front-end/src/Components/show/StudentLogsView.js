@@ -92,7 +92,7 @@ const StudentLogsView = () => {
   return (
     <div className='container mx-auto px-4 sm:px-8'>
       <div>
-        <h2 className="font-bold mt-10 mb-6 text-center text-3xl'">
+        <h2 className="font-bold mt-10 mb-5 text-teal-600 text-center text-5xl'">
           Student Dashboard
         </h2>
       </div>
@@ -179,8 +179,8 @@ const StudentLogsView = () => {
                   </th> */}
                   <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
                     Add
-                  </th> 
-                   <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                  </th>
+                  <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
                     Delete
                   </th>
                 </tr>
@@ -257,8 +257,8 @@ const StudentLogsView = () => {
                           </Link>
                         ) : (
                           // </td> */}
-                           <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                            <div className='ml-3 p-3 text-sm text-indigo-900'>
+                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                        <div className='ml-3 p-3 text-sm text-indigo-900'>
                           <Link to={`/comments/new`}>
                             <button
                               className=' bg-teal-500 px-6 py-4 text-black rounded '
@@ -267,7 +267,7 @@ const StudentLogsView = () => {
                               <MdAddComment />{' '}
                             </button>
                           </Link>
-                        {/* )} */}
+                          {/* )} */}
                         </div>
                       </td>
 

@@ -9,7 +9,7 @@ const EditComments = () => {
           <title>Scholar Sheep | Comments | Edit</title>
         </Helmet>
       </HelmetProvider>
-      <h2 className='text-center mt-4'>Edit Comments</h2>
+      <h2 className='text-center mt-10  mb-5 text-5xl font-bold text-teal-600'>Edit Comments</h2>
       <UpdateComments />
     </div>
   );
