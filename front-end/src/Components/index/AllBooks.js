@@ -18,10 +18,12 @@ const AllBooks = () => {
 
   return (
     <div className='px-10 py-6 md:col-span-2 '>
-      <h2 className='text-center text-indigo-600 '>Books</h2>
+      <h2 className='text-center  mt-10 mb-5 text-5xl font-bold text-teal-600 '>
+        Books
+      </h2>
       <div className='text-center '>
         <Link to={`/books/new`}>
-          <button className=' btn bg-indigo-500 px-4 py-4 rounded text-white hover:bg-indigo-400'>
+          <button className=' btn bg-indigo-500 px-4 py-4 rounded text-white  font-gerogia hover:bg-indigo-400 '>
             Add Books{' '}
           </button>
         </Link>

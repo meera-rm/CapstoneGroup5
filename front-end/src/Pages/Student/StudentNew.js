@@ -6,10 +6,12 @@ const StudentNew = () => {
     <div>
       <HelmetProvider>
         <Helmet>
-          <title>Scholar Sheep | Student  | New</title>
+          <title>Scholar Sheep | Student | New</title>
         </Helmet>
       </HelmetProvider>
-      <h2 className='text-center  mt-4'>New Student</h2>
+      <h2 className='text-center mt-10  mb-5 text-5xl font-bold text-teal-600'>
+        New Student
+      </h2>
       <NewStudents />
     </div>
   );

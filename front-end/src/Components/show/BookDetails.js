@@ -33,9 +33,11 @@ const BookDetails = () => {
   };
 
   return (
-    <div className='max-h-screen grid place-items-center font-mono'>
+    <div className='max-h-screen grid place-items-center '>
       <div className='bg-white h-24 w-64 rounded-md'></div>
-      <h2 className='font-bold mb-6 text-3xl'>Book Details</h2>
+      <h2 className='font-bold mb-5 text-teal-600 mt-10 text-5xl'>
+        Book Details
+      </h2>
       {/* <article className='flex justify-center items-center leading-none' > */}
       <article className='text-center'>
         <div>

@@ -35,7 +35,9 @@ const LogDetails = () => {
   return (
     <div className='max-h-screen grid place-items-center font-mono'>
       <div className='bg-white h-24 w-64 rounded-md'></div>
-      <h2 className='font-bold mb-6 text-3xl'>Log Details</h2>
+      <h2 className='font-bold mb-5 mt-10 text-teal-600 text-5xl'>
+        Log Details
+      </h2>
       <article className='text-center '>
         <div>
           <p className='font-bold'>
@@ -65,32 +67,33 @@ const LogDetails = () => {
         </div>
 
         <div className=' mt-10 flex justify-center ml-6 space-x-6'>
-          <div >{' '}
-          <Link to={'/students'}>
-            <button className=' bg-teal-500 px-6 py-4 text-white rounded '>
-              Back{' '}
-            </button>
-          </Link>
-        </div>
-        <div>
-          {' '}
-          <Link to={`/students/${id}/edit`}>
-            <button className=' bg-teal-500 px-6 py-4 text-white rounded '>
-              Edit{' '}
-            </button>
-          </Link>
-        </div>
-        <div>
-          {' '}
-          <Link to={'/students'}>
-            <button
-              className='bg-teal-500 px-6 py-4 text-white rounded'
-              onClick={handleDelete}
-            >
-              Delete
-            </button>
-          </Link>
-        </div>
+          <div>
+            {' '}
+            <Link to={'/students'}>
+              <button className=' bg-teal-500 px-6 py-4 text-white rounded '>
+                Back{' '}
+              </button>
+            </Link>
+          </div>
+          <div>
+            {' '}
+            <Link to={`/students/${id}/edit`}>
+              <button className=' bg-teal-500 px-6 py-4 text-white rounded '>
+                Edit{' '}
+              </button>
+            </Link>
+          </div>
+          <div>
+            {' '}
+            <Link to={'/students'}>
+              <button
+                className='bg-teal-500 px-6 py-4 text-white rounded'
+                onClick={handleDelete}
+              >
+                Delete
+              </button>
+            </Link>
+          </div>
         </div>
       </article>
     </div>

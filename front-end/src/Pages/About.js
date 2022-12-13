@@ -9,57 +9,55 @@ const About = () => {
         </Helmet>
       </HelmetProvider>
 
-      <div class='max-w-screen-xl px-4 mx-auto md:px-8'>
-        <div class='mb-10 md:mb-16'>
+      <div className='max-w-screen-xl px-4 mx-auto md:px-8'>
+        <div className='mb-10 md:mb-16'>
           <h2
-            class='
-      mt-10
+            className='
+        mt-10
         mb-4
-        text-2xl
+        text-5xl
         font-bold
-        text-center text-gray-800
-        lg:text-3xl
+        text-center text-teal-600
         md:mb-6
-      '
-          >
+      ' >
             Meet Our Team
           </h2>
 
-          <p class='max-w-screen-md mx-auto text-center text-gray-500 md:text-lg'>
+          <p className='max-w-screen-md mx-auto text-center text-gray-500 md:text-lg'>
             If you have any questions or concerns, please contact us and we will
             respond at our earliest convenience.
           </p>
         </div>
 
-        <div class='grid gap-4 md:grid-cols-3'>
-          <div class='p-4 shadow'>
-            <div class='h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80'>
+        <div className='grid gap-4 md:grid-cols-3'>
+          <div className='p-4 shadow'>
+            <div className='h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80'>
               <img
                 src='https://avatars.githubusercontent.com/u/46873861?v=4'
                 alt='name'
-                class='object-cover object-center w-full h-full'
+                className='object-cover object-center w-full h-full'
               />
             </div>
 
-            <div class='flex flex-col items-center justify-center'>
-              <div class='font-bold text-indigo-500 md:text-lg'>
+            <div className='flex flex-col items-center justify-center'>
+              <div className='font-bold text-indigo-500 md:text-lg'>
                 Meera Ramesh
               </div>
               <p class='mb-3 text-sm text-gray-500 md:text-base md:mb-4'>
                 Web Developer
               </p>
 
-              <div class='flex'>
-                <div class='flex gap-4'>
+              <div className='flex'>
+                <div className='flex gap-4'>
                   <a
                     href='https://github.com'
                     aria-label='Homepage'
-                    class='footer-octicon'
+                    className='footer-octicon'
                     title='GitHub'
                   >
                     <svg
                       aria-hidden='true'
-                      class='octicon octicon-mark-github'
+                      className='octicon octicon-mark-github'
                       height='24'
                       version='1.1'
                       viewBox='0 0 16 16'
@@ -73,7 +71,7 @@ const About = () => {
                   </a>
                   <a href='https://www.linkedin.com/in/meeraramesh/'>
                     <svg
-                      class='w-6 h-6 text-blue-500 fill-current'
+                      className='w-6 h-6 text-blue-500 fill-current'
                       xmlns='http://www.w3.org/2000/svg'
                       viewBox='0 0 448 512'
                     >
@@ -84,34 +82,34 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div class='p-4 shadow'>
-            <div class='h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80'>
+          <div className='p-4 shadow'>
+            <div className='h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80'>
               <img
                 src='https://avatars.githubusercontent.com/u/96316119?v=4'
                 alt='name'
-                class='object-cover object-center w-full h-full'
+                className='object-cover object-center w-full h-full'
               />
             </div>
 
-            <div class='flex flex-col items-center justify-center'>
-              <div class='font-bold text-indigo-500 md:text-lg'>
+            <div className='flex flex-col items-center justify-center'>
+              <div className='font-bold text-indigo-500 md:text-lg'>
                 Taryne Leach
               </div>
-              <p class='mb-3 text-sm text-gray-500 md:text-base md:mb-4'>
+              <p className='mb-3 text-sm text-gray-500 md:text-base md:mb-4'>
                 Web Developer
               </p>
 
-              <div class='flex'>
-                <div class='flex gap-4'>
+              <div className='flex'>
+                <div className='flex gap-4'>
                   <a
                     href='https://github.com/TaryneLeach'
                     aria-label='Homepage'
-                    class='footer-octicon'
+                    className='footer-octicon'
                     title='GitHub'
                   >
                     <svg
                       aria-hidden='true'
-                      class='octicon octicon-mark-github'
+                      className='octicon octicon-mark-github'
                       height='24'
                       version='1.1'
                       viewBox='0 0 16 16'
@@ -125,7 +123,7 @@ const About = () => {
                   </a>
                   <a href='https://www.linkedin.com/in/taryne-leachgonzalez/'>
                     <svg
-                      class='w-6 h-6 text-blue-500 fill-current'
+                      className='w-6 h-6 text-blue-500 fill-current'
                       xmlns='http://www.w3.org/2000/svg'
                       viewBox='0 0 448 512'
                     >
@@ -136,34 +134,34 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div class='p-4 shadow'>
-            <div class='h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80'>
+          <div className='p-4 shadow'>
+            <div className='h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80'>
               <img
                 src='https://avatars.githubusercontent.com/u/96357523?v=4'
                 alt='name'
-                class='object-cover object-center w-full h-full'
+                className='object-cover object-center w-full h-full'
               />
             </div>
 
-            <div class='flex flex-col items-center justify-center'>
-              <div class='font-bold text-indigo-500 md:text-lg'>
+            <div className='flex flex-col items-center justify-center'>
+              <div className='font-bold text-indigo-500 md:text-lg'>
                 Derek Peterson
               </div>
-              <p class='mb-3 text-sm text-gray-500 md:text-base md:mb-4'>
+              <p className='mb-3 text-sm text-gray-500 md:text-base md:mb-4'>
                 Software Engineer
               </p>
 
-              <div class='flex'>
-                <div class='flex gap-4'>
+              <div className='flex'>
+                <div className='flex gap-4'>
                   <a
                     href='https://github.com/derekpeterson-plutus'
                     aria-label='Homepage'
-                    class='footer-octicon'
+                    className='footer-octicon'
                     title='GitHub'
                   >
                     <svg
                       aria-hidden='true'
-                      class='octicon octicon-mark-github'
+                      className='octicon octicon-mark-github'
                       height='24'
                       version='1.1'
                       viewBox='0 0 16 16'
@@ -177,7 +175,7 @@ const About = () => {
                   </a>
                   <a href='https://www.linkedin.com/in/derekpeterson-plutus/'>
                     <svg
-                      class='w-6 h-6 text-blue-500 fill-current'
+                      className='w-6 h-6 text-blue-500 fill-current'
                       xmlns='http://www.w3.org/2000/svg'
                       viewBox='0 0 448 512'
                     >

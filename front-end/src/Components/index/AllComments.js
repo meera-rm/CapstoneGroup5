@@ -21,7 +21,7 @@ const AllLogs = () => {
 
   return (
     <div className='px-16 py-6 md:col-span-2 '>
-      <h2 className='text-center text-indigo-600 '>Logs</h2>
+      <h2 className='text-center  mt-10 mb-5 text-5xl font-bold text-teal-600  '>Comments</h2>
       <div className='text-center '>
         <Link to={`/logs/new`}>
           <button className=' btn bg-indigo-500 px-4 py-4 rounded text-white hover:bg-teal-400'>

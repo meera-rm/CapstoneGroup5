@@ -9,7 +9,7 @@ const NewComment = () => {
           <title>Scholar Sheep | Comments | New</title>
         </Helmet>
       </HelmetProvider>
-      <h2 className='text-center mt-4'>New Comment</h2>
+      <h2 className='text-center mt-10  mb-5 text-5xl font-bold text-teal-600'>New Comment</h2>
       <NewComments />
     </div>
   );

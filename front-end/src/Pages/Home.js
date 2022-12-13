@@ -21,7 +21,7 @@ const Home = () => {
       </HelmetProvider>
 
       <div className='text-center'>
-        <p className='text-center text-5xl z-20 font-bold font-mono text-teal-700 '>
+        <p className='text-center text-5xl font-bold z-20 mt-10 text-teal-600 '>
           Welcome to Scholar Sheep
         </p>
 

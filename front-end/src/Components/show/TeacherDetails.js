@@ -78,7 +78,7 @@ const TeacherDetails = () => {
   return (
     <div className='container mx-auto px-4 sm:px-8'>
       <div>
-        <h2 className="font-bold mt-10 mb-6 text-center text-3xl'">
+        <h2 className="font-bold mt-10 mb-5 text-center text-teal-600 text-5xl'">
           Teacher Dashboard
         </h2>
       </div>
@@ -194,7 +194,9 @@ const TeacherDetails = () => {
                         {/* <div className='flex'> */}
                         {/* <div className="flex-shrink-0 w-10 h-10"> */}
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
-                          <Link to={`teachers/{id}/students/${student.student_id}}`}>
+                          <Link
+                            to={`teachers/{id}/students/${student.student_id}}`}
+                          >
                             <button
                               className=' bg-teal-500 px-6 py-4 text-black rounded '
                               onClick={(e) => setView(true)}

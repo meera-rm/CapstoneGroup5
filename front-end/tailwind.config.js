@@ -57,12 +57,12 @@ module.exports = {
       'fit-content': 'fit-content(20em)',
     },
     backgroundSize: {
-      'auto': 'auto',
-      'cover': 'cover',
-      'contain': 'contain',
+      auto: 'auto',
+      cover: 'cover',
+      contain: 'contain',
       '50%': '50%',
-      '16': '4rem',
-    }
+      16: '4rem',
+    },
   },
   plugins: [require('@tailwindcss/aspect-ratio')],
 };
