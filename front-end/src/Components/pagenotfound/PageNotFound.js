@@ -23,7 +23,7 @@ const PageNotFound =() => {
               <Modal.Header closeButton></Modal.Header>
 
               <Modal.Body>
-                <h1 style={{ color: 'red', fontSize: 100 }}>404</h1>
+                <h1 style={{ color: 'red', fontSize: 100 ,margin: '0 auto'}}>404</h1>
                 <h3>Sorry ,We could not find the Page</h3>
                 <p className='home' style={{ fontSize: 40 }}>
                   <Link style={{ color: 'black' }} to='/'>
