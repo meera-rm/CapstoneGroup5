@@ -207,7 +207,9 @@ const TeacherDetails = () => {
                         {/* <div className='flex'> */}
                         {/* <div className="flex-shrink-0 w-10 h-10"> */}
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
+
                           <Link to={`/students/${student.student_id}`}>
+
                             <button
                               className=' bg-teal-500 px-6 py-4 text-black rounded '
                               // onClick={(e) => setView(true)}
