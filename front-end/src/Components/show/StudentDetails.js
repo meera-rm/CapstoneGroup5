@@ -12,7 +12,7 @@ import NewComments from '../new/NewComments';
 import Modal from '../features/Modal';
 import { MdDelete } from 'react-icons/md';
 import { MdTableView } from 'react-icons/md';
-
+import { MdAddComment } from 'react-icons/md';
 import { FaEdit } from 'react-icons/fa';
 
 const API = process.env.REACT_APP_API_URL;
@@ -248,27 +248,27 @@ const StudentDetails = () => {
                         </Link>
                       </td>
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm '>
-                        {/* {message ? ( */}
+                        {message ? (
                           <Link
                             className='font-bold text-black-700 hover:underline'
                             to={`/logs/${log.log_id}`}
                           >
                             {<Comment log={log} comments={comments} />}
                           </Link>
-                        {/* // ) : (
+                        ) : (
                           // </td>
                           // <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                           //  <div className='ml-3 p-3 text-sm text-indigo-900'>
-                          // <Link to={`/comments/new`}>
-                          //   <button */}
-                          {/* //     className=' bg-teal-500 px-6 py-4 text-black rounded '
-                          //     onClick={onClick}
-                          //   >
-                          //     <MdAddComment />{' '}
-                          //   </button>
-                          // </Link> */}
-                        {/* // 
-                         </div> */} */}
+                          <Link to={`/comments/new`}>
+                            <button
+                              className=' bg-teal-500 px-6 py-4 text-black rounded '
+                              onClick={onClick}
+                            >
+                              <MdAddComment />{' '}
+                            </button>
+                          </Link>
+                        )}
+                        {/* </div> */}
                       </td>
 
                       {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>

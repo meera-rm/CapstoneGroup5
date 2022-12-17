@@ -9,7 +9,6 @@ import { MdDelete } from 'react-icons/md';
 import { MdTableView } from 'react-icons/md';
 import { FaEdit } from 'react-icons/fa';
 import StudentLogsView from './StudentLogsView';
-import { MdAddComment } from 'react-icons/md';
 const API = process.env.REACT_APP_API_URL;
 
 const TeacherDetails = () => {
@@ -54,17 +53,11 @@ const TeacherDetails = () => {
   }, [id, navigate]);
 
   //Delete functions
-  const handleDelete = (studentId) => {
-    // axios
-    //   .delete(`${API}/api/teachers/${id}`)
-    //   .then(() => {
-    //     navigate('/teachers');
-    //   })
-    //   .catch((e) => console.error(e));
+  const handleDelete = () => {
     axios
-      .delete(`${API}/api/students/${studentId}`)
+      .delete(`${API}/api/teachers/${id}`)
       .then(() => {
-        navigate('/students');
+        navigate('/teachers');
       })
       .catch((e) => console.error(e));
   };
@@ -81,9 +74,6 @@ const TeacherDetails = () => {
   const indexOfFirstRecord = indexOfLastRecord - studentsPerPage;
   const currentRecords = student.slice(indexOfFirstRecord, indexOfLastRecord);
   const nPages = Math.ceil(student.length / studentsPerPage);
-
-  const [message, setMessage] = useState(true);
-  const onClick = () => setMessage(false);
 
   return (
     <div className='container mx-auto px-4 sm:px-8'>
@@ -152,9 +142,6 @@ const TeacherDetails = () => {
                     View
                   </th>
                   <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
-                    Comment
-                  </th>
-                  <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
                     Edit
                   </th>
                   <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
@@ -207,29 +194,16 @@ const TeacherDetails = () => {
                         {/* <div className='flex'> */}
                         {/* <div className="flex-shrink-0 w-10 h-10"> */}
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
-
-                          <Link to={`/students/${student.student_id}`}>
-
+                          <Link
+                            to={`teachers/{id}/students/${student.student_id}}`}
+                          >
                             <button
                               className=' bg-teal-500 px-6 py-4 text-black rounded '
-                              // onClick={(e) => setView(true)}
+                              onClick={(e) => setView(true)}
                             >
                               <MdTableView />{' '}
                             </button>
-                            {/* {view && <StudentLogsView />} */}
-                          </Link>
-                        </div>
-                      </td>
-
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                        <div className='ml-3 p-3 text-sm text-indigo-900'>
-                          <Link to={`/comments/new`}>
-                            <button
-                              className=' bg-teal-500 px-6 py-4 text-black rounded '
-                              onClick={onClick}
-                            >
-                              <MdAddComment />{' '}
-                            </button>
+                            {view && <StudentLogsView />}
                           </Link>
                         </div>
                       </td>
@@ -244,10 +218,10 @@ const TeacherDetails = () => {
                       </td>
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
-                          <Link to={`/teachers/${student.student_id}/edit`}>
+                          <Link to={`/teachers/${id}/students/`}>
                             <button
                               className=' bg-teal-500 px-6 py-4 text-black rounded '
-                              onClick={() => handleDelete}
+                              onClick={handleDelete}
                             >
                               <MdDelete />{' '}
                             </button>

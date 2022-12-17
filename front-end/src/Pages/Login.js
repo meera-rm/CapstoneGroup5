@@ -52,7 +52,7 @@ const Login = ({ signedIn, setSignedIn, signedInUser, setSignedInUser }) => {
       {/* <div class='flex items-center justify-center'>
       <img class=' h-22 w-48 rounded-full' src={parentandchild} alt='' />
       </div> */}
-      <div class='flex items-center h-screen w-full bg-teal-lighter'>
+      <div class='flex  items-center h-screen w-full bg-teal-lighter'>
         <div class='w-full bg-white rounded shadow-lg p-8 m-2 md:max-w-sm md:mx-auto'>
           <div class='flex items-center justify-center'>
             <img class=' h-10 w-12 rounded-full' src={logoImage} alt='' />
