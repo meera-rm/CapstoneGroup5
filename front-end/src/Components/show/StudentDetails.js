@@ -258,17 +258,36 @@ const StudentDetails = () => {
                         ) : (
                           // </td>
                           // <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                         // form openai
+                           const [showMessage, setShowMessage] = useState(false);
+
+
+    <div>
+      {showMessage ? (
+        <p>This is a message.</p>
+      ) : (
+        <button onClick={() => setShowMessage(true)}>
+          Show message
+        </button>
+      )}
+    </div>
+   // endof oepnai
+                 <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                           //  <div className='ml-3 p-3 text-sm text-indigo-900'>
-                          <Link to={`/comments/new`}>
-                            <button
-                              className=' bg-teal-500 px-6 py-4 text-black rounded '
-                              onClick={onClick}
-                            >
-                              <MdAddComment />{' '}
-                            </button>
-                          </Link>
-                        )}
-                        {/* </div> */}
+
+                          // <Link to={`/comments/new`}>
+                          //   <button */}
+                          {/* //     className=' bg-teal-500 px-6 py-4 text-black rounded '
+                          //     onClick={() => setMessage(true)}
+                          // onClick={onClick}
+                          //   >
+                          //     <MdAddComment />{' '}
+                          //   </button>
+                          // </Link> */}
+                        {/* // 
+                         </div> */} 
+
+
                       </td>
 
                       {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
