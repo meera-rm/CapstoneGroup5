@@ -15,10 +15,14 @@ const NewComments = (props) => {
   // date_read,reading_inference,reading_minutes,pages_read,books_id,students_id
 
   const [newComment, setNewComment] = useState({
-  
+    // log_id: log_id,
+    // date_read: date_read,
+    // reading_inference: reading_inference,
+    // reading_minutes:reading_minutes,
+    // pages_read: pages_read,
+    // books_id: books_id,
+    // students_id: students_id,
     teacher_comments: '',
-    // logs_id:
-    // teachers_id:
   });
 
   const handleTextChange = (event) => {

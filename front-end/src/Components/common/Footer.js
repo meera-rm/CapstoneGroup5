@@ -43,9 +43,6 @@ const Footer = () => {
             <div className='text-sm uppercase text-black-600 font-bold'>
               Contact us
             </div>
-            <a className='my-3 block' href='/contact'>
-             Contact<span className='text-teal-600 text-xs p-1'></span>
-            </a>
             <a className='my-3 block' href='/#'>
               XX-XX,Floor 32 , New York ,NY{' '}
               <span className='text-teal-600 text-xs p-1'></span>
