@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -12,11 +12,21 @@ import NewComments from '../new/NewComments';
 import Modal from '../features/Modal';
 import { MdDelete } from 'react-icons/md';
 import { MdTableView } from 'react-icons/md';
-import { MdAddComment } from 'react-icons/md';
+
 import { FaEdit } from 'react-icons/fa';
 
 const API = process.env.REACT_APP_API_URL;
-
+// const columns = [
+//   { accessor: 'id', label: 'ID' },
+//   { accessor: 'date', label: 'Date' },
+//   { accessor: 'title', label: 'Book Title' },
+//   { accessor: 'bookid', label: 'Book Id' },
+//   { accessor: 'minutesread', label: 'Minutes Read' },
+//   { accessor: 'pagesread', label: 'Pages Read' },
+//   { accessor: 'readingthoughts', label: 'Reading Thoughts' },
+//   // { accessor: 'bookid', label: 'Manager', format: (value) => (value ? '✔️' : '✖️') },
+//   { accessor: 'teachercomments', label: 'Teacher Comments' },
+// ]
 const StudentDetails = () => {
   const [student, setStudent] = useState([]);
   const [logData, setLogData] = useState([]);
@@ -88,6 +98,14 @@ const StudentDetails = () => {
   const [message, setMessage] = useState(true);
 
   const onClick = () => setMessage(false);
+  
+  // const [filters, setFilters] = useState({})
+  // const [sort, setSort] = useState({ order: 'asc', orderBy: 'id' })
+ 
+
+  // const filteredRows = useMemo(() => filterRows(rows, filters), [rows, filters])
+  // const sortedRows = useMemo(() => sortRows(filteredRows, sort), [filteredRows, sort])
+ 
 
   return (
     <div className='container mx-auto px-4 sm:px-8'>
@@ -248,14 +266,14 @@ const StudentDetails = () => {
                         </Link>
                       </td>
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm '>
-                        {message ? (
+                        {/* {message ? ( */}
                           <Link
                             className='font-bold text-black-700 hover:underline'
                             to={`/logs/${log.log_id}`}
                           >
                             {<Comment log={log} comments={comments} />}
                           </Link>
-                        ) : (
+                        {/* // ) : (
                           // </td>
                           // <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                          // form openai
@@ -275,12 +293,18 @@ const StudentDetails = () => {
                  <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                           //  <div className='ml-3 p-3 text-sm text-indigo-900'>
 
+                          // <Link to={`/logs/${log.log_id}/comments/new`}>
+                          //   <button */}
+                          {/* //     className=' bg-teal-500 px-6 py-4 text-black rounded '
+                          //     onClick={onClick}
+
+
                           // <Link to={`/comments/new`}>
                           //   <button */}
                           {/* //     className=' bg-teal-500 px-6 py-4 text-black rounded '
                           //     onClick={() => setMessage(true)}
                           // onClick={onClick}
-                          //   >
+            //   >
                           //     <MdAddComment />{' '}
                           //   </button>
                           // </Link> */}
@@ -343,3 +367,5 @@ const StudentDetails = () => {
 };
 
 export default StudentDetails;
+
+

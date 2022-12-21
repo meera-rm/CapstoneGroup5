@@ -1,0 +1,165 @@
+// from chatgpt provided date from api data in the format yyyy-mm-dd  , write functions that filter year and month using react hooks
+
+import { useState, useEffect } from 'react';
+
+function DateFilter({ dates }) {
+  // Use the useState hook to store the current year and month filters
+  const [yearFilter, setYearFilter] = useState(null);
+  const [monthFilter, setMonthFilter] = useState(null);
+
+  // Use the useEffect hook to update the list of dates based on the current year and month filters
+  useEffect(() => {
+    let filteredDates = dates;
+    if (yearFilter) {
+      filteredDates = filteredDates.filter(
+        (date) => date.split('-')[0] === yearFilter
+      );
+    }
+    if (monthFilter) {
+      filteredDates = filteredDates.filter(
+        (date) => date.split('-')[1] === monthFilter
+      );
+    }
+    setFilteredDates(filteredDates);
+  }, [yearFilter, monthFilter]);
+
+  return (
+    <div>
+      <label>Year:</label>
+      <select
+        value={yearFilter}
+        onChange={(e) => setYearFilter(e.target.value)}
+      >
+        <option value={null}>All</option>
+        {[...new Set(dates.map((date) => date.split('-')[0]))].map((year) => (
+          <option key={year} value={year}>
+            {year}
+          </option>
+        ))}
+      </select>
+      <label>Month:</label>
+      <select
+        value={monthFilter}
+        onChange={(e) => setMonthFilter(e.target.value)}
+      >
+        <option value={null}>All</option>
+        {[...new Set(dates.map((date) => date.split('-')[1]))].map((month) => (
+          <option key={month} value={month}>
+            {month}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
+<DateFilter dates={['2022-01-01', '2022-02-01', '2022-03-01', '2022-03-02']} />;
+
+// provided date from api data in the format yyyy-mm-dd  , write functions that filter year and month using react hooks
+
+// To filter a list of dates by year and month using React hooks, you can use the useState and useEffect hooks to store the current year and month filter, and update the list of dates accordingly. Here is an example of how you might implement this:
+
+// Copy code
+import { useState, useEffect } from 'react';
+
+function DateFilter({ dates }) {
+  // Use the useState hook to store the current year and month filters
+  const [yearFilter, setYearFilter] = useState(null);
+  const [monthFilter, setMonthFilter] = useState(null);
+
+  // Use the useEffect hook to update the list of dates based on the current year and month filters
+  useEffect(() => {
+    let filteredDates = dates;
+    if (yearFilter) {
+      filteredDates = filteredDates.filter(
+        (date) => date.split('-')[0] === yearFilter
+      );
+    }
+    if (monthFilter) {
+      filteredDates = filteredDates.filter(
+        (date) => date.split('-')[1] === monthFilter
+      );
+    }
+    setFilteredDates(filteredDates);
+  }, [yearFilter, monthFilter]);
+
+  return (
+    <div>
+      <label>Year:</label>
+      <select
+        value={yearFilter}
+        onChange={(e) => setYearFilter(e.target.value)}
+      >
+        <option value={null}>All</option>
+        {[...new Set(dates.map((date) => date.split('-')[0]))].map((year) => (
+          <option key={year} value={year}>
+            {year}
+          </option>
+        ))}
+      </select>
+      <label>Month:</label>
+      <select
+        value={monthFilter}
+        onChange={(e) => setMonthFilter(e.target.value)}
+      >
+        <option value={null}>All</option>
+        {[...new Set(dates.map((date) => date.split('-')[1]))].map((month) => (
+          <option key={month} value={month}>
+            {month}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+// This example includes two dropdown menus for selecting the year and month filters. The options in the dropdown menus are generated from the list of dates, and the useEffect hook is used to update the list of dates based on the selected filters.
+
+// You can then use this component by passing in a list of dates as a prop, like this:
+
+// Copy code
+<DateFilter dates={['2022-01-01', '2022-02-01', '2022-03-01', '2022-03-02']} />;
+// This will render two dropdown menus, one for selecting the year and one for selecting the month, and the list of dates will be filtered based on the selected filters.
+
+// continue to display the data in a table using react
+// To display the filtered dates in a table using React, you can use a combination of the useState and useEffect hooks to store the list of filtered dates, and a table component to render the data.
+
+// Here is an example of how you might implement this:
+
+// Copy code
+import { useState, useEffect } from 'react';
+
+function DateTable({ dates }) {
+  // Use the useState hook to store the list of filtered dates
+  const [filteredDates, setFilteredDates] = useState([]);
+
+  // Use the useEffect hook to update the list of filtered dates when the dates prop changes
+  useEffect(() => {
+    setFilteredDates(dates);
+  }, [dates]);
+
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {filteredDates.map((date) => (
+          <tr key={date}>
+            <td>{date}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+// This example includes a table with a single column for displaying the dates. The useEffect hook is used to update the list of filtered dates when the dates prop changes, and the table is rendered using the filteredDates state.
+
+// You can then use this component by passing in a list of dates as a prop, like this:
+
+// Copy code
+<DateTable dates={['2022-01-01', '2022-02-01', '2022-03-01', '2022-03-02']} />;
+
+// try this
+// https://codesandbox.io/s/sorting-filtering-pagination-de7v3?file=/src/Table.js:717-1417

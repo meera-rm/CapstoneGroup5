@@ -9,7 +9,7 @@ import Home from '../../Pages/Home';
 import About from '../../Pages/About';
 import Register from '../../Pages/Register';
 import Login from '../../Pages/Login';
-
+import Contact from '../../Pages/Contact';
 import IndexBooks from '../../Pages/Books/IndexBooks';
 import NewBooks from '../../Pages/Books/NewBook';
 import ShowBooks from '../../Pages/Books/ShowBooks';
@@ -70,7 +70,7 @@ const AnimatedRoutes = () => {
             <Route path='/about' element={<About />} />
             <Route path='/info' element={<Information />} />
             <Route path='/policy' element={<PrivacyPolicy />} />
-            {/* <Route path='/contact' element={<Contact />} /> */}
+             <Route path='/contact' element={<Contact />} /> 
             <Route
               path='/signup'
               element={
@@ -119,7 +119,7 @@ const AnimatedRoutes = () => {
               <Route path='new' element={<StudentNew />} />
               <Route path=':id' element={<StudentShow />} />
               <Route path=':id/edit' element={<StudentEdit />} />
-              <Route path=':id/show' element={<StudentView />} />
+               <Route path=':id/show' element={<StudentView />} /> 
             </Route>
 
             <Route path='/teachers'>
