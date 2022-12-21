@@ -22,6 +22,9 @@ const BookDetails = () => {
       .catch(() => navigate('/not-found'));
   }, [id, navigate, book]);
 
+  const filterBooksbyReadingLevel = (letter) =>{
+    return book.filter((bookItem) => bookItem.reading_level === letter.toUpperCase())[0];
+  }
   //Delete functions
   const handleDelete = () => {
     axios
@@ -39,8 +42,10 @@ const BookDetails = () => {
         Book Details
       </h2>
       {/* <article className='flex justify-center items-center leading-none' > */}
+      
       <article className='text-center'>
         <div>
+        
           <p className='font-bold'>
             <img
               className='text-center object-contain h-52 w-96'
@@ -56,6 +61,7 @@ const BookDetails = () => {
           <p className='font-bold'>
             Book Title:<span className='font-semibold'>{book.book_title}</span>
           </p>
+
           <p className='font-bold'>
             Book Author:
             <span className='font-semibold'>{book.book_author}</span>
