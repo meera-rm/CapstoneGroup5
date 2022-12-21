@@ -70,7 +70,7 @@ const AnimatedRoutes = () => {
             <Route path='/about' element={<About />} />
             <Route path='/info' element={<Information />} />
             <Route path='/policy' element={<PrivacyPolicy />} />
-             <Route path='/contact' element={<Contact />} /> */}
+             <Route path='/contact' element={<Contact />} /> 
             <Route
               path='/signup'
               element={

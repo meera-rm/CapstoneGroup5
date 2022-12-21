@@ -40,9 +40,9 @@ const Footer = () => {
             </a>
           </div>
           <div className='p-5'>
-            <div className='text-sm uppercase text-black-600 font-bold'>
+            {/* <div className='text-sm uppercase text-black-600 font-bold'>
               Contact us
-            </div>
+            </div> */}
             <a className='my-3 block' href='/contact'>
              Contact<span className='text-teal-600 text-xs p-1'></span>
             </a>

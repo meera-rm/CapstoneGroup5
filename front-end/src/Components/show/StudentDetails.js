@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -16,7 +16,17 @@ import { MdTableView } from 'react-icons/md';
 import { FaEdit } from 'react-icons/fa';
 
 const API = process.env.REACT_APP_API_URL;
-
+// const columns = [
+//   { accessor: 'id', label: 'ID' },
+//   { accessor: 'date', label: 'Date' },
+//   { accessor: 'title', label: 'Book Title' },
+//   { accessor: 'bookid', label: 'Book Id' },
+//   { accessor: 'minutesread', label: 'Minutes Read' },
+//   { accessor: 'pagesread', label: 'Pages Read' },
+//   { accessor: 'readingthoughts', label: 'Reading Thoughts' },
+//   // { accessor: 'bookid', label: 'Manager', format: (value) => (value ? '✔️' : '✖️') },
+//   { accessor: 'teachercomments', label: 'Teacher Comments' },
+// ]
 const StudentDetails = () => {
   const [student, setStudent] = useState([]);
   const [logData, setLogData] = useState([]);
@@ -88,6 +98,14 @@ const StudentDetails = () => {
   const [message, setMessage] = useState(true);
 
   const onClick = () => setMessage(false);
+  
+  // const [filters, setFilters] = useState({})
+  // const [sort, setSort] = useState({ order: 'asc', orderBy: 'id' })
+ 
+
+  // const filteredRows = useMemo(() => filterRows(rows, filters), [rows, filters])
+  // const sortedRows = useMemo(() => sortRows(filteredRows, sort), [filteredRows, sort])
+ 
 
   return (
     <div className='container mx-auto px-4 sm:px-8'>
@@ -259,7 +277,7 @@ const StudentDetails = () => {
                           // </td>
                           // <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                           //  <div className='ml-3 p-3 text-sm text-indigo-900'>
-                          // <Link to={`/comments/new`}>
+                          // <Link to={`/logs/${log.log_id}/comments/new`}>
                           //   <button */}
                           {/* //     className=' bg-teal-500 px-6 py-4 text-black rounded '
                           //     onClick={onClick}
@@ -268,7 +286,7 @@ const StudentDetails = () => {
                           //   </button>
                           // </Link> */}
                         {/* // 
-                         </div> */} */}
+                         </div> */} 
                       </td>
 
                       {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
@@ -324,3 +342,5 @@ const StudentDetails = () => {
 };
 
 export default StudentDetails;
+
+

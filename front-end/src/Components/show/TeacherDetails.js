@@ -219,7 +219,7 @@ const TeacherDetails = () => {
                         </div>
                       </td>
 
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
                           <Link to={`/comments/new`}>
                             <button
@@ -230,7 +230,7 @@ const TeacherDetails = () => {
                             </button>
                           </Link>
                         </div>
-                      </td>
+                      </td> 
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
                           <Link to={`/students/${student.student_id}/edit`}>
