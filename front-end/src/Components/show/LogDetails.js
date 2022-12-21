@@ -75,15 +75,20 @@ const LogDetails = () => {
               </button>
             </Link>
           </div>
-           {/* <div>
+
+          <div>
+
             {' '}
             <Link to={`/students/${id}/edit`}>
               <button className=' bg-teal-500 px-6 py-4 text-white rounded '>
                 Edit{' '}
               </button>
             </Link>
-          </div> */}
-          <div> 
+
+          </div> 
+ 
+          <div>
+
             {' '}
             <Link to={'/students'}>
               <button
