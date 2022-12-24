@@ -4,13 +4,43 @@ import { Link } from 'react-router-dom';
 // import './AllBooks.css';
 
 const API = process.env.REACT_APP_API_URL;
-const alphabets=['A' ,'B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','Y','Z'];
+const alphabets = [
+  'A',
+  'B',
+  'C',
+  'D',
+  'E',
+  'F',
+  'G',
+  'H',
+  'I',
+  'J',
+  'K',
+  'L',
+  'M',
+  'N',
+  'O',
+  'P',
+  'Q',
+  'R',
+  'S',
+  'T',
+  'U',
+  'V',
+  'W',
+  'Y',
+  'Z',
+];
 
 const AllBooks = () => {
   const [bookData, setBookData] = useState([]);
-  const [q, setQ] = useState("");
-  const [searchParam] = useState(["book_title", "book_author", "reading_level"]);
-  const [filterParam, setFilterParam] = useState(["All"]);
+  const [q, setQ] = useState('');
+  const [searchParam] = useState([
+    'book_title',
+    'book_author',
+    'reading_level',
+  ]);
+  const [filterParam, setFilterParam] = useState(['All']);
 
   useEffect(() => {
     axios
@@ -18,43 +48,32 @@ const AllBooks = () => {
       //  .then((response) => console.log(response.data))
       .then((response) => setBookData(response.data.payload))
       .catch((e) => console.error('catch', e));
-      
   }, []);
- 
+
   const data = Object.values(bookData);
 
-
   function search(bookData) {
-    
     // eslint-disable-next-line
     return bookData.filter((book) => {
-    
       if (book.reading_level === filterParam) {
-            return searchParam.some((newBook) => {
-                return (
-                    book[newBook]
-                        .toString()
-                        .toLowerCase()
-                        .indexOf(q.toLowerCase()) > -1
-                );
-            });
-        } else if (filterParam === "All") {
-            return searchParam.some((newBook) => {
-                return (
-                    book[newBook]
-                        .toString()
-                        .toLowerCase()
-                        .indexOf(q.toLowerCase()) > -1
-                );
-            });
-        }
+        return searchParam.some((newBook) => {
+          return (
+            book[newBook].toString().toLowerCase().indexOf(q.toLowerCase()) > -1
+          );
+        });
+      } else if (filterParam === 'All') {
+        return searchParam.some((newBook) => {
+          return (
+            book[newBook].toString().toLowerCase().indexOf(q.toLowerCase()) > -1
+          );
+        });
+      }
     });
-}
+  }
 
-
-const newAlphabet=alphabets.map((book) => {
-  return <option value={book}>{book}  </option>
-})
+  const newAlphabet = alphabets.map((book) => {
+    return <option value={book}>{book} </option>;
+  });
 
   return (
     <div className='px-10 py-6 md:col-span-2 '>
@@ -68,39 +87,35 @@ const newAlphabet=alphabets.map((book) => {
           </button>
         </Link>
       </div>
-      <div className="flex justify-center mt-10 text-center">
-                    <label htmlFor="search-form">
-                        <input
-                            type="search"
-                            name="search-form"
-                            id="search-form"
-                            className="border-2 border-black outline  mr-5"
-                            placeholder="Search for..."
-                            value={q}
-                            onChange={(e) => setQ(e.target.value)}
-                        />
-                        <span className="sr-only">Search  here</span>
-                    </label>
+      <div className='flex justify-center mt-10 text-center'>
+        <label htmlFor='search-form'>
+          <input
+            type='search'
+            name='search-form'
+            id='search-form'
+            className='border-2 border-black outline  mr-5'
+            placeholder='Search for...'
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+          />
+          <span className='sr-only'>Search here</span>
+        </label>
 
-                    <div className="">
-                        <select
-                            onChange={(e) => {
-                                setFilterParam(e.target.value);
-                            }}
-                            className="border-2 border-black outline"
-                            aria-label="Filter Books By ReadingLevel"
-                        >
-                            
-                            <option value="choose" >
-                                -- Select Reading Level--
-                            </option>
-                            <option value="All">Filter By Reading Level</option>
-                            {newAlphabet}
-
-                        </select>
-                        <span className="focus"></span>
-                    </div>
-                </div>
+        <div className=''>
+          <select
+            onChange={(e) => {
+              setFilterParam(e.target.value);
+            }}
+            className='border-2 border-black outline'
+            aria-label='Filter Books By ReadingLevel'
+          >
+            <option value='choose'>-- Select Reading Level--</option>
+            <option value='All'>Filter By Reading Level</option>
+            {newAlphabet}
+          </select>
+          <span className='focus'></span>
+        </div>
+      </div>
       <div className='mt-14 grid md:grid-cols-3 lg:grid-cols-4 gap-10 lg:gap-16'>
         {/* <div className='max-w-sm rounded overflow-hidden shadow-lg '> */}
         {search(data)?.map((book) => {
@@ -110,7 +125,6 @@ const newAlphabet=alphabets.map((book) => {
               // rounded-sm  hover:shadow-sm'
               key={book.book_id + book.book_title}
             >
-              
               <div>
                 <Link
                   className='text-center'
@@ -118,7 +132,8 @@ const newAlphabet=alphabets.map((book) => {
                   key={book.book_id}
                 >
                   <img
-                    className='text-center object-fit '
+                    style={{ width: '600px', height: '200px' }}
+                    className='text-center'
                     src={`${book.book_picture}`}
                     alt={book.book_picture}
                   />

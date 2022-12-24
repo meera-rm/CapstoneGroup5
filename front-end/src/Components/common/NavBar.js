@@ -18,15 +18,14 @@ const Navbar = () => {
   return (
     <React.Fragment>
       <section className='bg-teal-500'>
-
-        <nav className='w-full h-32 px-4 pt-4 pb-4 flex items-center justify-between md:w-4/5 md:mx-auto'>
-          <div className='relative flex-grow'>
-
+        <nav className='w-full h-12 px-5 pt-4 pb-4 flex items-center justify-between md:w-4/5 md:mx-auto'>
+          <div className='flex-grow'>
             <Link to='/'>
               <img
                 src={logoImage}
                 alt='logo'
-                className='absolute -left-40 -top-8 w-14 h-12'
+                className='absolute -left-1 -top-0 w-12 h-12'
+                // className='absolute -left-40 -top-8 w-14 h-12'
               />
             </Link>
           </div>
@@ -40,9 +39,9 @@ const Navbar = () => {
           </div>
 
           {/* large screen */}
-          <nav className='hidden md:block md:container pl-90'>
+          <nav className='hidden md:block md:container pl-6'>
             <div className='flex justify-between text-xl'>
-              <div className='flex text-black space-x-8'>
+              <div className='flex text-black space-x-4'>
                 {/* <Link to='/'>
                   <p className=''>Home</p>
                 </Link> */}
@@ -52,7 +51,7 @@ const Navbar = () => {
                 <Link to='/info'>
                   <p className=''>INFO</p>
                 </Link>
-               
+
                 <Link to='/books'>
                   <p className=''>BOOKS</p>
                 </Link>
@@ -75,18 +74,16 @@ const Navbar = () => {
 
                 </Link>  */}
               </div>
-              <div className='flex space-x-6 pl-90'>
+              <div className='flex pl-2 space-x-4'>
                 <Link to='/signUp'>
-                  <p className=' bg-green-400 w-20 text-center rounded-md'>
-                    SIGN UP
-                  </p>
+                  <p className='w-18 text-center rounded-md'>SIGNUP</p>
                 </Link>
                 <Link to='/login'>
                   <p
-                    className='bg-green-400 w-20 text-center rounded-md'
+                    className='w-18 text-center rounded-md'
                     onClick={handleNavLinkDisappear}
                   >
-                    LOG IN
+                    LOGIN
                   </p>
                 </Link>
               </div>
@@ -96,7 +93,7 @@ const Navbar = () => {
 
         {/* mobile screen */}
         <nav className='md:hidden'>
-        <Link to='/'>
+          <Link to='/'>
             <img
               src={logoImage}
               alt='logo'
@@ -104,7 +101,6 @@ const Navbar = () => {
             />
           </Link>
           {menu && (
-            
             <div className='text-xl border-t text-black mx-5'>
               <div className='space-y-6 py-4 '>
                 <Link to='/'>
@@ -141,7 +137,7 @@ const Navbar = () => {
 
                 <Link to='/signup'>
                   <p
-                    className='mt-4 capitalize bg-green-400 w-32 text-center rounded-md'
+                    className='mt-4 capitalize w-32 text-center rounded-md'
                     onClick={handleNavLinkDisappear}
                   >
                     {' '}
@@ -150,7 +146,7 @@ const Navbar = () => {
                 </Link>
                 <Link to='/login'>
                   <p
-                    className='mt-4 capitalize bg-green-400 w-32 text-center rounded-md'
+                    className='mt-4 capitalize  w-32 text-center rounded-md'
                     onClick={handleNavLinkDisappear}
                   >
                     Log In

@@ -16,38 +16,7 @@ function Information() {
       <h1 className='text-center text-teal-600 text-5xl font-bold mt-10'>
         Scholar Sheep
       </h1>
-      {/* <div className='grid grid-cols-2 gap-2 text-left'> */}
-      {/* <div className='flex flex-row text-center w-11/12'> *
-        <div>
-        <img src={leaders} alt='' width='250' height='250'/>
-          {/* <div className='mt-10 max-w-lg mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl '> *
-          </div>
-      <div>
-        {/* <h5>
-          <b>Why ScholarSheep</b>
-        </h5> *
-        <p className='text-left '>
-          Instilling a love of reading early gives a child a head start on
-          expanding their vocabulary and building independence and
-          self-confidence. It helps children learn to make sense not only of the
-          world around them but also people, building social-emotional skills
-          and of course, imagination. Reading exposes us to other styles, other
-          voices, other forms, and other genres of writing. Importantly, it
-          exposes us to writing that’s better than our own and helps us to
-          improve,
-        </p>
-        <p className=''>
-          As a company we understand the importance and value of education. We
-          are aware of the struggles the teachers go through in order of help
-          their students and the lack of funds in schools that makes their job
-          harder. Today's children are less interested in reading books and
-          gravitate more towards the techonological devices and the attractions
-          they offer. At ScholarSheep we are offering our ditigized services to
-          bridge the gap to help students read books.
-        </p>
-      </div>
-      </div> */}
-
+    
       <div className='mt-10 max-w-lg mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl w-full'>
         <div className='md:flex'>
           <div className=' md:shrink-0'>

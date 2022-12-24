@@ -5,10 +5,10 @@ import NewStudentsModal from '../new/NewStudentsModal';
 const Modal = ({ showModal, setShowModal, choice, teacher, studentData }) => {
   const name = choice === 1 ? 'Students' : 'Logs';
   return (
-    <div className='flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none'>
-      <div className='relative w-auto my-6 mx-auto max-w-3xl'>
-        <div className='border-0 w-full rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none'>
-          <div className='flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t '>
+    <div className='flex justify-center items-center overflow-x-hidden overflow-y-scroll fixed z-50 inset-4 outline-none focus:outline-none'>
+      <div className='relative  w-auto my-6 mx-auto max-w-3xl'>
+        <div className='mt-20 border-0 w-full rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none '>
+          <div className='flex items-start justify-between mt-40 p-5 border-b border-solid border-gray-300 rounded-t '>
             <h3 className='text-3xl text-center font=semibold'>
               New {`${name}`}
             </h3>
@@ -24,9 +24,9 @@ const Modal = ({ showModal, setShowModal, choice, teacher, studentData }) => {
 
           <div className='relative p-6 flex-auto'>
             {choice === 1 ? (
-              <NewStudentsModal 
-              // teacher={teacher} studentData={studentData}
-               />
+              <NewStudentsModal
+              // // teacher={teacher} studentData={studentData}
+              />
             ) : (
               <NewLogs />
             )}

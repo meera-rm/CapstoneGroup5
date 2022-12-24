@@ -46,10 +46,15 @@ const NewStudents = (props) => {
 
   return (
     // <div className='add-trans'>
-    <div className='flex flex-col text-center h-screen items-center justify-center '>
-      <div className='rounded-md py-4 px-6 text-black lg:w-2/5 md:w-3/5 w-4/5'>
-        <form onSubmit={handleSubmit}>
-          <div className='mb-4'>
+    // <div className='flex flex-col text-center h-screen items-center justify-center '>
+    //   <div className='rounded-md py-4 px-6 text-black lg:w-2/5 md:w-3/5 w-4/5'>
+    <div className='flex items-center h-screen w-full bg-teal-lighter'>
+      <div className='w-full bg-white rounded shadow-lg p-8 m-2 md:max-w-sm md:mx-auto'>
+        <form
+          className='mb-4 md:flex md:flex-wrap md:justify-between'
+          onSubmit={handleSubmit}
+        >
+          {/* <div className='mb-4'>
             <label className='py-6' htmlFor='parent_name'>
               Parent Name:{' '}
             </label>
@@ -64,8 +69,27 @@ const NewStudents = (props) => {
               onChange={handleTextChange}
               required
             />
+          </div> */}
+          <div className='flex flex-col mb-4 md:w-full'>
+            <label
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              htmlFor='parent_name'
+            >
+              Parent Name
+            </label>
+            <input
+              className='border py-2 px-3 text-grey-darkest'
+              id='parent_name'
+              type='text'
+              name='parent_name'
+              value={student.parent_name}
+              autoComplete='off'
+              placeholder='Parent name'
+              onChange={handleTextChange}
+              required
+            />
           </div>
-          <div className='mb-4'>
+          {/* <div className='mb-4'>
             <label className='py-6' htmlFor='student_name'>
               Student Name:{' '}
             </label>
@@ -80,8 +104,27 @@ const NewStudents = (props) => {
               onChange={handleTextChange}
               required
             />
+          </div> */}
+          <div className='flex flex-col mb-4 md:w-full'>
+            <label
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              htmlFor='student_name'
+            >
+              Student Name
+            </label>
+            <input
+              className='border py-2 px-3 text-grey-darkest'
+              id='student_name'
+              type='text'
+              name='student_name'
+              value={student.student_name}
+              placeholder='Student Name'
+              autoComplete='off'
+              onChange={handleTextChange}
+              required
+            />
           </div>
-          <div className='mb-4'>
+          {/* <div className='mb-4'>
             <label className='py-6' htmlFor='parent_email'>
               Parent Email:{' '}
             </label>
@@ -96,9 +139,27 @@ const NewStudents = (props) => {
               onChange={handleTextChange}
               required
             />
+          </div> */}
+          <div className='flex flex-col mb-4 md:w-full'>
+            <label
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              htmlFor='parent_email'
+            >
+              Parent Email
+            </label>
+            <input
+              className='border py-2 px-3 text-grey-darkest'
+              id='parent_email'
+              name='parent_email'
+              type='text'
+              value={student.parent_email}
+              placeholder='Parent email'
+              autoComplete='off'
+              onChange={handleTextChange}
+              required
+            />
           </div>
-
-          <div className='mb-4'>
+          {/* <div className='mb-4'>
             <label className='py-6' htmlFor='student_email'>
               Student Email{' '}
             </label>
@@ -113,8 +174,27 @@ const NewStudents = (props) => {
               onChange={handleTextChange}
               required
             />
+          </div> */}
+          <div className='flex flex-col mb-4 md:w-full'>
+            <label
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              htmlFor='student_email'
+            >
+              Student Email
+            </label>
+            <input
+              className='border py-2 px-3 text-grey-darkest'
+              id='student_email'
+              type='text'
+              name='student_email'
+              value={student.student_email}
+              autoComplete='off'
+              placeholder='Student email'
+              onChange={handleTextChange}
+              required
+            />
           </div>
-          <div className='mb-4'>
+          {/* <div className='mb-4'>
             <label className='py-6' htmlFor='grade'>
               Grade{' '}
             </label>
@@ -129,9 +209,27 @@ const NewStudents = (props) => {
               onChange={handleTextChange}
               required
             />
+          </div> */}
+          <div className='flex flex-col mb-4 md:w-full'>
+            <label
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              htmlFor='grade'
+            >
+              Student Grade
+            </label>
+            <input
+              className='border py-2 px-3 text-grey-darkest'
+              id='grade'
+              type='text'
+              name='grade'
+              value={student.grade}
+              autoComplete='off'
+              placeholder='Grade'
+              onChange={handleTextChange}
+              required
+            />
           </div>
-
-          <div className='mb-4'>
+          {/* <div className='mb-4'>
             <label className='py-6' htmlFor='academic_year'>
               Academic Year:{' '}
             </label>
@@ -146,8 +244,27 @@ const NewStudents = (props) => {
               placeholder='academic_year'
               required
             />
+          </div> */}
+          <div className='flex flex-col mb-4 md:w-full'>
+            <label
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              htmlFor='academic_year'
+            >
+              Academic year
+            </label>
+            <input
+              className='border py-2 px-3 text-grey-darkest'
+              id='academic_year'
+              type='text'
+              name='academic_year'
+              value={student.academic_year}
+              onChange={handleTextChange}
+              autoComplete='off'
+              placeholder='Academic year'
+              required
+            />
           </div>
-          <div className='mb-4'>
+          {/* <div className='mb-4'>
             <label className='py-6' htmlFor='reading_level'>
               Reading Level:{' '}
             </label>
@@ -162,8 +279,27 @@ const NewStudents = (props) => {
               placeholder='reading_level'
               required
             />
+          </div> */}
+          <div className='flex flex-col mb-4 md:w-full'>
+            <label
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              htmlFor='reading_level'
+            >
+              Reading Level
+            </label>
+            <input
+              className='border py-2 px-3 text-grey-darkest'
+              id='reading_level'
+              type='text'
+              name='reading_level'
+              value={student.reading_level}
+              onChange={handleTextChange}
+              autoComplete='off'
+              placeholder='Reading level'
+              required
+            />
           </div>
-          <div className='mb-4'>
+          {/* <div className='mb-4'>
             <label className='py-6' htmlFor='reading_level'>
               Teachers Id:{' '}
             </label>
@@ -174,8 +310,22 @@ const NewStudents = (props) => {
               name='teachers_id'
               value={id}
             />
+          </div> */}
+          <div className='flex flex-col mb-4 md:w-full'>
+            <label
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              htmlFor='teachers_id'
+            >
+              Teachers Id
+            </label>
+            <input
+              className='border py-2 px-3 text-grey-darkest'
+              id='teachers_id'
+              type='text'
+              name='teachers_id'
+              value={id}
+            />
           </div>
-
           {/* <div className='add-btn'> */}
           <div className='justify-center ml-6 space-x-6 '>
             <input className=' px-5  py-3 rounded bg-teal-500' type='submit' />

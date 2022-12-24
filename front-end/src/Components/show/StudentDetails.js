@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useParams, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
-
+import StudentLogsView from './StudentLogsView';
 import Pagination from '../features/Pagination';
 import NewLogs from '../new/NewLogs';
 
@@ -12,7 +12,7 @@ import NewComments from '../new/NewComments';
 import Modal from '../features/Modal';
 import { MdDelete } from 'react-icons/md';
 import { MdTableView } from 'react-icons/md';
-
+import { MdAddComment } from 'react-icons/md';
 import { FaEdit } from 'react-icons/fa';
 
 const API = process.env.REACT_APP_API_URL;
@@ -27,7 +27,7 @@ const API = process.env.REACT_APP_API_URL;
 //   // { accessor: 'bookid', label: 'Manager', format: (value) => (value ? '✔️' : '✖️') },
 //   { accessor: 'teachercomments', label: 'Teacher Comments' },
 // ]
-const StudentDetails = () => {
+const StudentDetails = (props) => {
   const [student, setStudent] = useState([]);
   const [logData, setLogData] = useState([]);
   const [bookData, setBookData] = useState([]);
@@ -38,6 +38,8 @@ const StudentDetails = () => {
 
   let navigate = useNavigate();
   let { id } = useParams();
+  const location = useLocation();
+  const fromTeacherDetails = location.state?.fromTeacherDetails;
 
   useEffect(() => {
     axios
@@ -98,14 +100,12 @@ const StudentDetails = () => {
   const [message, setMessage] = useState(true);
 
   const onClick = () => setMessage(false);
-  
+
   // const [filters, setFilters] = useState({})
   // const [sort, setSort] = useState({ order: 'asc', orderBy: 'id' })
- 
 
   // const filteredRows = useMemo(() => filterRows(rows, filters), [rows, filters])
   // const sortedRows = useMemo(() => sortRows(filteredRows, sort), [filteredRows, sort])
- 
 
   return (
     <div className='container mx-auto px-4 sm:px-8'>
@@ -266,27 +266,29 @@ const StudentDetails = () => {
                         </Link>
                       </td>
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm '>
-                        {/* {message ? ( */}
+                        {/* {fromTeacherDetails ? (  
+                        <div className='ml-3 p-3 text-sm text-indigo-900'>
+                          {/* <Link to={`/logs/${log.log_id}/comments/new`}>
+                           <button 
+                            className=' bg-teal-500 px-6 py-4 text-black rounded '
+                              onClick={onClick}
+                           >
+                             <MdAddComment />{' '}
+                           </button>
+                           {/* {message && <StudentLogsView/>} *
+                          </Link>  
+                        </div>
+
+                        {/* ) : ( */}
+                        <div className='ml-3 p-3 text-sm text-indigo-900'>
                           <Link
                             className='font-bold text-black-700 hover:underline'
                             to={`/logs/${log.log_id}`}
                           >
                             {<Comment log={log} comments={comments} />}
                           </Link>
-                        {/* // ) : (
-                          // </td>
-                          // <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                          //  <div className='ml-3 p-3 text-sm text-indigo-900'>
-                          // <Link to={`/logs/${log.log_id}/comments/new`}>
-                          //   <button */}
-                          {/* //     className=' bg-teal-500 px-6 py-4 text-black rounded '
-                          //     onClick={onClick}
-                          //   >
-                          //     <MdAddComment />{' '}
-                          //   </button>
-                          // </Link> */}
-                        {/* // 
-                         </div> */} 
+                          {/* )} */}
+                        </div>
                       </td>
 
                       {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
@@ -342,5 +344,3 @@ const StudentDetails = () => {
 };
 
 export default StudentDetails;
-
-

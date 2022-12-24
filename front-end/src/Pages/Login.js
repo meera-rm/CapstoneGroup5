@@ -48,33 +48,30 @@ const Login = ({ signedIn, setSignedIn, signedInUser, setSignedInUser }) => {
 
   return (
     <div>
-      {/* <h1 class='text-center'>Parent Login</h1> */}
-      {/* <div class='flex items-center justify-center'>
-      <img class=' h-22 w-48 rounded-full' src={parentandchild} alt='' />
-      </div> */}
-      <div class='flex items-center h-screen w-full bg-teal-lighter'>
-        <div class='w-full bg-white rounded shadow-lg p-8 m-2 md:max-w-sm md:mx-auto'>
-          <div class='flex items-center justify-center'>
-            <img class=' h-10 w-12 rounded-full' src={logoImage} alt='' />
+     
+      <div className='flex items-center h-screen w-full bg-teal-lighter'>
+        <div className='w-full bg-white rounded shadow-lg p-8 m-2 md:max-w-sm md:mx-auto'>
+          <div className='flex items-center justify-center'>
+            <img className=' h-10 w-12 rounded-full' src={logoImage} alt='' />
           </div>
 
-          <h1 class='block w-full text-center text-grey-darkest mb-6'>
+          <h1 className='block w-full text-center text-grey-darkest mb-6'>
             {' '}
             Login{' '}
           </h1>
           <form
-            class='mb-4 md:flex md:flex-wrap md:justify-between'
+            className='mb-4 md:flex md:flex-wrap md:justify-between'
             onSubmit={handleSubmit}
           >
-            <div class='flex flex-col mb-4 md:w-full'>
+            <div className='flex flex-col mb-4 md:w-full'>
               <label
-                class='mb-2 uppercase font-bold text-lg text-grey-darkest'
+                className='mb-2 uppercase font-bold text-lg text-grey-darkest'
                 htmlFor='user_email'
               >
                 Email
               </label>
               <input
-                class='border py-2 px-3 text-grey-darkest'
+                className='border py-2 px-3 text-grey-darkest'
                 type='email'
                 name='user_email'
                 id='user_email'
@@ -83,15 +80,15 @@ const Login = ({ signedIn, setSignedIn, signedInUser, setSignedInUser }) => {
               />
             </div>
 
-            <div class='flex flex-col mb-6 md:w-full'>
+            <div className='flex flex-col mb-6 md:w-full'>
               <label
-                class='mb-2 uppercase font-bold text-lg text-grey-darkest'
+                className='mb-2 uppercase font-bold text-lg text-grey-darkest'
                 htmlFor='user_password'
               >
                 Password
               </label>
               <input
-                class='border py-2 px-3 text-grey-darkest'
+                className='border py-2 px-3 text-grey-darkest'
                 type='password'
                 name='user_password'
                 id='user_password'
@@ -101,7 +98,7 @@ const Login = ({ signedIn, setSignedIn, signedInUser, setSignedInUser }) => {
             </div>
 
             <button
-              class='block bg-teal-600 hover:bg-teal-dark text-white uppercase text-lg mx-auto p-4 rounded'
+              className='block bg-teal-600 hover:bg-teal-dark text-white uppercase text-lg mx-auto p-4 rounded'
               type='submit'
             >
               Login
@@ -109,10 +106,10 @@ const Login = ({ signedIn, setSignedIn, signedInUser, setSignedInUser }) => {
           </form>
 
           <a
-            class='block w-full text-center no-underline text-sm text-grey-dark hover:text-grey-darker'
+            className='block w-full text-center no-underline text-sm text-grey-dark hover:text-grey-darker'
             href='/signup'
           >
-            Not Registered yet?<span class='font-bold'>Sign Up</span>
+            Not Registered yet?<span className='font-bold'>Sign Up</span>
           </a>
         </div>
       </div>

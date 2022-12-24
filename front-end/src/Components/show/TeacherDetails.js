@@ -8,7 +8,6 @@ import Modal from '../features/Modal';
 import { MdDelete } from 'react-icons/md';
 import { MdTableView } from 'react-icons/md';
 import { FaEdit } from 'react-icons/fa';
-import StudentLogsView from './StudentLogsView';
 import { MdAddComment } from 'react-icons/md';
 const API = process.env.REACT_APP_API_URL;
 
@@ -73,6 +72,7 @@ const TeacherDetails = () => {
     console.log('indisplayComponent');
     setView(true);
   };
+
   const [currentPage, setCurrentPage] = useState(1);
 
   const [studentsPerPage] = useState(2);
@@ -147,13 +147,14 @@ const TeacherDetails = () => {
                   <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
                     Reading Level
                   </th>
+                  
 
                   <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
                     View
                   </th>
-                  <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                  {/* <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
                     Comment
-                  </th>
+                  </th> */}
                   <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
                     Edit
                   </th>
@@ -193,33 +194,42 @@ const TeacherDetails = () => {
                       </td>
 
                       {/* <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
-
                         <Link
                           className='font-bold text-black-700 hover:underline'
                           to={`/logs/${student.student_id}`}
                         >
                           {student.reading_minutes}
                         </Link>
-
                       </td> */}
 
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                      <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
                         {/* <div className='flex'> */}
                         {/* <div className="flex-shrink-0 w-10 h-10"> */}
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
-                          <Link to={`/students/${student.student_id}`}>
+                           {/* <Link to={{
+                            pathname:`/students/${student.student_id}`,
+                            state:{fromTeacherDetails: true },
+                            }}>  */}
+                         
+                             <Link to={`/students/${student.student_id}`}
+                            state={{role:"teacher"}}
+                            >  
                             <button
-                              className=' bg-teal-500 px-6 py-4 text-black rounded '
-                              // onClick={(e) => setView(true)}
+                              className=' bg-teal-500 px-6 py-4 text-black rounded'
+                              //  onClick={(e) => setView(true)}
                             >
                               <MdTableView />{' '}
                             </button>
-                            {/* {view && <StudentLogsView />} */}
-                          </Link>
+                            {/* {view && <StudentLogsView 
+                                bookData={bookData}
+                                student={student}
+                                teacher={teacher}
+                                />} */}
+                          </Link> 
                         </div>
                       </td>
 
-                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                      {/* <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
                           <Link to={`/comments/new`}>
                             <button
@@ -230,8 +240,8 @@ const TeacherDetails = () => {
                             </button>
                           </Link>
                         </div>
-                      </td> 
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                      </td> */}
+                      <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
                           <Link to={`/students/${student.student_id}/edit`}>
                             <button className=' bg-teal-500 px-6 py-4 text-black rounded '>
@@ -242,7 +252,7 @@ const TeacherDetails = () => {
                       </td>
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
-                          <Link to={`/teachers/${student.student_id}/edit`}>
+                          <Link to={`/teachers`}>
                             <button
                               className=' bg-teal-500 px-6 py-4 text-black rounded '
                               onClick={() => handleDelete}
@@ -258,7 +268,7 @@ const TeacherDetails = () => {
                 })}
               </tbody>
             </table>
-
+            
             <Pagination
               nPages={nPages}
               currentPage={currentPage}
