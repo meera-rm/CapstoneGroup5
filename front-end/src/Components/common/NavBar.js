@@ -51,7 +51,7 @@ const Navbar = () => {
                 <Link to='/info'>
                   <p className=''>INFO</p>
                 </Link>
-
+               
                 <Link to='/books'>
                   <p className=''>BOOKS</p>
                 </Link>
@@ -93,7 +93,9 @@ const Navbar = () => {
 
         {/* mobile screen */}
         <nav className='md:hidden'>
+
           <Link to='/'>
+
             <img
               src={logoImage}
               alt='logo'
@@ -101,6 +103,7 @@ const Navbar = () => {
             />
           </Link>
           {menu && (
+            
             <div className='text-xl border-t text-black mx-5'>
               <div className='space-y-6 py-4 '>
                 <Link to='/'>

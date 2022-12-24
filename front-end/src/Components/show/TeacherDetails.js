@@ -8,6 +8,8 @@ import Modal from '../features/Modal';
 import { MdDelete } from 'react-icons/md';
 import { MdTableView } from 'react-icons/md';
 import { FaEdit } from 'react-icons/fa';
+dentLogsView from './StudentLogsView';
+
 import { MdAddComment } from 'react-icons/md';
 const API = process.env.REACT_APP_API_URL;
 
@@ -156,6 +158,9 @@ const TeacherDetails = () => {
                     Comment
                   </th> */}
                   <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                    Comment
+                  </th>
+                  <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
                     Edit
                   </th>
                   <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
@@ -206,6 +211,7 @@ const TeacherDetails = () => {
                         {/* <div className='flex'> */}
                         {/* <div className="flex-shrink-0 w-10 h-10"> */}
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
+
                            {/* <Link to={{
                             pathname:`/students/${student.student_id}`,
                             state:{fromTeacherDetails: true },
@@ -230,6 +236,27 @@ const TeacherDetails = () => {
                       </td>
 
                       {/* <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
+
+
+                          <Link to={`/students/${student.student_id}`}>
+
+                         // <Link
+                         //   to={`teachers/{id}/students/${student.student_id}}`}
+                         // >
+
+                            <button
+                              className=' bg-teal-500 px-6 py-4 text-black rounded '
+                              // onClick={(e) => setView(true)}
+                            >
+                              <MdTableView />{' '}
+                            </button>
+                            {/* {view && <StudentLogsView />} */}
+                          </Link>
+                        </div>
+                      </td>
+
+                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
                           <Link to={`/comments/new`}>
                             <button
@@ -240,8 +267,10 @@ const TeacherDetails = () => {
                             </button>
                           </Link>
                         </div>
+
                       </td> */}
-                      <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
+                    
+ 
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
                           <Link to={`/students/${student.student_id}/edit`}>
                             <button className=' bg-teal-500 px-6 py-4 text-black rounded '>
@@ -252,7 +281,11 @@ const TeacherDetails = () => {
                       </td>
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
+
                           <Link to={`/teachers`}>
+
+                         // <Link to={`/teachers/${student.student_id}/edit`}>
+
                             <button
                               className=' bg-teal-500 px-6 py-4 text-black rounded '
                               onClick={() => handleDelete}

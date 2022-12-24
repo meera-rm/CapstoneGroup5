@@ -48,11 +48,19 @@ const Login = ({ signedIn, setSignedIn, signedInUser, setSignedInUser }) => {
 
   return (
     <div>
+
      
       <div className='flex items-center h-screen w-full bg-teal-lighter'>
         <div className='w-full bg-white rounded shadow-lg p-8 m-2 md:max-w-sm md:mx-auto'>
           <div className='flex items-center justify-center'>
             <img className=' h-10 w-12 rounded-full' src={logoImage} alt='' />
+
+      {/* <h1 class='text-center'>Parent Login</h1> */}
+      {/* <div class='flex items-center justify-center'>
+      <img class=' h-22 w-48 rounded-full' src={parentandchild} alt='' />
+      </div> */}
+    
+
           </div>
 
           <h1 className='block w-full text-center text-grey-darkest mb-6'>

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 // import './AllBooks.css';
 
 const API = process.env.REACT_APP_API_URL;
+
 const alphabets = [
   'A',
   'B',
@@ -42,12 +43,14 @@ const AllBooks = () => {
   ]);
   const [filterParam, setFilterParam] = useState(['All']);
 
+
   useEffect(() => {
     axios
       .get(`${API}/api/books`)
       //  .then((response) => console.log(response.data))
       .then((response) => setBookData(response.data.payload))
       .catch((e) => console.error('catch', e));
+
   }, []);
 
   const data = Object.values(bookData);
@@ -75,18 +78,60 @@ const AllBooks = () => {
     return <option value={book}>{book} </option>;
   });
 
+      
+  }, []);
+ 
+  const data = Object.values(bookData);
+
+
+  function search(bookData) {
+    
+    // eslint-disable-next-line
+    return bookData.filter((book) => {
+    
+      if (book.reading_level === filterParam) {
+            return searchParam.some((newBook) => {
+                return (
+                    book[newBook]
+                        .toString()
+                        .toLowerCase()
+                        .indexOf(q.toLowerCase()) > -1
+                );
+            });
+        } else if (filterParam === "All") {
+            return searchParam.some((newBook) => {
+                return (
+                    book[newBook]
+                        .toString()
+                        .toLowerCase()
+                        .indexOf(q.toLowerCase()) > -1
+                );
+            });
+        }
+    });
+}
+
+
+const newAlphabet=alphabets.map((book) => {
+  return <option value={book}>{book}  </option>
+})
+
+
   return (
     <div className='px-10 py-6 md:col-span-2 '>
       <h2 className='text-center  mt-10 mb-5 text-5xl font-bold text-teal-600 '>
         Books
       </h2>
+
       <div className='text-center'>
+
         <Link to={`/books/new`}>
           <button className=' btn bg-indigo-500 px-4 py-4 rounded text-white  font-gerogia hover:bg-indigo-400 '>
             Add Books{' '}
           </button>
         </Link>
       </div>
+
       <div className='flex justify-center mt-10 text-center'>
         <label htmlFor='search-form'>
           <input
@@ -116,6 +161,7 @@ const AllBooks = () => {
           <span className='focus'></span>
         </div>
       </div>
+
       <div className='mt-14 grid md:grid-cols-3 lg:grid-cols-4 gap-10 lg:gap-16'>
         {/* <div className='max-w-sm rounded overflow-hidden shadow-lg '> */}
         {search(data)?.map((book) => {
@@ -125,6 +171,7 @@ const AllBooks = () => {
               // rounded-sm  hover:shadow-sm'
               key={book.book_id + book.book_title}
             >
+              
               <div>
                 <Link
                   className='text-center'

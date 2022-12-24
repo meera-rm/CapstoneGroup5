@@ -16,7 +16,8 @@ function Information() {
       <h1 className='text-center text-teal-600 text-5xl font-bold mt-10'>
         Scholar Sheep
       </h1>
-    
+
+
       <div className='mt-10 max-w-lg mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl w-full'>
         <div className='md:flex'>
           <div className=' md:shrink-0'>
