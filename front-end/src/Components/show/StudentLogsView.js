@@ -17,10 +17,12 @@ import { FaEdit } from 'react-icons/fa';
 
 const API = process.env.REACT_APP_API_URL;
 
-const StudentLogsView = () => {
-  const [student, setStudent] = useState([]);
+const StudentLogsView = (props) => {
+
+
+  const [studentData, setStudentData] = useState([]);
   const [logData, setLogData] = useState([]);
-  const [bookData, setBookData] = useState([]);
+  const [book, setBook] = useState([]);
   const [comments, setComments] = useState([]);
   const [choice] = useState(2);
   //Popup code
@@ -33,7 +35,7 @@ const StudentLogsView = () => {
     axios
       .get(`${API}/api/students/${id}`)
       .then((response) => {
-        setStudent(response.data);
+        setStudentData(response.data);
         // console.log(response.data);
       })
       .catch(() => navigate('/not-found'));
@@ -52,7 +54,7 @@ const StudentLogsView = () => {
   useEffect(() => {
     axios.get(`${API}/api/books`).then((response) => {
       // console.log(response.data.payload);
-      setBookData(response.data.payload);
+      setBook(response.data.payload);
     });
     //     .catch(() => navigate('/not-found'));
   }, [id, navigate]);
@@ -100,19 +102,19 @@ const StudentLogsView = () => {
       <div>
         <p className='font-bold'>
           Student Name:{'   '}
-          <span className='font-semibold'>{student.student_name}</span>
+          <span className='font-semibold'>{studentData.student_name}</span>
         </p>
         <p className='font-bold'>
           Student Grade:
-          <span className='font-semibold'>{student.grade}</span>
+          <span className='font-semibold'>{studentData.grade}</span>
         </p>
         <p className='font-bold'>
           Parent Email:{' '}
-          <span className='font-semibold'>{student.parent_email}</span>
+          <span className='font-semibold'>{studentData.parent_email}</span>
         </p>
         <p className='font-bold'>
           Teacher Id:{' '}
-          <span className='font-semibold'>{student.teachers_id}</span>
+          <span className='font-semibold'>{studentData.teachers_id}</span>
         </p>
       </div>
 
@@ -128,24 +130,24 @@ const StudentLogsView = () => {
 
           {/* </Link> */}
 
-          <Link to={`/teachers/${student.teachers_id}`}>
+          <Link to={`/teachers/${studentData.teachers_id}`}>
             <button className='bg-indigo-500 text-center px-6 py-4 text-white rounded hover:bg-indigo-400'>
               Back{' '}
             </button>
           </Link>
         </div>
 
-        {showModal ? (
+        {/* {showModal ? (
           <>
             <Modal
               showModal={showModal}
               setShowModal={setShowModal}
               choice={choice}
-              student={student}
-              bookData={bookData}
+              studentData={studentData}
+              book={book}
             />
           </>
-        ) : null}
+        ) : null} */}
 
         <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
           <div className='inline-block min-w-full shadow-md rounded-lg overflow-hidden'>
@@ -174,9 +176,9 @@ const StudentLogsView = () => {
                     Reading thoughts
                   </th>
 
-                  {/* <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                   <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
                     Teacher Comments
-                  </th> */}
+                  </th>
                   <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
                     Add
                   </th>
@@ -262,7 +264,6 @@ const StudentLogsView = () => {
                           <Link to={`/comments/new`}>
                             <button
                               className=' bg-teal-500 px-6 py-4 text-black rounded '
-                              onClick={onClick}
                             >
                               <MdAddComment />{' '}
                             </button>

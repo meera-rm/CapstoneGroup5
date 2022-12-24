@@ -43,10 +43,35 @@ const NewBooks = () => {
   };
 
   return (
-    <div className='flex flex-col text-center h-screen items-center justify-center '>
-      <div className='rounded-md  py-4 px-6 text-black lg:w-2/5 md:w-3/5 w-4/5'>
-        <form onSubmit={handleSubmit}>
-          <div className='mb-4'>
+    <div className='flex items-center h-screen w-full bg-teal-lighter'>
+      <div className='w-full bg-white rounded shadow-lg p-8 m-2 md:max-w-sm md:mx-auto'>
+        {/* <div className='flex flex-col text-center h-screen items-center justify-center '>
+      <div className='rounded-md  py-4 px-6 text-black lg:w-2/5 md:w-3/5 w-4/5'> */}
+        <form
+          className='mb-4 md:flex md:flex-wrap md:justify-between'
+          onSubmit={handleSubmit}
+        >
+          <div className='flex flex-col mb-4 md:w-full'>
+            <label
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              htmlFor='book_title'
+            >
+              Title
+            </label>
+            <input
+              className='border py-2 px-3 text-grey-darkest'
+              id='book_title'
+              type='text'
+              value={newBook.book_title}
+              name='book_title'
+              autoComplete='off'
+              onChange={onInputChange}
+              placeholder='Book title'
+              required
+            />
+          </div>
+
+          {/* <div className='mb-4'>
             <label className='py-6' htmlFor='book_title'>
               Title:{''}
             </label>
@@ -61,8 +86,28 @@ const NewBooks = () => {
               placeholder='Book title'
               required
             />
+          </div> */}
+
+          <div className='flex flex-col mb-4 md:w-full'>
+            <label
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              htmlFor='book_author'
+            >
+              Author
+            </label>
+            <input
+              className='border py-2 px-3 text-grey-darkest'
+              id='book_author'
+              type='text'
+              name='book_author'
+              value={newBook.book_author}
+              placeholder='Author'
+              autoComplete='off'
+              onChange={onInputChange}
+              required
+            />
           </div>
-          <div className='mb-4'>
+          {/* <div className='mb-4'>
             <label className='py-6' htmlFor='book_author'>
               Author:{' '}
             </label>
@@ -76,8 +121,27 @@ const NewBooks = () => {
               autoComplete='off'
               onChange={onInputChange}
             />
+          </div> */}
+          <div className='flex flex-col mb-4 md:w-full'>
+            <label
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              htmlFor='isbn_number'
+            >
+              ISBN
+            </label>
+            <input
+              className='border py-2 px-3 text-grey-darkest'
+              id='isbn_number'
+              type='text'
+              name='isbn_number'
+              placeholder='Isbn number'
+              autoComplete='off'
+              value={newBook.isbn_number}
+              onChange={onInputChange}
+              required
+            />
           </div>
-          <div className='mb-4'>
+          {/* <div className='mb-4'>
             <label className='py-6' htmlFor='isbn_number'>
               ISBN :{' '}
             </label>
@@ -90,9 +154,29 @@ const NewBooks = () => {
               autoComplete='off'
               value={newBook.isbn_number}
               onChange={onInputChange}
+              required
+            />
+          </div> */}
+          <div className='flex flex-col mb-4 md:w-full'>
+            <label
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              htmlFor='publication'
+            >
+              Publication
+            </label>
+            <input
+              className='border py-2 px-3 text-grey-darkest'
+              id='publication'
+              name='publication'
+              type='text'
+              required
+              value={newBook.publication}
+              autoComplete='off'
+              placeholder='Publication'
+              onChange={onInputChange}
             />
           </div>
-          <div className='mb-4'>
+          {/* <div className='mb-4'>
             <label className='py-6 ' htmlFor='publication'>
               Publication:{' '}
             </label>
@@ -107,9 +191,28 @@ const NewBooks = () => {
               placeholder='publication'
               onChange={onInputChange}
             />
-          </div>
+          </div> */}
 
-          <div className='mb-4'>
+          <div className='flex flex-col mb-4 md:w-full'>
+            <label
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              htmlFor='book_picture'
+            >
+              Image
+            </label>
+            <input
+              className='border py-2 px-3 text-grey-darkest'
+              id='book_picture'
+              type='text'
+              name='book_picture'
+              value={newBook.book_picture}
+              autoComplete='off'
+              placeholder='Cover image of book'
+              onChange={onInputChange}
+              required
+            />
+          </div>
+          {/* <div className='mb-4'>
             <label className='py-6 ' htmlFor='book_picture'>
               Image:{' '}
             </label>
@@ -124,8 +227,27 @@ const NewBooks = () => {
               onChange={onInputChange}
               required
             />
+          </div> */}
+          <div className='flex flex-col mb-4 md:w-full'>
+            <label
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              htmlFor='grade'
+            >
+              Grade
+            </label>
+            <input
+              className='border py-2 px-3 text-grey-darkest'
+              id='grade'
+              type='text'
+              name='grade'
+              value={newBook.grade}
+              autoComplete='off'
+              placeholder='Students Grade'
+              onChange={onInputChange}
+              required
+            />
           </div>
-          <div className='mb-4'>
+          {/* <div className='mb-4'>
             <label className='py-6 ' htmlFor='grade'>
               Grade:{' '}
             </label>
@@ -140,8 +262,27 @@ const NewBooks = () => {
               onChange={onInputChange}
               required
             />
+          </div> */}
+          <div className='flex flex-col mb-4 md:w-full'>
+            <label
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              htmlFor='grade'
+            >
+              Reading Level
+            </label>
+            <input
+              className='border py-2 px-3 text-grey-darkest'
+              id='reading_level'
+              type='text'
+              name='reading_level'
+              placeholder='Reading level'
+              autoComplete='off'
+              value={newBook.reading_level}
+              onChange={onInputChange}
+              required
+            />
           </div>
-          <div className='mb-4'>
+          {/* <div className='mb-4'>
             <label className='py-6' htmlFor='reading_level'>
               {' '}
               Level:{'  '}{' '}
@@ -157,7 +298,7 @@ const NewBooks = () => {
               onChange={onInputChange}
               required
             />
-          </div>
+          </div> */}
           <div className='justify-center ml-6 space-x-6 '>
             <input className=' px-5  py-3 rounded bg-teal-500' type='submit' />
             <button style={{ border: 'none' }} className='second'></button>
