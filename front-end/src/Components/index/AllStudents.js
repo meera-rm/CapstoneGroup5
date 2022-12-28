@@ -44,7 +44,7 @@ const AllStudents = () => {
                 >
                   {/* </div>
                <div> */}
-                  <p className='text-center'>Id: {student.student_id}</p>
+                  <p className='text-center'>Student Number: {student.student_id}</p>
                   <p className='text-center'>
                     Student Name: {student.student_name}
                   </p>
