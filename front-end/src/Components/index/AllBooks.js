@@ -1,7 +1,10 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import './AllBooks.css';
+import AToMLink from './AToMLink';
+import AToKLink from './AToKLink';
+import AllAgesBooks from './AllAgesBooks';
+// import Dictionary from '../features/Dictionary/Dictionary';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -42,7 +45,7 @@ const AllBooks = () => {
     'reading_level',
   ]);
   const [filterParam, setFilterParam] = useState(['All']);
-
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     axios
@@ -50,7 +53,6 @@ const AllBooks = () => {
       //  .then((response) => console.log(response.data))
       .then((response) => setBookData(response.data.payload))
       .catch((e) => console.error('catch', e));
-
   }, []);
 
   const data = Object.values(bookData);
@@ -78,59 +80,61 @@ const AllBooks = () => {
     return <option value={book}>{book} </option>;
   });
 
-      
-  }, []);
- 
-  const data = Object.values(bookData);
-
-
-  function search(bookData) {
-    
-    // eslint-disable-next-line
-    return bookData.filter((book) => {
-    
-      if (book.reading_level === filterParam) {
-            return searchParam.some((newBook) => {
-                return (
-                    book[newBook]
-                        .toString()
-                        .toLowerCase()
-                        .indexOf(q.toLowerCase()) > -1
-                );
-            });
-        } else if (filterParam === "All") {
-            return searchParam.some((newBook) => {
-                return (
-                    book[newBook]
-                        .toString()
-                        .toLowerCase()
-                        .indexOf(q.toLowerCase()) > -1
-                );
-            });
-        }
-    });
-}
-
-
-const newAlphabet=alphabets.map((book) => {
-  return <option value={book}>{book}  </option>
-})
-
-
+  
+  
   return (
-    <div className='px-10 py-6 md:col-span-2 '>
+    
+    <div className=' md:col-span-2 '>
+       <div className='text-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 '>
+       <p className='p-4 text-teal-800 '>
+        DICTIONARY/PDF BOOKS LINK:
+        </p>
+       <div className='text-center'>
+                    
+                  <Link to={`/dictionary`}>
+                       <p className='px-4 py-4 rounded text-black font-georgia  underline' 
+                       onClick={() => setShow(!show)}
+                      > DICTIONARY LINK
+                      {/* toggle: {show ? 'show' : 'hide'} */}
+                      </p>    
+                      {/* {show &&   <Dictionary/>} */}
+                     </Link>
+                   
+                    
+      </div>
+     
+        <div>
+          <p className='p-4 text-black underline'>
+            <AToKLink />
+          </p>
+        </div>
+        <div>
+          <p className='p-4 text-black underline '>
+            <AToMLink />
+          </p>
+        </div>
+        <div>
+          <p className='p-4 text-black underline'>
+            <AllAgesBooks />
+          </p>
+        </div>
+       
+      </div>
       <h2 className='text-center  mt-10 mb-5 text-5xl font-bold text-teal-600 '>
         Books
       </h2>
 
       <div className='text-center'>
-
         <Link to={`/books/new`}>
           <button className=' btn bg-indigo-500 px-4 py-4 rounded text-white  font-gerogia hover:bg-indigo-400 '>
             Add Books{' '}
           </button>
         </Link>
       </div>
+      
+      
+
+      
 
       <div className='flex justify-center mt-10 text-center'>
         <label htmlFor='search-form'>
@@ -162,16 +166,15 @@ const newAlphabet=alphabets.map((book) => {
         </div>
       </div>
 
-      <div className='mt-14 grid md:grid-cols-3 lg:grid-cols-4 gap-10 lg:gap-16'>
+      <div className='mt-14 grid text-center md:grid-cols-3 lg:grid-cols-4 gap-10 lg:gap-16'>
         {/* <div className='max-w-sm rounded overflow-hidden shadow-lg '> */}
         {search(data)?.map((book) => {
           return (
             <section
-              className='justify-items-center w-40 h-20'
+              className='text-center w-40 h-20' 
               // rounded-sm  hover:shadow-sm'
               key={book.book_id + book.book_title}
             >
-              
               <div>
                 <Link
                   className='text-center'
@@ -192,13 +195,14 @@ const newAlphabet=alphabets.map((book) => {
                     Reading Level: {book.reading_level}
                   </p>
                 </Link>
+              
               </div>
             </section>
           );
         })}
-        {/* </div> */}
+          </div> 
       </div>
-    </div>
+    
   );
 };
 

@@ -12,7 +12,7 @@ const StudentShow = ({option}) => {
           <title>Scholar Sheep | Student  | Show</title>
         </Helmet>
       </HelmetProvider>
-      {option===2}
+      
     </div>
   );
 };

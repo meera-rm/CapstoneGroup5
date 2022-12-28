@@ -1,9 +1,11 @@
+
+
 import React, { useState, useEffect, useRef } from 'react';
 
 import logoImage from '../asset/ScholarSheep.png';
 import { MdLanguage } from 'react-icons/md';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
-import { NavLink as Link  } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { MdInfoOutline } from 'react-icons/md';
 import { RiTeamLine } from 'react-icons/ri';
@@ -19,15 +21,17 @@ const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const [booksMenuOpen, setBooksMenuOpen] = useState(false);
-  const [gamesMenuOpen, setGamesMenuOpen] = useState(false);
+
+const toggleBooksMenu = () => {
+  setBooksMenuOpen(!booksMenuOpen);
+};
+  // const [isBooksOpen, setIsBooksOpen] = useState(false);
+  // const [isGamesOpen, setIsGamesOpen] = useState(false);
 
   const handleBooksMenu = () => {
     setBooksMenuOpen(!booksMenuOpen);
-    setMenu(false);
   };
-  const handleGamesMenu = () => {
-    setGamesMenuOpen(!gamesMenuOpen);
-  };
+
   // const handleGamesClick = () => {
   //   setIsGamesOpen(!isGamesOpen);
   // };
@@ -82,19 +86,19 @@ const Navbar = () => {
           {/* large screen */}
           <nav className='hidden md:block md:container pl-6 '>
             <div className='flex justify-between text-xl'>
-              <div className='flex text-black space-x-10'>
+              <div className='flex text-black space-x-4'>
                 {/* <Link to='/'>
                   <p className=''>Home</p>
                 </Link> */}
 
-                {/* <Link to='/about'>
+                <Link to='/about'>
                   <button>
                     <div
                       className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
                       onMouseOver={handleMouseOver}
                       onMouseOut={handleMouseOut}
                     >
-                      {/* <p className=''>ABOUT</p> *
+                      {/* <p className=''>ABOUT</p> */}
                       <IconContext.Provider
                         value={{ color: 'white', size: 50 }}
                       >
@@ -107,9 +111,9 @@ const Navbar = () => {
                       )}
                     </div>
                   </button>
-                </Link> */}
+                </Link>
 
-                <Link to='/info' activeClassName="active">
+                <Link to='/info'>
                   {/* <p className=''>INFO</p> */}
                   <button>
                     <div
@@ -132,9 +136,51 @@ const Navbar = () => {
                   </button>
                 </Link>
 
-                <Link to='/books' activeClassName="active">
+                <Link to='/books'>
                   {/* <p className=''>BOOKS</p> */}
-                  {/* <button>
+                  <div className='realtive'>
+                  <button onClick={handleBooksMenu}>
+                    <div
+                      className='w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
+                      onMouseOver={handleMouseOver}
+                      onMouseOut={handleMouseOut}
+                    >
+                      <IconContext.Provider value={{ color: 'white', size: 50 }}>
+                        <ImBooks />
+                      </IconContext.Provider>
+                    </div>
+                    <div>
+                      {isHovering && (
+                        <p className='text-rosered font-fonts text-sm'>BOOKS</p>
+                      )}
+                    </div>
+                  </button>
+                  {booksMenuOpen && (
+                    <div className='z-10 absolute bg-white shadow-md rounded w-48 py-2'>
+                      <Link to='/books/fiction'>
+                        <button
+                          className='block px-4 py-2 text-gray-800 hover:bg-gray-200'
+                          onClick={handleNavLinkDisappear}
+                        >
+                          Fiction
+                        </button>
+                      </Link>
+                      <Link to='/books/non-fiction'>
+                        <button
+                          className='block px-4 py-2 text-gray-800 hover:bg-gray-200'
+                          onClick={handleNavLinkDisappear}
+                        >
+                          Non-Fiction
+                        </button>
+                      </Link>
+                    </div>
+                  )}
+                 </div>
+                </Link>
+
+                <Link to='/games'>
+                  {/* <p className=''>BOOKS</p> */}
+                  <button>
                     <div
                       className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
                       onMouseOver={handleMouseOver}
@@ -152,58 +198,13 @@ const Navbar = () => {
                     </div>
                     <div>
                       {isHovering && (
-                        <p className='text-rosered font-fonts text-sm'>BOOKS</p>
+                        <p className='text-rosered font-fonts text-sm'>GAMES</p>
                       )}
                     </div>
-                  </button> */}
-                  {/* <p className=''>BOOKS</p> */}
-                  <div className='relative'>
-                    <button onClick={handleBooksMenu}>
-                      <div
-                        className='w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
-                        onMouseOver={handleMouseOver}
-                        onMouseOut={handleMouseOut}
-                      >
-                        <IconContext.Provider
-                          value={{ color: 'white', size: 50 }}
-                        >
-                          <ImBooks />
-                        </IconContext.Provider>
-                      </div>
-                      <div>
-                        {isHovering && (
-                          <p className='text-rosered font-fonts text-sm'>
-                            BOOKS
-                          </p>
-                        )}
-                      </div>
-                    </button>
-                    {booksMenuOpen && (
-                      <div className='z-4 absolute bg-teal-500 shadow-md rounded  w-40 -mt-6 py-2'>
-                        <Link to='/books/level'>
-                          <button
-                            className='block px-4 py-2 text-black-800 hover:bg-teal-400'
-                            onClick={handleNavLinkDisappear}
-                            
-                          >
-                            ReadingLevel
-                          </button>
-                        </Link>
-                        <Link to='/books/casual'>
-                          <button
-                            className='block px-4 py-2 text-black-800 hover:bg-teal-400'
-                            onClick={handleNavLinkDisappear}
-                            
-                          >
-                            Casual Reading
-                          </button>
-                        </Link>
-                      </div>
-                    )}
-                  </div>
+                  </button>
                 </Link>
 
-                <Link to='/dictionary' activeClassName="active">
+                <Link to='/dictionary'>
                   <button>
                     <div
                       className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
@@ -226,92 +227,7 @@ const Navbar = () => {
                     </div>
                   </button>
                 </Link>
-
-                <Link to='/games' activeClassName="active">
-                  {/* <p className=''>BOOKS</p> */}
-                  {/* <button>
-                    <div
-                      className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
-                      onMouseOver={handleMouseOver}
-                      onMouseOut={handleMouseOut}
-                    >
-                      <IconContext.Provider
-                        value={{
-                          color: 'white',
-                          size: 50,
-                          style: { cursor: 'pointer' },
-                        }}
-                      >
-                        <ImBooks />
-                      </IconContext.Provider>
-                    </div>
-                    <div>
-                      {isHovering && (
-                        <p className='text-rosered font-fonts text-sm'>GAMES</p>
-                      )}
-                    </div> 
-                  </button>*/}
-                  <div className='relative'>
-                    <button onClick={handleGamesMenu}>
-                      <div
-                        className='w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
-                        onMouseOver={handleMouseOver}
-                        onMouseOut={handleMouseOut}
-                      >
-                        <IconContext.Provider
-                          value={{ color: 'white', size: 50 }}
-                        >
-                          <ImBooks />
-                        </IconContext.Provider>
-                      </div>
-                      <div>
-                        {isHovering && (
-                          <p className='text-rosered font-fonts text-sm'>
-                            GAMES
-                          </p>
-                        )}
-                      </div>
-                    </button>
-                    {gamesMenuOpen && (
-                      <div className=' absolute bg-teal-500 shadow-md rounded  w-50 py-2'>
-                        <Link to='/games/rsp'>
-                          <button
-                            className='block px-4 py-2 text-black-800 hover:bg-teal-400'
-                            onClick={handleNavLinkDisappear}
-                          >
-                            RockPaperScissor
-                          </button>
-                        </Link>
-                        <Link to='/games/paint'>
-                          <button
-                            className='block px-4 py-2 text-black-800 hover:bg-teal-400'
-                            onClick={handleNavLinkDisappear}
-                          >
-                            Paint app
-                          </button>
-                        </Link>
-                        <Link to='/games/etchsketch'>
-                          <button
-                            className='block px-4 py-2 text-black-800 hover:bg-teal-400'
-                            onClick={handleNavLinkDisappear}
-                          >
-                            Etch A Sketch
-                          </button>
-                        </Link>
-                        <Link to='/games/memorygames'>
-                          <button
-                            className='block px-4 py-2 text-black-800 hover:bg-teal-400'
-                            onClick={handleNavLinkDisappear}
-                          >
-                            Memory games
-                          </button>
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                </Link>
-
-                <Link to='/teachers' activeClassName="active">
+                <Link to='/teachers'>
                   {/* <p className='' onClick={handleNavLinkDisappear}>
                     TEACHERS
                   </p> */}
@@ -337,7 +253,7 @@ const Navbar = () => {
                   </button>
                 </Link>
 
-                <Link to='/students' activeClassName="active">
+                <Link to='/students'>
                   {/* <p className='' onClick={handleNavLinkDisappear}>
                     STUDENTS
                   </p> */}
@@ -371,7 +287,7 @@ const Navbar = () => {
                 </Link>  */}
               </div>
               <div className='flex pl-2 space-x-4'>
-                <Link to='/signup' activeClassName="active">
+                <Link to='/signup'>
                   <button>
                     <div
                       className=' w-18 h-28 p-2 rounded-full border     border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
@@ -400,7 +316,7 @@ const Navbar = () => {
                     </div>
                   </button>
                 </Link>
-                <Link to='/login' activeClassName="active">
+                <Link to='/login'>
                   <button>
                     <div
                       className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
@@ -444,7 +360,7 @@ const Navbar = () => {
           {menu && (
             <div className='text-xl border-t text-black mx-5'>
               <div className='space-y-6 py-4 '>
-                {/* <Link to='/'>
+                <Link to='/'>
                   <p className='mt-2' onClick={handleNavLinkDisappear}>
                     HOME
                   </p>
@@ -453,7 +369,7 @@ const Navbar = () => {
                   <p className='mt-2' onClick={handleNavLinkDisappear}>
                     ABOUT
                   </p>
-                </Link> */}
+                </Link>
                 <Link to='/books'>
                   <p className='mt-2' onClick={handleNavLinkDisappear}>
                     BOOKS
@@ -497,5 +413,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-// {/* https://dev.to/ebereplenty/react-icons-tutorial-all-you-need-to-know-524 */}
-// https://blog.reactplay.io/create-a-super-cool-navbar-using-react-and-tailwindcss(for sidebar)

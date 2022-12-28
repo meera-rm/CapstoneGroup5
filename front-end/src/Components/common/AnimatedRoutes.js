@@ -14,6 +14,15 @@ import IndexBooks from '../../Pages/Books/IndexBooks';
 import NewBooks from '../../Pages/Books/NewBook';
 import ShowBooks from '../../Pages/Books/ShowBooks';
 import EditBooks from '../../Pages/Books/EditBooks';
+import Dictionary from '../features/Dictionary/Dictionary';
+import Games from '../games/Games';
+import RockpaperScissor from '../games/RockpaperScissor';
+import EtchSketch from '../games/EtchSketch';
+import MemoryGames from '../games/MemoryGames';
+import PaintApp from '../games/PaintApp';
+import CasualReading from '../book/CasualReading';
+import ReadingLevelBooks from '../book/ReadingLevelBooks';
+import Chatgptnav from './Chatgptnav';
 
 import TeacherIndex from '../../Pages/Teacher/TeacherIndex';
 import TeacherNew from '../../Pages/Teacher/TeacherNew';
@@ -30,7 +39,7 @@ import IndexLogs from '../../Pages/Logs/IndexLogs';
 import NewLog from '../../Pages/Logs/NewLog';
 import ShowLogs from '../../Pages/Logs/ShowLogs';
 import EditLogs from '../../Pages/Logs/EditLogs';
-import app from '../../firebase';
+
 
 import IndexComments from '../../Pages/Comment/IndexComments';
 import NewComment from '../../Pages/Comment/NewComment';
@@ -39,6 +48,7 @@ import EditComments from '../../Pages/Comment/EditComments';
 import Information from '../../Pages/Information';
 import PrivacyPolicy from '../../Pages/PrivacyPolicy';
 import ParentDashboard from '../../Pages/ParentDashboard';
+
 
 // import SignUp from  '../../Pages/SignUp';
 // import TeacherSignUp from '../../Pages/TeacherSignUp';
@@ -70,7 +80,9 @@ const AnimatedRoutes = () => {
             <Route path='/about' element={<About />} />
             <Route path='/info' element={<Information />} />
             <Route path='/policy' element={<PrivacyPolicy />} />
-             <Route path='/contact' element={<Contact />} /> 
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/dictionary' element={<Dictionary />} />
+             <Route path='/chatnav' element={<Chatgptnav />} /> 
             <Route
               path='/signup'
               element={
@@ -110,8 +122,19 @@ const AnimatedRoutes = () => {
             <Route path='/books'>
               <Route index element={<IndexBooks />} />
               <Route path='new' element={<NewBooks />} />
+              <Route path='level' element={<ReadingLevelBooks/>} />
+              <Route path='casual' element={<CasualReading/>} />
               <Route path=':id' element={<ShowBooks />} />
               <Route path=':id/edit' element={<EditBooks />} />
+              
+            </Route>
+
+            <Route path='/games'>
+              <Route index element={<Games />} />
+              <Route path='rsp' element={<RockpaperScissor />} />
+              <Route path='memorygames' element={<MemoryGames />} />
+              <Route path='paint' element={<PaintApp />} />
+              <Route path='etchsketch' element={<EtchSketch />} />
             </Route>
 
             <Route path='/students'>
@@ -119,7 +142,7 @@ const AnimatedRoutes = () => {
               <Route path='new' element={<StudentNew />} />
               <Route path=':id' element={<StudentShow />} />
               <Route path=':id/edit' element={<StudentEdit />} />
-               <Route path=':id/show' element={<StudentView />} /> 
+              <Route path=':id/show' element={<StudentView />} />
             </Route>
 
             <Route path='/teachers'>
