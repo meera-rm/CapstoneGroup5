@@ -63,6 +63,9 @@ const Footer = () => {
           className='flex pb-5 px-3 m-auto pt-5 border-t text-teal-800 text-sm flex-col
       max-w-screen-lg items-center'
         >
+           <a href='https://www.freepik.com/free-vector/monster-404-error-concept-illustration_7906238.htm#page=2&query=404%20color%20green&position=19&from_view=search&track=ais' className='text-xs'>
+        Image by storyset on Freepik monster
+      </a>
           <div className='md:flex-auto md:flex-row-reverse mt-2 flex-row flex'></div>
           <div className='my-5'>
             © Copyright 2020. Scholar Sheep All Rights Reserved.
