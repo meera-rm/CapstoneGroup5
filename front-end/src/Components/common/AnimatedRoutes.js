@@ -20,7 +20,7 @@ import RockpaperScissor from '../games/RockpaperScissor';
 import EtchSketch from '../games/EtchSketch';
 import MemoryGames from '../games/MemoryGames';
 import PaintApp from '../games/PaintApp';
-import Hangman from '../games/Hangman';
+import HangmanGame from '../games/HangmanGame';
 import CasualReading from '../book/CasualReading';
 import ReadingLevelBooks from '../book/ReadingLevelBooks';
 import Chatgptnav from './Chatgptnav';
@@ -132,7 +132,7 @@ const AnimatedRoutes = () => {
               <Route path='rsp' element={<RockpaperScissor />} />
               <Route path='memorygames' element={<MemoryGames />} />
               <Route path='paint' element={<PaintApp />} />
-              <Route path='hangman' element={<Hangman />} />
+              <Route path='hangman' element={<HangmanGame />} />
               <Route path='etchsketch' element={<EtchSketch />} />
             </Route>
 

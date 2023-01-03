@@ -13,7 +13,7 @@
 //    const [guesses,setGuesses]=useState([])
 
 //      useEffect(()=>{
-
+       
 // // const options = {
 // //     method: 'GET',
 // //     url: 'https://random-words5.p.rapidapi.com/getMultipleRandom',
@@ -23,23 +23,23 @@
 // //       'X-RapidAPI-Host': 'random-words5.p.rapidapi.com'
 // //     }
 // //   };
-
+          
 //     //       axios.request(options).then(function (response) {
 //     //           console.log(response.data);
 //     //           setRandomWord(response.data)
-
+            
 //     //       }).catch(function (error) {
 //     //           console.error(error);
 //     //       });
-
+      
 //       },[])
-
+    
 //       const reviewsHandler = (e) => {
 //         console.log(e.target.id,e.target.value)
 //        setSelectedLetter(e.target.id);
-//        setGuesses([...guesses,selectedLetter]);
+//        setGuesses([...guesses,selectedLetter]); 
 //    };
-
+  
 //     const firstRowKeyboardButton = firstRow.map((letter,index) =>
 //                 <button className='mr-0  bg-teal-500 border border-black-400 px-4 py-2'
 //                 key={letter}
@@ -57,7 +57,7 @@
 //         //  onClick={() => setSelectedLetter(letter)}>{letter}</button>
 //         )
 //    const thirdRowKeyboardButton = thirdRow.map((letter,index) =>
-//    <button className=' mr-0 bg-teal-500 border border-black-400 px-4 py-2 '
+//    <button className=' mr-0 bg-teal-500 border border-black-400 px-4 py-2 ' 
 //    key={letter}
 //    id={letter}
 //    value={letter}
@@ -91,16 +91,16 @@
 //         {secondRowKeyboardButton}
 //         </div>
 //         <div className="mr-0 rounded-full px-4 py-2 ml-10">
-//            {thirdRowKeyboardButton}
-//         </div>
+//            {thirdRowKeyboardButton}  
+//         </div>  
 //      </div>
-
+    
 //     <div id="hold"></div>
 //     <p></p>
 //     <p>Last Selected value: {selectedLetter}</p>
 
 //     <p className='text-center'>Lives Left:{myLivesLeft}</p>
-//     <p id="clue">Clue -</p>
+//     <p id="clue">Clue -</p>  
 //     <div className="text-center">
 //       <button >Hint</button>
 //       <button onClick={playGame}>Play again</button>
@@ -113,6 +113,9 @@
 
 // export default HangMan;
 //above tried to convert it to
+
+
+
 
 // import React, { useState } from 'react';
 
@@ -140,7 +143,7 @@
 //     const j = word.indexOf(guess);
 //     if (j === -1) {
 //       setLives((prevLives) => prevLives - 1);
-
+     
 //     }
 //   };
 
@@ -175,7 +178,7 @@
 //       <p className="text-lg font-bold">{renderWord()}</p>
 //       <p className="text-base font-normal">Lives: {lives}</p>
 //       {/* {/* <button className="btn btn-blue-500" onClick={() => handleHintClick()      */}
-//         <button className="btn btn-blue-500" onClick={() => handleResetClick()}>
+//         <button className="btn btn-blue-500" onClick={() => handleResetClick()}> 
 //         Play again
 //       </button>
 //     </div>
@@ -185,44 +188,19 @@
 // export default Hangman;
 
 //my js code converted
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const Hangman = () => {
-  const [alphabet, setAlphabet] = useState([
-    'a',
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'h',
-    'i',
-    'j',
-    'k',
-    'l',
-    'm',
-    'n',
-    'o',
-    'p',
-    'q',
-    'r',
-    's',
-    't',
-    'u',
-    'v',
-    'w',
-    'x',
-    'y',
-    'z',
-  ]);
-  const [word, setWord] = useState('');
+  const [alphabet, setAlphabet] = useState(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+    'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+    't', 'u', 'v', 'w', 'x', 'y', 'z']);
+  const [word, setWord] = useState("");
   const [geusses, setGeusses] = useState([]);
   const [lives, setLives] = useState(10);
   const [counter, setCounter] = useState(0);
   const [space, setSpace] = useState(0);
-  const [numberOfWrong, setNumberOFWrong] = useState(0);
-  const [guessed, setGuessed] = useState(new Set());
+  const [numberOfWrong,setNumberOFWrong]=useState(0);
+  const [guessed,setGuessed]=useState( new Set()) ;
 
   const check = (geuss) => {
     for (let i = 0; i < word.length; i++) {
@@ -250,33 +228,25 @@ const Hangman = () => {
   const buttons = () => {
     const buttonElements = alphabet.map((letter) => {
       return (
-        <button
-          key={letter}
-          value={letter}
-          onClick={() => check(letter)}
-          disabled={guessed.has(letter)}
-          className='bg-teal-500 hover:bg-teal-400 text-gray-800 font-bold py-2 px-4 inline-block text-center border-2 border-bg-black'
-        >
+        <button key={letter} value={letter} onClick={() => check(letter)} 
+        disabled={guessed.has(letter)}
+        className="bg-teal-500 hover:bg-teal-400 text-gray-800 font-bold py-2 px-4 inline-block text-center border-2 border-bg-black">
           {letter}
         </button>
       );
     });
 
-    return <div className='flex justify-around'>{buttonElements}</div>;
+    return <div className="flex justify-around">{buttonElements}</div>;
   };
 
   const result = () => {
-    const wordElements = word.split('').map((letter, index) => {
-      if (letter === '-') {
+    const wordElements = word.split("").map((letter, index) => {
+      if (letter === "-") {
         setSpace((prevSpace) => prevSpace + 1);
-        return (
-          <span key={index} className='guess'>
-            -
-          </span>
-        );
+        return <span key={index} className="guess">-</span>;
       } else {
         return (
-          <span key={index} className='guess font-bold mr-2'>
+          <span key={index} className="guess font-bold mr-2">
             _
           </span>
         );
@@ -288,42 +258,45 @@ const Hangman = () => {
 
   const comments = () => {
     if (lives < 1) {
-      return 'Game Over';
+      return "Game Over";
     } else if (counter + space === geusses.length) {
-      return 'You Win!';
+      return "You Win!";
     } else {
       return `You have ${lives} lives`;
     }
+
   };
 
   useEffect(() => {
-    setWord('ambiguous');
+    setWord("ambiguous");
     result();
     comments();
-  }, []);
+}, []);
 
-  const play = () => {
-    setWord('ambiguous');
-    result();
-    comments();
-  };
+const play = () => {
+  setWord("ambiguous");
+  result();
+  comments();
+};
 
-  return (
-    <div className='flex flex-col items-center justify-center h-screen'>
-      <div className='text-6xl font-bold mt-6 mb-6'>{geusses}</div>
-      <div>{buttons()}</div>
-      <div className='text-4xl font-bold mt-4'>{comments()}</div>
-      <button
-        className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4'
-        onClick={() => play()}
-      >
-        Play
-      </button>
-    </div>
-  );
+return (
+  <div className="flex flex-col items-center justify-center h-screen">
+    <div className="text-6xl font-bold mt-6 mb-6">{geusses}</div>
+    <div>{buttons()}</div>
+    <div className="text-4xl font-bold mt-4">{comments()}</div>
+    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4" onClick={() => play()}>
+      Play
+    </button>
+  </div>
+);
 };
 
 export default Hangman;
+
+
+
+
+
 
 // const Button = ({children}) => {
 //   return (
@@ -332,6 +305,10 @@ export default Hangman;
 //     </button>
 //   );
 // };
+
+
+
+
 
 // const ButtonGrid = () => {
 //   return (

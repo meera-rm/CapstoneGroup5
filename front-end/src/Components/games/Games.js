@@ -4,11 +4,11 @@ const Games = () => {
   return (
     <div className='mt-10 text-5xl'>
       <div className='grid grid-cols-1 space-evenly md:grid-cols-2'>
-        <Link to='/games/rps'>Rock Paper Scissors</Link>
-        <Link to='/games/paint'>Paint App</Link>
-        <Link to='/games/etchsketch'>Etch-A-sketch</Link>
-        <Link to='/games/memorygames'>Memorygames</Link>
-        <Link to='/games/hangman'>Hangman</Link>
+        <Link to='/games/rps'><button>Rock Paper Scissors</button></Link>
+        <Link to='/games/paint'><button>Paint App</button></Link>
+        <Link to='/games/etchsketch'><button>Etch-A-sketch</button></Link>
+        <Link to='/games/memorygames'><button>Memorygames</button></Link>
+        <Link to='/games/hangman'><button>Hangman</button></Link>
       </div>
     </div>
   );
