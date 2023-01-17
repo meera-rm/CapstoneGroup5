@@ -18,16 +18,15 @@ const {
   deleteStudent,
 } = require('../queries/students');
 
-
 const { checkPicture } = require('../validations/checkBooks');
 
 //Index
 students.get('/', async (req, res) => {
   console.log('get all /');
 
-  const {teacherId} = req.params;
+  const { teacherId } = req.params;
   const allStudents = await getAllStudents(teacherId);
-
+  console.log(allStudents);
   try {
     if (allStudents[0]) {
       res.status(200).json(allStudents);
@@ -54,7 +53,7 @@ students.get('/:studentId', async (req, res) => {
 });
 
 //CREATE
-students.post('/new',  async (req, res) => {
+students.post('/new', async (req, res) => {
   const newStudent = req.body;
   // console.log(newStudent)
   try {
@@ -64,7 +63,6 @@ students.post('/new',  async (req, res) => {
       payload: addStudent[0],
     });
   } catch (error) {
-    
     res
       .status(404)
       .json({ success: false, message: 'Student cannot be added' });
@@ -75,8 +73,8 @@ students.post('/new',  async (req, res) => {
 students.put('/:studentId', async (req, res) => {
   const { studentId } = req.params;
   try {
-  const updatedStudent = await updateStudent(req.body, studentId);
-  console.log('inupdate query',updatedStudent)
+    const updatedStudent = await updateStudent(req.body, studentId);
+    console.log('inupdate query', updatedStudent);
     res.status(200).json({ success: true, payload: updatedStudent });
   } catch (error) {
     console.log(error);
@@ -84,8 +82,6 @@ students.put('/:studentId', async (req, res) => {
       .status(404)
       .json({ success: false, message: 'Book info cannot be updated' });
   }
- 
- 
 });
 
 //DELETE
@@ -114,7 +110,5 @@ students.delete('/:studentId', async (req, res) => {
     });
   }
 });
-
-
 
 module.exports = students;

@@ -14,13 +14,18 @@ const AllStudents = () => {
     axios
       .get(`${API}/api/students`)
       //  .then((response) => console.log(response.data))
-      .then((response) => setStudents(response.data))
+      .then((response) =>{
+        console.log(response.data);
+         setStudents(response.data)
+        })
       .catch((e) => console.error('catch', e));
-  }, [students]);
+  }, []);
 
   return (
     <div className='px-16 py-6 md:col-span-2 '>
-      <h2 className='text-center  mt-10 mb-5 text-5xl font-bold text-teal-600  '>Students</h2>
+      <h2 className='text-center  mt-10 mb-5 text-5xl font-bold text-teal-600  '>
+        Students
+      </h2>
       {/* <div className='text-center '>
         <Link to={`/students/new`}>
           <button className=' btn bg-indigo-500 px-4 py-4 rounded text-white hover:bg-teal-400'>
@@ -44,17 +49,34 @@ const AllStudents = () => {
                 >
                   {/* </div>
                <div> */}
-                  <p className='text-center'>Student Number: {student.student_id}</p>
-                  <p className='text-center'>
+                  <div className='flex justify-between'>
+                  <img width='100px' heihgt='100px'
+                    className='text-center'
+                    src={student.student_avatar}
+                    alt='student avatar '
+                  />
+                 
+                  <div>
+                  <p className='text-center text-4xl text-gray-500'>
+                     {student.student_name}
+                  </p> 
+                  {/* <p className='text-center'>
                     Student Name: {student.student_name}
-                  </p>
+                  </p> */}
                   <p className='text-center'>
-                    Parent Email: {student.parent_email}
+                    Student Number: {student.student_id}
                   </p>
+               
+                  <p className='text-center'>
+                    Parent Email: 
+                  </p>
+                  <p className='text-center'>{student.parent_email}</p>
                   <p className='text-center'>Year: {student.academic_year}</p>
                   <p className='text-center'>
                     Reading Level: {student.reading_level}
                   </p>
+                  </div>
+                  </div>
                 </Link>
               </div>
             </section>
