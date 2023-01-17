@@ -41,7 +41,7 @@ const AllStudents = () => {
               className='border-2 border-indigo-300 rounded-md pl-2 hover:shadow-md'
               key={student.student_id + student.student_name}
             >
-              <div className='display-cards'>
+              <div className='display-cards px-5 py-5'>
                 <Link
                   className='text-center'
                   to={`/students/` + student.student_id}

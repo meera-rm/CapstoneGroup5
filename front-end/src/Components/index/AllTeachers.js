@@ -34,10 +34,10 @@ const AllTeachers = () => {
         {teacherData?.map((teacher) => {
           return (
             <section
-              className='border rounded-md  hover:shadow-md'
+              className='border rounded-md hover:shadow-md'
               key={teacher.teacher_id + teacher.teacher_name}
             >
-              <div className='display-cards border-2 border-indigo-300'>
+              <div className='display-cards border-2 px-5  py-5 border-indigo-300'>
                 <Link
                   className='text-center'
                   to={`/teachers/` + teacher.teacher_id}
@@ -52,15 +52,24 @@ const AllTeachers = () => {
 
                   {/* </div>
              <div> */}
-                  <p className='text-center '>
-                    Teacher Name: {teacher.teacher_name}
-                  </p>
+                 
+                 <div className='flex justify-between'>
+                  <img width='100px' heihgt='100px'
+                    className='text-center'
+                    src={teacher.teacher_avatar}
+                    alt='student avatar '
+                  />
+                 
+                  <div>
+                  <p className='text-center  text-4xl text-gray-500 '>{teacher.teacher_name} </p>
                   <p className='text-center '>
                     Subject:{teacher.class_subject}
                   </p>
                   <p className='text-center '>
                     Grade: {teacher.teaching_grade}
                   </p>
+                  </div>
+                    </div>
                 </Link>
               </div>
             </section>

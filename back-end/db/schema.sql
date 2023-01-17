@@ -85,7 +85,7 @@ CREATE TABLE users(
     users_name TEXT NOT NULL,
     -- not sure if we will need the field below
     users_role TEXT NOT NULL,
-    user_avatar TEXT,
+    users_avatar TEXT,
     users_email TEXT NOT NULL,
     user_password TEXT NOT NULL
 );
