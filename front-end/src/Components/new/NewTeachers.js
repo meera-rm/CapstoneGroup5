@@ -19,6 +19,7 @@ const NewTeachers = () => {
     state_name: '',
     class_subject: '',
     teaching_grade: '',
+    pic:'',
   });
 
   const handleTextChange = (event) => {
@@ -53,21 +54,7 @@ const NewTeachers = () => {
           className='mb-4 md:flex md:flex-wrap md:justify-between'
           onSubmit={handleSubmit}
         >
-          {/* <div className='mb-4'>
-            <label className='py-6' htmlFor='teacher_name'>
-              TeacherName:
-            </label>
-            <input
-              className='border-2 border-black-700 outline'
-              id='teacher_name'
-              name='teacher_name'
-              value={teacher.teacher_name}
-              type='text'
-              autoComplete='off'
-              onChange={handleTextChange}
-              placeholder='Teacher name'
-            />
-          </div> */}
+         
           <div className='flex flex-col mb-4 md:w-full'>
             <label
               className='mb-2 uppercase font-bold text-lg text-grey-darkest'
@@ -86,21 +73,24 @@ const NewTeachers = () => {
               placeholder='Teacher name'
             />
           </div>
-          {/* <div className='mb-4'>
-            <label className='py-6' htmlFor='school_name'>
-              School Name:
+          <div className='flex flex-col mb-4 md:w-full'>
+            <label
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              htmlFor='school_name'
+            >
+              Picture url
             </label>
-            <input
-              className='border-2 border-black-700 outline'
-              id='school_name'
+           <input
+              className='border py-2 px-3 text-grey-darkest'
+              id='pic'
               type='text'
-              name='school_name'
-              value={teacher.school_name}
+              name='pic'
+              value={teacher.pic}
               autoComplete='off'
-              placeholder='school_name'
+              placeholder='Your picture'
               onChange={handleTextChange}
             />
-          </div> */}
+          </div> 
 
           <div className='flex flex-col mb-4 md:w-full'>
             <label

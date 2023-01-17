@@ -8,19 +8,19 @@ INSERT INTO books(book_title,book_author,isbn_number,publication,book_picture,gr
 ('Daddy Hugs','Karen Katz','Putnam Juvenile','9781416941200','https://m.media-amazon.com/images/I/51JOziLrMfL._SX420_BO1,204,203,200_.jpg','K','C');
 
 
-INSERT INTO teachers(teacher_name,school_name,school_district,school_address,zipcode,state_name,class_subject,teaching_grade) VALUES
-('Ms.Fundy', 'P.S. 152', '2', '725 East 23rd St',11210, 'NY','Reading','1'),
-('Ms Perez', 'P.S. 152', '2', '725 East 23rd St', 11210, 'NY','Reading','K'),
-('Mr.Edmundson','P.S. 315','4', '2310 Glenwood Rd', 11210, 'NY','Reading','3'),
-('Ms.Blackmond', 'P.S. 075', '13', '735 West End Ave', 10025, 'NY','Reading','2');
+INSERT INTO teachers(teacher_name,school_name,school_district,school_address,zipcode,state_name,class_subject,teaching_grade,teacher_avatar) VALUES
+('Ms.Fundy', 'P.S. 152', '2', '725 East 23rd St',11210, 'NY','Reading','1','https://api.dicebear.com/5.x/bottts/svg?seed=Midnight'),
+('Ms Perez', 'P.S. 152', '2', '725 East 23rd St', 11210, 'NY','Reading','K','https://api.dicebear.com/5.x/bottts/svg?seed=Samantha'),
+('Mr.Edmundson','P.S. 315','4', '2310 Glenwood Rd', 11210, 'NY','Reading','3','https://api.dicebear.com/5.x/bottts/svg?seed=Charlie'),
+('Ms.Blackmond', 'P.S. 075', '13', '735 West End Ave', 10025, 'NY','Reading','2','https://api.dicebear.com/5.x/bottts/svg?seed=Sassy');
 
 
 
 
-INSERT INTO students(student_name,parent_name,parent_email,student_email,grade,academic_year,reading_level,teachers_id) VALUES
-    ('Celia Edward','Thomas Edward','thomas@gmail.com','celia_edward@nycschools.org','1','2022-2023','G',1),
-    ('Jade Duncan','Christine Duncan','christine@msn.com','jade_duncan@nycschools.org','1','2022-2023','H',1),
-    ('Barry Lioudis','Norma Lioudis','norma@a0l.com','barry_lioudis@nycschools.org','1','2022-2023','I',1);
+INSERT INTO students(student_name,parent_name,parent_email,student_email,grade,academic_year,reading_level,student_avatar,teachers_id) VALUES
+    ('Celia Edward','Thomas Edward','thomas@gmail.com','celia_edward@nycschools.org','1','2022-2023','G','https://api.dicebear.com/5.x/pixel-art/svg?seed=Cleo',1),
+    ('Jade Duncan','Christine Duncan','christine@msn.com','jade_duncan@nycschools.org','1','2022-2023','H','https://api.dicebear.com/5.x/pixel-art/svg?seed=Lucy',1),
+    ('Barry Lioudis','Norma Lioudis','norma@a0l.com','barry_lioudis@nycschools.org','1','2022-2023','I', 'https://api.dicebear.com/5.x/pixel-art/svg?seed=Sassy',1);
 
 INSERT INTO logs(reading_inference,book_title,reading_minutes,pages_read,books_id,students_id)VALUES
 ('I loved that the owl was so brave','Night Owl',30,20,2,1),

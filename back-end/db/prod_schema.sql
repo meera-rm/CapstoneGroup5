@@ -28,8 +28,8 @@ CREATE TABLE teachers(
     zipcode INTEGER,
     state_name TEXT NOT NULL,
     class_subject TEXT NOT NULL,
-    teaching_grade TEXT NOT NULL
-
+    teaching_grade TEXT NOT NULL,
+    teacher_avatar TEXT
 );
 
 
@@ -44,6 +44,7 @@ CREATE TABLE students(
     grade TEXT NOT  NULL,
     academic_year TEXT NOT NULL,
     reading_level TEXT NOT NULL,
+    student_avatar TEXT ,
     teachers_id INTEGER REFERENCES teachers(teacher_id) ON UPDATE CASCADE
     ON DELETE CASCADE
 );
@@ -80,6 +81,7 @@ CREATE TABLE users(
     users_name TEXT NOT NULL,
     -- not sure if we will need the field below
     users_role TEXT NOT NULL,
+    user_avatar TEXT,
     users_email TEXT NOT NULL,
     user_password TEXT NOT NULL
 );

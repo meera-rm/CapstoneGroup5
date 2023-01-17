@@ -29,39 +29,41 @@ const AllTeachers = () => {
       </div>
       <div className='mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16'>
         {/* <div className='max-w-sm rounded overflow-hidden shadow-lg '> */}
+      
+      {/* // (<TeacherCard teacher={teacher}/>) */}
         {teacherData?.map((teacher) => {
           return (
-            <section
-              className='border rounded-md  hover:shadow-md'
-              key={teacher.teacher_id + teacher.teacher_name}
-            >
-              <div className='display-cards border-2 border-indigo-300'>
-                <Link
-                  className='text-center'
-                  to={`/teachers/` + teacher.teacher_id}
-                  key={teacher.teacher_id}
-                >
-                  {/* <img
+            // <section
+            //   className='border rounded-md  hover:shadow-md'
+            //   key={teacher.teacher_id + teacher.teacher_name}
+            // >
+            //   <div className='display-cards border-2 border-indigo-300'>
+            //     <Link
+            //       className='text-center'
+            //       to={`/teachers/` + teacher.teacher_id}
+            //       key={teacher.teacher_id}
+            //     >
+            //       {/* <img
 
-                  className='text-center'
-                  src={`${book.book_picture}`}
-                  alt=''
-                /> */}
+            //       className='text-center'
+            //       src={`${book.book_picture}`}
+            //       alt=''
+            //     /> */}
 
-                  {/* </div>
-             <div> */}
-                  <p className='text-center '>
-                    Teacher Name: {teacher.teacher_name}
-                  </p>
-                  <p className='text-center '>
-                    Subject:{teacher.class_subject}
-                  </p>
-                  <p className='text-center '>
-                    Grade: {teacher.teaching_grade}
-                  </p>
-                </Link>
-              </div>
-            </section>
+            //       {/* </div>
+            //  <div> */}
+            //       <p className='text-center '>
+            //         Teacher Name: {teacher.teacher_name}
+            //       </p>
+            //       <p className='text-center '>
+            //         Subject:{teacher.class_subject}
+            //       </p>
+            //       <p className='text-center '>
+            //         Grade: {teacher.teaching_grade}
+            //       </p>
+            //     </Link>
+            //   </div>
+            // </section>
           );
         })}
         {/* </div> */}
