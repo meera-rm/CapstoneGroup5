@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-// import AllStudents from './../index/AllStudents'
 
 const API = process.env.REACT_APP_API_URL;
-console.log(API);
+
 const BookDetails = () => {
+
   const [book, setBook] = useState([]);
 
   let navigate = useNavigate();
@@ -22,9 +22,11 @@ const BookDetails = () => {
       .catch(() => navigate('/not-found'));
   }, [id, navigate, book]);
 
-  const filterBooksbyReadingLevel = (letter) =>{
-    return book.filter((bookItem) => bookItem.reading_level === letter.toUpperCase())[0];
-  }
+  // const filterBooksbyReadingLevel = (letter) =>{
+  //   return book.filter((bookItem) => bookItem.reading_level === letter.toUpperCase())[0];
+  // }
+
+
   //Delete functions
   const handleDelete = () => {
     axios
@@ -36,6 +38,7 @@ const BookDetails = () => {
   };
 
   return (
+    
     <div className='max-h-screen grid place-items-center '>
       <div className='bg-white h-24 w-64 rounded-md'></div>
       <h2 className='font-bold mb-5 text-teal-600 mt-10 text-5xl'>
@@ -102,7 +105,7 @@ const BookDetails = () => {
             </Link>
           </div>
         </div>
-        {/* <AllStudents/> */}
+        
       </article>
     </div>
   );
@@ -110,35 +113,3 @@ const BookDetails = () => {
 
 export default BookDetails;
 
-// https://codepen.io/vsanku01/pen/GRjNzmP
-// <div class="min-h-screen grid place-items-center bg-indigo-400 font-mono">
-// <div class="bg-white h-80 w-64 rounded-md">
-//   <div class="flex justify-center items-center leading-none">
-//     <img
-//       src="https://images.unsplash.com/photo-1585554414787-09b821c321c0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-//       alt="pic"
-//       class="h-40 w-56 rounded-md shadow-2xl mt-6 transform -translate-y-10 hover:-translate-y-4 transition duration-700"
-//     />
-//   </div>
-//   <div class="p-3">
-//     <p class="block mb-1 font-extralight">Modelling</p>
-//     <p class="text-xs tracking-tighter text-gray-600">
-//       When it is your time, it’s your time. There is no point in worrying
-//       about what you can’t control.
-//     </p>
-//   </div>
-//   <div class="flex justify-between items-center p-2">
-//     <img
-//       src="https://i.pravatar.cc/150?img=58"
-//       alt=""
-//       class="rounded-full h-7"
-//     />
-//     <div class="flex">
-//       <i class="material-icons" style="color: #522cad">favorite_border</i>
-//       <span class="text-sm ml-1">100</span>
-//       <i class="material-icons ml-1" style="color: #522cad">message</i>
-//       <span class="text-sm ml-1">60</span>
-//     </div>
-//   </div>
-// </div>
-// </div>

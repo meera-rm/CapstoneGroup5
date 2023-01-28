@@ -24,3 +24,6 @@ axios.request(options).then(function (response) {
 }).catch(function (error) {
 	console.error(error);
 });
+
+// check this for firebase auth and to make profile pic for user to select
+// https://dev.to/earthcomfy/build-authentication-using-firebase-react-express-28ig

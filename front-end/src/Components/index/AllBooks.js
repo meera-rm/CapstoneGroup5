@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
 import AToMLink from './AToMLink';
 import AToKLink from './AToKLink';
 import AllAgesBooks from './AllAgesBooks';
-// import Dictionary from '../features/Dictionary/Dictionary';
+
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -37,14 +38,18 @@ const alphabets = [
 ];
 
 const AllBooks = () => {
+
   const [bookData, setBookData] = useState([]);
   const [q, setQ] = useState('');
+
   const [searchParam] = useState([
     'book_title',
     'book_author',
-    'reading_level',
+    // 'reading_level',
   ]);
+
   const [filterParam, setFilterParam] = useState(['All']);
+
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -86,9 +91,9 @@ const AllBooks = () => {
     
     <div className=' md:col-span-2 '>
        <div className='text-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 '>
-       <p className='p-4 text-teal-800 '>
+       {/* <p className='p-4 text-teal-800 '>
         DICTIONARY/PDF BOOKS LINK:
-        </p>
+        </p> */}
        <div className='text-center'>
                     
                   <Link to={`/dictionary`}>
@@ -124,9 +129,9 @@ const AllBooks = () => {
         Books
       </h2>
 
-      <div className='text-center'>
+      <div className='text-right'>
         <Link to={`/books/new`}>
-          <button className=' btn bg-indigo-500 px-4 py-4 rounded text-white  font-gerogia hover:bg-indigo-400 '>
+          <button className=' mr-20 btn bg-indigo-500 px-4 py-4 rounded text-white  font-georgia hover:bg-indigo-400 '>
             Add Books{' '}
           </button>
         </Link>
@@ -143,7 +148,7 @@ const AllBooks = () => {
             name='search-form'
             id='search-form'
             className='border-2 border-black outline  mr-5'
-            placeholder='Search for...'
+            placeholder='Search for a book by title'
             value={q}
             onChange={(e) => setQ(e.target.value)}
           />
@@ -166,17 +171,19 @@ const AllBooks = () => {
         </div>
       </div>
 
+
       <div className='mt-14 grid text-center md:grid-cols-3 lg:grid-cols-4 gap-10 lg:gap-16'>
         {/* <div className='max-w-sm rounded overflow-hidden shadow-lg '> */}
         {search(data)?.map((book) => {
           return (
-            <section
+            <div>
+         <section
               className='text-center w-40 h-20' 
               // rounded-sm  hover:shadow-sm'
               key={book.book_id + book.book_title}
             >
               <div>
-                <Link
+                 <Link
                   className='text-center'
                   to={`/books/` + book.book_id}
                   key={book.book_id}
@@ -196,9 +203,11 @@ const AllBooks = () => {
                   </p>
                 </Link>
               
-              </div>
-            </section>
-          );
+              </div> 
+            </section> 
+
+            </div>
+           );
         })}
           </div> 
       </div>
@@ -207,3 +216,7 @@ const AllBooks = () => {
 };
 
 export default AllBooks;
+
+
+
+ 
