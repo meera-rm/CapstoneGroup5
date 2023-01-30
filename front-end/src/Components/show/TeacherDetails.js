@@ -11,6 +11,7 @@ import { FaEdit } from 'react-icons/fa';
 import StudentLogsView from './StudentLogsView';
 
 import { MdAddComment } from 'react-icons/md';
+import { green } from '@mui/material/colors';
 const API = process.env.REACT_APP_API_URL;
 
 const TeacherDetails = () => {
@@ -312,3 +313,16 @@ const TeacherDetails = () => {
 };
 
 export default TeacherDetails;
+
+
+
+//<input type='number' min='1' max='5'/>
+//<style>
+  //input:in-range{
+   // border:2px solid green;
+  //}
+
+   //input:out-of-range{
+   // border:2px solid red;
+  //}
+//</style>

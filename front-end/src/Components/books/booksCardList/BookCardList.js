@@ -6,7 +6,7 @@ import AToMLink from '../../index/AToMLink';
 import AToKLink from '../../index/AToKLink';
 import AllAgesBooks from '../../index/AllAgesBooks';
 import BookCard from '../bookCard/BookCard';
-
+import './BookCardList.scss'
 const API = process.env.REACT_APP_API_URL;
 
 const alphabets = [
@@ -191,24 +191,28 @@ const AllBooks = () => {
           <span className='focus'></span>
         </div>
       </div>
-
-      <div className='mt-14 grid text-center md:grid-cols-3 lg:grid-cols-4 gap-10 lg:gap-16'>
+      
+      {/* <div className='mt-14 grid text-center md:grid-cols-3 lg:grid-cols-4 gap-10 lg:gap-16'> */}
         {/* <div className='max-w-sm rounded overflow-hidden shadow-lg '> */}
-        <ul className='card-grid'>
+        <div className='container'>
+      <div className ='bookCards'>
+        <ul  className='cardGrid'>
         {search(data)
         .slice(0,paginate)
         ?.map((book) => {
           return (
-            <div>
+            <li>
               <BookCard 
                book={book}/> 
-            </div>
+            </li>
           );
         })}
          </ul>
+         </div>
+         </div>
          <button onClick={load_more}>Load More</button>
       </div>
-    </div>
+  
     );
   }
 };

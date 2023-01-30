@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-
+import './NavBar.css';
 import logoImage from '../asset/ScholarSheep.png';
 import { MdLanguage } from 'react-icons/md';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
@@ -77,8 +77,8 @@ const Navbar = () => {
           <div className='flex-grow'>
             <Link to='/'>
               <img
-                width='120px'
-                height='120px'
+                width='100px'
+                height='0px'
                 src={logoImage}
                 alt='logo'
                 className='hidden md:block absolute -left-1 -top-1 p-2 '
@@ -99,34 +99,7 @@ const Navbar = () => {
           <nav className='hidden md:block md:container pl-6 '>
             <div className='flex justify-between text-xl'>
               <div className='flex text-black space-x-10'>
-                {/* <Link to='/'>
-                  <p className=''>Home</p>
-                </Link> */}
-
-                {/* <Link to='/about'>
-                  <button>
-                    <div
-                      className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
-                      onMouseOver={handleMouseOver}
-                      onMouseOut={handleMouseOut}
-                    >
-                      {/* <p className=''>ABOUT</p> *
-                      <IconContext.Provider
-                        value={{ color: 'white', size: 50 }}
-                      >
-                        <RiTeamLine />
-                      </IconContext.Provider>
-                    </div>
-                    <div>
-                      {isHovering && (
-                        <p className='text-rosered font-fonts text-sm'>ABOUT</p>
-                      )}
-                    </div>
-                  </button>
-                </Link> */}
-
                 <Link to='/info' activeClassName='active'>
-                  {/* <p className=''>INFO</p> */}
                   <button>
                     <div
                       className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500 hover:text-white'
@@ -134,7 +107,7 @@ const Navbar = () => {
                       onMouseOut={handleMouseOut}
                     >
                       <IconContext.Provider
-                        value={{ color: 'white', size: 50 }}
+                        value={{ color: 'white', size: 40 }}
                       >
                         <MdInfoOutline />
                       </IconContext.Provider>
@@ -149,40 +122,15 @@ const Navbar = () => {
                 </Link>
 
                 <Link to='/books' activeClassName='active'>
-                  {/* <p className=''>BOOKS</p> */}
-                  {/* <button>
-                    <div
-                      className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
-                      onMouseOver={handleMouseOver}
-                      onMouseOut={handleMouseOut}
-                    >
-                      <IconContext.Provider
-                        value={{
-                          color: 'white',
-                          size: 50,
-                          style: { cursor: 'pointer' },
-                        }}
-                      >
-                        <ImBooks />
-                      </IconContext.Provider>
-                    </div>
-                    <div>
-                      {isHovering && (
-                        <p className='text-rosered font-fonts text-sm'>BOOKS</p>
-                      )}
-                    </div>
-                  </button> */}
-                  {/* <p className=''>BOOKS</p> */}
                   <div className='relative group h-0 '>
                     <button>
-                      {/* onClick={handleBooksMenu}> */}
                       <div
                         className='w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
                         onMouseOver={handleMouseOver}
                         onMouseOut={handleMouseOut}
                       >
                         <IconContext.Provider
-                          value={{ color: 'white', size: 50 }}
+                          value={{ color: 'white', size: 40 }}
                         >
                           <ImBooks />
                         </IconContext.Provider>
@@ -195,8 +143,12 @@ const Navbar = () => {
                         )}
                       </div>
                     </button>
-                    {/* {booksMenuOpen && ( */}
-                    <div className='z-10 absolute w-full hidden group-hover:block bg-teal-500 shadow-md rounded w-40 -mt-6 py-2'>
+
+                    <div
+                      className='z-10 absolute w-full hidden 
+                     group-hover:block  shadow-md bg-teal-400 rounded w-40 
+                    py-2'
+                    >
                       <Link to='/books/level'>
                         <button
                           className='block px-4 py-2 text-black-800 hover:bg-teal-400'
@@ -225,9 +177,8 @@ const Navbar = () => {
                       onMouseOver={handleMouseOver}
                       onMouseOut={handleMouseOut}
                     >
-                      {/* <p className=''>ABOUT</p> */}
                       <IconContext.Provider
-                        value={{ color: 'white', size: 50 }}
+                        value={{ color: 'white', size: 40 }}
                       >
                         <MdLanguage />
                       </IconContext.Provider>
@@ -243,29 +194,6 @@ const Navbar = () => {
                 </Link>
 
                 <Link to='/games'>
-                  {/* <p className=''>BOOKS</p> */}
-                  {/* <button>
-                    <div
-                      className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
-                      onMouseOver={handleMouseOver}
-                      onMouseOut={handleMouseOut}
-                    >
-                      <IconContext.Provider
-                        value={{
-                          color: 'white',
-                          size: 50,
-                          style: { cursor: 'pointer' },
-                        }}
-                      >
-                        <ImBooks />
-                      </IconContext.Provider>
-                    </div>
-                    <div>
-                      {isHovering && (
-                        <p className='text-rosered font-fonts text-sm'>GAMES</p>
-                      )}
-                    </div> 
-                  </button>*/}
                   <div className='relative group h-0'>
                     <button>
                       {/* onClick={handleGamesMenu}> */}
@@ -275,7 +203,7 @@ const Navbar = () => {
                         onMouseOut={handleMouseOut}
                       >
                         <IconContext.Provider
-                          value={{ color: 'white', size: 50 }}
+                          value={{ color: 'white', size: 40 }}
                         >
                           <FaGamepad />
                         </IconContext.Provider>
@@ -290,7 +218,7 @@ const Navbar = () => {
                     </button>
                     {/* {gamesMenuOpen && ( */}
                     <div
-                      className='z-10 absolute  w-50 hidden group-hover:block bg-teal-500 shadow-md rounded py-2 '
+                      className='z-10 absolute bg-teal-400 w-50 hidden group-hover:block  shadow-md rounded py-2 '
                       onMouseOver={handleMouseOver}
                       onMouseOut={handleMouseOut}
                     >
@@ -332,9 +260,6 @@ const Navbar = () => {
                 </Link>
 
                 <Link to='/teachers' activeClassName='active'>
-                  {/* <p className='' onClick={handleNavLinkDisappear}>
-                    TEACHERS
-                  </p> */}
                   <button>
                     <div
                       className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
@@ -342,7 +267,7 @@ const Navbar = () => {
                       onMouseOut={handleMouseOut}
                     >
                       <IconContext.Provider
-                        value={{ color: 'white', size: 50 }}
+                        value={{ color: 'white', size: 40 }}
                       >
                         <GiTeacher />
                       </IconContext.Provider>
@@ -358,9 +283,6 @@ const Navbar = () => {
                 </Link>
 
                 <Link to='/students' activeClassName='active'>
-                  {/* <p className='' onClick={handleNavLinkDisappear}>
-                    STUDENTS
-                  </p> */}
                   <button>
                     <div
                       className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
@@ -368,7 +290,7 @@ const Navbar = () => {
                       onMouseOut={handleMouseOut}
                     >
                       <IconContext.Provider
-                        value={{ color: 'white', size: 50 }}
+                        value={{ color: 'white', size: 40 }}
                       >
                         <FaChild />
                       </IconContext.Provider>
@@ -382,13 +304,6 @@ const Navbar = () => {
                     </div>
                   </button>
                 </Link>
-
-                {/* <Link to='/logs'>
-                  <p className='' onClick={handleNavLinkDisappear}>
-                    Logs
-                  </p>
-
-                </Link>  */}
               </div>
               <div className='flex pl-2 space-x-4'>
                 <Link to='/signup' activeClassName='active'>
@@ -399,14 +314,12 @@ const Navbar = () => {
                       onMouseOut={handleMouseOut}
                     >
                       <IconContext.Provider
-                        value={{ color: 'white', size: 50 }}
+                        value={{ color: 'white', size: 40 }}
                       >
-                        {/* color: '#115e59' */}
                         <p
                           className='w-18 text-center rounded-md'
                           onClick={handleNavLinkDisappear}
                         >
-                          {/* <SiTheregister /> */}
                           <GiArchiveRegister />
                         </p>
                       </IconContext.Provider>
@@ -428,7 +341,7 @@ const Navbar = () => {
                       onMouseOut={handleMouseOut}
                     >
                       <IconContext.Provider
-                        value={{ color: 'white', size: 50 }}
+                        value={{ color: 'white', size: 40 }}
                       >
                         <p
                           className='w-18 text-center rounded-md'
@@ -464,23 +377,12 @@ const Navbar = () => {
           {menu && (
             <div className='text-xl border-t text-black mx-5'>
               <div className='space-y-6 py-4 '>
-                {/* <Link to='/'>
-                  <p className='mt-2' onClick={handleNavLinkDisappear}>
-                    HOME
-                  </p>
-                </Link>*/}
-
                 <Link to='/about'>
                   <p className='mt-2' onClick={handleNavLinkDisappear}>
                     ABOUT
                   </p>
                 </Link>
 
-                {/* <Link to='/books'>
-                  <p className='mt-2' onClick={handleNavLinkDisappear}>
-                    BOOKS
-                  </p>
-                </Link> */}
                 <Link to='/books'>
                   <div className='relative group h-0'>
                     <button>
@@ -510,24 +412,10 @@ const Navbar = () => {
                           className='block px-4 py-2 text-black-800 hover:bg-teal-400'
                           onClick={handleNavLinkDisappear}
                         >
-                          Causal Reading
+                          Casual Reading
                         </button>
                       </Link>
                     </div>
-                    {/* {booksMenuMobile && ( */}
-                    {/* <div className='absolute left-0 py-2 w-48 bg-white rounded-md shadow-xl'>
-                        <Link to='/books/level'>
-                          <p className='mt-2' >
-                            ReadingLevel
-                          </p>
-                        </Link>
-                        <Link to='/books/casual'>
-                          <p className='mt-2' onClick={handleNavLinkDisappear}>
-                            Casual
-                          </p>
-                        </Link>
-                      </div> */}
-                    {/* )} */}
                   </div>
                 </Link>
                 <Link to='/info'>
@@ -590,20 +478,6 @@ const Navbar = () => {
                         </button>
                       </Link>
                     </div>
-                    {/* {gamesMenuMobile && (
-                      <div className='absolute left-0 w-48 py-2 bg-white rounded-md shadow-xl'>
-                        <Link to='/games/rsp'>
-                          <p className='mt-2' onClick={handleNavLinkDisappear}>
-                            RockPaperScissor
-                          </p>
-                        </Link>
-                        <Link to='/games/paint'>
-                          <p className='mt-2' onClick={handleNavLinkDisappear}>
-                            Paint
-                          </p>
-                        </Link>
-                      </div>
-                    )} */}
                   </div>
                 </Link>
 

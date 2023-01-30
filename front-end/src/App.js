@@ -1,6 +1,6 @@
 // COMPONENTS
 
-import NavBar from './Components/common/NavBar';
+import NavBar from './Components/common/nav';
 
 import Footer from './Components/common/Footer';
 
