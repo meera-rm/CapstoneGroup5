@@ -80,7 +80,7 @@ students.put('/:studentId', async (req, res) => {
     console.log(error);
     res
       .status(404)
-      .json({ success: false, message: 'Book info cannot be updated' });
+      .json({ success: false, message: 'Student Info cannot be updated' });
   }
 });
 

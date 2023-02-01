@@ -1,31 +1,29 @@
 
-
-
-
 @import "compass";
 @import "breakpoint";
 
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:900');
-// body {
-//   align-items: center;
-//   display: flex;
-//   height: 100vh;
-//   justify-content: center;
-//   font-family: sans-serif;
-//   margin: 0;
-//    	font-size: 17px; 
-//  	line-height: 1.4;
-//  }
+body {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  font-family: sans-serif;
+  margin: 0;
+   	font-size: 17px; 
+ 	line-height: 1.4;
+ }
 
-// .container {
-// 	max-width: 1100px;
-// 	margin: 0 auto;
-//   display: flex;
-//   justify-content: center;
-//   flex-wrap: wrap;
-//   	margin-top: 15px;
-// 	padding: 1.5%;
-// }
+
+.container {
+	max-width: 1100px;
+	margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  	margin-top: 15px;
+	padding: 1.5%;
+}
 
 
 // //Todo clean up some crappy code
@@ -42,11 +40,12 @@
 // 	-moz-box-sizing: border-box;
 // 	box-sizing: border-box;
 // }
+
 .bookCard {
-  	@media (max-width: 700px) {
-		width: 100%;
-	}
-   position: relative;
+  // 	@media (max-width: 700px) {
+	// 	width: 100%;
+	// }
+  //  position: relative;
   background: white;
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -57,28 +56,29 @@
   -webkit-tap-highlight-color: rgba(0,0,0,0.025);
   position: relative;
   text-align: center;
+
   transition: height 1000ms;
   width: 260px;
-  @include box-shadow(rgba(black, 0.19) 0 0 8px 0);
-	@include border-radius(4px);
-	@include breakpoint(700px, $no-query: true) {
-	//switch to 2 columns
-		max-width: 320px;
-		margin-right: 20px;
-		margin-bottom: 20px;
-		&:nth-child(even) {
-			margin-right: 0;
-		}
-	}
-	@include breakpoint(980px, $no-query: true) {
-	//switch to 3 columns
-		&:nth-child(even) {
-			margin-right: 20px;
-		}
-		&:nth-child(3n) {
-			margin-right: 0;
-		}
-	}
+  // @include box-shadow(rgba(black, 0.19) 0 0 8px 0);
+	// @include border-radius(4px);
+	// @include breakpoint(700px, $no-query: true) {
+	// //switch to 2 columns
+	// 	max-width: 320px;
+	// 	margin-right: 20px;
+	// 	margin-bottom: 20px;
+	// 	&:nth-child(even) {
+	// 		margin-right: 0;
+	// 	}
+	// }
+	// @include breakpoint(980px, $no-query: true) {
+	// //switch to 3 columns
+	// 	&:nth-child(even) {
+	// 		margin-right: 20px;
+	// 	}
+	// 	&:nth-child(3n) {
+	// 		margin-right: 0;
+	// 	}
+	// }
   &.expanded {
     height: 400px;
   }
@@ -96,18 +96,21 @@
     }
   }
   
-  
+
 &__image { 
   margin-top: 30px;
-  width:50px;
-  height:50px;
+  text-align:center;
    transform: translateY(10px);
   transition: transform 1000ms;
    z-index:1;
   &.expanded {
   transform: translateX(0); 
  }  
+ 
 } 
+
+
+
 
 &__info {
 

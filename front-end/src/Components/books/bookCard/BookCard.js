@@ -14,8 +14,6 @@ const BookCard = ({ book }) => {
     reading_level,
   } = book;
 
-  console.log(book_id, book_picture);
-
   const [expanded, setExpanded] = useState(false);
 
   const handleExpand = () => {
@@ -23,56 +21,69 @@ const BookCard = ({ book }) => {
   };
 
   return (
-    //  <div className='container' key={book_id + book_title}>
-    //   <div className ='bookCards'>
-     
-          <div
-            className={`bookCard ${expanded ? 'expanded' : ''}`}
-            onClick={handleExpand}
-          >
-           
-            <img style={{margin:'0 auto', width:'200px',height:'200px'}}
-              className='bookCard__image'
-              src={book_picture}
-              alt=''
-            />
-            <div className={`bookCard__info ${expanded ? "expanded" : ""}`}>
-              <div className='bookCard__content'>
-                <h2 className='bookCard__title'>{`${book_title.toUpperCase()}`}</h2>
-                <ol className='bookCard__summary'>
-                  <li className='bookCard__summary-list'>
-                    Reading Level: {' '}
-                    <span>{`${reading_level}`}
-                    </span> </li>
-                  <li className='bookCard__summary-list' >
-                    {' '}
-                    Book Author: {' '}<span>{`${book_author}`}
-                    </span> </li>
-                  <li className='bookCard__summary-list'>Id: {' '}<span>{`${book_id}`} </span></li>
-                  <li className='bookCard__summary-list'>ISBN : {' '}<span>{`${isbn_number}`}</span></li>
-                  <li className='bookCard__summary-list'> Publication: {' '}<span>{`${publication}`}</span> </li>
-                </ol>
-              </div>
+     <div className='container' key={book_id + book_title}>
+    {/* //   <div className ='bookCards'> */}
 
-            
-                <svg  className={`bookCard__chevron ${expanded ? "expanded" : ""}`}
-                  xmlns='http://www.w3.org/2000/svg'
-                  viewBox='0 0 100 35'
-                  width='30'
-                >
-                  <path
-                    d='M5 30L50 5l45 25'
-                    fill='none'
-                    stroke='#000'
-                    stroke-width='5'
-                  />
-                </svg>
-            
-            </div>
-          </div>
-      //    </div>
-      //  </div>
-    
+    <div
+      className={`bookCard ${expanded ? 'expanded' : 'bookCard'}`}
+      onClick={handleExpand}
+    >
+      
+      <img className='bookCard__image' width='150px' height='150px'
+        src={book_picture}
+        // src='https://dummyimage.com/150x150/c2c2c2/00'
+        alt=''
+      />
+     
+      <div className={`bookCard__info ${expanded ? 'expanded' : ''}`}>
+        <div className='bookCard__content'>
+          <h2 className='bookCard__title'>{`${book_title.toUpperCase()}`}</h2>
+          {/* <h2 className='bookCard__title'>cookiew week</h2> */}
+          <ol className='bookCard__summary'>
+            <li className='bookCard__summary-list'>
+              {/* Reading Level: C */}
+              <span>{`${reading_level}`}
+                    </span> 
+            </li>
+            <li className='bookCard__summary-list'>
+              {' '}
+              {/* Book Author: Cindyward */}
+              <span>{`${book_author}`}
+                    </span>
+            </li>
+            <li className='bookCard__summary-list'>
+              {/* Id: 4 */}
+              <span>{`${book_id}`} </span>
+            </li>
+            <li className='bookCard__summary-list'>
+              {/* ISBN : 77838978293 */}
+              <span>{`${isbn_number}`}</span>
+            </li>
+            <li className='bookCard__summary-list'>
+              {' '}
+              {/* Publication: abcdefg */}
+              <span>{`${publication}`}</span> 
+            </li>
+          </ol>
+        </div>
+
+        <svg
+          className={`bookCard__chevron ${expanded ? 'expanded' : ''}`}
+          xmlns='http://www.w3.org/2000/svg'
+          viewBox='0 0 100 35'
+          width='30'
+        >
+          <path
+            d='M5 30L50 5l45 25'
+            fill='none'
+            stroke='#000'
+            stroke-width='5'
+          />
+        </svg>
+      </div>
+    </div>
+        </div>
+    //  </div>
   );
 };
 export default BookCard;
