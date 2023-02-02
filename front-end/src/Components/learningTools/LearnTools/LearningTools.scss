@@ -1,0 +1,45 @@
+.learningTools {
+    padding: 40px;
+    border: 2px solid red;
+    font-family: Roboto, sans-serif;
+    text-align: center;
+  
+    &__title {
+      font-weight: 600;
+      font-size: 4rem;
+    }
+  
+  
+    &__container {
+      
+        display:inline-block;
+      &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+  
+        img {
+          width: 100px;
+          height: 100px;
+        }
+  
+        &__text {
+          text-align: center;
+          margin-top: 10px;
+  
+          h2 {
+            font-size: 24px;
+            font-weight: bold;
+          }
+  
+          h4 {
+            font-size: 18px;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+  }
+  
+  
