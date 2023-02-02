@@ -1,12 +1,12 @@
 import React from 'react';
-import './PdfBookLinks.scss'
+import './DigitalBookLinks.scss'
 
 import WilBooksLink from './WilBooksLink';
 import LovingToReadLink from './LovingToReadLink';
 import GetEpicLink from './GetEpicLink';
 // import { ExternalLink } from 'react-external-link';
 
-const pdfBookLinks = () => (
+const DigitalBookLinks = () => (
   <div>
  <div class="gradedReadersList">
   <div class="gradedReadersList__title">
@@ -22,6 +22,6 @@ const pdfBookLinks = () => (
   </div>
 );
 
-export default pdfBookLinks;
+export default DigitalBookLinks;
 
 // https://www.easyteacherworksheets.com/langarts/analogies.html

@@ -13,8 +13,8 @@ import BookCardList from '../books/booksCardList/BookCardList';
 import NewBooks from '../../Pages/Books/NewBook';
 // import ShowBooks from '../../Pages/Books/ShowBooks';
 // import EditBooks from '../../Pages/Books/EditBooks';
-import Dictionary from '../learningTools/Dictionary/Dictionary';
-import FlashCard from '../learningTools/FlashCard/FlashCard';
+import Dictionary from '../tools/Dictionary/Dictionary';
+import FlashCard from '../tools/FlashCard/FlashCard';
 
 import Games from '../games/Games';
 import RockpaperScissor from '../games/RockpaperScissor';
@@ -81,7 +81,7 @@ const AnimatedRoutes = () => {
             <Route path='/policy' element={<PrivacyPolicy />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/dictionary' element={<Dictionary />} />
-
+            <Route path='/vocabulary' element={<FlashCard/>} />
             <Route path='/books'>
               <Route index element={<BookCardList />} />
               <Route path='new' element={<NewBooks />} />

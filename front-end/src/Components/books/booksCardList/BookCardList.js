@@ -3,10 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import EmptyView from "../../emptyView/EmptyView";
-import PdfBookLinks from '../pdfBookLinks/PdfBookLinks';
+import DigitalBookLinks from '../../digitalBookLinks/DigitalBookLinks';
+import LearningTools from'../../tools/LearnTools/LearningTools';
 
 import BookCard from '../bookCard/BookCard';
 import './BookCardList.scss';
+import { FaListOl } from 'react-icons/fa';
 const API = process.env.REACT_APP_API_URL;
 
 const BookCardList = () => {
@@ -26,9 +28,9 @@ const BookCardList = () => {
         setLoading(false)
       })
       .catch((error) => {
-        console.error('catch', error);
+        // console.error('catch', error);
         setLoading(false)
-        setError(error);
+        // setError(error);
       });
   }, []);
 
@@ -37,7 +39,8 @@ const BookCardList = () => {
       {error &&   <>{error.message}</>}
       {loading &&  <>loading...</>}
       {/* {!loading && <EmptyView styleKey="bold" message="Page Not Found"/>} */}
-      <PdfBookLinks/>
+      <LearningTools/>
+      <DigitalBookLinks/>
   </div>
    )
 }
