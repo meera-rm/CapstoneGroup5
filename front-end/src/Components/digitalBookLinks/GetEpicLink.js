@@ -5,7 +5,7 @@ import './Common.scss';
 const GetEpicLink = () => (
   <div>
     <ExternalLink href='https://www.getepic.com/app/read/68918'>
-      <div class='readersListItem'>
+      <div className='readersListItem'>
         <img
           src='https://www.getepic.com/assets/epic-logo-blue-solid.svg'
           alt=''

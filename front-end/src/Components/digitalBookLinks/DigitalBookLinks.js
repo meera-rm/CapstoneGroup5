@@ -8,11 +8,11 @@ import GetEpicLink from './GetEpicLink';
 
 const DigitalBookLinks = () => (
   <div>
- <div class="gradedReadersList">
-  <div class="gradedReadersList__title">
+ <div className="gradedReadersList">
+  <div className="gradedReadersList__title">
      Free Online Graded Reading LeveL Books
   </div>
-  <div class="gradedReadersList__container">
+  <div className="gradedReadersList__container">
      <WilBooksLink/>
      <LovingToReadLink/>
      <GetEpicLink/>

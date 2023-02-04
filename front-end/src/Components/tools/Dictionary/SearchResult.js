@@ -6,6 +6,8 @@ import Meanings from './Meanings';
 import Synonym from './Synonym';
 import PartsOfSpeech from './PartsOfSpeech';
 import { FcSpeaker } from 'react-icons/fc';
+
+
 const SearchResult = ({ searchWord, setSearchWord }) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState('');

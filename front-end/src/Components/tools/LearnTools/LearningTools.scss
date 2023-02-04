@@ -1,37 +1,57 @@
 .learningTools {
     padding: 40px;
     font-family: Roboto, sans-serif;
-    // margin:0 auto;
-    color: #03958e; 
+    color: #03958e;;
+  
     text-align:center;
     
       &__title {
         font-weight: 900;
         font-size: 2em;
         padding-bottom: 15px;
-        // text-align:center;
-        
       }
    
       &__container {
-         
+            color: #555; 
           //  &__item{
             display: grid;
             grid-template-columns: 1fr 1fr ;
-            column-gap: 20px;
+            column-gap: 10px;
             justify-content:center;
             align-items: center;  
-            &__image{  
-                width:100%;
-                // text-align:right;
+            // text-align:center; 
+            @media screen and (max-width: 600px) {
+                width: 100%;
+                grid-template-columns:1fr;
+                
             }
+            &__image{  
+                width:50%;
+                img{
+                  text-align:center;
+                  @media screen and (max-width: 600px) {
+                    width: 100%;
+                   text-align:center;
+                    
+                  }
+                }
+                
+            }
+
+           
+            // }
           }
           &__text {
               font-size:1.5em;
-              font-weight:700;
-               width:100%;
+              font-weight:600;
+               width:50%;
               // text-align:left;
-              
+              h4{color:#999;}
+              @media screen and (max-width: 600px) {
+                width: 100%;
+               text-align:center;
+                
+            }
           }
    
   }
