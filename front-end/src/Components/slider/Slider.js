@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-
+import './Slider.scss';
 // import sliderBooks from './sliderBooks'
 const sliderBooks =[
     'https://m.media-amazon.com/images/I/91FRe2hWifL._AC_UY436_FMwebp_QL65_.jpg',
@@ -20,29 +20,20 @@ const sliderBooks =[
     'https://m.media-amazon.com/images/I/91FRe2hWifL._AC_UY436_FMwebp_QL65_.jpg',
     ]
 
-
-
 const Slider = ()=> {
 
     return (
-      <div>
-        {/* <h1 className="text-4xl pb-12">Infinite slider test</h1> */}
-  
+     <div className="pt-10 flex items-center flex-col text-center">
+        <h1 className="text-4xl pb-8">Books list </h1>
         <div className="slider">
-          <div className="slider__track"> 
-          
-            <img className = 'slide'src={sliderBooks[0]} alt=''/>
-            <img className = 'slide'src={sliderBooks[0]} alt=''/>
-            <img className = 'slide'src={sliderBooks[0]} alt=''/>
-            {/* {sliderBooks.map((sliderBook, index) => {
+          <div className="slide-track"> 
+            {sliderBooks.map((sliderBook, index) => {
               return (
-                <div className="slide" key={index}>
+                <div className='image' key={index}>
                   <img src={sliderBook} alt="imageforslider" />
                 </div>
               );
-            })} */}
-           
-           
+            })}
           </div>
         </div> 
       </div>

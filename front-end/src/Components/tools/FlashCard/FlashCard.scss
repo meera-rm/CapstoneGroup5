@@ -1,0 +1,27 @@
+.flashCard{
+    display:flex;
+    background:#F1F1F1;
+    justify-content:baseline;
+    align-items:center;
+    height:80px;
+
+    &__title{
+        text-align:center;
+        font-size:1.4em;
+        flex-grow:1;
+    }
+    &__container{
+    text-align:right;
+    margin:40px auto;
+    font-size:1.2em;
+    width:400px;
+    height:auto;
+    padding:2em;
+    }
+}
+
+   
+  
+  
+   
+

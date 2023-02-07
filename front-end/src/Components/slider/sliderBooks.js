@@ -14,11 +14,13 @@ const sliderBooks =[
 'https://m.media-amazon.com/images/I/91FRe2hWifL._AC_UY436_FMwebp_QL65_.jpg',
 'https://m.media-amazon.com/images/I/91FRe2hWifL._AC_UY436_FMwebp_QL65_.jpg',
 'https://m.media-amazon.com/images/I/91FRe2hWifL._AC_UY436_FMwebp_QL65_.jpg',
-]
-export default sliderBooks;
+];
 
 
 
 
 
 
+
+
+// https://codesandbox.io/s/elated-driscoll-d77dcj?file=/src/slider.css:197-471

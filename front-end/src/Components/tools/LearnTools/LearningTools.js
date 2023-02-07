@@ -12,6 +12,19 @@ const LearningTools =() =>{
        <h1 className='learningTools__title'>
           Learning Tools for Enhanced Vocabulary
        </h1>
+       <Link to='/addVocab'>
+      <div className='learningTools__container'>
+             
+            <div className='learningTools__image' >
+                <img  src={tremble} alt='' />
+            </div>
+            <div className='learningTools__text'>
+                 <h2>New Vocab words </h2>
+                 <h4>Add more Vocabulary words</h4>
+            </div> 
+        
+      </div>
+      </Link>
        <Link to='/dictionary'>
            <div className='learningTools__container'>
                <div className='learningTools__image' >
@@ -24,18 +37,20 @@ const LearningTools =() =>{
            
           </div>
       </Link>
-      <Link to='./vocabulary'>
+      <Link to='/vocabulary'>
       <div className='learningTools__container'>
-              <div className='learningTools__image' >
-             <img  src={tremble} alt='' />
-               </div>
-             <div className='learningTools__text'>
+             
+            <div className='learningTools__image' >
+                <img  src={tremble} alt='' />
+            </div>
+            <div className='learningTools__text'>
                  <h2>Vocabulary Words</h2>
                  <h4>Practice Vocabulary words</h4>
-              </div> 
+            </div> 
         
       </div>
       </Link>
+     
    
 
    </div>

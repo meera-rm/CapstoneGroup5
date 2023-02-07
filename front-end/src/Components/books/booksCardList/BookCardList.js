@@ -30,7 +30,7 @@ const BookCardList = () => {
       })
       .catch((error) => {
         // console.error('catch', error);
-        setLoading(false)
+        setError(false)
         // setError(error);
       });
   }, []);
@@ -42,7 +42,7 @@ const BookCardList = () => {
       {/* {!loading && <EmptyView styleKey="bold" message="Page Not Found"/>} */}
       <LearningTools/>
       <DigitalBookLinks/>
-      {/* <Slider/> */}
+      <Slider/>
   </div>
    )
 }

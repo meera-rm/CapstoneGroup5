@@ -1,20 +1,19 @@
+import { React, useState, useEffect } from 'react';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-// import DisplayWordDetails from './DisplayWordDetails'
-// import PartsOfSpeech from './PartsOfSpeech';
-import { FcSpeaker } from 'react-icons/fc';
-import Antonym from './Antonym';
-import Example from './Example';
-import Meanings from './Meanings';
-import Synonym from './Synonym';
+import words from './words.json';
 
+const AddWord = ({ searchWord, value }) => {
+  console.log(searchWord);
 
-const SearchResult = ({ searchWord, setSearchWord }) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-
-  
+  const [id, setId] = useState(0);
+  const [word, setWord] = useState(searchWord);
+  const [grade, setGraded] = useState(value);
+  const [partsOfSpeech, setPartsOfSpeech] = useState('');
+  const [meanings, setMeanings] = useState([]);
+  const [examples, setExamples] = useState([]);
 
   const fetchData = async (word) => {
     try {
@@ -57,14 +56,30 @@ const SearchResult = ({ searchWord, setSearchWord }) => {
     );
   }
 
-  const playAudio = () => {
-    const audio = new Audio(data[0].phonetics[0].audio);
-    audio.play();
+  const definition = data[0].definitions.definition;
+  const wordMeanings = definition.map((item) => item.definition);
+  const wordExamples = definition.map((item) => item.example);
+
+  // const playAudio = () => {
+  //   const audio = new Audio(data[0].phonetics[0].audio);
+  //   audio.play();
+  // };
+
+  const addWords = {
+    id: words.length + 1,
+    word: data[0].word,
+    phonetic: data[0].phonetic,
+    grade: grade,
+    partsOfSpeech: data[0].meanings[0].partOfSpeech,
+    meaning: wordMeanings,
+    example: wordExamples,
   };
+
+ words.push(addWords);
 
   return (
     <div className='container mx-auto p-4 max-w-2xl'>
-      {data && (
+      {/* {data && (
         <div>
           <h3>
             {' '}
@@ -80,31 +95,16 @@ const SearchResult = ({ searchWord, setSearchWord }) => {
               🕪{' '}
             </span>
           </h3>
-          <h3 className='text-2xl font-bold mt-4'>Parts Of Speech:</h3>
-          <p>{data[0].meanings[0].partOfSpeech}</p>
-          <h3 className='text-2xl font-bold mt-4'>
-                Meaning & Definitions:
-              </h3>
-              <Meanings mean={data} />
-              <h3 className='text-2xl font-bold mt-4'>Example:</h3>
-              <Example mean={data} />
-              <h3 className='text-2xl font-bold mt-4'>Synonym:</h3>
-              <Synonym mean={data} />
-              <h3 className='text-2xl font-bold mt-4'>Antonym:</h3>
-              <Antonym mean={data} />
-
-          {/* {origin==='dictionary' && (
-            <DisplayWordDetails data={data}/>
-          )}
-          {origin==='flashCards' && (
-            <div>
-               set
-            </div>
-          )} */}
         </div>
-      )}
+      )} */}
     </div>
   );
 };
 
-export default SearchResult;
+export default AddWord;
+
+// // loading gif
+// {
+//   /* <div class="tenor-gif-embed" data-postid="17733403" data-share-method="host" data-aspect-ratio="1.33333" data-width="100%"><a href="https://tenor.com/view/gb-notebook-laptop-gif-17733403">Gb Notebook Sticker</a>from <a href="https://tenor.com/search/gb-stickers">Gb Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script> */
+// }
+// // https://tenor.com/view/gb-notebook-laptop-gif-17733403
