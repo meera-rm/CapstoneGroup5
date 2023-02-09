@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import EmptyView from "../../emptyView/EmptyView";
 import DigitalBookLinks from '../../digitalBookLinks/DigitalBookLinks';
-import LearningTools from'../../tools/LearnTools/LearningTools';
+import DisplayTools from'../../tools/SelectTools/DisplayTools';
 import Slider from'../../slider/Slider';
 
 import BookCard from '../bookCard/BookCard';
@@ -38,9 +38,9 @@ const BookCardList = () => {
   return(
     <div>
       {error &&   <>{error.message}</>}
-      {loading &&  <>loading...</>}
+      {loading &&  <></>}
       {/* {!loading && <EmptyView styleKey="bold" message="Page Not Found"/>} */}
-      <LearningTools/>
+      <DisplayTools/>
       <DigitalBookLinks/>
       <Slider/>
   </div>

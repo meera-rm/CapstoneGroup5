@@ -1,6 +1,6 @@
 .flashCard{
     display:flex;
-    background:#F1F1F1;
+    // background:#F1F1F1;
     justify-content:baseline;
     align-items:center;
     height:80px;
@@ -17,6 +17,12 @@
     width:400px;
     height:auto;
     padding:2em;
+    }
+    &__select{
+    margin:-70px 0;
+    padding: 0px 10px;
+    border:solid 1px #eee;
+    overflow-y: scroll;
     }
 }
 

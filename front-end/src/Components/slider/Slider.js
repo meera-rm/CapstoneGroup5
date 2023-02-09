@@ -21,10 +21,10 @@ const sliderBooks =[
     ]
 
 const Slider = ()=> {
-
+  
     return (
      <div className="pt-10 flex items-center flex-col text-center">
-        <h1 className="text-4xl pb-8">Books list </h1>
+        <h1 className="books-title">Books list </h1>
         <div className="slider">
           <div className="slide-track"> 
             {sliderBooks.map((sliderBook, index) => {

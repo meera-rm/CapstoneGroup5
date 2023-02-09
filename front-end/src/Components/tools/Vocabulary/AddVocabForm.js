@@ -1,12 +1,16 @@
 import { React, useState } from 'react';
-import words from './words.json';
-import AddWord from './AddWord';
+// import words from './words.json';
+import AddWord from '../Vocabulary/AddWord';
+import { useLocation } from "react-router-dom";
+import './AddVocabForm.scss'
 
 import { Link } from 'react-router-dom';
 
 const grades = ['K', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
-const AddVocabForm = ({ showCards, setShowCards }) => {
+const AddVocabForm = ({words,showCards, setShowCards}) => {
+  console.log('in addvocabfprn',words)
+
   const [searchWord, setSearchWord] = useState('');
   const [value, setValue] = useState('');
 
@@ -19,13 +23,17 @@ const AddVocabForm = ({ showCards, setShowCards }) => {
     } else {
       setValue(event.target.value);
     }
+    console.log(value)
+   
   };
 
   const handleSubmit = () => {
+    
     const wordFound = words.find((item) => item.word === newWord);
+    console.log('found=',wordFound,value,newWord)
     if (!wordFound) {
       setSearchWord(wordFound);
-      <AddWord searchWord={searchWord} value={value} />;
+      <AddWord searchWord={searchWord} value={value}  />;
     }
   };
 
@@ -40,8 +48,8 @@ const AddVocabForm = ({ showCards, setShowCards }) => {
             className='mb-2 uppercase  font-normal text-lg  text-left'
             htmlFor='newWord'
           >Word:  
-            <input
-              className='border  py-2 px-3 '
+            <input 
+               className='border py-2 px-3 '
               id='newWord'
               type='text'
               name='newWord'
@@ -61,7 +69,9 @@ const AddVocabForm = ({ showCards, setShowCards }) => {
             Grade:
             {/* </label> */}
             <select
-              className='border py-2 px-3 '
+              // className='border py-2 px-3'
+              className='selectGrade'
+              size='1'
               name='grade'
               id='grade'
               value={value}
@@ -80,10 +90,10 @@ const AddVocabForm = ({ showCards, setShowCards }) => {
             </label>
         </div>
         <div className='flex justify-center ml-10 space-x-10'>
-          <input className=' px-5 py-3 rounded bg-teal-500' type='submit' />
+          <button className=' my-12 px-5 py-3 rounded bg-teal-500' >Submit</button>
 
           <Link to={`/vocabulary`}>
-            <button className='mr-10 px-5  py-3 rounded bg-teal-500 ' style={{ display: showCards ? 'block' : 'none' }}>
+            <button className='mr-10 px-5  py-3 rounded my-12 bg-teal-500 ' style={{ display: showCards ? 'block' : 'none' }}>
             Cancel{' '}
             </button>
            

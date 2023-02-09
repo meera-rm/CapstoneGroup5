@@ -16,14 +16,14 @@ const FlashCardList = ({ filteredData }) => {
     <div className='cards'>
       {filteredData.map((card,idx) => (
         <div className='card' key={card.id}>
-          <div
+          {/* <div
             className={`card-body ${flipped ? 'flipped' : ''}`}
             onClick={() => setFlipped(!flipped)}
-          >
+          > */}
           <div className='card-body'>
             <div className='card-front'>
             {/* {data && (*/}
-        <div>
+        {/* <div>
           <h3>
             {' '}
             <span>Phonetic:{'  '}</span>{card.phonetic}
@@ -38,7 +38,7 @@ const FlashCardList = ({ filteredData }) => {
               🕪{' '}
             </span>
           </h3>
-        </div>
+        </div> */}
       {/* )} */}
               <h2>{card.word.toUpperCase()}</h2>
               <h2>PARTS OF SPEECH:</h2>
@@ -65,7 +65,7 @@ const FlashCardList = ({ filteredData }) => {
             </div>
           </div>
         </div>
-        </div>
+        // </div>
       ))}
     </div>
    

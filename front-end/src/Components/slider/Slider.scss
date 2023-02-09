@@ -1,3 +1,11 @@
+ .books-title{
+  font-weight: 900;
+  font-size: 2em;
+  padding-bottom: 15px;
+  color:#03958e;
+ }
+ 
+ 
  .slider {
 //     //  background: red;
       box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
@@ -8,7 +16,7 @@
       margin:20px 0;
     
 }
-  
+
 .slide-track {
   display: inline-block;
   animation: move 20s linear infinite;

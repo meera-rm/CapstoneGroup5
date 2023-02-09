@@ -15,7 +15,7 @@ import NewBooks from '../../Pages/Books/NewBook';
 // import EditBooks from '../../Pages/Books/EditBooks';
 import Dictionary from '../tools/Dictionary/Dictionary';
 import FlashCard from '../tools/FlashCard/FlashCard';
-import AddVocab from '../tools/FlashCard/AddVocab';
+import AddVocab from '../tools/Vocabulary/AddVocab';
 
 import Games from '../games/Games';
 import RockpaperScissor from '../games/RockpaperScissor';
@@ -78,12 +78,13 @@ const AnimatedRoutes = () => {
           <Routes location={location} key={location.pathname}>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
+            
             <Route path='/info' element={<Information />} />
             <Route path='/policy' element={<PrivacyPolicy />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/dictionary' element={<Dictionary />} />
-            <Route path='/vocabulary' element={<FlashCard />} />
-            <Route path='/addVocab' element={<AddVocab />} />
+            <Route path='/flashcard' element={<FlashCard />} />
+            <Route path='/vocabulary' element={<AddVocab />} />
             <Route path='/books'>
               <Route index element={<BookCardList />} />
               <Route path='new' element={<NewBooks />} />
