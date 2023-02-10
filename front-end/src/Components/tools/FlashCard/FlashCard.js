@@ -49,9 +49,19 @@ const FlashCard = () => {
         <h1 className='flashCard__title'>FlashCards</h1>
       </div>
       <div className='flashCard__container'>
-        <label htmlFor='grade'>Grade: </label>
+        <div className='flashCard__toggleGradeSelector'>All Grades  </div>
+        <div className='flashCard__gradeSelector'>
+           <div>All Levels</div>
+           <div> Kindergarten</div>
+           <div>ist Grade</div>
+           <div>2nd Grade</div>
+           <div>3rd Grade</div>
+           <div>4th Grade</div>
+           <div>5th Grade</div>
+           <div>6th Grade</div>
+        </div>
+        {/* <label htmlFor='grade'>Grade: </label>
         <select
-          
           className='flashCard__select'
           value={selectedGrade}
           onChange={(e) => setSelectedGrade(e.target.value)}
@@ -66,7 +76,7 @@ const FlashCard = () => {
               {grade}
             </option>
           ))}
-        </select>
+        </select> */}
       </div>
 
       {filteredData && filteredData.length > 0 && (

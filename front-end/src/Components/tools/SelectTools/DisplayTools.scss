@@ -5,7 +5,8 @@
         display:flex;
         justify-content: center;
         align-items:center;
-       
+       border-bottom:4px solid transparent;
+       border-image: linear-gradient(to right,green, indigo, orange, red,yellow,blue) 4;
        
     }
     &__buttons{
@@ -18,11 +19,31 @@
         font-weight:700;
         &:hover{
             color: #667ee9;
-            // color:#3949ab;
         }
-        &:focus{
+        &-active {
             color:#03958e;
+            border-top:2px solid #03958e;
+            // border-right:2px solid green;
+            // border-left:2px solid green;
+            border-right: 4px solid transparent;
+      border-left: 4px solid transparent;
+            position:relative;
+            top:4px;
+            background:whitesmoke;
+            border-image: linear-gradient(to right,green, indigo, orange, red,yellow,blue)  4;
+            animation: border-image-animation 4s linear infinite;
+            // border-image:linear-gradient(to right, red,yellow,green,blue),2;
         }
     }
 }
 
+@keyframes border-image-animation {
+    from {
+      border-image-slice: 1;
+      border-image-source: linear-gradient(to right, green, orange, red,green,yellow,blue,indigo);
+    }
+    to {
+      border-image-slice: 1;
+      border-image-source: linear-gradient(to right, green, orange, red,green,yellow,blue),indigo;
+    }
+  }
