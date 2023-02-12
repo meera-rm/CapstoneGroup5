@@ -77,11 +77,12 @@ const Navbar = () => {
           <div className='flex-grow'>
             <Link to='/'>
               <img
-                width='120px'
-                height='120px'
                 src={logoImage}
+                width='150px'
+                height='150px'
+                style={{ borderRadus: '50%' }}
                 alt='logo'
-                className='hidden md:block absolute -left-1 -top-1 p-2 '
+                className='hidden md:block absolute -left-1 -top-0 p-2 '
                 // className='absolute -left-40 -top-8 w-14 h-12'
               />
             </Link>

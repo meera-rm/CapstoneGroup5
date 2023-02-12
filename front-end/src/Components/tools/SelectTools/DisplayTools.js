@@ -13,8 +13,8 @@ const DisplayTools = () => {
         <button
           className={
             active === 'learningtools'
-              ? 'toolChoice__buttons toolChoice__buttons-active'
-              : 'toolChoice__buttons'
+              ? 'toolChoice__button toolChoice__button-active'
+              : 'toolChoice__button'
           }
           value='learningtools'
           onClick={(e) => setActive(e.target.value)}
@@ -24,8 +24,8 @@ const DisplayTools = () => {
         <button
           className={
             active === 'earnbadge'
-              ? 'toolChoice__buttons toolChoice__buttons-active'
-              : 'toolChoice__buttons'
+              ? 'toolChoice__button toolChoice__button-active'
+              : 'toolChoice__button'
           }
           value='earnbadge'
           onClick={(e) => setActive(e.target.value)}

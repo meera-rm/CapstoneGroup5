@@ -2,14 +2,17 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import EmptyView from "../../emptyView/EmptyView";
+import EmptyView from '../../emptyView/EmptyView';
 import DigitalBookLinks from '../../digitalBookLinks/DigitalBookLinks';
-import DisplayTools from'../../tools/SelectTools/DisplayTools';
-import Slider from'../../slider/Slider';
-
+import DisplayTools from '../../tools/SelectTools/DisplayTools';
+import Slider from '../../slider/Slider';
 import BookCard from '../bookCard/BookCard';
 import './BookCardList.scss';
 import { FaListOl } from 'react-icons/fa';
+import BookLoader from '../../loader/BookLoader';
+//  import BookShelf from '../../bookShelf/BookShelf';
+import CardSlider from '../../cardSlider/CardSlider';
+
 const API = process.env.REACT_APP_API_URL;
 
 const BookCardList = () => {
@@ -23,32 +26,28 @@ const BookCardList = () => {
     setLoading(true);
     axios
       .get(`${API}/api/books`)
-      //  .then((response) => console.log(response.data))
       .then((response) => {
         setBookData(response.data.payload);
-        setLoading(false)
+        setLoading(false);
       })
       .catch((error) => {
-        // console.error('catch', error);
-        setError(false)
-        // setError(error);
+        setError(false);
       });
   }, []);
 
-  return(
+  return (
     <div>
-      {error &&   <>{error.message}</>}
-      {loading &&  <></>}
-      {/* {!loading && <EmptyView styleKey="bold" message="Page Not Found"/>} */}
-      <DisplayTools/>
-      <DigitalBookLinks/>
-      <Slider/>
-  </div>
-   )
-}
-
-
-
+      {error && <>{error.message}</>}
+      {/* {loading &&  <div><BookLoader/></div>} */}
+      {!loading && <EmptyView styleKey='bold' message='Page Not Found' />}
+      {/* <BookShelf/> */}
+      <CardSlider />
+      <DisplayTools />
+      <DigitalBookLinks />
+      <Slider />
+    </div>
+  );
+};
 
 export default BookCardList;
 

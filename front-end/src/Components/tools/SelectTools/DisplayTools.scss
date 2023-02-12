@@ -5,11 +5,11 @@
         display:flex;
         justify-content: center;
         align-items:center;
-       border-bottom:4px solid transparent;
-       border-image: linear-gradient(to right,green, indigo, orange, red,yellow,blue) 4;
+        border-bottom:4px solid transparent;
+        border-image: linear-gradient(to right,#50AD6C, #5550AD, #B87666,#B8666B,#F1E984,#2cdcd3) 4;
        
     }
-    &__buttons{
+    &__button{
         width:150px;
         height:50px;
         text-align:center;
@@ -21,29 +21,34 @@
             color: #667ee9;
         }
         &-active {
-            color:#03958e;
-            border-top:2px solid #03958e;
-            // border-right:2px solid green;
-            // border-left:2px solid green;
+            // color:#03958e;
+            color:linear-gradient(to right,#03958E, #5550AD, #B87666,#B8666B,#F1E984,#a664f0, #5195bf);
+            background-repeat:repeat-x;
+            border-top:4px solid #03958e;
             border-right: 4px solid transparent;
-      border-left: 4px solid transparent;
+            border-left: 4px solid transparent;
             position:relative;
             top:4px;
             background:whitesmoke;
-            border-image: linear-gradient(to right,green, indigo, orange, red,yellow,blue)  4;
-            animation: border-image-animation 4s linear infinite;
-            // border-image:linear-gradient(to right, red,yellow,green,blue),2;
+            border-image: linear-gradient(to right,#03958E, #5550AD, #B87666,#B8666B,#F1E984,#a664f0, #5195bf) 4 ;
+            animation: rainbow 5s ease-in infinite;
+            
+           
         }
     }
 }
 
-@keyframes border-image-animation {
+@keyframes rainbow {
     from {
       border-image-slice: 1;
-      border-image-source: linear-gradient(to right, green, orange, red,green,yellow,blue,indigo);
+      // border-image-source: linear-gradient(to right, #50AD6C, #5550AD, #B87666,#B8666B,#F1E984,#64EDE6) 2;
+      border-image: linear-gradient(to right,#03958E, #5550AD, #B87666,#B8666B,#F1E984,#a664f0, #5195bf) 4 ;
     }
     to {
       border-image-slice: 1;
-      border-image-source: linear-gradient(to right, green, orange, red,green,yellow,blue),indigo;
+      border-image: linear-gradient(to right,#03958E, #5550AD, #B87666,#B8666B,#F1E984,#a664f0, #5195bf) 4 ;
+      // #64b8ed
+      // border-image-source: linear-gradient(to right, #50AD6C, #5550AD, #B87666,#B8666B,#F1E984,#64EDE6) 2;
     }
   }
+  

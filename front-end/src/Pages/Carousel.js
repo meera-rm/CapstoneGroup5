@@ -38,7 +38,7 @@ const Carousel = () => {
   const startSlider = () => {
     slideInterval = setInterval(() => {
       handleOnNextClick()
-    }, 1000);
+    }, 10000);
   };
 
   const pauseSlider = () => {
@@ -62,7 +62,7 @@ const Carousel = () => {
       <div ref={slideRef} className='w-full select-none relative'>
         <div className='aspect-w-full aspect-h-auto  '>
           <img
-            width='600'
+            width='700'
             height='600'
             className='text-center '
             src={featuredProducts[currentIndex]}

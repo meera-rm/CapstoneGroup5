@@ -1,4 +1,5 @@
 import React from 'react';
+import './BookLoader.scss';
 
 const BookLoader =()=>{
 return(<div class="book">
