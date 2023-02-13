@@ -1,17 +1,17 @@
-import { React, useState , useEffect} from 'react';
-import { useLocation} from "react-router-dom"
+import { React, useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Add, Remove } from '@mui/icons-material';
 import './AddVocab.scss';
 
-import AddVocabForm from '../Vocabulary/AddVocabForm';
+import AddVocabForm from './AddVocabForm';
 
 const AddVocab = () => {
   const [showCards, setShowCards] = useState(false);
   // https://medium.com/frontendweb/how-to-pass-state-or-data-in-react-router-v6-c366db9ee2f4
   const location = useLocation();
-  console.log('locationstate=',location.state)
-  const words =location.state?.vocabWords
-   console.log('inaddvocabwords=',words)
+  console.log('locationstate=', location.state);
+  const words = location.state?.vocabWords;
+  console.log('inaddvocabwords=', words);
 
   const toggleCards = (e) => {
     if (!showCards) {
@@ -21,8 +21,6 @@ const AddVocab = () => {
       setShowCards(false);
     }
   };
-
-
 
   return (
     <div>
@@ -39,8 +37,10 @@ const AddVocab = () => {
         style={{ display: showCards ? 'block' : 'none' }}
       >
         <AddVocabForm
-          showCards={showCards} setShowCards={setShowCards} words={words}
-         />
+          showCards={showCards}
+          setShowCards={setShowCards}
+          words={words}
+        />
       </div>
     </div>
   );

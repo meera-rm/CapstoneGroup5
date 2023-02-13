@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { AiOutlineVerticalRight, AiOutlineVerticalLeft } from 'react-icons/ai';
-import img1 from '../Components/asset/imagine1.jpeg';
-import img3 from '../Components/asset/imagine3.jpeg';
+
 import img8 from '../Components/asset/imagine8copy.jpg';
 import r10 from '../Components/asset/read10.jpeg';
 import r11 from '../Components/asset/read11.jpeg';

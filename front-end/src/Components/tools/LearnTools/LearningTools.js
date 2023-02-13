@@ -7,10 +7,10 @@ import tremble from './tremble.png';
 import dictionary from './dictionary.png';
 
 const LearningTools = ({tools}) => {
+console.log(words)
+   const [vocabWords, setVocabWords] = useState(words);
 
-  const [vocabWords, setVocabWords] = useState(words);
-
-  console.log('inflashcards', vocabWords);
+  // console.log('inflashcards', vocabWords);
 
   return (
     <div className='learningTools'>

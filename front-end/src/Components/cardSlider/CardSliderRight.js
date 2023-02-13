@@ -8,8 +8,8 @@ const CardSliderRight = () => {
   const One = () => {
     return (
       <div class='cardSlider__text'>
-        <h1>Readers are leaders</h1>
-        <h6>reading helps a child's critical thinking</h6>
+        <h1> A child who reads</h1>
+        <h6>Will be an Adult who thinks</h6>
       </div>
     );
   };

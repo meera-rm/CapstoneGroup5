@@ -1,5 +1,4 @@
 import './Home.css';
-import { Link } from 'react-router-dom';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 // import homepic from '../../Components/asset/boyandmother.webp';
 // import aboutpic from '../../Components/asset/studentstable.jpeg';

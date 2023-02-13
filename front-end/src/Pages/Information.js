@@ -1,5 +1,4 @@
 import { HelmetProvider, Helmet } from 'react-helmet-async';
-import r1 from '../Components/asset/read1.jpeg';
 import leaders from '../Components/asset/readers.webp';
 import stressed from '../Components/asset/stressedteacher.jpeg';
 import childreadinglog from '../Components/asset/childlogs.jpeg';

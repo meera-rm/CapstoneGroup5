@@ -6,6 +6,7 @@ import EmptyView from '../../emptyView/EmptyView';
 import DigitalBookLinks from '../../digitalBookLinks/DigitalBookLinks';
 import DisplayTools from '../../tools/SelectTools/DisplayTools';
 import Slider from '../../slider/Slider';
+import Explore from '../../exploreTopics/explore/Explore';
 import BookCard from '../bookCard/BookCard';
 import './BookCardList.scss';
 import { FaListOl } from 'react-icons/fa';
@@ -42,6 +43,7 @@ const BookCardList = () => {
       {!loading && <EmptyView styleKey='bold' message='Page Not Found' />}
       {/* <BookShelf/> */}
       <CardSlider />
+      <Explore/>
       <DisplayTools />
       <DigitalBookLinks />
       <Slider />
