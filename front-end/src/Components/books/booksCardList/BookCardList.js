@@ -8,10 +8,10 @@ import DisplayTools from '../../tools/SelectTools/DisplayTools';
 import Slider from '../../slider/Slider';
 import Explore from '../../exploreTopics/explore/Explore';
 import BookCard from '../bookCard/BookCard';
-import './BookCardList.scss';
+// import './BookCardList.scss';
 import { FaListOl } from 'react-icons/fa';
 import BookLoader from '../../loader/BookLoader';
-//  import BookShelf from '../../bookShelf/BookShelf';
+import BookShelf from '../../bookShelf/BookShelf';
 import CardSlider from '../../cardSlider/CardSlider';
 
 const API = process.env.REACT_APP_API_URL;
@@ -41,9 +41,9 @@ const BookCardList = () => {
       {error && <>{error.message}</>}
       {/* {loading &&  <div><BookLoader/></div>} */}
       {!loading && <EmptyView styleKey='bold' message='Page Not Found' />}
-      {/* <BookShelf/> */}
+      <BookShelf />
       <CardSlider />
-      <Explore/>
+      <Explore />
       <DisplayTools />
       <DigitalBookLinks />
       <Slider />
