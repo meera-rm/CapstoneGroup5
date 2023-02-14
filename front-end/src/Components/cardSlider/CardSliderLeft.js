@@ -1,23 +1,6 @@
-// import { React, useState } from 'react';
-// import './CardSliderLeft.scss';
 
-
-// const CardSliderLeft = () => {
-
-//   return (
-//     <div className='cardSliderLeft'>
-//        <div class='cardSliderLeft__content'>
-//        <div class='cardSliderLeft__text'>
-//         <h1>Educators encourage to read </h1>
-//         </div>
-//        </div>
-//     </div>
-//   );
-// };
-
-// export default CardSliderLeft;
 import { React, useState } from 'react';
-import './CardSliderRight.scss';
+import './CardSliderLeft.scss';
 
 
 const CardSliderLeft = () => {

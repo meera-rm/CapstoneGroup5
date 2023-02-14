@@ -6,10 +6,14 @@ $darkblue: #0c347d;
 $umber: #54290c;
 $springer: #eded80;
 
+.header{
+  text-align:center;
+  color:#03958e;
+}
 .shelf {
   height: 100%;
   display:flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 
@@ -20,6 +24,7 @@ $springer: #eded80;
   }
   
 }
+
 .bookshelf {
   width: 470px;
   height: 50%;
@@ -37,7 +42,7 @@ $springer: #eded80;
      darken($teal, 4%) 230px
   );
   // background-size: 10px 230px;
-  //  box-shadow: 0px 1000px 0px 400px #7a7668;
+    //box-shadow: 0px 1000px 0px 400px #7a7668;
   //  z-index:-1;
 }
 p{
@@ -112,7 +117,7 @@ p{
   transform: rotate(0.25turn) translateY(-35px);
   width: 170px;
 }
-.heading2{ margin: 5px -10px;}
+.heading2{ margin: -5px -10px;}
 .book h3 {
   padding: 0;
   font-size: 0.7em;

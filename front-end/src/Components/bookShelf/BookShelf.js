@@ -4,7 +4,10 @@ import './BookShelf.scss';
 
 const BookShelf = () => {
   return (
-    <div class='shelf'>
+    <div>
+         <h1 className='header'>Book Shelf</h1>
+    <div className='shelf'>
+   
    <Link to ='/cards'>
 <div class="bookshelf ">
 <p style={{textAlign:'center'}}>Reading Level Book Shelf</p> 
@@ -184,7 +187,7 @@ const BookShelf = () => {
   </div><div class="book book-blue">
     <h2>Actionscript:</h2><h3>The Definitive Guide</h3>
   </div> --> */}
-  
+  <Link to ='/cards'>
   <div class="bookshelf ">
   <p style={{textAlign:'center'}}>Casual Reading Shelf</p> 
   <div class="book book-green">
@@ -215,7 +218,8 @@ const BookShelf = () => {
   </div>
   </div>
   </div>
-
+  </Link>
+</div>
 </div>
   );
 };

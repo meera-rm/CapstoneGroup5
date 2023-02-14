@@ -52,7 +52,7 @@ const CardSliderRight = () => {
   return (
     <div className='cardSlider'>
       <div class='cardSlider__content'>
-        <p>Reading Quotes</p>
+      <h2>Reading Quotes</h2>
         <div>
           {active === 'slider1' && <One />}
           {active === 'slider2' && <Two />}

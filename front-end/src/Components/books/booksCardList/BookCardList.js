@@ -41,8 +41,9 @@ const BookCardList = () => {
       {error && <>{error.message}</>}
       {/* {loading &&  <div><BookLoader/></div>} */}
       {!loading && <EmptyView styleKey='bold' message='Page Not Found' />}
-      <BookShelf />
+     
       <CardSlider />
+      <BookShelf />
       <Explore />
       <DisplayTools />
       <DigitalBookLinks />
