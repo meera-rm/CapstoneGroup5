@@ -9,12 +9,12 @@
 ### Derek Peterson
 ### Important Links
 
-- Deployed API server [https://scholarsheep.onrender.com/]
-- Delpyed Front-End [https://readinglog.netlify.app/]
+- [Deployed API server ](https://scholarsheep.onrender.com/)
+- [Delpyed Front-End ](https://readinglog.netlify.app/)
 
-- Trello [https://trello.com/b/xEt8mcfz/reading-app]
-- Wireframe [https://whimsical.com/scholar-sheep-HvM2SyXKVAXAuC28BCXtKs]
-- ERD [https://miro.com/app/board/uXjVPEOVPts=/]
+- [Trello ](https://trello.com/b/xEt8mcfz/reading-app)
+- [Wireframe] (https://whimsical.com/scholar-sheep-HvM2SyXKVAXAuC28BCXtKs)
+- [ERD] (https://miro.com/app/board/uXjVPEOVPts=/)
 
 
 ## Overview
