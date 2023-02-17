@@ -10,5 +10,5 @@ const message = 'Listening on port';
 console.log(message);
 
 app.listen(PORT, () => {
-  console.log(`${message}` + PORT);
+  console.log(`${message} ${PORT}` );
 });

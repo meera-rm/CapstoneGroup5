@@ -13,6 +13,7 @@ import { FaListOl } from 'react-icons/fa';
 import BookLoader from '../../loader/BookLoader';
 import BookShelf from '../../bookShelf/BookShelf';
 import CardSlider from '../../cardSlider/CardSlider';
+import banner from './bookbanner.png';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -40,8 +41,8 @@ const BookCardList = () => {
     <div>
       {error && <>{error.message}</>}
       {/* {loading &&  <div><BookLoader/></div>} */}
-      {!loading && <EmptyView styleKey='bold' message='Page Not Found' />}
-     
+      {/* {!loading && <EmptyView styleKey='bold' message='Page Not Found' />} */}
+     {/* <img src={banner} style={{width:'100vw',height:'300px'}} alt=''/> */}
       <CardSlider />
       <BookShelf />
       <Explore />

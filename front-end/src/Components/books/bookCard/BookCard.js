@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Add, Remove } from '@mui/icons-material';
 
-//  import './BookCard.scss';
+import './BookCard.scss';
 
 const BookCard = ({ book }) => {
   const {
@@ -21,69 +21,72 @@ const BookCard = ({ book }) => {
   };
 
   return (
-     <div className='container' key={book_id + book_title}>
-    {/* //   <div className ='bookCards'> */}
+    <div className='container' >
+      <div
+        className={`bookCard ${expanded ? 'expanded' : 'bookCard'}`}
+        onClick={handleExpand}
+      >
+        <img
+          className='bookCard__image'
+          width='150px'
+          height='150px'
+           src={book_picture}
+          // src='https://dummyimage.com/150x150/c2c2c2/00'
+          alt=''
+        />
 
-    <div
-      className={`bookCard ${expanded ? 'expanded' : 'bookCard'}`}
-      onClick={handleExpand}
-    >
-      
-      <img className='bookCard__image' width='150px' height='150px'
-        src={book_picture}
-        // src='https://dummyimage.com/150x150/c2c2c2/00'
-        alt=''
-      />
-     
-      <div className={`bookCard__info ${expanded ? 'expanded' : ''}`}>
-        <div className='bookCard__content'>
-          <h2 className='bookCard__title'>{`${book_title.toUpperCase()}`}</h2>
-          {/* <h2 className='bookCard__title'>cookiew week</h2> */}
-          <ol className='bookCard__summary'>
-            <li className='bookCard__summary-list'>
-              {/* Reading Level: C */}
-              <span>{`${reading_level}`}
-                    </span> 
-            </li>
-            <li className='bookCard__summary-list'>
-              {' '}
-              {/* Book Author: Cindyward */}
-              <span>{`${book_author}`}
-                    </span>
-            </li>
-            <li className='bookCard__summary-list'>
-              {/* Id: 4 */}
-              <span>{`${book_id}`} </span>
-            </li>
-            <li className='bookCard__summary-list'>
-              {/* ISBN : 77838978293 */}
-              <span>{`${isbn_number}`}</span>
-            </li>
-            <li className='bookCard__summary-list'>
-              {' '}
-              {/* Publication: abcdefg */}
-              <span>{`${publication}`}</span> 
-            </li>
-          </ol>
-        </div>
-
-        <svg
-          className={`bookCard__chevron ${expanded ? 'expanded' : ''}`}
-          xmlns='http://www.w3.org/2000/svg'
-          viewBox='0 0 100 35'
-          width='30'
+        <div
+          className={`bookCard__text ${expanded ? 'expanded' : ''}`}
+          onClick={handleExpand}
         >
-          <path
-            d='M5 30L50 5l45 25'
-            fill='none'
-            stroke='#000'
-            stroke-width='5'
-          />
-        </svg>
-      </div>
-    </div>
+          <div className='bookCard__textcontent'>
+            <h2 className='bookCard__title'>{`${book_title.toUpperCase()}`}</h2>
+            {/* <h2 className='bookCard__title'>Cookie Week</h2> */}
+            <ol className='bookCard__summary'>
+            {/* <li className='bookCard__summary-list'>
+                Id: <span>{`${book_id}`} </span>
+              </li> */}
+              <li className='bookCard__summary-list'>
+                Reading Level: 
+                <span>{`${reading_level}`}
+                    </span> 
+              </li>
+              <li className='bookCard__summary-list'>
+                {' '}
+                Book Author: 
+                <span>{`${book_author}`}
+                    </span>
+              </li>
+             
+              <li className='bookCard__summary-list'>
+                ISBN : 
+                <span>{`${isbn_number}`}</span>
+              </li>
+              <li className='bookCard__summary-list'>
+                {' '}
+                Publication: 
+                <span>{`${publication}`}</span> 
+              </li>
+            </ol>
+          </div>
+
+          <svg
+            className={`bookCard__chevron ${expanded ? 'expanded' : ''}`}
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 100 35'
+            width='30'
+          >
+            <path
+              d='M5 30L50 5l45 25'
+              fill='none'
+              stroke='#000'
+              stroke-width='5'
+            />
+          </svg>
         </div>
-    //  </div>
+      </div>
+     
+    </div>
   );
 };
 export default BookCard;
@@ -143,3 +146,16 @@ export default BookCard;
 // // https://codepen.io/Spruce_khalifa/pen/NWyBKxb(countries api)
 // // <!--  Load more button   https://adebola-niran.medium.com/how-to-build-a-load-more-button-in-react-d928822b38a7 -->
 // //https://codepen.io/vanderzak/pen/zYxXzmd
+
+{
+  /* <div class="card" onclick="this.classList.toggle('expanded')">
+<img class='image' src='https://dummyimage.com/150x150/c2c2c2/00' alt='books' /> 
+   <div class="text1">
+    <div class="text-content">
+      <h1 class="title">OUR GOODS</h1>
+      <div class="body-text">are delivered with the same high quality as decades ago</div>
+    </div>
+  </div>
+   <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 35" width="30"><path d="M5 30L50 5l45 25" fill="none" stroke="#000" stroke-width="5"/></svg>
+</div>  */
+}

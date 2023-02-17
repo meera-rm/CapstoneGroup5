@@ -2,10 +2,6 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import WilBooksLink from './WilBooksLink';
-import LovingToReadLink from './LovingToReadLink';
-import GetEpicLink from './GetEpicLink';
-
 import BookCard from '../bookCard/BookCard';
 import './BookCardList.scss';
 const API = process.env.REACT_APP_API_URL;

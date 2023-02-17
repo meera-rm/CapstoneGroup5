@@ -2,9 +2,6 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import WilBooksLink from '../books/pdfBookLinks/WilBooksLink';
-import LovingToReadLink from '../books/pdfBookLinks/LovingToReadLink';
-import GetEpicLink from '../books/pdfBookLinks/GetEpicLink';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -55,7 +52,7 @@ const AllBooks = () => {
       .get(`${API}/api/books`)
       //  .then((response) => console.log(response.data))
       .then((response) => setBookData(response.data.payload))
-      .catch((e) => console.error('catch', e));
+      .catch((e) => console.log('catch', e));
   }, []);
 
   const data = Object.values(bookData);
@@ -85,40 +82,10 @@ const AllBooks = () => {
 
   return (
     <div className=' md:col-span-2 '>
-      <div className='text-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 '>
-        {/* <p className='p-4 text-teal-800 '>
-        DICTIONARY/PDF BOOKS LINK:
-        </p> */}
-        <div className='text-center'>
-          <Link to={`/dictionary`}>
-            <p
-              className='px-4 py-4 rounded text-black font-georgia  underline'
-              onClick={() => setShow(!show)}
-            >
-              {' '}
-              DICTIONARY LINK
-              {/* toggle: {show ? 'show' : 'hide'} */}
-            </p>
-            {/* {show &&   <Dictionary/>} */}
-          </Link>
-        </div>
-
-        <div>
-          <p className='p-4 text-black underline'>
-            <LovingToReadLink />
-          </p>
-        </div>
-        <div>
-          <p className='p-4 text-black underline '>
-            <WilBooksLink />
-          </p>
-        </div>
-        <div>
-          <p className='p-4 text-black underline'>
-            <GetEpicLink />
-          </p>
-        </div>
-      </div>
+      {/* <div className='text-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 '>
+        
+       
+      </div> */}
       <h2 className='text-center  mt-10 mb-5 text-5xl font-bold text-teal-600 '>
         Books
       </h2>

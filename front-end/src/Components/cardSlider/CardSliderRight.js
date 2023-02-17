@@ -1,6 +1,5 @@
 import { React, useState } from 'react';
-import './CardSliderRight.scss';
-
+import './CardSliderLeft.scss';
 
 const CardSliderRight = () => {
   const [active, setActive] = useState('slider1');
@@ -52,7 +51,7 @@ const CardSliderRight = () => {
   return (
     <div className='cardSlider'>
       <div class='cardSlider__content'>
-      <h2>Reading Quotes</h2>
+        <h2>Reading Quotes</h2>
         <div>
           {active === 'slider1' && <One />}
           {active === 'slider2' && <Two />}

@@ -18,14 +18,13 @@ $selected-item-font-weight: bold;
 
 $content-margin-top:24px;
 $content-font-size: 18px;
+
 .menuSelector{
     display:block;
  &__container {
-  display: $container-display;
-  justify-content: $container-justify-content;
-  align-items: $container-align-items;
-  height: $container-height;
-  width: $container-width;
+  display:  flex;
+  justify-content: center;
+  align-items: center
 }
 
 &__arrow {
@@ -34,27 +33,27 @@ $content-font-size: 18px;
 }
 
 &__menuItems {
-  display: $nav-items-display;
-  justify-content: $nav-items-justify-content;
-  align-items: $nav-items-align-items;
+  display: flex;
+  justify-content:center;
+  align-items: center;
 }
 
 &__item {
-  padding: $item-padding;
-  font-size: $item-font-size;
+  padding: 16px;
+  font-size: 20px;
 }
 
 &__selectedItem {
-  padding: $item-padding;
-  font-size: $item-font-size;
-  font-weight: $selected-item-font-weight;
+  padding: 16px;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 &__content {
  
   margin:50px 0;
   height:400px;
-  font-size: $content-font-size;
+  font-size: 18px;
   text-align:center;
 }
 }

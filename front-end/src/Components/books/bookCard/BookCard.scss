@@ -1,106 +1,70 @@
 
-@import "compass";
-@import "breakpoint";
+// @import "compass";
+// @import "breakpoint";
 
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:900');
-body {
-  align-items: center;
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  font-family: sans-serif;
-  margin: 0;
-   	font-size: 17px; 
- 	line-height: 1.4;
- }
+
 
 
 .container {
-	max-width: 1100px;
-	margin: 0 auto;
+  width:1100px;
+	 max-width: 100%;
+	margin:20px auto;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  	margin-top: 15px;
+   margin-top: 15px;
 	padding: 1.5%;
+  font-size: 17px; 
+   	line-height: 1.4;
 }
 
 
-// //Todo clean up some crappy code
-// .bookCards {
-// 	display: -webkit-flex;
-// 	display: flex;
-// 	-webkit-justify-content: center;
-// 	justify-content: center;
-// 	-webkit-flex-wrap: wrap;
-// 	flex-wrap: wrap;
-// 	margin-top: 15px;
-// 	padding: 1.5%;
-// 	-webkit-box-sizing: border-box;
-// 	-moz-box-sizing: border-box;
-// 	box-sizing: border-box;
-// }
 
 .bookCard {
-  // 	@media (max-width: 700px) {
-	// 	width: 100%;
-	// }
-  //  position: relative;
+  	@media (max-width: 700px) {
+		width: 100%;
+	}
+   position: relative;
   background: white;
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   cursor: pointer;
-  height: 300px;
-  margin: 20px;
+  height: 250px;
+  margin:  20px;
   padding: 0 20px;
   -webkit-tap-highlight-color: rgba(0,0,0,0.025);
   position: relative;
   text-align: center;
-
   transition: height 1000ms;
   width: 260px;
-  // @include box-shadow(rgba(black, 0.19) 0 0 8px 0);
-	// @include border-radius(4px);
-	// @include breakpoint(700px, $no-query: true) {
-	// //switch to 2 columns
-	// 	max-width: 320px;
-	// 	margin-right: 20px;
-	// 	margin-bottom: 20px;
-	// 	&:nth-child(even) {
-	// 		margin-right: 0;
-	// 	}
-	// }
-	// @include breakpoint(980px, $no-query: true) {
-	// //switch to 3 columns
-	// 	&:nth-child(even) {
-	// 		margin-right: 20px;
-	// 	}
-	// 	&:nth-child(3n) {
-	// 		margin-right: 0;
-	// 	}
-	// }
+  ;
+	
   &.expanded {
     height: 400px;
   }
 
   &__summary{
     padding: 0px 10px;
-    margin:16px  auto 0 auto;
-
+    margin:-10px auto 0 auto;
+    text-align:center;
     &-list{
       margin-top: 8px;
     }
   
     &.expanded{
        margin: 10px auto ;
+       height:500px;
     }
   }
   
 
 &__image { 
-  margin-top: 30px;
+  width:200px;
+  height:150px;
+  margin: 30px auto 0 auto;
   text-align:center;
-   transform: translateY(10px);
+  transform: translateY(10px);
   transition: transform 1000ms;
    z-index:1;
   &.expanded {
@@ -110,9 +74,7 @@ body {
 } 
 
 
-
-
-&__info {
+&__text {
 
    clip-path: polygon(0% 100%, 0 -90%, 50% -5%, 100% -70%, 100% 100%);
   -webkit-clip-path: polygon(0% 100%, 0 -90%, 50% -5%, 100% -90%, 100% 100%); 
@@ -124,12 +86,13 @@ body {
      // clip-path: polygon(0% 100%, 0 -100%, 50% -25%, 100% -100%, 100% 100%); 
   }
 }
-  &__content{
+  &__textcontent{
    
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: 5px 10px;
+    margin: -140px 0px;
+    padding: 20px 10px;
     // background-color: rgba(255, 255, 255, 0.8);
      clip-path: polygon(0% 100%, 0 -90%, 50% -5%, 100% -90%, 100% 100%);
   -webkit-clip-path: polygon(0% 100%, 0 -90%, 50% -5%, 100% -90%, 100% 100%); 
@@ -143,11 +106,12 @@ body {
   &__title{
     font-family: 'Alegreya Sans', sans-serif;
   font-weight: 800;
-  margin: 10px 30px 10px -5px;
+  margin: 10px 30px 0px -5px;
   }
 &__chevron {
   position: absolute;
-  bottom: 20px;
+  padding:10px 0;
+  bottom: 0px;
   left: calc(50% - 15px);
   transform-origin: 50%;
   transform: rotate(180deg);
@@ -157,30 +121,43 @@ body {
     transform: rotate(0deg);
   }
 }
-// &__textcontent {
-//  transform: translateY(-140px);
-//  transition: transform 1000ms;
+ &__textcontent {
+  transform: translateY(-140px);
+  transition: transform 1000ms;
   
-//   &.expanded {
-//  transform: translateX(-15px);
-//   }
-//  }
-}
+   &.expanded {
+  transform: translateX(-15px);
+   }
+  }
+ }
 
 
-* {
-  @include transition-property(
-    background-color,
-    border-color,
-    box-shadow,
-    color,
-    opacity,
-    text-shadow,
-    transform
-  );
-  @include transition-duration(0.2s);
-  @include transition-timing-function(linear);
-}
+// * {
+//   @include transition-property(
+//     background-color,
+//     border-color,
+//     box-shadow,
+//     color,
+//     opacity,
+//     text-shadow,
+//     transform
+//   );
+//   @include transition-duration(0.2s);
+//   @include transition-timing-function(linear);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
