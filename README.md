@@ -1,7 +1,7 @@
 ## Welcome to Scholar Sheep! - CapstoneGroup5
 
 
-![Scholar Sheep](asset/img/ScholarSheep.png)
+
 
 ### Team Members
 ### Meera Ramesh
