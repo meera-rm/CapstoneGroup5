@@ -13,8 +13,8 @@
 - [Delpyed Front-End ](https://readinglog.netlify.app/)
 
 - [Trello ](https://trello.com/b/xEt8mcfz/reading-app)
-- [Wireframe] (https://whimsical.com/scholar-sheep-HvM2SyXKVAXAuC28BCXtKs)
-- [ERD] (https://miro.com/app/board/uXjVPEOVPts=/)
+- [Wireframe](https://whimsical.com/scholar-sheep-HvM2SyXKVAXAuC28BCXtKs)
+- [ERD](https://miro.com/app/board/uXjVPEOVPts=/)
 
 
 ## Overview
