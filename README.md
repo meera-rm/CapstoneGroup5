@@ -1,4 +1,4 @@
-## Welcome to Scholar Sheep! - CapstoneGroup5
+## Welcome to ScholarSheep!- CapstoneGroup5
 
 
 
