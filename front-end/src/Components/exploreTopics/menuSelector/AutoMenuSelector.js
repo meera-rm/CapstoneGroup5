@@ -3,32 +3,50 @@ import axios from 'axios';
 
 import './AutoMenuSelector.scss';
 
-const AutoMenuSelector = ({topic, setTopic}) => {
+const AutoMenuSelector = ({topic, setTopic,bookdata,gradeLevel}) => {
 
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const navItems = ['English', 'Social Studies', 'Science','Math'];
-  const timeInterval = 3000;
+  const navItems = ['All Topics','English', 'Social Studies', 'Science','Math'];
+  const timeInterval = 8000;
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setSelectedIndex(selectedIndex === navItems.length - 1 ? 0 : selectedIndex + 1);
+      setSelectedIndex((prevIndex) =>
+      prevIndex=== navItems.length - 1 ? 0 : prevIndex + 1);
     }, timeInterval);
     return () => clearInterval(intervalId);
-  }, [selectedIndex, navItems.length, timeInterval]);
+  }, [ navItems.length, timeInterval]);
 
   const handlePrevClick = () => {
-    setSelectedIndex(selectedIndex === 0 ? navItems.length - 1 : selectedIndex - 1);
+  //  setSelectedIndex(selectedIndex === 0 ? navItems.length - 1 : selectedIndex - 1); 
+  setSelectedIndex((prevIndex) =>
+  prevIndex === 0 ? navItems.length - 1 : prevIndex - 1
+);
   };
 
   const handleNextClick = () => {
-    setSelectedIndex(selectedIndex === navItems.length - 1 ? 0 : selectedIndex + 1);
+    // setSelectedIndex(selectedIndex === navItems.length - 1 ? 0 : selectedIndex + 1);
+    setSelectedIndex((prevIndex) =>
+    prevIndex === navItems.length - 1 ? 0 : prevIndex + 1
+  );
+
   };
 
   const handleItemClick = (index) => {
+    console.log(index)
     setSelectedIndex(index);
-    setTopic(navItems[index]);
   };
 
+  // const filteredBooks =
+  //   navItems[selectedIndex] === 'All Topics'
+  //     ? bookdata.filter((book) =>
+  //         gradeLevel === 'All Grades' ? true : book.grade === gradeLevel
+  //       )
+  //     : bookdata.filter(
+  //         (book) =>
+  //           (gradeLevel === 'All Grades' || book.grade === gradeLevel) &&
+  //           book.topic === navItems[selectedIndex]
+  //       );
 
   return (
     <div className='menuSelector'>
@@ -38,10 +56,11 @@ const AutoMenuSelector = ({topic, setTopic}) => {
       </div>
       <div className='menuSelector__menuItems'>
         {navItems.map((item, index) => (
+          
           <div
             key={item}
             className={selectedIndex === index ? 'menuSelector__selectedItem': 'menuSelector__item'} 
-            onClick={() => handleItemClick(index)}
+             onClick={() => handleItemClick(index)}
           >
             {item}
           </div>
@@ -59,12 +78,5 @@ const AutoMenuSelector = ({topic, setTopic}) => {
   );
 };
 
-
-
-
-       
-
-     
-  
   
 export default AutoMenuSelector;

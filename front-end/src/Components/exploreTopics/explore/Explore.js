@@ -62,16 +62,18 @@ let bookdata = [
 
 const Explore = () => {
   const [gradeLevel, setGradeLevel] = useState('1st Grade');
-  const [topic, setTopic] = useState('English');
+  const [topic, setTopic] = useState('');
 
   const booksByGrade =
     gradeLevel !== 'All Grades'
       ? bookdata.filter((ele) => ele.grade === gradeLevel)
       : bookdata;
 
-  const booksByTopic = topic !=='All topics'
+  const booksByTopic = topic 
     ? booksByGrade.filter((ele) => ele.topic === topic)
     : booksByGrade;
+
+  // const filteredBooks = booksByTopic.length ? booksByTopic : booksByGrade;
 
   return (
     <div className='explore'>
@@ -89,12 +91,13 @@ const Explore = () => {
 
       <div className='explore__container'>
         <GradeSelector gradeLevel={gradeLevel} setGradeLevel={setGradeLevel} />
-        <AutoMenuSelector  topic={topic} setTopic={setTopic}/>
+        <AutoMenuSelector topic={topic} setTopic={setTopic} bookdata={bookdata}
+        gradeLevel={gradeLevel}/>
 
         <div className='testbooklist'>
           {booksByTopic.map((book) => {
             return (
-              <div className='testbook'>
+              <div className='testbook' key=''>
                 <div>{book.title}</div>
                 <div>{book.author}</div>
               </div>

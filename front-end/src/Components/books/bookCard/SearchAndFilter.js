@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 
 
  import BookCard from '../bookCard/BookCard';
-//import './BookCardList.scss';
+//import './BookCard.scss';
 const API = process.env.REACT_APP_API_URL;
 
 const alphabets = [
@@ -129,7 +129,7 @@ const SearchAndFilter = () => {
           </div>
         </div>
         
-        <div className='cardGrid'>
+        <div  className='grid grid-cols-1 space-evenly md:grid-cols-2 lg:grid-cols-3'>  
           {search(data)
             .slice(0, paginate)
             ?.map((book) => {

@@ -39,7 +39,7 @@ const BookCard = ({ book }) => {
           className={`bookCard__text ${expanded ? 'expanded' : ''}`}
           onClick={handleExpand}
         >
-          <div className='bookCard__textcontent'>
+           <div className='bookCard__textcontent'> 
             <h2 className='bookCard__title'>{`${book_title.toUpperCase()}`}</h2>
             {/* <h2 className='bookCard__title'>Cookie Week</h2> */}
             <ol className='bookCard__summary'>
