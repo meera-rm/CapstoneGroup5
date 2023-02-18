@@ -62,14 +62,14 @@ let bookdata = [
 
 const Explore = () => {
   const [gradeLevel, setGradeLevel] = useState('1st Grade');
-  const [topic, setTopic] = useState('');
+  const [topic, setTopic] = useState('English');
 
   const booksByGrade =
     gradeLevel !== 'All Grades'
       ? bookdata.filter((ele) => ele.grade === gradeLevel)
       : bookdata;
 
-  const booksByTopic = topic
+  const booksByTopic = topic !=='All topics'
     ? booksByGrade.filter((ele) => ele.topic === topic)
     : booksByGrade;
 

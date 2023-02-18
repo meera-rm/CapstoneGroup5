@@ -19,9 +19,7 @@ const BookShelf = () => {
       <div className='shelf'>
         <Link to='/books/level'>
           <div class='bookshelf '>
-            <p style={{ textAlign: 'center', fontSize: '1.5em' }}>
-              Reading Level Book Shelf
-            </p>
+            <div className='bookshelf__title'>Reading Level Book Shelf</div>
             <div class='book book-green'>
               <h2 className='heading2'>Shapes we Eat</h2>
             </div>
@@ -50,158 +48,10 @@ const BookShelf = () => {
             </div>
           </div>
         </Link>
-        {/* <div class="book book-blue">
-    <h2>Actionscript:</h2>
-    <h3>The Definitive Guide</h3>
-  </div> */}
 
-        {/* <div class="book-tilted">
-    <div class="book book-umber">
-      <h2>Harry Potter</h2>
-    </div>
-  </div>
-  <div class="book book-blue">
-    <h2>Introducing HTML5</h2>
-  </div> */}
-        {/* <!--   <div class="book book-green">
-    <h2>CSS For Dummies</h2>
-  </div>
-  <div class="book book-green">
-    <h2>Actionscript:</h2>
-    <h3>The Definitive Guide</h3>
-  </div> -->
-  <!--   <div class="book book-umber">
-<!--     <h2>Harry Potter</h2>
-  </div>
-  <div class="book book-green">
-    <h2>Introducing HTML5</h2>
-  </div>
-  <div class="book book-blue">
-    <h2>CSS For Dummies</h2>
-  </div>
-  <div class="book book-green">
-    <h2>Actionscript:</h2>
-    <h3>The Definitive Guide</h3>
-  </div>
-  <div class="book book-springer">
-    <h2>Harry Potter</h2>
-  </div>
-  <div class="book book-springer">
-    <h2>Introducing HTML5</h2>
-  </div>
-  <div class="book book-green">
-    <h2>CSS For Dummies</h2>
-  </div>
-  <div class="book book-blue">
-    <h2>Actionscript:</h2>
-    <h3>The Definitive Guide</h3>
-  </div> --
-  <div class="book book-blue">
-    <h2>Harry Potter</h2>
-  </div>
-  <div class="book book-blue">
-    <h2>Introducing HTML5</h2>
-  </div>
-  <div class="book book-umber">
-    <h2>CSS For Dummies</h2>
-  </div>
-  <div class="book-tilted">
-    <div class="book book-green">
-      <h2>Actionscript:</h2>
-      <h3>The Definitive Guide</h3>
-    </div>
-  </div> --
-<!--   <div class="book book-blue">
-<!--     <h2>Harry Potter</h2>
-  </div>
-  <div class="book book-springer">
-    <h2>Introducing HTML5</h2>
-  </div>
-  <div class="book book-green"> --
-    <h2>CSS For Dummies</h2>
-  </div>
-  <div class="book book-green">
-    <h2>Actionscript:</h2>
-    <h3>The Definitive Guide</h3>
-  </div>
-  <div class="book book-umber">
-    <h2>Harry Potter</h2>
-  </div>
-  <div class="book book-blue">
-    <h2>Introducing HTML5</h2>
-  </div>
-  <div class="book book-umber">
-    <h2>CSS For Dummies</h2>
-  </div>
-  <div class="book book-green">
-    <h2>Actionscript:</h2>
-    <h3>The Definitive Guide</h3>
-  </div> -->
-  <!--   <div class="book book-green">
-<!--     <h2>Harry Potter</h2>
-  </div>
-  <div class="book book-green">
-    <h2>Introducing HTML5</h2> -->
-  <!--   </div>
-  <div class="book book-green">
-    <h2>CSS For Dummies</h2>
-  </div>
-  <div class="book book-green">
-    <h2>Actionscript:</h2><h3>The Definitive Guide</h3>
-  </div>
-  <div class="book book-springer">
-    <h2>Harry Potter</h2>
-  </div> -
-  <div class="book book-green">
-    <h2>Introducing HTML5</h2>
-  </div>
-  <div class="book book-springer">
-    <h2>CSS For Dummies</h2>
-  </div>
-  <div class="book book-umber">
-    <h2>Actionscript:</h2><h3>The Definitive Guide</h3>
-  </div>
-  <div class="book book-green">
-    <h2>Harry Potter</h2>
-  </div>
-  <div class="book book-green">
-    <h2>Introducing HTML5</h2>
-  </div>
-  <div class="book book-umber">
-    <h2>CSS For Dummies</h2>
-  </div>
-  <div class="book book-blue">
-    <h2>Actionscript:</h2><h3>The Definitive Guide</h3>
-  </div><div class="book book-springer">
-    <h2>Harry Potter</h2>
-  </div><div class="book book-green">
-    <h2>Introducing HTML5</h2>
-  </div><div class="book book-springer">
-    <h2>CSS For Dummies</h2>
-  </div><div class="book book-green">
-    <h2>Actionscript:</h2><h3>The Definitive Guide</h3>
-  </div><div class="book book-umber">
-    <h2>Harry Potter</h2>
-  </div><div class="book book-green">
-    <h2>Introducing HTML5</h2>
-  </div><div class="book book-green">
-    <h2>CSS For Dummies</h2>
-  </div><div class="book book-umber">
-    <h2>Actionscript:</h2><h3>The Definitive Guide</h3>
-  </div><div class="book book-green">
-    <h2>Harry Potter</h2>
-  </div><div class="book book-springer">
-    <h2>Introducing HTML5</h2>
-  </div><div class="book book-blue">
-    <h2>CSS For Dummies</h2>
-  </div><div class="book book-blue">
-    <h2>Actionscript:</h2><h3>The Definitive Guide</h3>
-  </div> --> */}
         <Link to='/books/casual'>
           <div class='bookshelf '>
-            <p style={{ textAlign: 'center', fontSize: '1.5em' }}>
-              Casual Reading Shelf
-            </p>
+            <div className='bookshelf__title'>Casual Reading Shelf</div>
             <div class='book book-green'>
               <h2>A Trip to Farm</h2>
             </div>

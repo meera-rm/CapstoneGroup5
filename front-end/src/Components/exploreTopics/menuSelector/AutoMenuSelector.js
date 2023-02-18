@@ -4,25 +4,31 @@ import axios from 'axios';
 import './AutoMenuSelector.scss';
 
 const AutoMenuSelector = ({topic, setTopic}) => {
- 
-  // const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const navItems = ['English', 'Social Studies', 'Science','Math'];
   const timeInterval = 3000;
-  setTopic(0);
+
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setTopic(topic === navItems.length - 1 ? 0 : topic + 1);
+      setSelectedIndex(selectedIndex === navItems.length - 1 ? 0 : selectedIndex + 1);
     }, timeInterval);
     return () => clearInterval(intervalId);
-  }, [topic, navItems.length, timeInterval]);
+  }, [selectedIndex, navItems.length, timeInterval]);
 
   const handlePrevClick = () => {
-    setTopic(topic === 0 ? navItems.length - 1 : topic - 1);
+    setSelectedIndex(selectedIndex === 0 ? navItems.length - 1 : selectedIndex - 1);
   };
 
   const handleNextClick = () => {
-    setTopic(topic === navItems.length - 1 ? 0 : topic + 1);
+    setSelectedIndex(selectedIndex === navItems.length - 1 ? 0 : selectedIndex + 1);
   };
+
+  const handleItemClick = (index) => {
+    setSelectedIndex(index);
+    setTopic(navItems[index]);
+  };
+
 
   return (
     <div className='menuSelector'>
@@ -34,7 +40,8 @@ const AutoMenuSelector = ({topic, setTopic}) => {
         {navItems.map((item, index) => (
           <div
             key={item}
-            className={topic === index ? 'menuSelector__selectedItem': 'menuSelector__item'}
+            className={selectedIndex === index ? 'menuSelector__selectedItem': 'menuSelector__item'} 
+            onClick={() => handleItemClick(index)}
           >
             {item}
           </div>
@@ -44,7 +51,9 @@ const AutoMenuSelector = ({topic, setTopic}) => {
         {'>'}
       </div>
       </div>
-      
+      {/* <div className='menuSelector__content'>
+        Selected topic: {topic}
+      </div> */}
     
   </div>
   );
