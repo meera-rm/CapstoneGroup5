@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './NavBar.css';
-import logoImage from '../asset/ScholarSheep.png';
+import logoImage from '../asset/mylogo.png';
 import { MdLanguage } from 'react-icons/md';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { FaChevronDown } from 'react-icons/fa';
@@ -77,11 +77,11 @@ const Navbar = () => {
           <div className='flex-grow'>
             <Link to='/'>
               <img
-                width='100px'
-                height='0px'
+                width='160px'
+                height='10px'
                 src={logoImage}
                 alt='logo'
-                className='hidden md:block absolute -left-1 -top-1 p-2 '
+                className='hidden md:block absolute -left-6 -top-8 p-2 '
                 // className='absolute -left-40 -top-8 w-14 h-12'
               />
             </Link>
@@ -166,7 +166,6 @@ const Navbar = () => {
                         </button>
                       </Link>
                     </div> */}
-                    
                   </div>
                 </Link>
 
@@ -367,11 +366,11 @@ const Navbar = () => {
         <nav className='md:hidden'>
           <Link to='/'>
             <img
-              width='0px'
+              // width='40px'
               height='0px'
               src={logoImage}
               alt='logo'
-              className='absolute -left-1 -top-1 w-14 h-12'
+              className='absolute -left-1 -top-3 w-20 h-10'
             />
           </Link>
           {menu && (

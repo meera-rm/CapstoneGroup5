@@ -1,6 +1,6 @@
 import React from 'react';
 import './SubscriptionForm.scss';
-import logoImage from '../../Components/asset/ScholarSheep.png';
+import logoImage from '../../Components/asset/mylogo.png';
 
 const SubscriptionForm = () => {
   return (

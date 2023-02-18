@@ -32,9 +32,9 @@ const AutoMenuSelector = ({topic, setTopic,bookdata,gradeLevel}) => {
 
   };
 
-  const handleItemClick = (index) => {
-    console.log(index)
-    setSelectedIndex(index);
+  const handleItemClick = (item) => {
+    console.log(item)
+    setSelectedIndex(item);
   };
 
   // const filteredBooks =
@@ -55,12 +55,12 @@ const AutoMenuSelector = ({topic, setTopic,bookdata,gradeLevel}) => {
         {'<'}
       </div>
       <div className='menuSelector__menuItems'>
-        {navItems.map((item, index) => (
+        {navItems.map((item) => (
           
           <div
             key={item}
-            className={selectedIndex === index ? 'menuSelector__selectedItem': 'menuSelector__item'} 
-             onClick={() => handleItemClick(index)}
+            className={selectedIndex === item ? 'menuSelector__selectedItem': 'menuSelector__item'} 
+             onClick={() => handleItemClick(item)}
           >
             {item}
           </div>

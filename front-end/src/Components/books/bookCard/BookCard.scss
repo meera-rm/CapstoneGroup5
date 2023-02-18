@@ -33,7 +33,7 @@
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   cursor: pointer;
   height: 250px;
-  margin:  20px;
+  margin:  50px auto;
   padding: 0 20px;
   -webkit-tap-highlight-color: rgba(0,0,0,0.025);
   position: relative;
@@ -63,8 +63,9 @@
 
 &__image { 
   width:200px;
-  height:150px;
+  height:180px;
   margin: 30px auto 0 auto;
+  padding:15px 0;
   text-align:center;
   transform: translateY(10px);
   transition: transform 1000ms;
@@ -93,7 +94,7 @@
      position: absolute;
      bottom: 0;
      width: 100%;
-     margin: -70px -20px;
+     margin: -90px -20px;
     //  padding: 20px 10px;
     // background-color: rgba(255, 255, 255, 0.8);
      clip-path: polygon(0% 100%, 0 -90%, 100% -5%, 100% -90%, 100% 100%);
@@ -121,7 +122,7 @@
   
   &.expanded {
     transform: rotate(0deg);
-    bottom:40px;
+    bottom:30px;
   }
 }
  &__textcontent {

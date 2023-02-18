@@ -73,7 +73,7 @@ const Explore = () => {
     ? booksByGrade.filter((ele) => ele.topic === topic)
     : booksByGrade;
 
-  // const filteredBooks = booksByTopic.length ? booksByTopic : booksByGrade;
+  const filteredBooks = booksByTopic.length ? booksByTopic : booksByGrade;
 
   return (
     <div className='explore'>
