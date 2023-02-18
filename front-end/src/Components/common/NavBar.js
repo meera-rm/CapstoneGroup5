@@ -197,7 +197,7 @@ const Navbar = () => {
                       </div>
                     </button>
                     {/* {booksMenuOpen && ( */}
-                    <div className='z-10 absolute w-full hidden group-hover:block bg-teal-500 shadow-md rounded w-40 -mt-6 py-2'>
+                   <div className='z-10 absolute w-full hidden group-hover:block bg-teal-500 shadow-md rounded w-40 -mt-6 py-2'>
                       <Link to='/books/level'>
                         <button
                           className='block px-4 py-2 text-black-800 hover:bg-teal-400'
@@ -214,7 +214,7 @@ const Navbar = () => {
                           Casual Reading
                         </button>
                       </Link>
-                    </div>
+                    </div> 
                     {/* )} */}
                   </div>
                 </Link>
