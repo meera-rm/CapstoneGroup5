@@ -1,6 +1,9 @@
 ## Welcome to ScholarSheep!- CapstoneGroup5
 
 
+
+![Scholar Sheep](asset/img/ScholarSheep.png)
+
 ### Team Members
 ### Meera Ramesh
 ### Taryne Leach
