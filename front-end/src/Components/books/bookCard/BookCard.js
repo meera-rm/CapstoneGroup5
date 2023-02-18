@@ -69,7 +69,7 @@ const BookCard = ({ book }) => {
               </li>
             </ol>
           </div>
-
+          </div>
           <svg
             className={`bookCard__chevron ${expanded ? 'expanded' : ''}`}
             xmlns='http://www.w3.org/2000/svg'
@@ -83,7 +83,7 @@ const BookCard = ({ book }) => {
               stroke-width='5'
             />
           </svg>
-        </div>
+      
       </div>
      
     </div>

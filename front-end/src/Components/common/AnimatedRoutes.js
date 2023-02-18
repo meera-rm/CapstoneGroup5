@@ -26,16 +26,16 @@ import HangmanGame from '../games/HangmanGame';
 import CasualReading from '../books/CasualReading';
 import ReadingLevelBooks from '../books/ReadingLevelBooks';
 
-// import TeacherIndex from '../../Pages/Teacher/TeacherIndex';
-// import TeacherNew from '../../Pages/Teacher/TeacherNew';
-// import TeacherShow from '../../Pages/Teacher/TeacherShow';
-// import TeacherEdit from '../../Pages/Teacher/TeacherEdit';
+import TeacherIndex from '../../Pages/Teacher/TeacherIndex';
+import TeacherNew from '../../Pages/Teacher/TeacherNew';
+import TeacherShow from '../../Pages/Teacher/TeacherShow';
+import TeacherEdit from '../../Pages/Teacher/TeacherEdit';
 
-// import StudentIndex from '../../Pages/Student/StudentIndex';
-// import StudentNew from '../../Pages/Student/StudentNew';
-// import StudentShow from '../../Pages/Student/StudentShow';
-// import StudentEdit from '../../Pages/Student/StudentEdit';
-// import StudentView from '../../Pages/Student/StudentView';
+import StudentIndex from '../../Pages/Student/StudentIndex';
+import StudentNew from '../../Pages/Student/StudentNew';
+import StudentShow from '../../Pages/Student/StudentShow';
+import StudentEdit from '../../Pages/Student/StudentEdit';
+import StudentView from '../../Pages/Student/StudentView';
 
 // import IndexLogs from '../../Pages/Logs/IndexLogs';
 // import NewLog from '../../Pages/Logs/NewLog';

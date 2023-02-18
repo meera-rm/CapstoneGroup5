@@ -144,7 +144,7 @@ const Navbar = () => {
                       </div>
                     </button>
 
-                    <div
+                    {/* <div
                       className='z-10 absolute w-full hidden 
                      group-hover:block  shadow-md bg-teal-400 rounded w-40 
                     py-2'
@@ -165,8 +165,8 @@ const Navbar = () => {
                           Casual Reading
                         </button>
                       </Link>
-                    </div>
-                    {/* )} */}
+                    </div> */}
+                    
                   </div>
                 </Link>
 
@@ -394,7 +394,7 @@ const Navbar = () => {
                         <p className='mt-2'>BOOKS</p>
                       </div>
                     </button>
-                    <div
+                    {/* <div
                       className='z-10 absolute  w-50 hidden group-hover:block bg-gray-300 shadow-md rounded py-2 '
                       onMouseOver={handleMouseOver}
                       onMouseOut={handleMouseOut}
@@ -415,7 +415,7 @@ const Navbar = () => {
                           Casual Reading
                         </button>
                       </Link>
-                    </div>
+                    </div> */}
                   </div>
                 </Link>
                 <Link to='/info'>

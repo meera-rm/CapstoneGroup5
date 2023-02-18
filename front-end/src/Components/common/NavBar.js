@@ -174,6 +174,8 @@ const Navbar = () => {
                     </div>
                   </button> */}
                   {/* <p className=''>BOOKS</p> */}
+
+                  {/* the submenu if needed */}
                   <div className='relative group h-0 '>
                     <button>
                       {/* onClick={handleBooksMenu}> */}
@@ -196,8 +198,9 @@ const Navbar = () => {
                         )}
                       </div>
                     </button>
+
                     {/* {booksMenuOpen && ( */}
-                   <div className='z-10 absolute w-full hidden group-hover:block bg-teal-500 shadow-md rounded w-40 -mt-6 py-2'>
+                    <div className='z-10 absolute w-full hidden group-hover:block bg-teal-500 shadow-md rounded w-40 -mt-6 py-2'>
                       <Link to='/books/level'>
                         <button
                           className='block px-4 py-2 text-black-800 hover:bg-teal-400'
@@ -214,7 +217,7 @@ const Navbar = () => {
                           Casual Reading
                         </button>
                       </Link>
-                    </div> 
+                    </div>
                     {/* )} */}
                   </div>
                 </Link>
@@ -493,7 +496,7 @@ const Navbar = () => {
                         <p className='mt-2'>BOOKS</p>
                       </div>
                     </button>
-                    <div
+                    {/* <div
                       className='z-10 absolute  w-50 hidden group-hover:block bg-gray-300 shadow-md rounded py-2 '
                       onMouseOver={handleMouseOver}
                       onMouseOut={handleMouseOut}
@@ -514,20 +517,18 @@ const Navbar = () => {
                           Causal Reading
                         </button>
                       </Link>
-                    </div>
+                    </div> */}
                     {/* {booksMenuMobile && ( */}
-                    {/* <div className='absolute left-0 py-2 w-48 bg-white rounded-md shadow-xl'>
-                        <Link to='/books/level'>
-                          <p className='mt-2' >
-                            ReadingLevel
-                          </p>
-                        </Link>
-                        <Link to='/books/casual'>
-                          <p className='mt-2' onClick={handleNavLinkDisappear}>
-                            Casual
-                          </p>
-                        </Link>
-                      </div> */}
+                    <div className='absolute left-0 py-2 w-48 bg-white rounded-md shadow-xl'>
+                      <Link to='/books/level'>
+                        <p className='mt-2'>ReadingLevel</p>
+                      </Link>
+                      <Link to='/books/casual'>
+                        <p className='mt-2' onClick={handleNavLinkDisappear}>
+                          Casual
+                        </p>
+                      </Link>
+                    </div>
                     {/* )} */}
                   </div>
                 </Link>
