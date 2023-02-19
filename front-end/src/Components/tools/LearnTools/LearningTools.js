@@ -18,6 +18,18 @@ console.log(words)
         Learning Tools for Enhanced Vocabulary
       </h1>
 
+      <Link to='/dictionary'>
+      <div className='learningTools__container'>
+        <div className='learningTools__image'>
+          <img src={dictionary} alt='' style={{ width: '80%' }} />
+        </div>
+        <div className='learningTools__text'>
+          <h2>Dictionary Lookup</h2>
+          <h4>Definition of a word from a dictionary</h4>
+        </div>
+      </div>
+    </Link>
+
     <Link to='/vocabulary' state={{ vocabWords: vocabWords }}>
     <div className='learningTools__container'>
       <div className='learningTools__image'>
@@ -25,25 +37,11 @@ console.log(words)
       </div>
       <div className='learningTools__text'>
         <h2>Personal Dictionary </h2>
-        <h4>Add words to practice for your grade level</h4>
+        <h4>Add words to make your personal dictionary</h4>
       </div>
     </div>
   </Link>
-
   
-  <Link to='/dictionary'>
-      <div className='learningTools__container'>
-        <div className='learningTools__image'>
-          <img src={dictionary} alt='' style={{ width: '80%' }} />
-        </div>
-        <div className='learningTools__text'>
-          <h2>Dictionary Lookup</h2>
-          <h4>Definition of a word/pronounciation</h4>
-        </div>
-      </div>
-    </Link>
-
-
     <Link to='/flashcard'>
         <div className='learningTools__container'>
           <div className='learningTools__image'>
@@ -51,7 +49,7 @@ console.log(words)
           </div>
           <div className='learningTools__text'>
             <h2>Vocabulary Words</h2>
-            <h4>Practice Vocabulary words with flashcards</h4>
+            <h4>Practice words from personal dictionary with flashcards</h4>
           </div>
         </div>
       </Link>

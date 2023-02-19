@@ -17,12 +17,13 @@ import Dictionary from '../tools/Dictionary/Dictionary';
 import FlashCard from '../tools/FlashCard/FlashCard';
 import AddVocab from '../tools/Vocabulary/AddVocab';
 
-import Games from '../games/Games';
-import RockpaperScissor from '../games/RockpaperScissor';
+import Games from '../games/AllGames/Games';
+import RockpaperScissor from '../games/rps/RockpaperScissor';
 import EtchSketch from '../games/EtchSketch';
 import MemoryGames from '../games/MemoryGames';
 import PaintApp from '../games/PaintApp';
 import HangmanGame from '../games/HangmanGame';
+import TicTacToe from '../games/TicTacToe';
 import CasualReading from '../books/CasualReading';
 import ReadingLevelBooks from '../books/ReadingLevelBooks';
 
@@ -35,7 +36,7 @@ import StudentIndex from '../../Pages/Student/StudentIndex';
 import StudentNew from '../../Pages/Student/StudentNew';
 import StudentShow from '../../Pages/Student/StudentShow';
 import StudentEdit from '../../Pages/Student/StudentEdit';
-import StudentView from '../../Pages/Student/StudentView';
+// import StudentView from '../../Pages/Student/StudentView';
 
 // import IndexLogs from '../../Pages/Logs/IndexLogs';
 // import NewLog from '../../Pages/Logs/NewLog';
@@ -94,11 +95,26 @@ const AnimatedRoutes = () => {
 
             <Route path='/games'>
               <Route index element={<Games />} />
-              <Route path='rsp' element={<RockpaperScissor />} />
+              <Route path='rps' element={<RockpaperScissor />} />
               <Route path='memorygames' element={<MemoryGames />} />
               <Route path='paint' element={<PaintApp />} />
               <Route path='hangman' element={<HangmanGame />} />
               <Route path='etchsketch' element={<EtchSketch />} />
+              <Route path='tictactoe' element={<TicTacToe/>} />
+            </Route>
+
+            <Route path='/teachers'>
+            <Route index element={<TeacherIndex />} />
+            <Route path='new' element={<TeacherNew />} />
+            <Route path='teachers/:id' element={<TeacherShow />} />
+            <Route path='teachers/:id/edit' element={<TeacherEdit />} />
+            </Route>
+
+            <Route path='/students'>
+            <Route index element={<StudentIndex />} />
+            <Route path='new' element={<StudentNew />} />
+            <Route path='students/:id' element={<StudentShow />} />
+            <Route path='students/:id/edit' element={<StudentEdit />} />
             </Route>
 
             <Route path='/parent-dashboard' element={<ParentDashboard />} />

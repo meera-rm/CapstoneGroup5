@@ -7,7 +7,7 @@ const AutoMenuSelector = ({topic, setTopic,bookdata,gradeLevel}) => {
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const navItems = ['All Topics','English', 'Social Studies', 'Science','Math'];
-  const timeInterval = 8000;
+  const timeInterval = 3000;
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -37,16 +37,17 @@ const AutoMenuSelector = ({topic, setTopic,bookdata,gradeLevel}) => {
     setSelectedIndex(item);
   };
 
-  // const filteredBooks =
-  //   navItems[selectedIndex] === 'All Topics'
-  //     ? bookdata.filter((book) =>
-  //         gradeLevel === 'All Grades' ? true : book.grade === gradeLevel
-  //       )
-  //     : bookdata.filter(
-  //         (book) =>
-  //           (gradeLevel === 'All Grades' || book.grade === gradeLevel) &&
-  //           book.topic === navItems[selectedIndex]
-  //       );
+  const filteredBooks =
+  navItems[selectedIndex] === 'All Topics'
+  ? bookdata.filter((book) =>
+      gradeLevel !== 'All Grades' ? book.grade === gradeLevel:true  
+    )
+  : bookdata.filter(
+      (book) =>
+        (gradeLevel === 'All Grades' || book.grade === gradeLevel) &&
+        book.topic === navItems[selectedIndex]
+    );
+
 
   return (
     <div className='menuSelector'>
@@ -55,12 +56,12 @@ const AutoMenuSelector = ({topic, setTopic,bookdata,gradeLevel}) => {
         {'<'}
       </div>
       <div className='menuSelector__menuItems'>
-        {navItems.map((item) => (
+        {navItems.map((item,index) => (
           
           <div
-            key={item}
-            className={selectedIndex === item ? 'menuSelector__selectedItem': 'menuSelector__item'} 
-             onClick={() => handleItemClick(item)}
+            key={index}
+            className={selectedIndex === index ? 'menuSelector__selectedItem': 'menuSelector__item'} 
+             onClick={() => handleItemClick(index)}
           >
             {item}
           </div>
@@ -71,12 +72,120 @@ const AutoMenuSelector = ({topic, setTopic,bookdata,gradeLevel}) => {
       </div>
       </div>
       {/* <div className='menuSelector__content'>
-        Selected topic: {topic}
+      {filteredBooks.map((book) => {
+            return (
+              <div className='testbook' key=''>
+                <div>{book.title}</div>
+                <div>{book.author}</div>
+              </div>
+            );
+          })}
       </div> */}
     
   </div>
   );
 };
+export default AutoMenuSelector;
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const AutoMenuSelector = ({topic, setTopic,bookdata,gradeLevel}) => {
+//   const topics = ['All Topics','English', 'Social Studies', 'Science','Math'];
+//   const [selectedTopic, setSelectedTopic] = useState(topics[0]);
+//   const [autoTimer, setAutoTimer] = useState(null);
+//   const interval = 1000;
 
   
-export default AutoMenuSelector;
+//   const handleTopicSelect = (topic) => {
+//     setSelectedTopic(topic);
+//     clearInterval(autoTimer);
+//   };
+//   const handleNextTopic = () => {
+//     const currentIndex = topics.indexOf(selectedTopic);
+//     const nextIndex = (currentIndex + 1) % topics.length;
+//     setSelectedTopic(topics[nextIndex]);
+//     clearInterval(autoTimer);
+//   };
+
+//   const handlePrevTopic = () => {
+//     const currentIndex = topics.indexOf(selectedTopic);
+//     const prevIndex = (currentIndex - 1 + topics.length) % topics.length;
+//     setSelectedTopic(topics[prevIndex]);
+//     clearInterval(autoTimer);
+//   };
+
+
+//   useEffect(() => {
+//     setAutoTimer(setInterval(() => {
+//       const currentIndex = topics.indexOf(selectedTopic);
+//       const nextIndex = (currentIndex + 1) % topics.length;
+//       setSelectedTopic(topics[nextIndex]);
+//     }, interval));
+//     return () => clearInterval(autoTimer);
+//   }, [selectedTopic, topics, interval]);
+ 
+//   // const filteredBooks =
+//   //   navItems[selectedIndex] === 'All Topics'
+//   //     ? bookdata.filter((book) =>
+//   //         gradeLevel === 'All Grades' ? true : book.grade === gradeLevel
+//   //       )
+//   //     : bookdata.filter(
+//   //         (book) =>
+//   //           (gradeLevel === 'All Grades' || book.grade === gradeLevel) &&
+//   //           book.topic === navItems[selectedIndex]
+//   //       );
+
+//   return (
+//     <div className='menuSelector'>
+//     <div className='menuSelector__container'>
+//       <div className='menuSelector__arrow' onClick={handlePrevTopic}>
+//         {'<'}
+//       </div>
+//       <div className='menuSelector__menuItems'>
+//         {topics.map((topic) => (
+          
+//           <div
+//             key={topic}
+//             className={selectedTopic=== topic ? 'menuSelector__selectedItem': 'menuSelector__item'} 
+//              onClick={() => handleTopicSelect(topic)}
+//           >
+//             {topic}
+//           </div>
+//         ))}
+//       </div>
+//       <div className='menuSelector__arrow' onClick={handleNextTopic}>
+//         {'>'}
+//       </div>
+//       </div>
+//       {/* <div className='menuSelector__content'>
+//         Selected topic: {topic}
+//       </div> */}
+    
+//   </div>
+//   );
+// };
+
+  
+// export default AutoMenuSelector;
+
+
+
+
+
+
+
+
+
+
+
+

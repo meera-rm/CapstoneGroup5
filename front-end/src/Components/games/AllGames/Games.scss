@@ -1,0 +1,55 @@
+.rpscontent,.hangman,.paintapp,.memorygame,.etchsketch,.tictactoe{
+    background-image: url('./rpschildren.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    padding :20px;
+    margin:50px auto;
+    // background-color:#ccfbf1;
+    background-color:#EEF2F7;
+    border:2px solid #14B8A6;
+    width:600px;
+    height:300px;
+    text-align:center;
+    z-index:20;
+    border-radius: 20px;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+  ;
+}
+.rpscolor{
+   
+    z-index:1;
+}
+.hangman{
+    background-image: url('./guessword.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.etchsketch{
+    background-image: url('./etchsketch.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow:hidden;
+}
+.paintapp{
+    background-image: url('./paintapp.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow:visible;
+}
+.memorygame{
+    background-image: url('./memorygame.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow:visible;
+}
+.tictactoe{
+    background-image: url('./tictactoe.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}

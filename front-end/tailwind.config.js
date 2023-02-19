@@ -18,7 +18,7 @@ module.exports = {
   theme: {
     extend: {
       // backgroundImage: {
-      //   'hero-image': 'url("../Components/asset/ScholarSheep.png")',
+      //   'rpsmage': 'url("../Components/asset/ScholarSheep.png")',
       // },
       fontFamily: {
         mono: ['courier new', ...defaultTheme.fontFamily.mono],

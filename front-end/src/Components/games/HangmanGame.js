@@ -180,7 +180,8 @@ const HangmanGame = () => {
   const wordsmissed = wrongWords.map((word) => <li>{word},</li>);
 
   return (
-    <div className='text-center'>
+    <div className='m-auto text-center border-2 my-5 bg-cyan-50 max-w-5xl'>
+      <h1 className='text-teal-700'>GUESS THE WORD</h1>
       <div className='text-6xl font-normal mt-6 mb-6'>{geusses}</div>
     
       <div className='mt-6 mb-6 text-xl'>
@@ -208,10 +209,12 @@ const HangmanGame = () => {
           <div className='col-start-4 mx-auto'>{buttons()}</div>
         </div>
       )} 
+      <div className='p-20'>
       <button
-        className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4'
+        className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mt-4 mr-10'
         onClick={() => play()}>Play </button>
-      <button onClick={() => reset()}>Reset</button>
+      <button  className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mt-4 mr-10'onClick={() => reset()}>Reset</button>
+      </div>
     </div>
   );
 };

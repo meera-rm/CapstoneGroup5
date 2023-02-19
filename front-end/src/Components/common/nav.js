@@ -169,7 +169,7 @@ const Navbar = () => {
                   </div>
                 </Link>
 
-                <Link to='/dictionary' activeClassName='active'>
+                {/* <Link to='/dictionary' activeClassName='active'>
                   <button>
                     <div
                       className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
@@ -190,7 +190,7 @@ const Navbar = () => {
                       )}
                     </div>
                   </button>
-                </Link>
+                </Link> */}
 
                 <Link to='/games'>
                   <div className='relative group h-0'>
@@ -216,12 +216,12 @@ const Navbar = () => {
                       </div>
                     </button>
                     {/* {gamesMenuOpen && ( */}
-                    <div
+                    {/* <div
                       className='z-10 absolute bg-teal-400 w-50 hidden group-hover:block  shadow-md rounded py-2 '
                       onMouseOver={handleMouseOver}
                       onMouseOut={handleMouseOut}
                     >
-                      <Link to='/games/rsp'>
+                      <Link to='/games/rps'>
                         <button
                           className='block px-4 py-2 text-black-800 hover:bg-teal-400'
                           onClick={handleNavLinkDisappear}
@@ -253,7 +253,7 @@ const Navbar = () => {
                           Memory games
                         </button>
                       </Link>
-                    </div>
+                    </div> */}
                     {/* )} */}
                   </div>
                 </Link>
@@ -422,11 +422,11 @@ const Navbar = () => {
                     INFO
                   </p>
                 </Link>
-                <Link to='/dictionary'>
+                {/* <Link to='/dictionary'>
                   <p className='mt-2' onClick={handleNavLinkDisappear}>
                     DICTIONARY
                   </p>
-                </Link>
+                </Link> */}
 
                 <Link to='/games'>
                   <div className='relative group h-0'>

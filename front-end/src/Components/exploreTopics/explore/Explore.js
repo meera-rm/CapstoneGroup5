@@ -60,6 +60,14 @@ let bookdata = [
   },
 ];
 
+
+
+
+
+
+
+
+
 const Explore = () => {
   const [gradeLevel, setGradeLevel] = useState('1st Grade');
   const [topic, setTopic] = useState('');
@@ -73,8 +81,10 @@ const Explore = () => {
     ? booksByGrade.filter((ele) => ele.topic === topic)
     : booksByGrade;
 
-  const filteredBooks = booksByTopic.length ? booksByTopic : booksByGrade;
 
+    
+  const filteredBooks = booksByTopic.length ? booksByTopic : booksByGrade;
+console.log(filteredBooks)
   return (
     <div className='explore'>
       {/* <h1 className='explore'> Explore By Grade</h1> */}
@@ -97,12 +107,15 @@ const Explore = () => {
         <div className='testbooklist'>
           {booksByTopic.map((book) => {
             return (
-              <div className='testbook' key=''>
+              <div className='testbook' >
                 <div>{book.title}</div>
                 <div>{book.author}</div>
               </div>
             );
           })}
+          
+        
+     
         </div>
       </div>
     </div>
