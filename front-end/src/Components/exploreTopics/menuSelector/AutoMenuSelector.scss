@@ -36,6 +36,9 @@ $content-font-size: 18px;
   display: flex;
   justify-content:center;
   align-items: center;
+  // color:#028b84;
+color:#03958e;
+  
 }
 
 &__item {
@@ -58,6 +61,7 @@ $content-font-size: 18px;
   padding: 20px;
   // border: 1px solid #ccc;
   border-radius: 5px;
+ 
 
   // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
  }

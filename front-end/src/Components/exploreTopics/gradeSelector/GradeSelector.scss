@@ -5,6 +5,8 @@
     height:-100px;
     p{
       color:black;
+      font-weight:600;
+      font-size:1em;
     }
     &__title{
         text-align:center;
@@ -41,6 +43,9 @@
         border-radius:20px;
         padding: 0 0 10px;
         text-align:center;
+        font-weight: 900;
+        font-size:1em;
+        color:#03958e;
         cursor:pointer;
         &-select {
           position: absolute;
