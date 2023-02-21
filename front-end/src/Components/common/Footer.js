@@ -36,7 +36,7 @@ const Footer = () => {
               Privacy Policy <span className='text-teal-600 text-xs p-1'></span>
             </a>
             <a className='my-3 block' href='/about'>
-              Our Team <span className='text-teal-600 text-xs p-1'></span>
+             About Me <span className='text-teal-600 text-xs p-1'></span>
             </a>
           </div>
           <div className='p-5'>
@@ -50,7 +50,7 @@ const Footer = () => {
               XX-XX,Floor 32 , New York ,NY{' '}
               <span className='text-teal-600 text-xs p-1'></span>
             </a>
-            <a className='my-3 block' href='/#'>
+            <a className='md:my-3 block ' href='/#'>
               contact@scholarsheep.com{' '}
               <span className='text-teal-600 text-xs p-1'></span>
             </a>
