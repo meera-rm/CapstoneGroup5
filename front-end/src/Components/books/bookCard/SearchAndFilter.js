@@ -1,11 +1,8 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
+import EmptyView from '../../emptyView/EmptyView';
+import BookCard from '../bookCard/BookCard';
 
-
-
- import BookCard from '../bookCard/BookCard';
-//import './BookCard.scss';
 const API = process.env.REACT_APP_API_URL;
 
 const alphabets = [
@@ -39,19 +36,17 @@ const alphabets = [
 
 const SearchAndFilter = () => {
 
-  const [show, setShow] = useState(false);
   const [bookData, setBookData] = useState([]);
-  const [error, setError] = useState(null);
+   const [error, setError] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const [query, setQuery] = useState('');
-  const [filter, setFilter] = useState(['']);
+  const [filterParam, setFilterParam] = useState(['All']);
   const [paginate, setpaginate] = useState(8);
-
   const [searchParam] = useState([
     'book_title',
     'book_author',
     'reading_level',
-  ]);
+  ]); 
 
  
 
@@ -69,23 +64,29 @@ const SearchAndFilter = () => {
         setError(error);
       });
   }, []);
-
   const data = Object.values(bookData);
 
-  const search_parameters = Object.keys(Object.assign({}, ...data));
-  const filter_items = [...new Set(data.map((item) => item.reading_level))];
-
-  function search(bookData) {
-      return bookData.filter(
-          (book) =>
-              book.reading_level.includes(filter) &&
-              search_parameters.some((parameter) =>
-                  book[parameter].toString().toLowerCase().includes(query)
-              )
-      );
+  function search(bookData){
+    // eslint-disable-next-line
+    return bookData.filter((book) => {
+      if (book.reading_level === filterParam) {
+        return searchParam.some((newBook) => {
+          return (
+            book[newBook].toString().toLowerCase().indexOf(query.toLowerCase()) > -1
+          );
+        });
+      } else if (filterParam === 'All') {
+        return searchParam.some((newBook) => {
+          return (
+            book[newBook].toString().toLowerCase().indexOf(query.toLowerCase()) > -1
+          );
+        });
+      }
+    });
   }
 
-  const load_more = (event) => {
+  const load_more = (e) => {
+    console.log(e.target.value)
       setpaginate((prevValue) => prevValue + 8);
   };
 
@@ -112,15 +113,16 @@ const SearchAndFilter = () => {
           </label>
   
           <div className=''>
-            <select
+            <select 
               onChange={(e) => {
-                setFilter(e.target.value);
+                setFilterParam(e.target.value);
               }}
               className='border-2 border-black outline'
               aria-label='Filter Books By ReadingLevel'
             >
               <option value='choose'>-- Select Reading Level--</option>
-              {filter_items.map((item) => (
+
+              {alphabets.map((item) => (
                                 <option value={item}>Filter By {item}</option>
                             ))}
               {}
@@ -128,23 +130,20 @@ const SearchAndFilter = () => {
             <span className='focus'></span>
           </div>
         </div>
-        
-        <div  className='grid grid-cols-1 space-evenly md:grid-cols-2 lg:grid-cols-3'>  
-          {search(data)
-            .slice(0, paginate)
-            ?.map((book) => {
-              return (  
-                <div>
-                  {' '}
-                  <BookCard book={book} />{' '}
+        {search(data).length === 0 ? (
+          <EmptyView  message="No books found." />
+        ) : (
+          <div className='grid grid-cols-1 space-evenly md:grid-cols-2 lg:grid-cols-3'>
+            {search(data)
+              .slice(0, paginate)
+              .map((book) => (
+                <div key={book.book_id}>
+                  <BookCard book={book} />
                 </div>
-
-               
-              );
-            })}
-        </div>    
-
-        {/* <button onClick={load_more}>Load More</button> */}
+              ))}
+          </div>
+        )}
+       
       </div>
     );
   }

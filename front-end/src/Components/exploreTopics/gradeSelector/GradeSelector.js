@@ -13,33 +13,24 @@ const options = [
 ];
 
 const GradeSelector = ({ gradeLevel, setGradeLevel }) => {
-  // const [wordData, setWordData] = useState(words);
-  const [isOpen, setIsOpen] = useState(false);
-  // const [selectedGrade, setSelectedGrade] = useState(null);
 
+  const [isOpen, setIsOpen] = useState(false);
+ 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   const handleOptionClick = (option) => {
-    // console.log('option', option);
     setGradeLevel(option);
     setIsOpen(false);
   };
 
-  //   const filteredData = wordData.filter((word) =>
-  //       //  word.grade.toLowerCase().includes(selectedGrade.toLowerCase())
-  //       word.grade === selectedGrade
-  //   );
-
   return (
-    // <div>
+
     <div className='gradeSelector'>
-      {/* <h1 className='gradeSelector__title'>FlashCards</h1>
-      </div> */}
+    
       <div className='gradeSelector__container'>
-        {/* <div className='flashCard__toggleGradeSelector'>All Grades
-         */}
+      
         <p>Select Grade:</p>
         <div className='gradeSelector__option'>
           <div onClick={toggleDropdown}>{gradeLevel}</div>
@@ -53,10 +44,10 @@ const GradeSelector = ({ gradeLevel, setGradeLevel }) => {
             </ul>
           )}
         </div>
-        {/* </div> */}
+      
       </div>
     </div>
-    // </div>
+  
   );
 };
 export default GradeSelector;

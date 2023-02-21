@@ -1,3 +1,4 @@
+
 import { React, useState, useEffect } from 'react';
 import axios from 'axios';
 import GradeSelector from '../gradeSelector/GradeSelector';
@@ -62,16 +63,11 @@ let bookdata = [
 
 
 
-
-
-
-
-
-
 const Explore = () => {
   const [gradeLevel, setGradeLevel] = useState('1st Grade');
   const [topic, setTopic] = useState('');
-
+  const [selectedIndex, setSelectedIndex] = useState(0);
+ 
   const booksByGrade =
     gradeLevel !== 'All Grades'
       ? bookdata.filter((ele) => ele.grade === gradeLevel)
@@ -82,12 +78,9 @@ const Explore = () => {
     : booksByGrade;
 
 
-    
-  const filteredBooks = booksByTopic.length ? booksByTopic : booksByGrade;
-console.log(filteredBooks)
   return (
     <div className='explore'>
-      {/* <h1 className='explore'> Explore By Grade</h1> */}
+   
       <img
         src={gradebanner}
         style={{
@@ -101,8 +94,13 @@ console.log(filteredBooks)
 
       <div className='explore__container'>
         <GradeSelector gradeLevel={gradeLevel} setGradeLevel={setGradeLevel} />
-        <AutoMenuSelector topic={topic} setTopic={setTopic} bookdata={bookdata}
-        gradeLevel={gradeLevel}/>
+        <AutoMenuSelector 
+        topic={topic} 
+        setTopic={setTopic} 
+        selectedIndex={selectedIndex}
+        setSelectedIndex={setSelectedIndex}
+        
+       />
 
         <div className='testbooklist'>
           {booksByTopic.map((book) => {
@@ -113,7 +111,7 @@ console.log(filteredBooks)
               </div>
             );
           })}
-          
+           
         
      
         </div>

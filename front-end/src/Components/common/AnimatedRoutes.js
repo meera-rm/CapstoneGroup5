@@ -24,8 +24,8 @@ import MemoryGames from '../games/MemoryGames';
 import PaintApp from '../games/PaintApp';
 import HangmanGame from '../games/HangmanGame';
 import TicTacToe from '../games/TicTacToe';
-import CasualReading from '../books/CasualReading';
-import ReadingLevelBooks from '../books/ReadingLevelBooks';
+import CasualReading from '../books/bookCard/CasualReading';
+import ReadingLevelBooks from '../books/bookCard/ReadingLevelBooks';
 
 import TeacherIndex from '../../Pages/Teacher/TeacherIndex';
 import TeacherNew from '../../Pages/Teacher/TeacherNew';

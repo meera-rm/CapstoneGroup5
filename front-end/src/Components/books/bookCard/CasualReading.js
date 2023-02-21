@@ -1,42 +1,14 @@
+import {React, useState, useEffect} from 'react';
+import Toggle from '../Toggle.js';
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import Toggle from './Toggle.js';
 import { Link } from 'react-router-dom';
- import BookCard from './bookCard/BookCard';
- import BookLoader from '../loader/BookLoader';
-import SearchAndFilter from './bookCard/SearchAndFilter.js';
+import SearchAndFilter from './SearchAndFilter.js';
+import BookLoader from '../../loader/BookLoader';
 
 const API = process.env.REACT_APP_API_URL;
+const CasualReading=()=>{
 
-const alphabets = [
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-  'I',
-  'J',
-  'K',
-  'L',
-  'M',
-  'N',
-  'O',
-  'P',
-  'Q',
-  'R',
-  'S',
-  'T',
-  'U',
-  'V',
-  'W',
-  'Y',
-  'Z',
-];
-const ReadingLevelBooks = () => {
-  const [bookData, setBookData] = useState([]);
+const [bookData, setBookData] = useState([]);
   const [error, setError] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const [query, setQuery] = useState('');
@@ -102,9 +74,6 @@ const ReadingLevelBooks = () => {
   //   });
   // }
 
-  const newAlphabet = alphabets.map((book) => {
-    return <option value={book}>{book} </option>;
-  });
   if (error) {
     return <>{error.message}</>;
   } else if (!loaded) {
@@ -112,7 +81,7 @@ const ReadingLevelBooks = () => {
   } else {
   return (
    <div>
-      <div className='text-center'>ReadingLevelBooks</div>
+      <div className='text-center'>Casual Reading Books</div>
      {/* <div className='mt-10'>
      <Toggle/>
      </div> */}
@@ -128,7 +97,8 @@ const ReadingLevelBooks = () => {
       <button className='text-center' onClick={load_more}>Load More</button>
       </div>
      </div>
-  );
- }
-};
-export default ReadingLevelBooks;
+     )
+   }
+}
+
+export default CasualReading;

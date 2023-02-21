@@ -1,26 +1,53 @@
-import {React, useState, useEffect} from 'react';
-import Toggle from './Toggle.js';
 import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import Toggle from '../Toggle.js';
 import { Link } from 'react-router-dom';
-import SearchAndFilter from './bookCard/SearchAndFilter.js';
-import BookLoader from '../loader/BookLoader';
+import BookCard from './BookCard';
+import BookLoader from '../../loader/BookLoader';
+import SearchAndFilter from './SearchAndFilter.js';
 
 const API = process.env.REACT_APP_API_URL;
-const CasualReading=()=>{
 
-const [bookData, setBookData] = useState([]);
+const alphabets = [
+  'A',
+  'B',
+  'C',
+  'D',
+  'E',
+  'F',
+  'G',
+  'H',
+  'I',
+  'J',
+  'K',
+  'L',
+  'M',
+  'N',
+  'O',
+  'P',
+  'Q',
+  'R',
+  'S',
+  'T',
+  'U',
+  'V',
+  'W',
+  'Y',
+  'Z',
+];
+
+const ReadingLevelBooks = () => {
+  const [bookData, setBookData] = useState([]);
   const [error, setError] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const [query, setQuery] = useState('');
-  const [filter, setFilter] = useState(['']);
+  const [filter, setFilter] = useState(['All']);
   const [paginate, setpaginate] = useState(8);
   const [searchParam] = useState([
     'book_title',
     'book_author',
     'reading_level',
   ]);
-
-  const [show, setShow] = useState(false);
 
   useEffect(() => {
     axios
@@ -52,7 +79,7 @@ const [bookData, setBookData] = useState([]);
   }
 
   const load_more = (event) => {
-    setpaginate((prevValue) => prevValue + 8);
+    setpaginate((prevValue) => prevValue + 2);
   };
 
   // function search(bookData) {
@@ -74,31 +101,39 @@ const [bookData, setBookData] = useState([]);
   //   });
   // }
 
+  const newAlphabet = alphabets.map((book) => {
+    return <option value={book}>{book} </option>;
+  });
   if (error) {
     return <>{error.message}</>;
   } else if (!loaded) {
-    return <><BookLoader/></>;
+    return (
+      <>
+        <BookLoader />
+      </>
+    );
   } else {
-  return (
-   <div>
-      <div className='text-center'>Casual Reading Books</div>
-     {/* <div className='mt-10'>
+    return (
+      <div>
+        <div className='text-center'>
+          ReadingLevelBooks
+          {/* <div className='mt-10'>
      <Toggle/>
      </div> */}
-      <div className='text-right'>
-        <Link to={`/books/new`}>
-          <button className='mr-20 btn bg-indigo-500 px-4 py-4 rounded text-white  font-georgia hover:bg-indigo-400 '>
-            Add Books{' '}
-          </button>
-        </Link>
+          <div className='text-right'>
+            <Link to={`/books/new`}>
+              <button className='mr-20 btn bg-indigo-500 px-4 py-4 rounded text-white  font-georgia hover:bg-indigo-400 '>
+                Add Books{' '}
+              </button>
+            </Link>
+          </div>
+        </div>
+        <SearchAndFilter />
+        <div className={'margin:0 auto,border:2px solid black,'}>
+          <button onClick={load_more}>Load More</button>
+        </div>
       </div>
-     <div>
-      <SearchAndFilter/>
-      <button className='text-center' onClick={load_more}>Load More</button>
-      </div>
-     </div>
-     )
-   }
-}
-
-export default CasualReading;
+    );
+  }
+};
+export default ReadingLevelBooks;

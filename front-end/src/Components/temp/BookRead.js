@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import BookCard from '../bookCard/BookCard';
+import BookCard from '../books/bookCard/BookCard';
 import './BookCardList.scss';
 const API = process.env.REACT_APP_API_URL;
 
@@ -129,7 +129,7 @@ const BookCardList = () => {
         {/* </div>
         //  </div> */}
 
-        <button onClick={load_more}>Load More</button>
+        <button  style={{margin:'0 auto'}}onClick={load_more}>Load More</button>
       </div>
     );
   }

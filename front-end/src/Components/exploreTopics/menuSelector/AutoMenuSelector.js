@@ -1,11 +1,14 @@
+
+
+
 import { React, useState, useEffect } from 'react';
 import axios from 'axios';
 
 import './AutoMenuSelector.scss';
 
-const AutoMenuSelector = ({topic, setTopic,bookdata,gradeLevel}) => {
+const AutoMenuSelector = ({topic, setTopic,selectedIndex,setSelectedIndex}) => {
 
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  // const [selectedIndex, setSelectedIndex] = useState(0);
   const navItems = ['All Topics','English', 'Social Studies', 'Science','Math'];
   const timeInterval = 3000;
 
@@ -32,21 +35,11 @@ const AutoMenuSelector = ({topic, setTopic,bookdata,gradeLevel}) => {
 
   };
 
+
   const handleItemClick = (item) => {
     console.log(item)
     setSelectedIndex(item);
   };
-
-  const filteredBooks =
-  navItems[selectedIndex] === 'All Topics'
-  ? bookdata.filter((book) =>
-      gradeLevel !== 'All Grades' ? book.grade === gradeLevel:true  
-    )
-  : bookdata.filter(
-      (book) =>
-        (gradeLevel === 'All Grades' || book.grade === gradeLevel) &&
-        book.topic === navItems[selectedIndex]
-    );
 
 
   return (
@@ -61,7 +54,7 @@ const AutoMenuSelector = ({topic, setTopic,bookdata,gradeLevel}) => {
           <div
             key={index}
             className={selectedIndex === index ? 'menuSelector__selectedItem': 'menuSelector__item'} 
-             onClick={() => handleItemClick(index)}
+             onClick={() => handleItemClick}
           >
             {item}
           </div>
@@ -71,23 +64,12 @@ const AutoMenuSelector = ({topic, setTopic,bookdata,gradeLevel}) => {
         {'>'}
       </div>
       </div>
-      {/* <div className='menuSelector__content'>
-      {filteredBooks.map((book) => {
-            return (
-              <div className='testbook' key=''>
-                <div>{book.title}</div>
-                <div>{book.author}</div>
-              </div>
-            );
-          })}
-      </div> */}
+     
     
   </div>
   );
 };
 export default AutoMenuSelector;
-
-
 
 
 
