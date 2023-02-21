@@ -40,7 +40,7 @@ const BookCard = ({ book }) => {
         >
            <div className='bookCard__textcontent'> 
             <h2 className='bookCard__title'>{`${book_title.toUpperCase()}`}</h2>
-            {/* <h2 className='bookCard__title'>Cookie Week</h2> */}
+           
             <ol className='bookCard__summary'>
             {/* <li className='bookCard__summary-list'>
                 Id: <span>{`${book_id}`} </span>
