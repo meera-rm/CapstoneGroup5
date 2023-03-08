@@ -79,7 +79,7 @@ const BookCard = ({ book }) => {
               d='M5 30L50 5l45 25'
               fill='none'
               stroke='#000'
-              stroke-width='5'
+              strokeWidth='5'
             />
           </svg>
       

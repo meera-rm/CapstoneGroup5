@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-// import Toggle from '../Toggle.js';
+
 import { Link } from 'react-router-dom';
 import BookLoader from '../../loader/BookLoader';
 import SearchAndFilter from './SearchAndFilter.js';
@@ -8,7 +8,7 @@ import EmptyView from '../../emptyView/EmptyView';
 const API = process.env.REACT_APP_API_URL;
 
 const ReadingLevelBooks = () => {
-  const [bookData, setBookData] = useState([]);
+   const [bookData, setBookData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -18,6 +18,7 @@ const ReadingLevelBooks = () => {
     axios
       .get(`${API}/api/books`)
       .then((response) => {
+        console.log(response.data.payload)
         setBookData(response.data.payload);
         setLoading(false);
       })
@@ -26,12 +27,16 @@ const ReadingLevelBooks = () => {
       });
   }, []);
 
-
+// if (error) {
+//     return <>{error.message}</>;
+// } else if (!loading) {
+//     return <div ><BookLoader/></div>;
+// } else {
   return (
    <div>
-      {error && <>{error.message}</>}
+      {/* {error && <>{error.message}</>}
       {loading &&  <div><BookLoader/></div>} 
-      {!loading && bookData.length===0 &&<EmptyView styleKey='bold' message='Page Not Found' />}
+       */}
       <div className='text-center text-teal-600 text-2xl mb-10 mt-10'>ReadingLevelBooks
     
       <div className='text-right'>
@@ -43,10 +48,10 @@ const ReadingLevelBooks = () => {
       </div>
      </div>
       <SearchAndFilter/>
-    
+      {!loading && bookData.length===0 &&<EmptyView styleKey='bold' message='Page Not Found' />}
   </div>
-     
+      
   );
-//  }
+  // }
 };
 export default ReadingLevelBooks;

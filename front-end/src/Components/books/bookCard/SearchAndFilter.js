@@ -121,10 +121,10 @@ const SearchAndFilter = () => {
               className='border-2 border-black outline'
               aria-label='Filter Books By ReadingLevel'
             >
-              <option value='choose'>-- Select Reading Level--</option>
+              <option key={'readinglevel'} value='choose'>-- Select Reading Level--</option>
 
-              {alphabets.map((item) => (
-                                <option value={item}>Filter By {item}</option>
+              {alphabets.map((item,index) => (
+                                <option  key={item+index} value={item}>Filter By {item}</option>
                             ))}
               {}
             </select>

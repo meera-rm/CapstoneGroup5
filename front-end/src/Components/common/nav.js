@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import './NavBar.css';
 import logoImage from '../asset/sheeplogo.png';
-import { MdLanguage } from 'react-icons/md';
+
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
-import { FaChevronDown } from 'react-icons/fa';
+
 import { NavLink as Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { MdInfoOutline } from 'react-icons/md';
-import { RiTeamLine } from 'react-icons/ri';
+
 import { FaGamepad } from 'react-icons/fa';
 import { ImBooks } from 'react-icons/im';
 
@@ -21,19 +21,19 @@ import { GiArchiveRegister } from 'react-icons/gi';
 const Navbar = ({ darkModeButton }) => {
   const [menu, setMenu] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
-  const [booksMenuOpen, setBooksMenuOpen] = useState(false);
-  const [gamesMenuOpen, setGamesMenuOpen] = useState(false);
+  // const [booksMenuOpen, setBooksMenuOpen] = useState(false);
+  // const [gamesMenuOpen, setGamesMenuOpen] = useState(false);
 
   const [gamesMenuMobile, setGamesMenuMobile] = useState(false);
   const [booksMenuMobile, setBooksMenuMobile] = useState(false);
 
-  const handleBooksMenu = () => {
-    setBooksMenuOpen(!booksMenuOpen);
-    setMenu(false);
-  };
-  const handleGamesMenu = () => {
-    setGamesMenuOpen(!gamesMenuOpen);
-  };
+  // const handleBooksMenu = () => {
+  //   setBooksMenuOpen(!booksMenuOpen);
+  //   setMenu(false);
+  // };
+  // const handleGamesMenu = () => {
+  //   setGamesMenuOpen(!gamesMenuOpen);
+  // };
   // const handleGamesClick = () => {
   //   setIsGamesOpen(!isGamesOpen);
   // };
@@ -124,7 +124,7 @@ const Navbar = ({ darkModeButton }) => {
           <nav className='hidden md:block md:container pl-6 '>
             <div className='flex justify-between text-xl'>
               <div className='flex text-black space-x-10'>
-                <Link to='/info' activeClassName='active'>
+                <Link to='/info' activeclassname='active'>
                   <button>
                     <div
                       className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500 hover:text-white'
@@ -136,7 +136,7 @@ const Navbar = ({ darkModeButton }) => {
                       >
                         <MdInfoOutline />
                       </IconContext.Provider>
-                      {/* <p ref={circleInstance}>INFO</p> */}
+                      
                     </div>
                     <div>
                       {isHovering && (
@@ -146,7 +146,7 @@ const Navbar = ({ darkModeButton }) => {
                   </button>
                 </Link>
 
-                <Link to='/books' activeClassName='active'>
+                <Link to='/books' activeclassname='active'>
                   <div className='relative group h-0 '>
                     <button>
                       <div
@@ -194,7 +194,7 @@ const Navbar = ({ darkModeButton }) => {
                   </div>
                 </Link>
 
-                {/* <Link to='/dictionary' activeClassName='active'>
+                {/* <Link to='/dictionary' activeclassname='active'>
                   <button>
                     <div
                       className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
@@ -283,7 +283,7 @@ const Navbar = ({ darkModeButton }) => {
                   </div>
                 </Link>
 
-                <Link to='/teachers' activeClassName='active'>
+                <Link to='/teachers' activeclassname='active'>
                   <button>
                     <div
                       className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
@@ -306,7 +306,7 @@ const Navbar = ({ darkModeButton }) => {
                   </button>
                 </Link>
 
-                <Link to='/students' activeClassName='active'>
+                <Link to='/students' activeclassname='active'>
                   <button>
                     <div
                       className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
@@ -330,7 +330,7 @@ const Navbar = ({ darkModeButton }) => {
                 </Link>
               </div>
               <div className='flex pl-2 space-x-4'>
-                <Link to='/signup' activeClassName='active'>
+                <Link to='/signup' activeclassname='active'>
                   <button>
                     <div
                       className=' w-18 h-28 p-2 rounded-full border     border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
@@ -357,7 +357,7 @@ const Navbar = ({ darkModeButton }) => {
                     </div>
                   </button>
                 </Link>
-                <Link to='/login' activeClassName='active'>
+                <Link to='/login' activeclassname='active'>
                   <button>
                     <div
                       className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
@@ -383,7 +383,8 @@ const Navbar = ({ darkModeButton }) => {
                   </button>
                 </Link>
                 {/* <a href='w'> */}
-                <button>
+               
+                {/* <button> */}
                   <div
                     className=' w-18 h-28 pt-2 pb-2 pl-2 pr-2 -mt-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
                     onMouseOver={handleMouseOver}
@@ -407,7 +408,8 @@ const Navbar = ({ darkModeButton }) => {
                         </p>
                       )}
                     </div>
-                </button>
+                {/* </button> */}
+             
                 {/* </a> */}
               </div>
 
@@ -493,8 +495,8 @@ const Navbar = ({ darkModeButton }) => {
                     <button>
                       <div
                         className='w-18 h-28 hover:bg-grey-500'
-                        onMouseOver={handleBooksMenuMobile}
-                        onMouseOut={handleBooksMenuMobile}
+                        onMouseOver={handleGamesMenuMobile}
+                        onMouseOut={handleGamesMenuMobile}
                       >
                         <p className='mt-2'>GAMES</p>
                       </div>

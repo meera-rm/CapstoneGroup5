@@ -2,11 +2,13 @@ import React from 'react';
 import './BookLoader.scss';
 
 const BookLoader =()=>{
-return(<div class="book">
-    <div class="inner">
-        <div class="left"></div>
-        <div class="middle"></div>
-        <div class="right"></div>
+return(
+<div className='wrapper'>
+  <div className="book">
+    <div className="inner">
+        <div className="left"></div>
+        <div className="middle"></div>
+        <div className="right"></div>
     </div>
     <ul>
         <li></li>
@@ -28,6 +30,7 @@ return(<div class="book">
         <li></li>
         <li></li> --> */}
     </ul>
+</div>
 </div>
 )
 }

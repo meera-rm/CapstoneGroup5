@@ -30,10 +30,11 @@ const CasualReading= () => {
 if (error) {
       return <>{error.message}</>;
   } else if (!loading) {
-      return <div className='text-center m-auto'><BookLoader/></div>;
+      return <div className=''><BookLoader/></div>;
   } else {
     return (
       <div>
+       
       <div className='text-center text-teal-600 text-2xl mb-10 mt-10'>ReadingLevelBooks
     
       <div className='text-right'>
@@ -45,8 +46,8 @@ if (error) {
       </div>
      </div>
       <SearchAndFilter/>
-      
       {!loading && bookData.length === 0 && <EmptyView styleKey="bold" message="Page Not Found"/>}
+     
   </div>
      
   );
