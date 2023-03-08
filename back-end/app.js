@@ -16,6 +16,7 @@ app.get('/', (req, res) => {
 	res.status(200).send('Welcome to Scholar Sheep!');
 });
 
+
 app.use('/api/books', bookController);
 app.use('/api/teachers', teachersController);
 app.use('/api/logs', logController);

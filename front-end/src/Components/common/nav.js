@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './NavBar.css';
-import logoImage from '../asset/mylogo.png';
+import logoImage from '../asset/sheeplogo.png';
 import { MdLanguage } from 'react-icons/md';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { FaChevronDown } from 'react-icons/fa';
@@ -18,7 +18,7 @@ import { IoIosLogIn } from 'react-icons/io';
 import { GiArchiveRegister } from 'react-icons/gi';
 // import CircleType from 'circletype';
 
-const Navbar = () => {
+const Navbar = ({ darkModeButton }) => {
   const [menu, setMenu] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const [booksMenuOpen, setBooksMenuOpen] = useState(false);
@@ -76,22 +76,47 @@ const Navbar = () => {
         <nav className='w-full h-12 px-5 pt-4 pb-4 flex items-center justify-between md:w-4/5 md:mx-auto'>
           <div className='flex-grow'>
             <Link to='/'>
+              {/* <picture>
+                <source 
+                 type="asset/webp"
+                 scrset="
+                 /asset.webp?width=100 100w,
+                 /asset.webp?width=200 200w
+                 /asset.webp?width=400 400w
+                 /asset.webp?width=800 800w"/> */}
               <img
-                width='160px'
-                height='10px'
+                loading='lazy'
+                width={140}
+                height={10}
+                effect='blur'
+                // scrset="
+                // /mylogo.png?width=100 100w,
+                // /mylogo.png?width=200 200w
+                // /mylogo.png?width=400 400w
+                // /mylogo.png?width=800 800w"
                 src={logoImage}
+                sizes='(max-width:800px) 100vw, 50vw'
                 alt='logo'
-                className='hidden md:block absolute -left-6 -top-8 p-2 '
+                decoding='async'
+                fetchpriority='high'
+                className='hidden md:block absolute -left-6 -top-6 p-2 '
                 // className='absolute -left-40 -top-8 w-14 h-12'
               />
+              {/* </picture> */}
             </Link>
           </div>
 
-          <div className='text-2xl text-black md:hidden'>
+          <div className='text-2xl text-black md:hidden '>
             {menu === false ? (
-              <AiOutlineMenu onClick={handleMenu} />
+              <div className=' flex gap-10 left-5 '>
+                {darkModeButton}
+                <AiOutlineMenu onClick={handleMenu} />
+              </div>
             ) : (
-              <AiOutlineClose onClick={handleMenu} />
+              <div className=' flex  gap-10 left-5 -top-4'>
+                {darkModeButton}
+                <AiOutlineClose onClick={handleMenu} />
+              </div>
             )}
           </div>
 
@@ -115,7 +140,7 @@ const Navbar = () => {
                     </div>
                     <div>
                       {isHovering && (
-                        <p className='text-rosered font-fonts text-sm'>INFO</p>
+                        <p className='text-teal font-fonts text-sm'>INFO</p>
                       )}
                     </div>
                   </button>
@@ -137,7 +162,7 @@ const Navbar = () => {
                       </div>
                       <div>
                         {isHovering && (
-                          <p className='text-rosered font-fonts text-sm'>
+                          <p className='text-tealfont-fonts text-sm'>
                             BOOKS
                           </p>
                         )}
@@ -184,7 +209,7 @@ const Navbar = () => {
                     </div>
                     <div>
                       {isHovering && (
-                        <p className='text-rosered font-fonts text-sm'>
+                        <p className='text-teal font-fonts text-sm'>
                           DICTIONARY
                         </p>
                       )}
@@ -209,7 +234,7 @@ const Navbar = () => {
                       </div>
                       <div>
                         {isHovering && (
-                          <p className='text-rosered font-fonts text-sm'>
+                          <p className='text-teal font-fonts text-sm'>
                             GAMES
                           </p>
                         )}
@@ -273,7 +298,7 @@ const Navbar = () => {
                     </div>
                     <div>
                       {isHovering && (
-                        <p className='text-rosered font-fonts text-sm'>
+                        <p className='text-teal font-fonts text-sm'>
                           TEACHERS
                         </p>
                       )}
@@ -296,7 +321,7 @@ const Navbar = () => {
                     </div>
                     <div>
                       {isHovering && (
-                        <p className='text-rosered font-fonts text-sm'>
+                        <p className='text-teal font-fonts text-sm'>
                           STUDENTS
                         </p>
                       )}
@@ -325,7 +350,7 @@ const Navbar = () => {
                     </div>
                     <div>
                       {isHovering && (
-                        <p className='text-rosered font-fonts text-sm'>
+                        <p className='text-teal font-fonts text-sm'>
                           SIGNUP
                         </p>
                       )}
@@ -352,12 +377,40 @@ const Navbar = () => {
                     </div>
                     <div>
                       {isHovering && (
-                        <p className='text-rosered font-fonts text-sm'>LOGIN</p>
+                        <p className='text-teal font-fonts text-sm'>LOGIN</p>
                       )}
                     </div>
                   </button>
                 </Link>
+                {/* <a href='w'> */}
+                <button>
+                  <div
+                    className=' w-18 h-28 pt-2 pb-2 pl-2 pr-2 -mt-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
+                    onMouseOver={handleMouseOver}
+                    onMouseOut={handleMouseOut}
+                  >
+                    <IconContext.Provider
+                        value={{ color: 'white'}}
+                      >
+                        <p
+                          className='w-18 text-center rounded-md'
+                          onClick={handleNavLinkDisappear}
+                        >
+                          {darkModeButton}
+                        </p>
+                      </IconContext.Provider>
+                  </div>
+                  <div>
+                      {isHovering && (
+                        <p className='text-teal font-fonts text-sm'>
+                          {darkModeButton==='dark'?'LIGHT MODE':'DARK MODE'}
+                        </p>
+                      )}
+                    </div>
+                </button>
+                {/* </a> */}
               </div>
+
             </div>
           </nav>
         </nav>
@@ -366,13 +419,20 @@ const Navbar = () => {
         <nav className='md:hidden'>
           <Link to='/'>
             <img
-              // width='40px'
-              height='0px'
+              loading='lazy'
+              height={0}
+              effect='blur'
+              width={70}
+
               src={logoImage}
               alt='logo'
-              className='absolute -left-1 -top-3 w-20 h-10'
+              // sizes='(max-width:800px) 100vw, 50vw'
+              decoding='async'
+              fetchpriority='high'
+              className='absolute -left-1 -top-3 w-18 h-10'
             />
           </Link>
+
           {menu && (
             <div className='text-xl border-t text-black mx-5'>
               <div className='space-y-6 py-4 '>

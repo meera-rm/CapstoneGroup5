@@ -28,6 +28,7 @@
     "sass": "^1.58.1",
     "styled-components": "^5.3.6",
     "sweetalert2": "^11.6.15",
+    "use-local-storage": "^2.3.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

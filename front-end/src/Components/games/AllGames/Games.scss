@@ -18,8 +18,7 @@
     0 12.5px 10px rgba(0, 0, 0, 0.06),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072),
     0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12)
-  ;
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 .rpscolor{
    
@@ -52,4 +51,11 @@
     background-image: url('./tictactoe.png');
     background-repeat: no-repeat;
     background-position: center;
+}
+
+@media (max-width: 700px) {
+    .rpscontent,.hangman,.paintapp,.memorygame,.etchsketch,.tictactoe{
+    width: 450px;
+    padding:0px;
+    }
 }

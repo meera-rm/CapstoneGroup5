@@ -42,9 +42,9 @@ const BookCard = ({ book }) => {
             <h2 className='bookCard__title'>{`${book_title.toUpperCase()}`}</h2>
            
             <ol className='bookCard__summary'>
-            {/* <li className='bookCard__summary-list'>
+            <li className='bookCard__summary-list'>
                 Id: <span>{`${book_id}`} </span>
-              </li> */}
+              </li>
               <li className='bookCard__summary-list'>
                 Reading Level: 
                 <span>{`${reading_level}`}

@@ -1,19 +1,19 @@
 import React from 'react';
 import './SubscriptionForm.scss';
-import logoImage from '../../Components/asset/mylogo.png';
+import logoImage from '../../Components/asset/sheeplogo.png';
 
 const SubscriptionForm = () => {
   return (
-    <div class='emailSubscriptionForm '>
-      <div class='emailSubscriptionForm__image'>
+    <div className='emailSubscriptionForm '>
+      <div className='emailSubscriptionForm__image'>
         <img src={logoImage} alt='' style={{borderRadius:'50%'}}/>
       </div>
 
-      <div class='emailSubscriptionForm__newsletter'>Email Newsletter</div>
-      <div class='emailSubscriptionForm__header'>
+      <div className='emailSubscriptionForm__newsletter'>Email Newsletter</div>
+      <div className='emailSubscriptionForm__header'>
         Be the first to get notified about our new services.
       </div>
-      <div class='emailSubscriptionForm__content'>
+      <div className='emailSubscriptionForm__content'>
         Tools to help your children become leaders. Subscribe to
         <a href='www' className='emailSubscriptionForm__content-link'>
           {' '}
@@ -21,18 +21,18 @@ const SubscriptionForm = () => {
         </a>{' '}
         - in your inbox. 🎁
       </div>
-      <div class='emailSubscriptionForm__label'>
+      <div className='emailSubscriptionForm__label'>
         <input
-          class='emailSubscriptionForm__input'
+          className='emailSubscriptionForm__input'
           type='email'
           placeholder='Your email'
         />
-        <button class='emailSubscriptionForm__button'>Read More!</button>
+        <button className='emailSubscriptionForm__button'>Read More!</button>
       </div>
-      <div class='emailSubscriptionForm__smallText'>
+      <div className='emailSubscriptionForm__smallText'>
         <i>
           Free
-          <span class='emailSubscriptionForm__smallText-link'>
+          <span className='emailSubscriptionForm__smallText-link'>
             {' '}
             Education for all
           </span>

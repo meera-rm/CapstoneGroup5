@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import EmptyView from '../../emptyView/EmptyView';
+import BookLoader from '../../loader/BookLoader';
 import BookCard from '../bookCard/BookCard';
 
 const API = process.env.REACT_APP_API_URL;
@@ -95,7 +96,7 @@ const SearchAndFilter = () => {
   if (error) {
       return <>{error.message}</>;
   } else if (!loaded) {
-      return <>loading...</>;
+      return <><BookLoader/></>;
   } else {
       return (
           <div className="wrapper">
@@ -142,7 +143,7 @@ const SearchAndFilter = () => {
                 </div>
               ))}
           </div>
-        )}
+        )} 
        
       </div>
     );

@@ -85,7 +85,7 @@ const RockpaperScissors=()=>{
            <div>{finalOutput}</div>
            {/* {game >5 ? reset(): ''}
            <div> Games Left :{5-game} </div> */}
-           <section className='flex justify-around align-center pt-5 pb-5 '>
+           <section className='flex justify-around align-center pt-5  '>
             <div className='block border-2 border-teal-500 p-10  '>
                
                 <h2 className='py-10 text-xl'>Your choice:<span className='px-5'></span> </h2>
@@ -113,15 +113,3 @@ const RockpaperScissors=()=>{
 export default RockpaperScissors;
 
 
-// https://jamescole.info/design/drum-machine/
-// https://github.com/jamescoledesign/drum-machine-v2/blob/main/src/components/Pad.js/
-
-
-
-
-// websites fo rui design
-
-// https://stackblitz.com/edit/react-rock-paper-scissors?file=src%2FApp.
-//https://github.com/Pavan-Kiran-Chidirala/reactrpsappjs/blob/main/src/components/RpsPage/index.js
-//https://aviyel.com/post/1203/building-a-rock-paper-scissor-lizard-and-spoke-game-in-react
-//https://rock-paper-scissor-spock-game.netlify.app/

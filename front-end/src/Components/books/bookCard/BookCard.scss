@@ -34,7 +34,7 @@
   cursor: pointer;
   height: 250px;
   margin:  50px auto;
-  padding: 0 20px;
+  padding: 0px 20px;
   -webkit-tap-highlight-color: rgba(0,0,0,0.025);
   position: relative;
   text-align: center;
@@ -43,7 +43,7 @@
   ;
 	
   &.expanded {
-    height: 400px;
+    height: 420px;
   }
 
   &__summary{
@@ -94,7 +94,7 @@
      position: absolute;
      bottom: 0;
      width: 100%;
-     margin: -90px -20px;
+     margin: -120px -20px;
     //  padding: 20px 10px;
     // background-color: rgba(255, 255, 255, 0.8);
      clip-path: polygon(0% 100%, 0 -90%, 100% -5%, 100% -90%, 100% 100%);
@@ -122,7 +122,7 @@
   
   &.expanded {
     transform: rotate(0deg);
-    bottom:30px;
+    bottom:10px;
   }
 }
  &__textcontent {

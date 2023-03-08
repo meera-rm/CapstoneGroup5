@@ -328,4 +328,19 @@ export default Hangman;
 //   );
 // };
 
+
 // export default ButtonGrid;
+
+
+// https://jamescole.info/design/drum-machine/
+// https://github.com/jamescoledesign/drum-machine-v2/blob/main/src/components/Pad.js/
+
+
+
+
+// websites fo rui design
+
+// https://stackblitz.com/edit/react-rock-paper-scissors?file=src%2FApp.
+//https://github.com/Pavan-Kiran-Chidirala/reactrpsappjs/blob/main/src/components/RpsPage/index.js
+//https://aviyel.com/post/1203/building-a-rock-paper-scissor-lizard-and-spoke-game-in-react
+//https://rock-paper-scissor-spock-game.netlify.app/

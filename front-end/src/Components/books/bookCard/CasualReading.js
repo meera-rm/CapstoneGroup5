@@ -26,12 +26,14 @@ const CasualReading= () => {
       });
   }, []);
 
-
-  return (
-   <div>
-      {error && <>{error.message}</>}
-      {loading &&  <div><BookLoader/></div>} 
-      {!loading && bookData.length===0 &&<EmptyView styleKey='bold' message='Page Not Found' />}
+   
+if (error) {
+      return <>{error.message}</>;
+  } else if (!loading) {
+      return <div className='text-center m-auto'><BookLoader/></div>;
+  } else {
+    return (
+      <div>
       <div className='text-center text-teal-600 text-2xl mb-10 mt-10'>ReadingLevelBooks
     
       <div className='text-right'>
@@ -43,10 +45,11 @@ const CasualReading= () => {
       </div>
      </div>
       <SearchAndFilter/>
-    
+      
+      {!loading && bookData.length === 0 && <EmptyView styleKey="bold" message="Page Not Found"/>}
   </div>
      
   );
-//  }
+ }
 };
 export default CasualReading;

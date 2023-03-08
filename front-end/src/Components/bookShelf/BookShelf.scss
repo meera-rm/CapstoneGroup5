@@ -25,6 +25,13 @@ $springer: #eded80;
   }
   
 }
+@media screen and (max-width: 600px) {
+  .shelf{
+    width: 50%;
+  display:block;
+  }
+  
+}
 
 .bookshelf {
   width: 470px;
