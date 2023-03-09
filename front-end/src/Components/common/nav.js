@@ -375,7 +375,7 @@ const Navbar = ({ darkModeButton }) => {
                         </p>
                       </IconContext.Provider>
                     </div>
-                    <div>
+                    <div className='block'>
                       {isHovering && (
                         <p className='text-teal font-fonts text-sm'>LOGIN</p>
                       )}
@@ -383,7 +383,7 @@ const Navbar = ({ darkModeButton }) => {
                   </button>
                 </Link>
                 {/* <a href='w'> */}
-               
+               <div>
                 {/* <button> */}
                   <div
                     className=' w-18 h-28 pt-2 pb-2 pl-2 pr-2 -mt-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
@@ -409,7 +409,7 @@ const Navbar = ({ darkModeButton }) => {
                       )}
                     </div>
                 {/* </button> */}
-             
+             </div>
                 {/* </a> */}
               </div>
 

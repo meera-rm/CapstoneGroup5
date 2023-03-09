@@ -27,16 +27,16 @@ const ReadingLevelBooks = () => {
       });
   }, []);
 
-// if (error) {
-//     return <>{error.message}</>;
-// } else if (!loading) {
-//     return <div ><BookLoader/></div>;
-// } else {
+if (error) {
+    return <>{error.message}</>;
+} else if (loading) {
+    return <div ><BookLoader/></div>;
+} else {
   return (
    <div>
       {/* {error && <>{error.message}</>}
-      {loading &&  <div><BookLoader/></div>} 
-       */}
+      {loading &&  <div><BookLoader/></div>}  */}
+      
       <div className='text-center text-teal-600 text-2xl mb-10 mt-10'>ReadingLevelBooks
     
       <div className='text-right'>
@@ -52,6 +52,6 @@ const ReadingLevelBooks = () => {
   </div>
       
   );
-  // }
+   }
 };
 export default ReadingLevelBooks;
