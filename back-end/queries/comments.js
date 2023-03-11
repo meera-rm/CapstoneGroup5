@@ -1,6 +1,5 @@
 const db = require('../db/dbConfig.js');
 
-
 const getAllComments = async (logId) => {
   let allComments;
   try {
@@ -31,8 +30,19 @@ const getComment = async (id) => {
   }
 };
 
-const newComment = async (comment) => {
+const getCommentByLogId = async (id) => {
+  try {
+    const oneComment = await db.oneOrNone(
+      'SELECT * FROM comments WHERE logs_id=$1',
+      id
+    );
+    return oneComment;
+  } catch (error) {
+    return error;
+  }
+};
 
+const newComment = async (comment) => {
   let { teacher_comments, logs_id, teachers_id } = comment;
 
   try {
@@ -60,7 +70,6 @@ const deleteComment = async (id) => {
   }
 };
 
-
 const updateComment = async (comment, commentId) => {
   let { teacher_comments, logs_id, teachers_id } = comment;
 
@@ -84,4 +93,5 @@ module.exports = {
   newComment,
   deleteComment,
   updateComment,
+  getCommentByLogId,
 };

@@ -18,7 +18,7 @@ const TeacherDetails = () => {
   const [teacher, setTeacher] = useState([]);
   const [student, setStudent] = useState([]);
   const [choice] = useState(1);
-  const [bookData, setBookData] = useState([]);
+   const [bookData, setBookData] = useState([]);
   const [view, setView] = useState(false);
 
   let navigate = useNavigate();
@@ -131,7 +131,7 @@ const TeacherDetails = () => {
               choice={choice}
               teacher={teacher}
               student={student}
-              bookData={bookData}
+              // bookData={bookData}
             />
           </>
         ) : null}

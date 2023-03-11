@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 import { randomWord } from './word';
 
-const HangmanGame = () => {
+const GuessWord = () => {
   const [alphabet, setAlphabet] = useState([
     'a',
     'b',
@@ -116,21 +116,7 @@ const HangmanGame = () => {
   };
 
   const comments = () => {
-    // if (lives < 0) {
-    //     setMessage(`You have ${lives} lives`);
-    //   } else if (counter === word.length - space) {
-    //     setMessage('You won');
-    //
-    //   } else if (lives > 0) {
-    //     setMessage(`You have ${lives} lives left`);
-    //
-    //   } else {
-    //     setMessage(`You lost. The word was "${word}"`);
-    //
-    //   }
-    // if (lives < 0) {
-    //     return`You have ${lives} lives`;
-    //   }
+    
     let message = '';
     if (lives > 0) {
       message = `You have ${lives} lives left`;
@@ -183,7 +169,7 @@ const HangmanGame = () => {
     <div className='m-auto text-center border-2 my-5 bg-cyan-50 max-w-5xl'>
       <h1 className='text-teal-700'>GUESS THE WORD</h1>
       <div className='text-6xl font-normal mt-6 mb-6'>{geusses}</div>
-    
+
       <div className='mt-6 mb-6 text-xl'>
         {' '}
         Count of Wrong Letters : {nWrong}
@@ -195,28 +181,35 @@ const HangmanGame = () => {
       </div>
 
       <div className='text-xl font-normal mt-4'>{comments()}</div>
-     
+
       {counter + space === geusses.length ? (
         <p className='text-xl font-normal mt-4 mb-4'> You Win!</p>
-      ) : 
-      nWrong === 10 && lives === 0 ? (
-         <div>
+      ) : nWrong === 10 && lives === 0 ? (
+        <div>
           <p className='text-xl font-normal mt-4 mb-4'>You Lose</p>
           <p className='text-2xl font-semibold'>Correct Word is: {word}</p>
         </div>
       ) : (
-        <div className='grid grid-cols-7 mt-4 mb-4 '>
+        <div className='grid sm:grid-cols-7 mt-4 mb-4 '>
           <div className='col-start-4 mx-auto'>{buttons()}</div>
         </div>
-      )} 
+      )}
       <div className='p-20'>
-      <button
-        className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mt-4 mr-10'
-        onClick={() => play()}>Play </button>
-      <button  className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mt-4 mr-10'onClick={() => reset()}>Reset</button>
+        <button
+          className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mt-4 mr-10'
+          onClick={() => play()}
+        >
+          Play{' '}
+        </button>
+        <button
+          className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mt-4 mr-10'
+          onClick={() => reset()}
+        >
+          Reset
+        </button>
       </div>
     </div>
   );
 };
 
-export default HangmanGame;
+export default GuessWord;

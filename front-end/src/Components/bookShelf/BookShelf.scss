@@ -21,14 +21,14 @@ $springer: #eded80;
 @media screen and (max-width: 900px) {
   .shelf{
     width: 100%;
-  display:block;
+   display:block;
   }
   
 }
 @media screen and (max-width: 600px) {
   .shelf{
     width: 50%;
-  display:block;
+   display:block;
   }
   
 }
@@ -49,6 +49,33 @@ $springer: #eded80;
      darken($teal, 4%) 228px,
      darken($teal, 4%) 230px
   );
+  @media screen and (max-width: 900px) {
+   
+      width: 360px;
+     display:block;
+     margin: 20px auto ;
+     border: 20px $teal solid;
+     .book-mobile{
+      display:none;
+    }
+    .book-titled.book-umber{
+      display:none;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    
+    width: 360px;
+    display:block;
+    margin: 20px auto ;
+    border: 20px $teal solid;
+    .book-titled.book-umber{
+      display:none;
+    }
+    .book-mobile{
+      display:none;
+    }
+    
+  }
   &__title{
     text-align:center;
     font-size: 1.5em;
@@ -81,7 +108,7 @@ $springer: #eded80;
 }
 
 .book-tilted > .book {
-  transform: translateY(-3px) translateX(15px) rotate(9deg);
+  transform: translateY(-3px) translateX(10px) rotate(5deg);
 }
 
 .book:hover {

@@ -3,7 +3,7 @@ import './NavBar.css';
 import logoImage from '../asset/sheeplogo.png';
 
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
-
+import {CgProfile} from 'react-icons/cg';
 import { NavLink as Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { MdInfoOutline } from 'react-icons/md';
@@ -86,7 +86,7 @@ const Navbar = ({ darkModeButton }) => {
                  /asset.webp?width=800 800w"/> */}
               <img
                 loading='lazy'
-                width={140}
+                width={120}
                 height={10}
                 effect='blur'
                 // scrset="
@@ -99,7 +99,7 @@ const Navbar = ({ darkModeButton }) => {
                 alt='logo'
                 decoding='async'
                 fetchpriority='high'
-                className='hidden md:block absolute -left-6 -top-6 p-2 '
+                className='hidden md:block absolute -left-6 -top-4 p-2 '
                 // className='absolute -left-40 -top-8 w-14 h-12'
               />
               {/* </picture> */}
@@ -121,10 +121,10 @@ const Navbar = ({ darkModeButton }) => {
           </div>
 
           {/* large screen */}
-          <nav className='hidden md:block md:container pl-6 '>
+          <nav className='hidden md:block md:container pl-2 '>
             <div className='flex justify-between text-xl'>
               <div className='flex text-black space-x-10'>
-                <Link to='/info' activeclassname='active'>
+                {/* <Link to='/info' activeclassname='active'>
                   <button>
                     <div
                       className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500 hover:text-white'
@@ -144,8 +144,29 @@ const Navbar = ({ darkModeButton }) => {
                       )}
                     </div>
                   </button>
-                </Link>
+                </Link>  */}
 
+                  <Link to='/profile' activeclassname='active'>
+                  <button>
+                    <div
+                      className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500 hover:text-white'
+                      onMouseOver={handleMouseOver}
+                      onMouseOut={handleMouseOut}
+                    >
+                      <IconContext.Provider
+                        value={{ color: 'white', size: 40 }}
+                      >
+                        <CgProfile />
+                      </IconContext.Provider>
+                      
+                    </div>
+                    <div>
+                      {isHovering && (
+                        <p className='text-teal font-fonts text-sm'>PROFILE</p>
+                      )}
+                    </div>
+                  </button>
+                </Link>  
                 <Link to='/books' activeclassname='active'>
                   <div className='relative group h-0 '>
                     <button>
@@ -162,9 +183,7 @@ const Navbar = ({ darkModeButton }) => {
                       </div>
                       <div>
                         {isHovering && (
-                          <p className='text-tealfont-fonts text-sm'>
-                            BOOKS
-                          </p>
+                          <p className='text-tealfont-fonts text-sm'>BOOKS</p>
                         )}
                       </div>
                     </button>
@@ -234,9 +253,7 @@ const Navbar = ({ darkModeButton }) => {
                       </div>
                       <div>
                         {isHovering && (
-                          <p className='text-teal font-fonts text-sm'>
-                            GAMES
-                          </p>
+                          <p className='text-teal font-fonts text-sm'>GAMES</p>
                         )}
                       </div>
                     </button>
@@ -298,9 +315,7 @@ const Navbar = ({ darkModeButton }) => {
                     </div>
                     <div>
                       {isHovering && (
-                        <p className='text-teal font-fonts text-sm'>
-                          TEACHERS
-                        </p>
+                        <p className='text-teal font-fonts text-sm'>TEACHERS</p>
                       )}
                     </div>
                   </button>
@@ -321,9 +336,7 @@ const Navbar = ({ darkModeButton }) => {
                     </div>
                     <div>
                       {isHovering && (
-                        <p className='text-teal font-fonts text-sm'>
-                          STUDENTS
-                        </p>
+                        <p className='text-teal font-fonts text-sm'>STUDENTS</p>
                       )}
                     </div>
                   </button>
@@ -350,9 +363,7 @@ const Navbar = ({ darkModeButton }) => {
                     </div>
                     <div>
                       {isHovering && (
-                        <p className='text-teal font-fonts text-sm'>
-                          SIGNUP
-                        </p>
+                        <p className='text-teal font-fonts text-sm'>SIGNUP</p>
                       )}
                     </div>
                   </button>
@@ -383,36 +394,33 @@ const Navbar = ({ darkModeButton }) => {
                   </button>
                 </Link>
                 {/* <a href='w'> */}
-               <div>
-                {/* <button> */}
+                <div>
+                  {/* <button> */}
                   <div
-                    className=' w-18 h-28 pt-2 pb-2 pl-2 pr-2 -mt-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
+                    className=' w-18 h-28 pt-2 pb-2 pl-2 pr-2 -mt-0 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
                     onMouseOver={handleMouseOver}
                     onMouseOut={handleMouseOut}
                   >
-                    <IconContext.Provider
-                        value={{ color: 'white'}}
+                    <IconContext.Provider value={{ color: 'white' }}>
+                      <p
+                        className='w-18 text-center rounded-md'
+                        onClick={handleNavLinkDisappear}
                       >
-                        <p
-                          className='w-18 text-center rounded-md'
-                          onClick={handleNavLinkDisappear}
-                        >
-                          {darkModeButton}
-                        </p>
-                      </IconContext.Provider>
+                        {darkModeButton}
+                      </p>
+                    </IconContext.Provider>
                   </div>
                   <div>
-                      {isHovering && (
-                        <p className='text-teal font-fonts text-sm'>
-                          {darkModeButton==='dark'?'LIGHT MODE':'DARK MODE'}
-                        </p>
-                      )}
-                    </div>
-                {/* </button> */}
-             </div>
+                    {isHovering && (
+                      <p className='text-teal font-fonts text-sm'>
+                        {darkModeButton === 'dark' ? 'LIGHT MODE' : 'DARK MODE'}
+                      </p>
+                    )}
+                  </div>
+                  {/* </button> */}
+                </div>
                 {/* </a> */}
               </div>
-
             </div>
           </nav>
         </nav>
@@ -425,13 +433,12 @@ const Navbar = ({ darkModeButton }) => {
               height={0}
               effect='blur'
               width={70}
-
               src={logoImage}
               alt='logo'
               // sizes='(max-width:800px) 100vw, 50vw'
               decoding='async'
               fetchpriority='high'
-              className='absolute -left-1 -top-3 w-18 h-10'
+              className='absolute -left-1 -top-1 w-20 h-12'
             />
           </Link>
 
@@ -501,44 +508,44 @@ const Navbar = ({ darkModeButton }) => {
                         <p className='mt-2'>GAMES</p>
                       </div>
                     </button>
-                    <div
+                    {/* <div
                       className='z-10 absolute  w-50 hidden group-hover:block bg-gray-300 shadow-md rounded py-2 '
                       onMouseOver={handleMouseOver}
                       onMouseOut={handleMouseOut}
-                    >
-                      <Link to='/games/rsp'>
+                    > */}
+                      {/* <Link to='/games/rsp'>
                         <button
                           className='block px-4 py-2 text-black-800 hover:bg-teal-400'
                           onClick={handleNavLinkDisappear}
                         >
                           RockPaperScissor
                         </button>
-                      </Link>
-                      <Link to='/games/memorygames'>
+                      </Link> */}
+                      {/* <Link to='/games/memorygames'>
                         <button
                           className='block px-4 py-2 text-black-800 hover:bg-teal-400'
                           onClick={handleNavLinkDisappear}
                         >
                           Memory Games
                         </button>
-                      </Link>
-                      <Link to='/games/paint'>
+                      </Link> */}
+                      {/* <Link to='/games/paint'>
                         <button
                           className='block px-4 py-2 text-black-800 hover:bg-teal-400'
                           onClick={handleNavLinkDisappear}
                         >
                           Paint app
                         </button>
-                      </Link>
-                      <Link to='/games/etchsketch'>
+                      </Link> */}
+                      {/* <Link to='/games/etchsketch'>
                         <button
                           className='block px-4 py-2 text-black-800 hover:bg-teal-400'
                           onClick={handleNavLinkDisappear}
                         >
                           Etch A Sketch
                         </button>
-                      </Link>
-                    </div>
+                      </Link> 
+                    </div>*/}
                   </div>
                 </Link>
 

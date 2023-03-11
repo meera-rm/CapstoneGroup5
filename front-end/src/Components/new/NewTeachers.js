@@ -2,12 +2,21 @@ import { useState } from 'react';
 import axios from 'axios';
 
 import { useNavigate, useParams, Link } from 'react-router-dom';
+import avatarProfilePics from '../../utils/AvatarProfilePics';
 
 const API = process.env.REACT_APP_API_URL;
 
 const NewTeachers = () => {
+
   const navigate = useNavigate();
-  let { id } = useParams();
+  // let { teacherId } = useParams();
+
+
+
+  const avatarNames=['abby' ,'midnight','angel','salem','gizmo','kiki','cuddles','boo','jack','patches','mimi','annie','pumpkin','sam',
+    'rascal','lucy','pepper','milo','snickers','bob'];
+
+  
 
   //declare states
   const [teacher, setTeacher] = useState({
@@ -19,7 +28,7 @@ const NewTeachers = () => {
     state_name: '',
     class_subject: '',
     teaching_grade: '',
-    pic:'',
+    teacher_profilePic: avatarProfilePics(avatarNames),
   });
 
   const handleTextChange = (event) => {
@@ -55,6 +64,22 @@ const NewTeachers = () => {
           onSubmit={handleSubmit}
         >
          
+         <div className='flex flex-col mb-4 md:w-full'>
+            <label
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              htmlFor='student-profilePic'
+            >
+            Teacher profilepic
+            </label>
+            <input
+              className='border py-2 px-3 text-grey-darkest'
+              id='student-profilePic'
+              type='text'
+              name='student-profilePic'
+              value={teacher.teacher_profilePic}
+              disabled={true}
+            />
+          </div>
           <div className='flex flex-col mb-4 md:w-full'>
             <label
               className='mb-2 uppercase font-bold text-lg text-grey-darkest'

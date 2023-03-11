@@ -1,41 +1,26 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate, useLocation } from 'react-router-dom';
 
 import axios from 'axios';
-import StudentLogsView from './StudentLogsView';
 import Pagination from '../features/Pagination';
-import NewLogs from '../new/NewLogs';
-
-import Comment from './Comment';
-
-import NewComments from '../new/NewComments';
-
+import LogEntry from './LogEntry';
 import Modal from '../features/Modal';
-import { MdDelete } from 'react-icons/md';
-import { MdTableView } from 'react-icons/md';
 
-import { FaEdit } from 'react-icons/fa';
+// import StudentLogsView from './StudentLogsView';
+// import NewLogs from '../new/NewLogs';
+// import Comment from './Comment';
+// import NewComments from '../new/NewComments';
+// import { MdDelete } from 'react-icons/md';
+// import { MdTableView } from 'react-icons/md';
+// import { FaEdit } from 'react-icons/fa';
 
 const API = process.env.REACT_APP_API_URL;
-// const columns = [
-//   { accessor: 'id', label: 'ID' },
-//   { accessor: 'date', label: 'Date' },
-//   { accessor: 'title', label: 'Book Title' },
-//   { accessor: 'bookid', label: 'Book Id' },
-//   { accessor: 'minutesread', label: 'Minutes Read' },
-//   { accessor: 'pagesread', label: 'Pages Read' },
-//   { accessor: 'readingthoughts', label: 'Reading Thoughts' },
-//   // { accessor: 'bookid', label: 'Manager', format: (value) => (value ? '✔️' : '✖️') },
-//   { accessor: 'teachercomments', label: 'Teacher Comments' },
-// ]
+
 
 const StudentDetails = (props) => {
-
   const [student, setStudent] = useState([]);
   const [logData, setLogData] = useState([]);
-  const [bookData, setBookData] = useState([]);
-  const [comments, setComments] = useState([]);
+  // const [comment, setComment] = useState([]);
   const [choice] = useState(2);
   //Popup code
   const [showModal, setShowModal] = useState(false);
@@ -65,22 +50,7 @@ const StudentDetails = (props) => {
       .catch(() => navigate('/not-found'));
   }, [id, navigate]);
 
-  useEffect(() => {
-    axios.get(`${API}/api/books`).then((response) => {
-      // console.log(response.data.payload);
-      setBookData(response.data.payload);
-    });
-    //     .catch(() => navigate('/not-found'));
-  }, [id, navigate]);
 
-  useEffect(() => {
-    axios
-      .get(`${API}/api/comments`)
-      .then((response) => {
-        setComments(response.data.payload);
-      })
-      .catch(() => navigate('/not-found'));
-  }, [id, navigate]);
 
   //Delete functions
   const handleDelete = () => {
@@ -104,20 +74,14 @@ const StudentDetails = (props) => {
   const [message, setMessage] = useState(true);
 
   const onClick = () => setMessage(false);
-  
-  // const [filters, setFilters] = useState({})
-  // const [sort, setSort] = useState({ order: 'asc', orderBy: 'id' })
- 
-
-  // const filteredRows = useMemo(() => filterRows(rows, filters), [rows, filters])
-  // const sortedRows = useMemo(() => sortRows(filteredRows, sort), [filteredRows, sort])
- 
 
   // const [filters, setFilters] = useState({})
   // const [sort, setSort] = useState({ order: 'asc', orderBy: 'id' })
 
   // const filteredRows = useMemo(() => filterRows(rows, filters), [rows, filters])
   // const sortedRows = useMemo(() => sortRows(filteredRows, sort), [filteredRows, sort])
+
+ 
 
   return (
     <div className='container mx-auto px-4 sm:px-8'>
@@ -172,7 +136,6 @@ const StudentDetails = (props) => {
               setShowModal={setShowModal}
               choice={choice}
               student={student}
-              bookData={bookData}
             />
           </>
         ) : null}
@@ -218,172 +181,7 @@ const StudentDetails = (props) => {
               <tbody>
                 {currentRecords.map((log, index) => {
                   return (
-                    <tr key={log.log_id}>
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                        <Link
-                          className='font-bold text-black-700 hover:underline'
-                          to={`/logs/${log.log_id}`}
-                        >
-                          {index + 1}
-                        </Link>
-                      </td>
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                        <Link
-                          className='font-bold text-black-700 hover:underline'
-                          to={`/logs/${log.log_id}`}
-                        >
-                          {log.date_read.slice(0, 10)}
-                        </Link>
-                      </td>
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm '>
-                        <Link
-                          className='font-bold text-black-700 hover:underline'
-                          to={`/logs/${log.log_id}`}
-                        >
-                          {log.book_title}
-                          {/* <Book log={log} books={books} /> */}
-                        </Link>
-                      </td>
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm '>
-                        <Link
-                          className='font-bold text-black-700 hover:underline'
-                          to={`/logs/${log.log_id}`}
-                        >
-                          {log.books_id}
-                          {/* <Book log={log} books={books} /> */}
-                        </Link>
-                      </td>
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                        <Link
-                          className='font-bold text-black-700 hover:underline'
-                          to={`/logs/${log.log_id}`}
-                        >
-                          {log.reading_minutes}
-                        </Link>
-                      </td>
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm '>
-                        <Link
-                          className='font-bold text-black-700 hover:underline'
-                          to={`/logs/${log.log_id}`}
-                        >
-                          {log.pages_read}
-                        </Link>
-                      </td>
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm '>
-                        <Link
-                          className='font-bold text-black-700 hover:underline'
-                          to={`/logs/${log.log_id}`}
-                        >
-                          {log.reading_inference}
-                        </Link>
-                      </td>
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm '>
-
-                        {/* {fromTeacherDetails ? (  
-                        <div className='ml-3 p-3 text-sm text-indigo-900'>
-                          {/* <Link to={`/logs/${log.log_id}/comments/new`}>
-                           <button 
-                            className=' bg-teal-500 px-6 py-4 text-black rounded '
-                              onClick={onClick}
-                           >
-                             <MdAddComment />{' '}
-                           </button>
-                           {/* {message && <StudentLogsView/>} *
-                          </Link>  
-                        </div>
-
-                        {/* ) : ( */}
-                        <div className='ml-3 p-3 text-sm text-indigo-900'>
-
-                        {/* {message ? ( */}
-
-                          <Link
-                            className='font-bold text-black-700 hover:underline'
-                            to={`/logs/${log.log_id}`}
-                          >
-                            {<Comment log={log} comments={comments} />}
-                          </Link>
-
-                          {/* )} */}
-                        </div>
-
-                        {/* // ) : (
-                          // </td>
-                          // <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                         // form openai
-                           const [showMessage, setShowMessage] = useState(false);
-
-
-    <div>
-      {showMessage ? (
-        <p>This is a message.</p>
-      ) : (
-        <button onClick={() => setShowMessage(true)}>
-          Show message
-        </button>
-      )}
-    </div>
-   // endof oepnai
-                 <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                          //  <div className='ml-3 p-3 text-sm text-indigo-900'>
-
-                          // <Link to={`/logs/${log.log_id}/comments/new`}>
-                          //   <button */}
-                          {/* //     className=' bg-teal-500 px-6 py-4 text-black rounded '
-                          //     onClick={onClick}
-
-
-                          // <Link to={`/comments/new`}>
-                          //   <button */}
-                          {/* //     className=' bg-teal-500 px-6 py-4 text-black rounded '
-                          //     onClick={() => setMessage(true)}
-                          // onClick={onClick}
-            //   >
-                          //     <MdAddComment />{' '}
-                          //   </button>
-                          // </Link> */}
-                        {/* // 
-                         </div> */} 
-
-
-
-                      </td>
-
-                      {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                        {/* <div className='flex'> */}
-                      {/* <div className="flex-shrink-0 w-10 h-10"> *
-                           <div className='ml-3 p-3 text-sm text-indigo-900'>
-                            <Link to={`/students`}>
-                              <button
-                                className=' bg-teal-500 px-6 py-4 text-black rounded '
-                              >
-                                <MdTableView />{' '}
-                              </button>
-                            </Link>
-                          </div> 
-                        </td>  */}
-                      {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                        <div className='ml-3 p-3 text-sm text-indigo-900'>
-                          <Link to={`/students/${id}/edit`}>
-                            <button className=' bg-teal-500 px-6 py-4 text-black rounded '>
-                              <MdAddComment />{' '}
-                            </button>
-                          </Link>
-                        </div>
-                      </td> */}
-                      {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                        <div className='ml-3 p-3 text-sm text-indigo-900'>
-                          <Link to={`/students/{id}/Logs/`}>
-                            <button
-                              className=' bg-teal-500 px-6 py-4 text-black rounded '
-                              onClick={handleDelete}
-                            >
-                              <MdDelete />{' '}
-                            </button>
-                          </Link>
-                        </div>
-                      </td> */}
-                    </tr>
+                    <LogEntry log={log} index={index}/>
                   );
                 })}
               </tbody>
@@ -402,5 +200,3 @@ const StudentDetails = (props) => {
 };
 
 export default StudentDetails;
-
-

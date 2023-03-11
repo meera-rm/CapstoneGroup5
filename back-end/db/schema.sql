@@ -31,7 +31,6 @@ CREATE TABLE teachers(
     class_subject TEXT NOT NULL,
     teaching_grade TEXT NOT NULL,
     teacher_avatar TEXT
-
 );
 
 

@@ -67,17 +67,13 @@ const RockpaperScissors=()=>{
             default:
                 break;
           }
-          
-
       }, [computerChoice, userChoice]);
  
       
    
     return(
         <div className='text-center bg-teal-100 min-h-max'>
-       
            <h1 className='pt-10 pb-10'> ROCK PAPER SCISSORS</h1>
-          
            <div className='flex justify-around align-center '>
              <h2 className='text-xl'>Wins: {wins}</h2>
              <h2 className='text-xl'>Loss: {loss}</h2>
@@ -87,7 +83,7 @@ const RockpaperScissors=()=>{
            <div> Games Left :{5-game} </div> */}
            <section className='flex justify-around align-center pt-5  '>
             <div className='block border-2 border-teal-500 p-10  '>
-               
+  
                 <h2 className='py-10 text-xl'>Your choice:<span className='px-5'></span> </h2>
                 <h2  className='text-5xl'>{userChoice}</h2>
              </div>
@@ -103,7 +99,7 @@ const RockpaperScissors=()=>{
            <section className='flex inset-y-0 py-5' >
           
            {options.map((option,index) => (
-            <button className='pt-10 pb-10 m-auto text-center text-5xl border-2 border-teal-460  bg-teal-500 p-10 rounded-full' key={index} onClick={() => clickHandler(option)}>{option}</button>
+            <button className='p-3 pt-3 pb-3 md:pt-10 md:pb-10 m-auto text-center text-5xl border-2 border-teal-460  bg-teal-500 md:p-10 rounded-full ' key={index} onClick={() => clickHandler(option)}>{option}</button>
           ))} 
            
           </section>

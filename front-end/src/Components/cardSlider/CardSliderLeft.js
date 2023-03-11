@@ -9,8 +9,8 @@ const CardSliderLeft = () => {
   const One = () => {
     return (
       <div class='cardSlider__text'>
-         <h1>Instill love of reading early to</h1>
-        <h2>improve confidence and builds independence</h2>
+         <h1 class='cardSlider__header'>Instill love of reading early to</h1>
+         <h6>improve confidence and builds independence</h6>
       </div>
     );
   };
@@ -18,16 +18,16 @@ const CardSliderLeft = () => {
   const Two = () => {
     return (
       <div className='cardSlider__text'>
-  <h1>Instill love of reading early to</h1>
-        <h2>help a child to develop imagination</h2>
+        <h1 class='cardSlider__header'>Instill love of reading early to</h1>
+        <h6>help a child to develop imagination</h6>
       </div>
     );
   };
   const Three = () => {
     return (
       <div className='cardSlider__text'>
-         <h1>Instill love of reading early to</h1>
-        <h2>expand a child's vocabulary</h2>
+         <h1 class='cardSlider__header'>Instill love of reading early to</h1>
+         <h6>expand a child's vocabulary</h6>
       </div>
     );
   };
@@ -35,8 +35,8 @@ const CardSliderLeft = () => {
   const Four = () => {
     return (
       <div className='cardSlider__text'>
-     <h1>Instill love of reading early to</h1>
-        <h2>develop critical thinking</h2>
+        <h1 class='cardSlider__header'>Instill love of reading early to</h1>
+        <h6>develop critical thinking</h6>
       </div>
     );
   };
@@ -44,8 +44,8 @@ const CardSliderLeft = () => {
   const Five = () => {
     return (
       <div className='cardSlider__text'>
-        <h1>Instill love of reading early to</h1>
-        <h2>help to build socio-emotional skills</h2>
+        <h1 class='cardSlider__header'>Instill love of reading early to</h1>
+        <h6>help to build socio-emotional skills</h6>
       </div>
     );
   };
@@ -53,7 +53,7 @@ const CardSliderLeft = () => {
   return (
     <div className='cardSlider'>
       <div className='cardSlider__content'>
-        <h2>Benefits of reading</h2>
+        <div>Benefits of reading</div>
         <div>
           {active === 'slider1' && <One />}
           {active === 'slider2' && <Two />}

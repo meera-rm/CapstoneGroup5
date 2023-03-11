@@ -4,18 +4,18 @@ import './Games.scss';
 
 const Games = () => {
   return (
-    <div className='mt-10 text-3xl'>
-      <div className='grid sm:grid-cols-1 space-evenly lg:grid-cols-2 gap-4'>
+    <div className='mt-10 text-2xl'>
+      <div className='grid grid-cols-1 space-between  lg:grid-cols-2 gap-4'>
         <Link to='/games/rps' className='rpscolor' >
           <div className='rpscontent' >Rock Paper Scissors</div>
           </Link>
-          <Link to='/games/hangman' className='rpscolor'> 
-            <div className='hangman'>Guess The Word</div>
+          <Link to='/games/guessword' className='rpscolor'> 
+            <div className='guessword'>Guess The Word</div>
           </Link>
           <Link to='/games/paint'  className='rpscolor'>
             <div className='paintapp'>Paint App</div>
           </Link>
-          <Link to='/games/memorygames'  className='rpscolor'>
+          <Link to='/games/memorygames'  className='rspcolor'>
             <div className='memorygame'>Memorygames</div>
           </Link>
            {/* <Link to='/games/tictactoe' className='rpscolor'>

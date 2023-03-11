@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import { useNavigate, useParams, Link } from 'react-router-dom';
+import avatarProfilePics from '../../utils/AvatarProfilePics';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -9,9 +10,15 @@ const NewStudents = (props) => {
   const navigate = useNavigate();
   let { id } = useParams();
 
+ 
+    const avatarNames=['felix' ,'jessica ','rascal','bella','bear','george','lucy','midnight','buster','pumpkin','mia','spooky','cali','bailey',
+    'fluffy','miss kitty','princess','salem','charlie','smokey','kitty','tina'];
+
+
   //declare states
   const [student, setStudent] = useState({
     student_id: '',
+    student_profilePic: avatarProfilePics(avatarNames),
     student_name: '',
     parent_name: '',
     parent_email: '',
@@ -24,11 +31,11 @@ const NewStudents = (props) => {
 
   const handleTextChange = (event) => {
     console.log(event.target.value);
-
-    setStudent({
+      setStudent({
       ...student,
       [event.target.id]: event.target.value,
     });
+  
     console.log('in text change', student);
   };
 
@@ -44,6 +51,7 @@ const NewStudents = (props) => {
       .catch((c) => console.error('catch', c));
   };
 
+
   return (
     // <div className='add-trans'>
     // <div className='flex flex-col text-center h-screen items-center justify-center '>
@@ -54,6 +62,24 @@ const NewStudents = (props) => {
           className='mb-4 md:flex md:flex-wrap md:justify-between'
           onSubmit={handleSubmit}
         >
+         <div className='flex flex-col mb-4 md:w-full'>
+            <label
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              htmlFor='student-profilePic'
+            >
+             Student profilepic
+            </label>
+            <input
+              className='border py-2 px-3 text-grey-darkest'
+              id='student-profilePic'
+              type='text'
+              name='student-profilePic'
+              value={student.student_profilePic}
+              disabled={true}
+              
+            />
+          </div>
+
           {/* <div className='mb-4'>
             <label className='py-6' htmlFor='parent_name'>
               Parent Name:{' '}
@@ -72,7 +98,7 @@ const NewStudents = (props) => {
           </div> */}
           <div className='flex flex-col mb-4 md:w-full'>
             <label
-              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest '
               htmlFor='parent_name'
             >
               Parent Name

@@ -22,7 +22,7 @@ import RockpaperScissor from '../games/rps/RockpaperScissor';
 import EtchSketch from '../games/EtchSketch';
 import MemoryGames from '../games/MemoryGames';
 import PaintApp from '../games/PaintApp';
-import HangmanGame from '../games/HangmanGame';
+import GuessWord from '../games/guessword/GuessWord';
 import TicTacToe from '../games/TicTacToe';
 import CasualReading from '../books/bookCard/CasualReading';
 import ReadingLevelBooks from '../books/bookCard/ReadingLevelBooks';
@@ -42,7 +42,7 @@ import StudentEdit from '../../Pages/Student/StudentEdit';
 // import NewLog from '../../Pages/Logs/NewLog';
 // import ShowLogs from '../../Pages/Logs/ShowLogs';
 // import EditLogs from '../../Pages/Logs/EditLogs';
-
+import Profile from '../index/Profile';
 // import IndexComments from '../../Pages/Comment/IndexComments';
 // import NewComment from '../../Pages/Comment/NewComment';
 // import ShowComments from '../../Pages/Comment/ShowComments';
@@ -79,7 +79,7 @@ const AnimatedRoutes = () => {
           <Routes location={location} key={location.pathname}>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
-            
+            <Route path='/profile' element={<Profile />} />
             <Route path='/info' element={<Information />} />
             <Route path='/policy' element={<PrivacyPolicy />} />
             <Route path='/contact' element={<Contact />} />
@@ -98,23 +98,23 @@ const AnimatedRoutes = () => {
               <Route path='rps' element={<RockpaperScissor />} />
               <Route path='memorygames' element={<MemoryGames />} />
               <Route path='paint' element={<PaintApp />} />
-              <Route path='hangman' element={<HangmanGame />} />
+              <Route path='guessword' element={<GuessWord />} />
               <Route path='etchsketch' element={<EtchSketch />} />
-              <Route path='tictactoe' element={<TicTacToe/>} />
+              <Route path='tictactoe' element={<TicTacToe />} />
             </Route>
 
             <Route path='/teachers'>
-            <Route index element={<TeacherIndex />} />
-            <Route path='new' element={<TeacherNew />} />
-            <Route path='teachers/:id' element={<TeacherShow />} />
-            <Route path='teachers/:id/edit' element={<TeacherEdit />} />
+              <Route index element={<TeacherIndex />} />
+              <Route path='new' element={<TeacherNew />} />
+              <Route path=':id' element={<TeacherShow />} />
+              <Route path=':id/edit' element={<TeacherEdit />} />
             </Route>
 
             <Route path='/students'>
-            <Route index element={<StudentIndex />} />
-            <Route path='new' element={<StudentNew />} />
-            <Route path='students/:id' element={<StudentShow />} />
-            <Route path='students/:id/edit' element={<StudentEdit />} />
+              <Route index element={<StudentIndex />} />
+              <Route path='new' element={<StudentNew />} />
+              <Route path=':id' element={<StudentShow />} />
+              <Route path=':id/edit' element={<StudentEdit />} />
             </Route>
 
             <Route path='/parent-dashboard' element={<ParentDashboard />} />

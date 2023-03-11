@@ -3,6 +3,9 @@ const express = require('express');
 //access to being able to things like get or set, update or delete
 const comments = express.Router({ mergeParams: true });
 
+// const logController = require('./logController.js');
+// comments.use('/logs/logid', logController);
+
 const db = require('../db/dbConfig');
 
 const {
@@ -11,6 +14,7 @@ const {
   newComment,
   deleteComment,
   updateComment,
+  getCommentByLogId
 } = require('../queries/comments');
 
 //Index
@@ -42,7 +46,24 @@ comments.get('/:commentId', async (req, res) => {
   }
 });
 
-// //CREATE
+
+//get comment by logid
+comments.get('/logs/:logId', async (req, res) => {
+
+  const { logId } = req.params;
+
+  try {
+    const commentFound = await getCommentByLogId(logId);
+    res.status(200).json({ success: true, payload: commentFound });
+  } catch (error) {
+    res.status(404).json({
+      success: false,
+      message: 'Cannot find the comment with the given id',
+    });
+  }
+});
+
+// CREATE
 
 comments.post('/new',  async (req, res) => {
 
