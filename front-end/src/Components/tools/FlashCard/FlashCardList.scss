@@ -6,7 +6,7 @@ body {
    background: whitesmoke;
 }
 
-.cards {
+.flashCardsList {
  display: grid;
   grid-gap: 1.5rem;
   grid-auto-rows: 1fr;
@@ -14,7 +14,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 }
 
-.card {
+.flashCardList {
   display: flex;
   perspective: 40rem;
   width:400px;
@@ -35,19 +35,19 @@ body {
   }
 }
 
-.card-body {
+.flashCardList-body {
   border-radius: 0.25rem;
   flex: 1;
     display: flex;
   transform-style: preserve-3d;
   transition: var(--time) transform;
 
-  .card:hover &, .card:focus & {
+  .flashCardList:hover &, .flashCardList:focus & {
     transform: rotateX(-180deg);
   }
 }
 
-.card-front, .card-back {
+.flashCardList-front, .flashCardList-back {
   @extend .shadow;
   display: block;
   align-items: center;
@@ -59,7 +59,7 @@ body {
   min-width: 100%;
 }
 
-.card-front {
+.flashCardList-front {
   font-size: 1rem;
   text-align:center;
   font-weight:bold;
@@ -67,7 +67,7 @@ body {
   
 }
 
-.card-back {
+.flashCardList-back {
   transform: rotateX(-180deg) translate(-100%, 0);
 }
 

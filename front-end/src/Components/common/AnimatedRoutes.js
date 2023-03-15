@@ -6,7 +6,7 @@ import { useState } from 'react';
 // PAGES
 import FourOFour from '../../Pages/FourOFour';
 import Home from '../../Pages/Home';
-import About from '../../Pages/About';
+import About from '../../Pages/About/About';
 import Contact from '../../Pages/Contact';
 import BookCardList from '../books/booksCardList/BookCardList';
 // import IndexBooks from '../../Pages/Books/IndexBooks';
@@ -20,8 +20,8 @@ import AddVocab from '../tools/Vocabulary/AddVocab';
 import Games from '../games/AllGames/Games';
 import RockpaperScissor from '../games/rps/RockpaperScissor';
 import EtchSketch from '../games/EtchSketch';
-import MemoryGames from '../games/MemoryGames';
-import PaintApp from '../games/PaintApp';
+import MemoryGame from '../games/memorygame/MemoryGame';
+import PaintApp from '../games/paintApp/PaintApp';
 import GuessWord from '../games/guessword/GuessWord';
 import TicTacToe from '../games/TicTacToe';
 import CasualReading from '../books/bookCard/CasualReading';
@@ -96,7 +96,7 @@ const AnimatedRoutes = () => {
             <Route path='/games'>
               <Route index element={<Games />} />
               <Route path='rps' element={<RockpaperScissor />} />
-              <Route path='memorygames' element={<MemoryGames />} />
+              <Route path='memorygame' element={<MemoryGame />} />
               <Route path='paint' element={<PaintApp />} />
               <Route path='guessword' element={<GuessWord />} />
               <Route path='etchsketch' element={<EtchSketch />} />

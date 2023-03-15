@@ -3,7 +3,7 @@ import './FlashCardList.scss';
 
 const FlashCardList = ({ filteredData }) => {
 
-  console.log(filteredData)
+ 
   //  const playAudio = () => {
   //  const audio = new Audio(card.phonetics[0].audio);
   //   audio.play();
@@ -13,15 +13,15 @@ const FlashCardList = ({ filteredData }) => {
   const [flipped, setFlipped] = useState(false);
 
   return (
-    <div className='cards'>
+    <div className='flashCardsList'>
       {filteredData.map((card,idx) => (
-        <div className='card' key={card.id}>
+        <div className='flashCardList' key={card.id}>
           {/* <div
             className={`card-body ${flipped ? 'flipped' : ''}`}
             onClick={() => setFlipped(!flipped)}
           > */}
-          <div className='card-body'>
-            <div className='card-front'>
+          <div className='flashCardList-body'>
+            <div className='flashCardList-front'>
             {/* {data && (*/}
         {/* <div>
           <h3>
@@ -45,7 +45,7 @@ const FlashCardList = ({ filteredData }) => {
               <h4>{card.partsofspeech[0].toUpperCase()+card.partsofspeech.slice(1)}</h4>
            
             </div>
-            <div className='card-back'>
+            <div className='flashCardList-back'>
               <h3><strong>Meaning:</strong></h3>
               <ol>
                 {card.meaning.map((meaning) => (

@@ -86,7 +86,7 @@ const Navbar = ({ darkModeButton }) => {
                  /asset.webp?width=800 800w"/> */}
               <img
                 loading='lazy'
-                width={120}
+                width={130}
                 height={10}
                 effect='blur'
                 // scrset="

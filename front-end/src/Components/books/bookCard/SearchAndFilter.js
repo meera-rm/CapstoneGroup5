@@ -7,7 +7,7 @@ import BookCard from '../bookCard/BookCard';
 const API = process.env.REACT_APP_API_URL;
 
 const alphabets = [
-    'All',
+  'All',
   'A',
   'B',
   'C',
@@ -36,10 +36,9 @@ const alphabets = [
 ];
 
 const SearchAndFilter = () => {
-
   const [bookData, setBookData] = useState([]);
-   const [error, setError] = useState(null);
-  const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState('');
   const [filterParam, setFilterParam] = useState(['All']);
   const [paginate, setpaginate] = useState(8);
@@ -47,9 +46,7 @@ const SearchAndFilter = () => {
     'book_title',
     'book_author',
     'reading_level',
-  ]); 
-
- 
+  ]);
 
   useEffect(() => {
     axios
@@ -57,19 +54,20 @@ const SearchAndFilter = () => {
       //  .then((response) => console.log(response.data))
       .then((response) => {
         setBookData(response.data.payload);
-        setLoaded(true);
+        setLoading(true);
       })
       .catch((error) => {
         console.error('catch', error);
-        setLoaded(true);
+        setLoading(true);
         setError(error);
       });
   }, []);
   const data = Object.values(bookData);
 
-  function search(bookData){
+  function search(bookData) {
     // eslint-disable-next-line
     return bookData.filter((book) => {
+      console.log(book);
       if (book.reading_level === filterParam) {
         return searchParam.some((newBook) => {
           return (
@@ -87,20 +85,22 @@ const SearchAndFilter = () => {
   }
 
   const load_more = (e) => {
-    console.log(e.target.value)
-      setpaginate((prevValue) => prevValue + 8);
+    console.log(e.target.value);
+    setpaginate((prevValue) => prevValue + 8);
   };
 
-
-
   if (error) {
-      return <>{error.message}</>;
-  } else if (!loaded) {
-      return <><BookLoader/></>;
+    return <>{error.message}</>;
+  } else if (!loading) {
+    return (
+      <div className='text-center'>
+        <BookLoader />
+      </div>
+    );
   } else {
-      return (
-          <div className="wrapper">
-            <div className='flex justify-center mt-10 text-center'>
+    return (
+      <div className='wrapper'>
+        <div className='flex justify-center mt-10 text-center'>
           <label htmlFor='search-form'>
             <input
               type='search'
@@ -112,27 +112,31 @@ const SearchAndFilter = () => {
             />
             <span className='sr-only'>Search here</span>
           </label>
-  
+
           <div className=''>
-            <select 
+            <select
               onChange={(e) => {
                 setFilterParam(e.target.value);
               }}
               className='border-2 border-black outline'
               aria-label='Filter Books By ReadingLevel'
             >
-              <option key={'readinglevel'} value='choose'>-- Select Reading Level--</option>
+              <option key={'readinglevel'} value='choose'>
+                -- Select Reading Level--
+              </option>
 
-              {alphabets.map((item,index) => (
-                                <option  key={item+index} value={item}>Filter By {item}</option>
-                            ))}
+              {alphabets.map((item, index) => (
+                <option key={item + index} value={item}>
+                  Filter By {item}
+                </option>
+              ))}
               {}
             </select>
             <span className='focus'></span>
           </div>
         </div>
         {search(data).length === 0 ? (
-          <EmptyView  message="No books found." />
+          <EmptyView message='No books found.' />
         ) : (
           <div className='grid grid-cols-1 space-evenly md:grid-cols-2 lg:grid-cols-3'>
             {search(data)
@@ -143,13 +147,10 @@ const SearchAndFilter = () => {
                 </div>
               ))}
           </div>
-        )} 
-       
+        )}
       </div>
     );
   }
 };
 
 export default SearchAndFilter;
-
-

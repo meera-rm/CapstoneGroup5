@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // import axios from 'axios';
 import { randomWord } from './word';
 
 const GuessWord = () => {
-  const [alphabet, setAlphabet] = useState([
+  const [alphabet] = useState([
     'a',
     'b',
     'c',
@@ -40,8 +40,7 @@ const GuessWord = () => {
   const [wrongWords, setWrongWords] = useState([]);
   const [guessed, setGuessed] = useState(new Set());
   const [nWrong, setNWrong] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
-  const [message, setMessage] = useState('');
+
 
   const check = (geuss) => {
     for (let i = 0; i < word.length; i++) {
@@ -124,32 +123,8 @@ const GuessWord = () => {
     return message;
   };
 
-  //   useEffect(() => {
-  // const options = {
-  //         method: 'GET',
-  //         url: 'https://random-words5.p.rapidapi.com/getMultipleRandom',
-  //         params: {count: '2'},
-  //         headers: {
-  //           'X-RapidAPI-Key': '3d96f61a44mshef59cc06ccf7b17p1fd74ejsn2494fde4f842',
-  //           'X-RapidAPI-Host': 'random-words5.p.rapidapi.com'
-  //         }
-  //       };
-
-  //               axios.request(options).then(function (response) {
-  //                   console.log(response.data);
-
-  //                   setWord(response.data)
-
-  //               }).catch(function (error) {
-  //                   console.error(error);
-  //               });
-
-  //     result();
-  //     comments();
-  //   }, []);
-
   const reset = () => {
-    setGameOver(false);
+   
     setWord(randomWord());
     setLives(10);
     setNWrong(0);

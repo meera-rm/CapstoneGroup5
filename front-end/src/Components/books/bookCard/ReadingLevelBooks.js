@@ -18,7 +18,7 @@ const ReadingLevelBooks = () => {
     axios
       .get(`${API}/api/books`)
       .then((response) => {
-        console.log(response.data.payload)
+        console.log(response.data)
         setBookData(response.data.payload);
         setLoading(false);
       })

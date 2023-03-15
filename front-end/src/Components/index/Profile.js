@@ -55,22 +55,22 @@ const currentUser='' ;
       <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
-          <h2 className="mt-4 text-3xl text-center tracking-tight font-light dark:text-white">
+          <h1 className="mt-4 text-3xl text-center tracking-tight font-light dark:text-teal-800">
             Pick an avatar
-          </h2>
+          </h1>
         </div>
         <form className="space-y-6" onSubmit={handleFormSubmit}>
-          <div className="flex flex-wrap -m-1 md:-m-2">
+          <div className="flex flex-wrap -m-2 md:-m-3">
             {avatars.map((avatar, index) => (
-              <div key={index} className="flex flex-wrap w-1/3">
+              <div key={index} className="flex flex-wrap w-1/4">
                 <div className="w-full p-1 md:p-2">
                   <img
                     alt="gallery"
                     className={classNames(
                       index === selectedAvatar
-                        ? "border-4  border-teal-700 dark:border-teal-700"
+                        ? "border-4 border-teal-700 dark:border-teal-700"
                         : "cursor-pointer hover:border-4 hover:border-teal-700",
-                      "block object-cover object-center w-36 h-36 rounded-full"
+                      "block object-cover object-center w-36 h-36 rounded-full border-2 border-teal-600"
                     )}
                     src={avatar}
                     onClick={() => setSelectedAvatar(index)}
@@ -80,21 +80,21 @@ const currentUser='' ;
             ))}
           </div>
 
-          <div className="rounded-md shadow-sm -space-y-px ">
+          <div className="rounded-md shadow-sm -space-y-px mx-auto text-center ">
             <input
               id="username"
               name="username"
               type="text"
               autoComplete="username"
               required
-              className='bg-teal-500 relative px-3 py-2 focus:z-10 sm:text-sm rounded-lg focus:outline-none  placeholder-teal-500 text-center text-white m-autohover:bg-teal-600 focus:outline-none dark:bg-teal-600 dark:hover:bg-teal-600 '
+              className='bg-teal-600 relative px-3 py-2 focus:z-10 sm:text-sm rounded-lg focus:outline-none  placeholder-teal-50 text-center text-white m-autohover:bg-teal-600 focus:outline-none placeholder -fontSize-32 dark:bg-teal-600 dark:hover:bg-teal-600 '
             //   className="appearance-none rounded-none relative block w-full px-3 py-2 placeholder-teal-600 rounded-t-md bg-teal-600 border border-teal-600 text-teal-600 text-sm focus:outline-none focus:ring-teal-500 focus:border-teal-600 dark:bg-teal-700 dark:border-teal-600 dark:placeholder-teal-600 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500 focus:z-10 sm:text-sm"
-              placeholder="Enter a Display Name"
+              placeholder="Enter a Username"
               defaultValue={currentUser.displayName && currentUser.displayName}
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
-          <div>
+          <div className="rounded-md shadow-sm -space-y-px mx-auto text-center">
             <button
               type="submit"
               disabled={loading}

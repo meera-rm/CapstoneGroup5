@@ -19,7 +19,7 @@ const BookCard = ({ book }) => {
   };
 
   return (
-    <div className='container' >
+    <div >
     
       <div
         className={`bookCard ${expanded ? 'expanded' : 'bookCard'}`}
