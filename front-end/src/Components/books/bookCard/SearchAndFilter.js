@@ -77,7 +77,7 @@ const SearchAndFilter = () => {
       } else if (filterParam === 'All') {
         return searchParam.some((newBook) => {
           return (
-            book[newBook].toString().toLowerCase().indexOf(query.toLowerCase()) > -1
+            book[newBook].toLowerCase().indexOf(query.toLowerCase()) > -1
           );
         });
       }

@@ -3,7 +3,7 @@ import './NavBar.css';
 import logoImage from '../asset/sheeplogo.png';
 
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
-import {CgProfile} from 'react-icons/cg';
+import { CgProfile } from 'react-icons/cg';
 import { NavLink as Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { MdInfoOutline } from 'react-icons/md';
@@ -99,7 +99,7 @@ const Navbar = ({ darkModeButton }) => {
                 alt='logo'
                 decoding='async'
                 fetchpriority='high'
-                className='hidden md:block absolute -left-6 -top-4 p-2 '
+                className='hidden md:block absolute left-2 top-1 w-24 h-8'
                 // className='absolute -left-40 -top-8 w-14 h-12'
               />
               {/* </picture> */}
@@ -146,7 +146,7 @@ const Navbar = ({ darkModeButton }) => {
                   </button>
                 </Link>  */}
 
-                  <Link to='/profile' activeclassname='active'>
+                <Link to='/profile' activeclassname='active'>
                   <button>
                     <div
                       className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500 hover:text-white'
@@ -158,7 +158,6 @@ const Navbar = ({ darkModeButton }) => {
                       >
                         <CgProfile />
                       </IconContext.Provider>
-                      
                     </div>
                     <div>
                       {isHovering && (
@@ -166,7 +165,7 @@ const Navbar = ({ darkModeButton }) => {
                       )}
                     </div>
                   </button>
-                </Link>  
+                </Link>
                 <Link to='/books' activeclassname='active'>
                   <div className='relative group h-0 '>
                     <button>
@@ -435,10 +434,10 @@ const Navbar = ({ darkModeButton }) => {
               width={70}
               src={logoImage}
               alt='logo'
-              // sizes='(max-width:800px) 100vw, 50vw'
+              sizes='(max-width:800px) 100vw, 50vw'
               decoding='async'
               fetchpriority='high'
-              className='absolute -left-1 -top-1 w-20 h-12'
+              className='absolute left-4 top-1 w-14 h-8'
             />
           </Link>
 
@@ -513,7 +512,7 @@ const Navbar = ({ darkModeButton }) => {
                       onMouseOver={handleMouseOver}
                       onMouseOut={handleMouseOut}
                     > */}
-                      {/* <Link to='/games/rsp'>
+                    {/* <Link to='/games/rsp'>
                         <button
                           className='block px-4 py-2 text-black-800 hover:bg-teal-400'
                           onClick={handleNavLinkDisappear}
@@ -521,7 +520,7 @@ const Navbar = ({ darkModeButton }) => {
                           RockPaperScissor
                         </button>
                       </Link> */}
-                      {/* <Link to='/games/memorygames'>
+                    {/* <Link to='/games/memorygames'>
                         <button
                           className='block px-4 py-2 text-black-800 hover:bg-teal-400'
                           onClick={handleNavLinkDisappear}
@@ -529,7 +528,7 @@ const Navbar = ({ darkModeButton }) => {
                           Memory Games
                         </button>
                       </Link> */}
-                      {/* <Link to='/games/paint'>
+                    {/* <Link to='/games/paint'>
                         <button
                           className='block px-4 py-2 text-black-800 hover:bg-teal-400'
                           onClick={handleNavLinkDisappear}
@@ -537,7 +536,7 @@ const Navbar = ({ darkModeButton }) => {
                           Paint app
                         </button>
                       </Link> */}
-                      {/* <Link to='/games/etchsketch'>
+                    {/* <Link to='/games/etchsketch'>
                         <button
                           className='block px-4 py-2 text-black-800 hover:bg-teal-400'
                           onClick={handleNavLinkDisappear}

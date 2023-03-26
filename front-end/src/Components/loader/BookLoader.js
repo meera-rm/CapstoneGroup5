@@ -3,8 +3,9 @@ import './BookLoader.scss';
 
 const BookLoader =()=>{
 return(
-<div className='wrapper'>
-  <div className="book">
+  
+<div className='bookLoader'>
+  <div className="loader">
     <div className="inner">
         <div className="left"></div>
         <div className="middle"></div>
@@ -15,12 +16,12 @@ return(
         <li></li>
         <li></li>
         <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
         {/* <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+         <li></li>
         <li></li>
         <li></li>
         <li></li>
@@ -30,7 +31,7 @@ return(
         <li></li>
         <li></li> --> */}
     </ul>
-</div>
+  </div>
 </div>
 )
 }

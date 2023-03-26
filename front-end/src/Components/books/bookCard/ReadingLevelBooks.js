@@ -18,7 +18,7 @@ const ReadingLevelBooks = () => {
     axios
       .get(`${API}/api/books`)
       .then((response) => {
-        console.log(response.data)
+        console.log(response.data.payload)
         setBookData(response.data.payload);
         setLoading(false);
       })
@@ -30,12 +30,17 @@ const ReadingLevelBooks = () => {
 if (error) {
     return <>{error.message}</>;
 } else if (loading) {
-    return <div ><BookLoader/></div>;
+    return (
+    <div className='flex justify-center items-center mb-40  mt-40'>
+        <div> Loading .... 
+              <BookLoader/>
+        </div>
+   </div>
+    )
 } else {
   return (
    <div>
-      {/* {error && <>{error.message}</>}
-      {loading &&  <div><BookLoader/></div>}  */}
+     
       
       <div className='text-center text-teal-600 text-2xl mb-10 mt-10'>ReadingLevelBooks
     

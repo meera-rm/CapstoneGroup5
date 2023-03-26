@@ -1,137 +1,95 @@
-// import React, { useState } from "react";
+
+import React, { useState, useRef, useEffect } from "react";
+// import { saveAs } from "file-saver";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faEraser } from "@fortawesome/free-solid-svg-icons";
 // import "./styles.css";
 
-// const ColorPanel = () => {
-//   const [brushWidth, setBrushWidth] = useState(1);
-//   const [selectedColor, setSelectedColor] = useState("black");
+// const ColorPanel = ({ onColorChange, onEraserClick }) => {
+const ColorPanel = () => {
+    const [colors, setColors] = useState([
+        // "red"{background:"red", color:"white"},
+        // {"red1":"#F16161"},
+        // "red2",
+        // "orange",
+        // "orange1",
+        // "orange2",
+        // "yellow",
+        // "yellow1",
+        // "yellow2",
+        // "green",
+        // "green1",
+        // "green2",
+        // "blue",
+        // "blue1",
+        // "blue2",
+        // "indigo",
+        // "indigo1",
+        // "indigo2",
+        // "purple",
+        // "purple1",
+        // "purple2",
+        // "black",
+        // "black1",
+        // "black2"
+    ]);
 
-//   const changeColors = (event) => {
-//     const selectedColor = event.target.id;
-//     setSelectedColor(selectedColor);
-//   };
+    const handleColorClick = (color) => {
+          setColors(color);
+    };
 
-//   const linebarWidth = () => {
-//     const input = document.getElementById("myRange");
-//     const width = input.value;
-//     setBrushWidth(width);
-//   };
+    return (
+        <div className="color-panel">
+            {colors.map((color) => (
+               <div width={50} height={50} 
+                className={`palette ${color}`}
+                key={color}
+                onClick={() => handleColorClick(color)}
+                ></div>
+            ))}
+            {/* <div className="palette white" onClick={onEraserClick}>
+                <FontAwesomeIcon icon={faEraser} />
+            </div> */}
+         </div> 
+        
 
-//   return (
-//     <div className="panel">
-//       <div id="left-panel">
-//         <div className="color-panel">
-//           <div
-//             className="palette red"
-//             id="red"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette red1"
-//             id="red1"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette red2"
-//             id="red2"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette orange"
-//             id="orange"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette orange1"
-//             id="orange1"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette orange2"
-//             id="orange2"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette yellow"
-//             id="yellow"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette yellow1"
-//             id="yellow1"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette yellow2"
-//             id="yellow2"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette green"
-//             id="green"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette green1"
-//             id="green1"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette green2"
-//             id="green2"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette blue"
-//             id="blue"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette blue1"
-//             id="blue1"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette blue2"
-//             id="blue2"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette indigo"
-//             id="indigo"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette indigo1"
-//             id="indigo1"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette indigo2"
-//             id="indigo2"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette purple"
-//             id="purple"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette purple1"
-//             id="purple1"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette purple2"
-//             id="purple2"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette black"
-//             id="black"
-//             onClick={changeColors}
-//           ></div>
-//           <div
-//             className="palette black1"
-//             id="black1"
-//             onClick={changeColors}
-//           ></div>
+       
+    )
+};
+export default ColorPanel;
+
+
+
+
+
+//  {/* const BrushWidth = ({ lineWidth, onLineWidthChange }) => {
+//             const handleLineWidthChange = (event) => {
+//             const value = event.target.value;
+//             onLineWidthChange(value);
+//         }; */}
+
+     
+//        {/* <div id="brushWidth">
+//             <p>Brush Width</p>
+//            <form className="input-form">
+//               <input
+//                 type="range"
+//                 id="myRange"
+//                 name="amountRange"
+//                 value={lineWidth}
+//                 min="1"
+//                 max="50"
+//                 onInput={handleLineWidthChange}
+//                 onClick={handleLineWidthChange}
+//              />
+//         <input
+//         type="number"
+//         name="amountInput"
+//         min="1"
+//         max="50"
+//         value={lineWidth}
+//         onInput={handleLineWidthChange}
+//         />
+//         </form>
+//         <br />
+//         </div> */}

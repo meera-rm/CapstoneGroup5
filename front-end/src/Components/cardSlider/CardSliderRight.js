@@ -50,8 +50,8 @@ const CardSliderRight = () => {
 
   return (
     <div className='cardSlider'>
-      <div class='cardSlider__content'>
-        <h2>Reading Quotes</h2>
+      <div className='cardSlider__content'>
+      <div className='cardSlider__heading'>Reading Quotes</div>
         <div>
           {active === 'slider1' && <One />}
           {active === 'slider2' && <Two />}
