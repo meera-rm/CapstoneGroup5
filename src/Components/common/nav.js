@@ -397,7 +397,7 @@ const Navbar = ({ darkModeButton }) => {
                 <div>
                   {/* <button> */}
                   <div
-                    className=' w-16 h-28 p-3 -mt-0 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
+                    className=' w-16 h-28 p-3 mt-0.5 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
                     onMouseOver={handleMouseOver}
                     onMouseOut={handleMouseOut}
                   >
