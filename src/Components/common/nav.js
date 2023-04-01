@@ -149,7 +149,7 @@ const Navbar = ({ darkModeButton }) => {
                 <Link to='/profile' activeclassname='active'>
                   <button>
                     <div
-                      className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500 hover:text-white'
+                      className=' w-18 h-28 p-3 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500 hover:text-white'
                       onMouseOver={handleMouseOver}
                       onMouseOut={handleMouseOut}
                     >
@@ -158,19 +158,20 @@ const Navbar = ({ darkModeButton }) => {
                       >
                         <CgProfile />
                       </IconContext.Provider>
+                      
                     </div>
                     <div>
-                      {isHovering && (
+                      {/* {isHovering && ( */}
                         <p className='text-teal font-fonts text-sm'>PROFILE</p>
-                      )}
-                    </div>
+                      {/* )} */}
+                    </div> 
                   </button>
                 </Link>
                 <Link to='/books' activeclassname='active'>
                   <div className='relative group h-0 '>
                     <button>
                       <div
-                        className='w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
+                        className='w-18 h-28 p-3 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
                         onMouseOver={handleMouseOver}
                         onMouseOut={handleMouseOut}
                       >
@@ -181,9 +182,9 @@ const Navbar = ({ darkModeButton }) => {
                         </IconContext.Provider>
                       </div>
                       <div>
-                        {isHovering && (
+                        {/* {isHovering && ( */}
                           <p className='text-tealfont-fonts text-sm'>BOOKS</p>
-                        )}
+                        {/* )} */}
                       </div>
                     </button>
 
@@ -240,7 +241,7 @@ const Navbar = ({ darkModeButton }) => {
                     <button>
                       {/* onClick={handleGamesMenu}> */}
                       <div
-                        className='w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
+                        className='w-18 h-28 p-3 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
                         onMouseOver={handleMouseOver}
                         onMouseOut={handleMouseOut}
                       >
@@ -251,9 +252,9 @@ const Navbar = ({ darkModeButton }) => {
                         </IconContext.Provider>
                       </div>
                       <div>
-                        {isHovering && (
+                        {/* {isHovering && ( */}
                           <p className='text-teal font-fonts text-sm'>GAMES</p>
-                        )}
+                        {/* )} */}
                       </div>
                     </button>
                     {/* {gamesMenuOpen && ( */}
@@ -302,7 +303,7 @@ const Navbar = ({ darkModeButton }) => {
                 <Link to='/teachers' activeclassname='active'>
                   <button>
                     <div
-                      className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
+                      className=' w-16 h-28 p-3 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500 '
                       onMouseOver={handleMouseOver}
                       onMouseOut={handleMouseOut}
                     >
@@ -313,9 +314,9 @@ const Navbar = ({ darkModeButton }) => {
                       </IconContext.Provider>
                     </div>
                     <div>
-                      {isHovering && (
+                      {/* {isHovering && ( */}
                         <p className='text-teal font-fonts text-sm'>TEACHERS</p>
-                      )}
+                      {/* )} */}
                     </div>
                   </button>
                 </Link>
@@ -323,7 +324,7 @@ const Navbar = ({ darkModeButton }) => {
                 <Link to='/students' activeclassname='active'>
                   <button>
                     <div
-                      className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
+                      className=' w-16 h-24 p-3 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
                       onMouseOver={handleMouseOver}
                       onMouseOut={handleMouseOut}
                     >
@@ -334,9 +335,9 @@ const Navbar = ({ darkModeButton }) => {
                       </IconContext.Provider>
                     </div>
                     <div>
-                      {isHovering && (
-                        <p className='text-teal font-fonts text-sm'>STUDENTS</p>
-                      )}
+                      {/* {isHovering && ( */}
+                        <p className='text-tealfont-fonts text-sm'>STUDENTS</p>
+                      {/* )} */}
                     </div>
                   </button>
                 </Link>
@@ -345,7 +346,7 @@ const Navbar = ({ darkModeButton }) => {
                 <Link to='/signup' activeclassname='active'>
                   <button>
                     <div
-                      className=' w-18 h-28 p-2 rounded-full border     border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
+                      className=' w-18 h-28 p-3 rounded-full border  border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
                       onMouseOver={handleMouseOver}
                       onMouseOut={handleMouseOut}
                     >
@@ -361,21 +362,21 @@ const Navbar = ({ darkModeButton }) => {
                       </IconContext.Provider>
                     </div>
                     <div>
-                      {isHovering && (
+                      {/* {isHovering && ( */}
                         <p className='text-teal font-fonts text-sm'>SIGNUP</p>
-                      )}
+                      {/* )} */}
                     </div>
                   </button>
                 </Link>
                 <Link to='/login' activeclassname='active'>
                   <button>
                     <div
-                      className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
+                      className=' w-18 h-28 p-3 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
                       onMouseOver={handleMouseOver}
                       onMouseOut={handleMouseOut}
                     >
                       <IconContext.Provider
-                        value={{ color: 'white', size: 40 }}
+                        value={{ color: 'white', size: 40}}
                       >
                         <p
                           className='w-18 text-center rounded-md'
@@ -386,9 +387,9 @@ const Navbar = ({ darkModeButton }) => {
                       </IconContext.Provider>
                     </div>
                     <div className='block'>
-                      {isHovering && (
+                      {/* {isHovering && ( */}
                         <p className='text-teal font-fonts text-sm'>LOGIN</p>
-                      )}
+                      {/* )} */}
                     </div>
                   </button>
                 </Link>
@@ -396,7 +397,7 @@ const Navbar = ({ darkModeButton }) => {
                 <div>
                   {/* <button> */}
                   <div
-                    className=' w-18 h-28 pt-2 pb-2 pl-2 pr-2 -mt-0 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
+                    className=' w-16 h-28 p-3 -mt-0 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
                     onMouseOver={handleMouseOver}
                     onMouseOut={handleMouseOut}
                   >
@@ -410,11 +411,11 @@ const Navbar = ({ darkModeButton }) => {
                     </IconContext.Provider>
                   </div>
                   <div>
-                    {isHovering && (
+                    {/* {isHovering && ( */}
                       <p className='text-teal font-fonts text-sm'>
                         {darkModeButton === 'dark' ? 'LIGHT MODE' : 'DARK MODE'}
                       </p>
-                    )}
+                    {/* )} */}
                   </div>
                   {/* </button> */}
                 </div>
