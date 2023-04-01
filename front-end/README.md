@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+## Welcome to ScholarSheep!- CapstoneGroup5
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+![Scholar Sheep](asset/img/ScholarSheep.png)
 
-### `npm start`
+### Team Members
+### Meera Ramesh
+### Taryne Leach
+### Derek Peterson
+### Important Links
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Deployed API server ](https://scholarsheep.onrender.com/)
+- [Delpyed Front-End ](https://readinglog.netlify.app/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [Trello ](https://trello.com/b/xEt8mcfz/reading-app)
+- [Wireframe](https://whimsical.com/scholar-sheep-HvM2SyXKVAXAuC28BCXtKs)
+- [ERD](https://miro.com/app/board/uXjVPEOVPts=/)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Overview
 
-### `npm run build`
+Our mission at Scholar Sheep is to encourage children to have a passion for reading. Education is very important and we must instill this in our children at a young age. We want to make it easier for teachers to engage and keep track of students reading outside of the classroom. We also want to encourage parents to read along with their children. There are many benefits to reading with your children. Children perform better when parents take an active role in their education.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+If you want to run our app locally, you must fork and clone this repository.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Front End Set Up
 
-### `npm run eject`
+You must have a seperate terminal to run the front end locally and must run simultaneously as the back end terminal.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- cd front-end
+- touch .env
+- npm install
+- npm start
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- npm install - install npm packages
+- npm start - run / view front end locally
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## .env
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+REACT_APP_API_URL=http://localhost:3000
 
-## Learn More
+## Back End Set Up
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+You must have a seperate terminal to run the back end locally and must run simultaneously as the front end terminal.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- cd back-end
+- touch .env
+- npm install
+- node server.js
 
-### Code Splitting
+## .env
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- PORT=3010
+- PG_HOST=localhost
+- PG_PORT=5432
+- PG_DATABASE=" "
 
-### Analyzing the Bundle Size
+- npm install - install npm packages
+- npm run db:init - initialize database and create tables
+- npm run db:seed - seed the tables with some data
+- node server.js - runs the back end server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Deployment
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Our app is deployed with Render for the back end and Netlify for the front end. You may choose to use different hosting sites.
