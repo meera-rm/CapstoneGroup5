@@ -76,33 +76,18 @@ const Navbar = ({ darkModeButton }) => {
         <nav className='w-full h-12 px-5 pt-4 pb-4 flex items-center justify-between md:w-4/5 md:mx-auto'>
           <div className='flex-grow'>
             <Link to='/'>
-              {/* <picture>
-                <source 
-                 type="asset/webp"
-                 scrset="
-                 /asset.webp?width=100 100w,
-                 /asset.webp?width=200 200w
-                 /asset.webp?width=400 400w
-                 /asset.webp?width=800 800w"/> */}
               <img
                 loading='lazy'
                 width={130}
                 height={10}
                 effect='blur'
-                // scrset="
-                // /mylogo.png?width=100 100w,
-                // /mylogo.png?width=200 200w
-                // /mylogo.png?width=400 400w
-                // /mylogo.png?width=800 800w"
                 src={logoImage}
                 sizes='(max-width:800px) 100vw, 50vw'
                 alt='logo'
                 decoding='async'
                 fetchpriority='high'
                 className='hidden md:block absolute left-2 top-1 w-24 h-8'
-                // className='absolute -left-40 -top-8 w-14 h-12'
               />
-              {/* </picture> */}
             </Link>
           </div>
 
@@ -139,9 +124,9 @@ const Navbar = ({ darkModeButton }) => {
                       
                     </div>
                     <div>
-                      {isHovering && (
+                      // {isHovering && (
                         <p className='text-teal font-fonts text-sm'>INFO</p>
-                      )}
+                      // )}
                     </div>
                   </button>
                 </Link>  */}
@@ -158,13 +143,10 @@ const Navbar = ({ darkModeButton }) => {
                       >
                         <CgProfile />
                       </IconContext.Provider>
-                      
                     </div>
                     <div>
-                      {/* {isHovering && ( */}
-                        <p className='text-teal font-fonts text-sm'>PROFILE</p>
-                      {/* )} */}
-                    </div> 
+                      <p className='text-teal font-fonts text-sm'>PROFILE</p>
+                    </div>
                   </button>
                 </Link>
                 <Link to='/books' activeclassname='active'>
@@ -182,9 +164,7 @@ const Navbar = ({ darkModeButton }) => {
                         </IconContext.Provider>
                       </div>
                       <div>
-                        {/* {isHovering && ( */}
-                          <p className='text-tealfont-fonts text-sm'>BOOKS</p>
-                        {/* )} */}
+                        <p className='text-tealfont-fonts text-sm'>BOOKS</p>
                       </div>
                     </button>
 
@@ -252,9 +232,7 @@ const Navbar = ({ darkModeButton }) => {
                         </IconContext.Provider>
                       </div>
                       <div>
-                        {/* {isHovering && ( */}
-                          <p className='text-teal font-fonts text-sm'>GAMES</p>
-                        {/* )} */}
+                        <p className='text-teal font-fonts text-sm'>GAMES</p>
                       </div>
                     </button>
                     {/* {gamesMenuOpen && ( */}
@@ -314,9 +292,7 @@ const Navbar = ({ darkModeButton }) => {
                       </IconContext.Provider>
                     </div>
                     <div>
-                      {/* {isHovering && ( */}
-                        <p className='text-teal font-fonts text-sm'>TEACHERS</p>
-                      {/* )} */}
+                      <p className='text-teal font-fonts text-sm'>TEACHERS</p>
                     </div>
                   </button>
                 </Link>
@@ -335,9 +311,7 @@ const Navbar = ({ darkModeButton }) => {
                       </IconContext.Provider>
                     </div>
                     <div>
-                      {/* {isHovering && ( */}
-                        <p className='text-tealfont-fonts text-sm'>STUDENTS</p>
-                      {/* )} */}
+                      <p className='text-tealfont-fonts text-sm'>STUDENTS</p>
                     </div>
                   </button>
                 </Link>
@@ -362,9 +336,7 @@ const Navbar = ({ darkModeButton }) => {
                       </IconContext.Provider>
                     </div>
                     <div>
-                      {/* {isHovering && ( */}
-                        <p className='text-teal font-fonts text-sm'>SIGNUP</p>
-                      {/* )} */}
+                      <p className='text-teal font-fonts text-sm'>SIGNUP</p>
                     </div>
                   </button>
                 </Link>
@@ -376,7 +348,7 @@ const Navbar = ({ darkModeButton }) => {
                       onMouseOut={handleMouseOut}
                     >
                       <IconContext.Provider
-                        value={{ color: 'white', size: 40}}
+                        value={{ color: 'white', size: 40 }}
                       >
                         <p
                           className='w-18 text-center rounded-md'
@@ -387,15 +359,12 @@ const Navbar = ({ darkModeButton }) => {
                       </IconContext.Provider>
                     </div>
                     <div className='block'>
-                      {/* {isHovering && ( */}
-                        <p className='text-teal font-fonts text-sm'>LOGIN</p>
-                      {/* )} */}
+                      <p className='text-teal font-fonts text-sm'>LOGIN</p>
                     </div>
                   </button>
                 </Link>
-                {/* <a href='w'> */}
+
                 <div>
-                  {/* <button> */}
                   <div
                     className=' w-16 h-28 p-3 mt-0.5 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
                     onMouseOver={handleMouseOver}
@@ -411,15 +380,11 @@ const Navbar = ({ darkModeButton }) => {
                     </IconContext.Provider>
                   </div>
                   <div>
-                    {/* {isHovering && ( */}
-                      <p className='text-teal font-fonts text-sm'>
-                        {darkModeButton === 'dark' ? 'LIGHT MODE' : 'DARK MODE'}
-                      </p>
-                    {/* )} */}
+                    <p className='text-teal font-fonts text-sm'>
+                      {darkModeButton === 'dark' ? 'LIGHT MODE' : 'DARK MODE'}
+                    </p>
                   </div>
-                  {/* </button> */}
                 </div>
-                {/* </a> */}
               </div>
             </div>
           </nav>
@@ -581,5 +546,3 @@ const Navbar = ({ darkModeButton }) => {
 };
 
 export default Navbar;
-// {/* https://dev.to/ebereplenty/react-icons-tutorial-all-you-need-to-know-524 */}
-// https://blog.reactplay.io/create-a-super-cool-navbar-using-react-and-tailwindcss(for sidebar)
