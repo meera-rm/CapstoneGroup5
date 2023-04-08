@@ -1,7 +1,7 @@
 import React from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+
 
 // PAGES
 import FourOFour from '../../Pages/FourOFour';
@@ -16,6 +16,7 @@ import NewBooks from '../../Pages/Books/NewBook';
 import Dictionary from '../tools/Dictionary/Dictionary';
 import FlashCard from '../tools/FlashCard/FlashCard';
 import AddVocab from '../tools/Vocabulary/AddVocab';
+import Timer from '../pomodoro/Timer'
 
 import Games from '../games/AllGames/Games';
 import RockpaperScissor from '../games/rps/RockpaperScissor';
@@ -86,6 +87,8 @@ const AnimatedRoutes = () => {
             <Route path='/dictionary' element={<Dictionary />} />
             <Route path='/flashcard' element={<FlashCard />} />
             <Route path='/vocabulary' element={<AddVocab />} />
+            <Route path='timer' element={<Timer />} />
+
             <Route path='/books'>
               <Route index element={<BookCardList />} />
               <Route path='new' element={<NewBooks />} />

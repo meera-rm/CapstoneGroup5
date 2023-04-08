@@ -4,12 +4,12 @@ import './CardSliderLeft.scss';
 
 
 const CardSliderLeft = () => {
-  const [active, setActive] = useState('slider1');
+  const [active, setActive] = useState('leftSlider1');
 
   const One = () => {
     return (
-      <div class='cardSlider__text'>
-         <h1 class='cardSlider__header'>Instill love of reading early to</h1>
+      <div className='cardSliderLeft__text'>
+         <h1 className='cardSliderLeft__header'>Instill love of reading early to</h1>
          <h6>improve confidence and builds independence</h6>
       </div>
     );
@@ -17,16 +17,16 @@ const CardSliderLeft = () => {
 
   const Two = () => {
     return (
-      <div className='cardSlider__text'>
-        <h1 class='cardSlider__header'>Instill love of reading early to</h1>
+      <div className='cardSliderLeft__text'>
+        <h1 classNme='cardSliderLeft__header'>Instill love of reading early to</h1>
         <h6>help a child to develop imagination</h6>
       </div>
     );
   };
   const Three = () => {
     return (
-      <div className='cardSlider__text'>
-         <h1 class='cardSlider__header'>Instill love of reading early to</h1>
+      <div className='cardSliderLeft__text'>
+         <h1 className='cardSliderLeft__header'>Instill love of reading early to</h1>
          <h6>expand a child's vocabulary</h6>
       </div>
     );
@@ -34,8 +34,8 @@ const CardSliderLeft = () => {
 
   const Four = () => {
     return (
-      <div className='cardSlider__text'>
-        <h1 class='cardSlider__header'>Instill love of reading early to</h1>
+      <div className='cardSliderLeft__text'>
+        <h1 className='cardSliderLeft__header'>Instill love of reading early to</h1>
         <h6>develop critical thinking</h6>
       </div>
     );
@@ -43,32 +43,32 @@ const CardSliderLeft = () => {
 
   const Five = () => {
     return (
-      <div className='cardSlider__text'>
-        <h1 class='cardSlider__header'>Instill love of reading early to</h1>
+      <div className='cardSliderLeft__text'>
+        <h1 className='cardSliderLeft__header'>Instill love of reading early to</h1>
         <h6>help to build socio-emotional skills</h6>
       </div>
     );
   };
 
   return (
-    <div className='cardSlider'>
-      <div className='cardSlider__content'>
-        <div className='cardSlider__heading'>Benefits of reading</div>
+    <div className='cardSliderLeft'>
+      <div className='cardSliderLeft__content'>
+        <div className='cardSliderLeft__heading'>Benefits of reading</div>
         <div>
-          {active === 'slider1' && <One />}
-          {active === 'slider2' && <Two />}
-          {active === 'slider3' && <Three />}
-          {active === 'slider4' && <Four />}
-          {active === 'slider5' && <Five />}
+          {active === 'leftSlider1' && <One />}
+          {active === 'leftSlider2' && <Two />}
+          {active === 'leftSlider3' && <Three />}
+          {active === 'leftSlider4' && <Four />}
+          {active === 'leftSlider5' && <Five />}
         </div>
-        <div className='cardSlider__options'>
+        <div className='cardSliderLeft__options'>
           <button
             className={
-              active === 'slider1'
-                ? 'cardSlider__option cardSlider__option-active'
-                : 'cardSlider__option'
+              active === 'leftSlider1'
+                ? 'cardSliderLeft__option cardSliderLeft__option-active'
+                : 'cardSliderLeft__option'
             }
-            value='slider1'
+            value='leftSlider1'
             onClick={(e) => setActive(e.target.value)}
           >
             <i className='fa-sharp fa-regular fa-circle-small'></i>
@@ -76,11 +76,11 @@ const CardSliderLeft = () => {
 
           <button
             className={
-              active === 'slider2'
-                ? 'cardSlider__option cardSlider__option-active'
-                : 'cardSlider__option'
+              active === 'leftSlider2'
+                ? 'cardSliderLeft__option cardSliderLeft__option-active'
+                : 'cardSliderLeft__option'
             }
-            value='slider2'
+            value='leftSlider2'
             onClick={(e) => setActive(e.target.value)}
           >
             <i className='fa-sharp fa-regular fa-circle-small'></i>
@@ -88,11 +88,11 @@ const CardSliderLeft = () => {
 
           <button
             className={
-              active === 'slider3'
-                ? 'cardSlider__option cardSlider__option-active'
-                : 'cardSlider__option'
+              active === 'leftSlider3'
+                ? 'cardSliderLeft__option cardSliderLeft__option-active'
+                : 'cardSliderLeft__option'
             }
-            value='slider3'
+            value='leftSlider3'
             onClick={(e) => setActive(e.target.value)}
           >
             <i className='fa-sharp fa-regular fa-circle-small'></i>
@@ -100,11 +100,11 @@ const CardSliderLeft = () => {
 
           <button
             className={
-              active === 'slider4'
-                ? 'cardSlider__option cardSlider__option-active'
-                : 'cardSlider__option'
+              active === 'leftSlider4'
+                ? 'cardSliderLeft__option cardSliderLeft__option-active'
+                : 'cardSliderLeft__option'
             }
-            value='slider4'
+            value='leftSlider4'
             onClick={(e) => setActive(e.target.value)}
           >
             {' '}
@@ -112,11 +112,11 @@ const CardSliderLeft = () => {
           </button>
           <button
             className={
-              active === 'slider5'
-                ? 'cardSlider__option cardSlider__option-active'
-                : 'cardSlider__option'
+              active === 'leftSlider5'
+                ? 'cardSliderLeft__option cardSliderLeft__option-active'
+                : 'cardSliderLeft__option'
             }
-            value='slider5'
+            value='leftSlider5'
             onClick={(e) => setActive(e.target.value)}
           >
             {' '}

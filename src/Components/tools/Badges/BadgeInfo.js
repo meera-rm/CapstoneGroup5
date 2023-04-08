@@ -33,7 +33,7 @@ const BadgeInfo = () => {
           </div>
           <div className='badges__text'>
             <h2>Daily Tracker</h2>
-            <h4>Reading every day will create a </h4>
+            <h4>Reading every day helps build confidence</h4>
           </div>
         </div>
       </Link>
@@ -45,7 +45,7 @@ const BadgeInfo = () => {
           </div>
           <div className='badges__text'>
             <h2>Reading Buddies</h2>
-            <h4>find d buddy to Read with.</h4>
+            <h4>find a buddy to Read with.</h4>
           </div>
         </div>
       </Link>

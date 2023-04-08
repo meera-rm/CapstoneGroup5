@@ -3,6 +3,7 @@ import StudentDetails from '../../Components/show/StudentDetails';
 import { useLocation ,useNavigate} from 'react-router-dom';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import StudentLogsView from '../../Components/show/StudentLogsView';
+
 const StudentShow = () => {
   // https://codesandbox.io/s/cool-cori-1nqk51?expanddevtools=1&fontsize=14&hidenavigation=1&module=/src/App.js&theme=dark&file=/src/App.js:516-591
   const location = useLocation();

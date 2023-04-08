@@ -44,18 +44,15 @@ const About = () => {
           </p>
         </div>
 
-        {/* <div className='grid gap-4 md:grid-cols-3'> */}
         <div className='text-center m-auto'>
           <div className='shadow w-1/2 m-auto pt-10 pb-10'>
-            {/* <div className='h-48 mb-2 overflow-hidden rounded-lg shadow-lg md:h-80'> */}
               <img
                 src='https://avatars.githubusercontent.com/u/46873861?v=4'
                 alt='name'
                 className='object-cover object-center w-1/4 h-1/4 text-center m-auto'
               />
-            {/* </div> */}
-
-            <div className='flex flex-col items-center justify-center'>
+          
+          <div className='flex flex-col items-center justify-center'>
               <div className='font-bold text-indigo-500 md:text-lg'>
                 Meera Ramesh
               </div>

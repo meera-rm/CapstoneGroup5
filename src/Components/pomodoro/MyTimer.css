@@ -1,0 +1,50 @@
+.container {
+    margin: 50px auto;
+    display: block;
+  }
+  
+  .header {
+    text-align: center;
+  }
+  
+  .title {
+    margin: 50px auto;
+    display: flex;
+    gap: 20px;
+    justify-content: space-evenly;
+  }
+  
+  .wrapper {
+    margin: 50px auto;
+    display: flex;
+    gap: 20px;
+    justify-content: space-evenly;
+  }
+  .shortbreak,
+  .longbreak,
+  .session {
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+  }
+  
+  .timer {
+    text-align: center;
+    display: block;
+  }
+  
+  .timer-left {
+    margin: 10px 0;
+  }
+  .buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .start_stop,
+  .reset {
+    margin: 10px 0;
+    text-align: center;
+  }
+  

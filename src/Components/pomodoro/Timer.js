@@ -1,4 +1,4 @@
-import './App.css'
+
 import React,{useEffect,useState} from 'react';
 
  const Timer=() =>{
@@ -60,15 +60,15 @@ import React,{useEffect,useState} from 'react';
     }
   };
 
-  const handlePlayPause = () => {
-    if (isPlaying) {
-      setIsPlaying(false);
-      setCountDown(false);
-    } else {
-      setIsPlaying(true);
-      setCountDown(true);
-    }
-  };
+  // const handlePlayPause = () => {
+  //   if (isPlaying) {
+  //     setIsPlaying(false);
+  //     setCountDown(false);
+  //   } else {
+  //     setIsPlaying(true);
+  //     setCountDown(true);
+  //   }
+  // };
 
   const handleReset = () => {
     setIsPlaying(false);
@@ -125,7 +125,7 @@ import React,{useEffect,useState} from 'react';
    </div>
      <div className="controls">
      <button onClick={handleToggle}>{countDown ? "Stop" : "Start"}</button>
-   <button onClick={handlePlayPause}>{isPlaying ? "Pause" : "Play"}</button>
+   {/* <button onClick={handlePlayPause}>{isPlaying ? "Pause" : "Play"}</button> */}
     <button onClick={handleReset}>Reset</button>
    </div> 
    
@@ -146,11 +146,11 @@ import React,{useEffect,useState} from 'react';
        <div className="setting-label">Screen Break</div>
        <div className="setting-controls">
          <button title="screen" onClick={handleIncrement}>
-{/*            <i className="fas fa-plus"></i> */}+
+           +
          </button>
          <div>{screenBreak}</div>
          <button title="screen" onClick={handleDecrement}>
-{/*            <i className="fas fa-minus"></i> */}-
+          -
          </button>
        </div>
      </div>
@@ -158,11 +158,11 @@ import React,{useEffect,useState} from 'react';
       <div className="setting-label">Snack Break</div>
        <div className="setting-controls">
          <button title="snack" onClick={handleIncrement}>
-{/*            <i className="fas fa-plus"></i> */}+
+           +
          </button>
          <div>{snackBreak}</div>
          <button title="snack" onClick={handleDecrement}>
-{/*            <i className="fas fa-minus"></i> */}-
+           -
          </button>
        </div>
      </div>

@@ -1,30 +1,30 @@
 import { React, useState } from 'react';
-import './CardSliderLeft.scss';
+import './CardSliderRight.scss';
 
 const CardSliderRight = () => {
-  const [active, setActive] = useState('slider1');
+  const [active, setActive] = useState('rightSlider1');
 
   const One = () => {
     return (
-      <div class='cardSlider__text'>
-        <h1> A child who reads</h1>
-        <h6>Will be an Adult who thinks</h6>
+      <div classNme='cardSliderRight__text'>
+        <h1 className='cardSliderRight__header'>A child who reads</h1>
+        <h6>will be an Adult who thinks</h6>
       </div>
     );
   };
 
   const Two = () => {
     return (
-      <div class='cardSlider__text'>
-        <h1>Find a Friend</h1>
+      <div className='cardSliderRight__text'>
+        <h1 className='cardSliderRight__header'>Find a Friend</h1>
         <h6>In your Book</h6>
       </div>
     );
   };
   const Three = () => {
     return (
-      <div class='cardSlider__text'>
-        <h1>Book is a dream</h1>
+      <div className='cardSliderRight__text'>
+        <h1 className='cardSliderRight__header'>Book is a dream</h1>
         <h6>You hold in your hands</h6>
       </div>
     );
@@ -32,8 +32,8 @@ const CardSliderRight = () => {
 
   const Four = () => {
     return (
-      <div class='cardSlider__text'>
-        <h1> Today A Reader </h1>
+      <div className='cardSliderRight__text'>
+        <h1 className='cardSliderRight__header'> Today A Reader </h1>
         <h6>Tomorrow A Leader</h6>
       </div>
     );
@@ -41,84 +41,84 @@ const CardSliderRight = () => {
 
   const Five = () => {
     return (
-      <div class='cardSlider__text'>
-        <h1>Think Before you Speak</h1>
+      <div className='cardSliderRight__text'>
+        <h1 className='cardSliderRight__header'>Think Before you Speak</h1>
         <h6>Read Before you think</h6>
       </div>
     );
   };
 
   return (
-    <div className='cardSlider'>
-      <div className='cardSlider__content'>
-      <div className='cardSlider__heading'>Reading Quotes</div>
+    <div className='cardSliderRight'>
+      <div className='cardSliderRight__content'>
+        <div className='cardSliderRight__heading'>Reading Quotes</div>
         <div>
-          {active === 'slider1' && <One />}
-          {active === 'slider2' && <Two />}
-          {active === 'slider3' && <Three />}
-          {active === 'slider4' && <Four />}
-          {active === 'slider5' && <Five />}
+          {active === 'rightSlider1' && <One />}
+          {active === 'rightSlider2' && <Two />}
+          {active === 'rightSlider3' && <Three />}
+          {active === 'rightSlider4' && <Four />}
+          {active === 'rightSlider5' && <Five />}
         </div>
-        <div className='cardSlider__options'>
+        <div className='cardSliderRight__options'>
           <button
             className={
-              active === 'slider1'
-                ? 'cardSlider__option cardSlider__option-active'
-                : 'cardSlider__option'
+              active === 'rightSlider1'
+                ? 'cardSliderRight__option cardSliderRight__option-active'
+                : 'cardSliderRight__option'
             }
-            value='slider1'
+            value='rightSlider1'
             onClick={(e) => setActive(e.target.value)}
           >
-            <i class='fa-sharp fa-regular fa-circle-small'></i>
+            <i className='fa-sharp fa-regular fa-circle-small'></i>
           </button>
 
           <button
             className={
-              active === 'slider2'
-                ? 'cardSlider__option cardSlider__option-active'
-                : 'cardSlider__option'
+              active === 'rightSlider2'
+                ? 'cardSliderRight__option cardSlider__option-active'
+                : 'cardSliderRight__option'
             }
-            value='slider2'
+            value='rightSlider2'
             onClick={(e) => setActive(e.target.value)}
           >
-            <i class='fa-sharp fa-regular fa-circle-small'></i>
+            <i className='fa-sharp fa-regular fa-circle-small'></i>
           </button>
 
           <button
             className={
-              active === 'slider3'
-                ? 'cardSlider__option cardSlider__option-active'
-                : 'cardSlider__option'
+              active === 'rightSlider3'
+                ? 'cardSliderRight__option cardSliderRight__option-active'
+                : 'cardSliderRight__option'
             }
-            value='slider3'
+            value='rightSlider3'
             onClick={(e) => setActive(e.target.value)}
           >
-            <i class='fa-sharp fa-regular fa-circle-small'></i>
+            <i className='fa-sharp fa-regular fa-circle-small'></i>
           </button>
 
           <button
             className={
-              active === 'slider4'
-                ? 'cardSlider__option cardSlider__option-active'
-                : 'cardSlider__option'
+              active === 'rightSlider4'
+                ? 'cardSliderRight__option cardSliderRight__option-active'
+                : 'cardSliderRight__option'
             }
-            value='slider4'
+            value='rightSlider4'
             onClick={(e) => setActive(e.target.value)}
           >
             {' '}
-            <i class='fa-sharp fa-regular fa-circle-small'></i>
+            <i className='fa-sharp fa-regular fa-circle-small'></i>
           </button>
           <button
             className={
-              active === 'slider5'
-                ? 'cardSlider__option cardSlider__option-active'
-                : 'cardSlider__option'
+              active === 'rightSlider5'
+                ? 'cardSliderRight__option cardSliderRight__option-active'
+                : 'cardSliderRight__option'
             }
-            value='slider5'
+            value='rightSlider5'
             onClick={(e) => setActive(e.target.value)}
           >
             {' '}
-            <i class='fa-sharp fa-regular fa-circle-small'></i>
+            <i className='fa-sharp fa-regular fa-circle-small'></i>
           </button>
         </div>
       </div>
