@@ -7,8 +7,10 @@ import Profile from './Profile';
 // https://api.github.com/users/meera-ramesh19/repos?page=1&per_page=10&sort=updated
 
 function AllReposInfo() {
-  const value = 564405953;
-  console.log('inside AllReposInfo');
+  //https://api.github.com/repos/meera-ramesh19/CapstoneGroup5
+  const frontendvalue = 564405953;
+  const backendvalue = 620460375;
+
   const [items, setItems] = useState([]);
   // Change this to any username whose repositories you want to get
   const [user] = useState('meera-ramesh19');
@@ -16,7 +18,7 @@ function AllReposInfo() {
   useEffect(() => {
     const fetchRepos = async () => {
       const res = await fetch(
-        `https://api.github.com/users/${user}/repos?per_page=6&sort=updated`
+        `https://api.github.com/users/${user}/repos?per_page=8&sort=updated`
       );
       const data = await res.json();
       setItems(data);
@@ -39,19 +41,15 @@ function AllReposInfo() {
       ) : (
         // <div className='grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 pb-20 m-auto'>
         <div className='text-center m-auto'>
-        <div className=' w-1/2 m-auto pt-10 pb-10'>
-       
-          {items.filter((item) => {
-              if (!value) return true;
-              if (item.id===value) {
-                return true;
-              }
-              return false;
-            })
-            .map((item) => (
-              <Profile key={item.id} {...item} />
-            ))}
-        </div>
+          <div className=' w-1/2 m-auto pt-10 pb-10'>
+            {items
+              .filter((item) => 
+                item.id===backendvalue   || item.id===frontendvalue   
+              )
+              .map((item) => (
+                <Profile key={item.id} {...item} />
+              ))}
+          </div>
         </div>
       )}
     </>

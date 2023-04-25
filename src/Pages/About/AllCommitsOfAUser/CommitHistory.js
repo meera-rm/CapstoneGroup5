@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import './CommitHistory.scss';
 import { Octokit } from '@octokit/core';
-// const singleUser = `https://api.github.com/users/meera-ramesh19`
-// const repos = `https://api.github.com/users/meera-ramesh19/repos?per_page=5`
-// https://api.github.com/users/meera-ramesh19/repos?page=1&per_page=10&sort=updated
+
 
 function CommitHistory() {
   const [commits, setCommits] = useState([]);
