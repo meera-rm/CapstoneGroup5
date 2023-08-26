@@ -1,13 +1,18 @@
 import React, {useState} from 'react';
 import  Tools from './Tools';
+import  ToolBox from './ToolBox';
 import  ColorPanel from './ColorPanel';
+
 const PaintApp=()=>{
 
     return(
-        <div className='grid grid-cols-1 space-evenly md:grid-cols-2 '>
-            <h1 className='mx-auto text-center'>PaintApp</h1>
+         <div className=' '>
+            <h1 className=''>PaintApp</h1>
+       
+            {/* <div style>={{textAlign:'center'}}Paint App</div> */}
            <Tools/>
-           {/* <ColorPanel/> */}
+          
+           <ColorPanel/>
         </div>
     )
 }

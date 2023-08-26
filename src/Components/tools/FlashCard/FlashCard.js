@@ -13,7 +13,6 @@ const FlashCard = () => {
   const [selectedGrade, setSelectedGrade] = useState(null);
  
 
-
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -26,7 +25,7 @@ const FlashCard = () => {
 
   const filteredData = wordData.filter((word) =>
       //  word.grade.toLowerCase().includes(selectedGrade.toLowerCase())
-      word.grade === selectedGrade
+       word.grade === selectedGrade
   );
 
  

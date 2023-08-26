@@ -63,7 +63,7 @@ const SearchResult = ({ searchWord, setSearchWord }) => {
   };
 
   return (
-    <div className='container mx-auto p-4 max-w-2xl'>
+    <div className='mx-auto p-4 max-w-2xl'>
       {data && (
         <div>
           <h3>

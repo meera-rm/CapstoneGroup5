@@ -144,7 +144,7 @@ useEffect(() => {
             <h5>{`Moves - ${turns}`}</h5>
           </div>
     
-           <div className="board">
+           <div className="board ">
              {boardData?.map((data, i) => {
               // add CSS class to the card by checking flippedCards contains index , similarly check for matchedCards also contains index and add this class to card div.
               const flipped = flippedCards.includes(i) ? true : false;
@@ -159,11 +159,14 @@ useEffect(() => {
                   className={`memoryGameCard ${flipped || matched ? "active" : ""} ${
                     matched ? "matched" : ""
                   }`}>
-               
-                  <img  className='memoryGameCard-front' src={data.image} alt='country map'/>
-                
+                 <div className='memoryGameCard-front'  >
+                                    {/* Add the banner */}
+                      <div className={`banner ${flipped ? "banner-show" : ""}`}>{data.country}</div>
+                      
+                      <img   src={data.image} alt='country map'/>
+                 </div>
                   <img className='memoryGameCard-back' src={cover} alt='scholarsheep logo'/>
-                 
+             
                 </div>
                );
              })}

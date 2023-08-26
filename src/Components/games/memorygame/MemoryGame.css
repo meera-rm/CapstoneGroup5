@@ -1,5 +1,3 @@
-
-
 .container {
   min-height: 100vh;
   display: flex;
@@ -7,41 +5,41 @@
   align-items: center;
 }
 
-  .board {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 8px;
-  }
-  .turns {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .turns h5 {
-    font-size: 20px;
-    font-weight: 600;
-    padding:20px;
-  }
- 
-  .reset{
-    display: flex;
-    justify-content: center;
-    margin:20px auto;
-    align-items: center;
-  }
-  .reset-btn{
-    padding:20px 30px; 
-    font-size: 20px;
-    background-color: #14B8A6;
-    border-radius:5px;
-  }
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 8px;
+}
+.turns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.turns h5 {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 20px;
+}
+
+.reset {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  align-items: center;
+}
+.reset-btn {
+  padding: 20px 30px;
+  font-size: 20px;
+  background-color: #14b8a6;
+  border-radius: 5px;
+}
 
 .memoryGameCard {
   border-radius: 4px;
   text-align: center;
-  width:120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   font-size: 36px;
   font-weight: bold;
   position: relative;
@@ -72,6 +70,9 @@
   height: 100%;
   /* border-radius: 50%; */
 }
+.memoryGameCard-front-container{
+  position:relative;
+}
 .memoryGameCard-front {
   transform: rotateY(180deg);
   background-color: #eee;
@@ -81,7 +82,7 @@
   font-size: 50px;
   z-index: 2;
   --d: 6px; /* folded part */
-  --c: #14B8A6; /* color */
+  --c: #14b8a6; /* color */
   --f: 16px; /* ribbon font-size */
 }
 .memoryGameCard-back {
@@ -91,26 +92,47 @@
 }
 .memoryGameCard-back::after {
   position: absolute;
-  content: "";
+  content: '';
   top: 0;
   left: 0;
   width: 75%;
   height: 75%;
   border-radius: 50%;
+  position:relative;
 }
 
+ /* .banner{
+  display: none;
+  position: absolute;
+  top: -5px; /* Move the banner up slightly *
+  right: -10px;
+  transform: rotate(10deg); /* Rotate the banner diagonally *
+  background-color: #fca311;
+  color: black;
+  padding: 10px 2px; /* Adjust padding for width *
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 1;
+}  */
 
-
-
-
-
-
-
-
-
-
-
-
+.banner-show {
+display: block;
+}
+ .banner {
+  position: absolute;
+  display:flex;
+  flex-wrap:wrap;
+  width:auto;
+  bottom: 0px;
+  right: 0px;
+  background-color: #fca311;
+  color: white;
+  padding:0px 4px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+} 
 
 /* // .header{
 //     margin:2em;
@@ -175,9 +197,3 @@
 // // // https://dev.to/this-is-learning/fully-responsive-css-folded-ribbon-11h5
 // // // https://codepen.io/sxdx-the-looper/pen/VwrPYve
 //  } */
-
-
-
-
-
-

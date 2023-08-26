@@ -170,9 +170,9 @@ const MemoryGames=()=>{
                   //  ${gameOver ? "gameover" : ""}
                   `}
                 >
-                {/* <div className="memoryCardGrid__item" data-ribbon={data.country}> */}
+                <div className="memoryCardGrid__item" data-ribbon={data.country}>
                   <img className="card-front" src={data.image} alt='country map'/>
-                  {/* </div> */}
+                  </div>
                   {/* <div className="card-back"></div> */}
                   <img className="card-back" src={cover} alt='scholarsheep logo'/>
                 </div>

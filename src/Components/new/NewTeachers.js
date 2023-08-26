@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import axios from 'axios';
-
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import avatarProfilePics from '../../utils/AvatarProfilePics';
+import {ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -49,6 +50,7 @@ const NewTeachers = () => {
       .then(() => {
         console.log('added');
         navigate(`/teachers`);
+        toast.success("You have added a new student");
       })
       .catch((c) => console.error('catch', c));
   };
@@ -350,6 +352,17 @@ const NewTeachers = () => {
             </Link>
           </div>
         </form>
+        <ToastContainer 
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
-
 import { useNavigate, Link, useParams } from 'react-router-dom';
+import {ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -20,6 +21,9 @@ const NewBooks = () => {
     reading_level: '',
   });
 
+
+ 
+
   const onInputChange = (event) => {
     console.log(event.target.value);
     setNewBook({
@@ -31,6 +35,7 @@ const NewBooks = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+   
     console.log('inhandlesumbit', newBook);
 
     axios
@@ -38,6 +43,7 @@ const NewBooks = () => {
       .then(() => {
         console.log('added');
         navigate(`/books`);
+        toast.success("You have added a new book");
       })
       .catch((err) => console.error('catch', err));
   };
@@ -312,6 +318,17 @@ const NewBooks = () => {
             </Link>
           </div>
         </form>
+        <ToastContainer 
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
       </div>
     </div>
   );

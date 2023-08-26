@@ -1,16 +1,16 @@
 import { React, useState, useEffect } from 'react';
 import axios from 'axios';
-import words from '../db/words.json';
+ import words from '.././db/words.json';
 
-const AddWord = ({ searchWord, value }) => {
-  console.log('search=', searchWord, value);
+const AddWord = ({ meaning , setMeaning}) => {
+ 
 
   const [data, setData] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [id, setId] = useState(0);
-  const [word, setWord] = useState(searchWord);
-  const [grade, setGraded] = useState(value);
+  const [word, setWord] = useState('');
+  const [grade, setGraded] = useState('');
   const [partsOfSpeech, setPartsOfSpeech] = useState('');
   const [meanings, setMeanings] = useState([]);
   const [examples, setExamples] = useState([]);
@@ -32,7 +32,7 @@ const AddWord = ({ searchWord, value }) => {
   };
 
   useEffect(() => {
-    if (word.length) {
+    if (word.length > 0) {
       fetchData(word);
     }
   }, [word]);
@@ -74,9 +74,9 @@ const AddWord = ({ searchWord, value }) => {
     meaning: wordMeanings,
     example: wordExamples,
   };
-  // console.log('add=', addWords);
-  // words.push(addWords);
-  // console.log('words=', words);
+   console.log('add=', addWords);
+   words.push(addWords);
+   console.log('words=', words);
   return (
     <div className='container mx-auto p-4 max-w-2xl'>
       {/* {data && (

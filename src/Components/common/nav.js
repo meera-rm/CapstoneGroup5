@@ -18,7 +18,7 @@ import { IoIosLogIn } from 'react-icons/io';
 import { GiArchiveRegister } from 'react-icons/gi';
 // import CircleType from 'circletype';
 
-const Navbar = ({ darkModeButton }) => {
+const Navbar = ({ darkModeButton, mode }) => {
   const [menu, setMenu] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   // const [booksMenuOpen, setBooksMenuOpen] = useState(false);
@@ -70,6 +70,7 @@ const Navbar = ({ darkModeButton }) => {
   //   new CircleType(circleInstance.current).dir(-1).radius(250);
   // }, []);
 
+ 
   return (
     <React.Fragment>
       <section className='bg-teal-500'>
@@ -369,6 +370,7 @@ const Navbar = ({ darkModeButton }) => {
                     className=' w-16 h-28 p-3 mt-0.5 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
                     onMouseOver={handleMouseOver}
                     onMouseOut={handleMouseOut}
+                    // onClick={handleToggle}
                   >
                     <IconContext.Provider value={{ color: 'white' }}>
                       <p
@@ -376,13 +378,14 @@ const Navbar = ({ darkModeButton }) => {
                         onClick={handleNavLinkDisappear}
                       >
                         {darkModeButton}
+                        
                       </p>
                     </IconContext.Provider>
                   </div>
                   <div>
-                    <p className='text-teal font-fonts text-sm'>
-                      {darkModeButton === 'dark' ? 'LIGHT MODE' : 'DARK MODE'}
-                    </p>
+                    <div className='text-teal font-fonts text-sm '>
+                      {mode === 'light' ? 'LIGHT MODE' : 'DARKMODE'}
+                    </div>
                   </div>
                 </div>
               </div>

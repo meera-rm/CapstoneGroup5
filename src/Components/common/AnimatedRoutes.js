@@ -87,7 +87,7 @@ const AnimatedRoutes = () => {
             <Route path='/dictionary' element={<Dictionary />} />
             <Route path='/flashcard' element={<FlashCard />} />
             <Route path='/vocabulary' element={<AddVocab />} />
-            <Route path='timer' element={<Timer />} />
+            <Route path='/timer' element={<Timer />} />
 
             <Route path='/books'>
               <Route index element={<BookCardList />} />

@@ -8,10 +8,10 @@ import AddVocabForm from './AddVocabForm';
 const AddVocab = () => {
   const [showCards, setShowCards] = useState(false);
   // https://medium.com/frontendweb/how-to-pass-state-or-data-in-react-router-v6-c366db9ee2f4
-  const location = useLocation();
-  console.log('locationstate=', location.state);
-  const words = location.state?.vocabWords;
-  console.log('inaddvocabwords=', words);
+  // const location = useLocation();
+  // console.log('locationstate=', location.state);
+  // const words = location.state?.vocabWords;
+  // console.log('inaddvocabwords=', words);
 
   const toggleCards = (e) => {
     if (!showCards) {
@@ -39,7 +39,7 @@ const AddVocab = () => {
         <AddVocabForm
           showCards={showCards}
           setShowCards={setShowCards}
-          words={words}
+          // words={words}
         />
       </div>
     </div>
