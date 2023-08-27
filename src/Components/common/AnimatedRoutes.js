@@ -16,7 +16,7 @@ import NewBooks from '../../Pages/Books/NewBook';
 import Dictionary from '../tools/Dictionary/Dictionary';
 import FlashCard from '../tools/FlashCard/FlashCard';
 import AddVocab from '../tools/Vocabulary/AddVocab';
-import Timer from '../pomodoro/Timer'
+import Timer from '../pomodoro/MyTimer'
 
 import Games from '../games/AllGames/Games';
 import RockpaperScissor from '../games/rps/RockpaperScissor';

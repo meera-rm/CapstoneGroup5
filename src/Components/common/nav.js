@@ -194,10 +194,10 @@ const Navbar = ({ darkModeButton, mode }) => {
                   </div>
                 </Link>
 
-                <Link to='/pomodoro' activeclassname='active'>
+                <Link to='/timer' activeclassname='active'>
                   <button>
                     <div
-                      className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
+                      className=' w-18 h-28 p-3 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
                       onMouseOver={handleMouseOver}
                       onMouseOut={handleMouseOut}
                     >

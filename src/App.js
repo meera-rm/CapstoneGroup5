@@ -55,7 +55,7 @@ const App = () => {
         )}
         </button>
    );
-   console.log(darkModeButton);
+   
   // dark mode button - passing in as a prop to nav.js
   // let darkModeButton = (
   //   <button className='switchThemeButton' onClick={switchTheme}>
