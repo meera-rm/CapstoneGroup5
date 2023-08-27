@@ -138,8 +138,8 @@ useEffect(() => {
 
   return (
 
-    <div className="container">
-      <div className="wrapper"> 
+    <div className="memoryGame_container">
+      <div className="memoryGame_wrapper"> 
           <div className="turns">
             <h5>{`Moves - ${turns}`}</h5>
           </div>
@@ -160,10 +160,12 @@ useEffect(() => {
                     matched ? "matched" : ""
                   }`}>
                  <div className='memoryGameCard-front'  >
-                                    {/* Add the banner */}
-                      <div className={`banner ${flipped ? "banner-show" : ""}`}>{data.country}</div>
-                      
-                      <img   src={data.image} alt='country map'/>
+                               
+                      {/* <div className={`banner ${flipped ? "banner-show" : ""}`}>{data.country}</div> */}
+                      <div class="memoryGameRibbon memoryGameLeft" 
+                      data-ribbon={data.country} style={{"--d":"0px","--c":"#14b8a6","--f":"25px"}}>
+                     </div>
+                      <img  src={data.image} alt='country map'/>
                  </div>
                   <img className='memoryGameCard-back' src={cover} alt='scholarsheep logo'/>
              

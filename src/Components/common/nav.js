@@ -7,7 +7,7 @@ import { CgProfile } from 'react-icons/cg';
 import { NavLink as Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { MdInfoOutline } from 'react-icons/md';
-
+import {RxCountdownTimer }from 'react-icons/rx';
 import { FaGamepad } from 'react-icons/fa';
 import { ImBooks } from 'react-icons/im';
 
@@ -194,7 +194,7 @@ const Navbar = ({ darkModeButton, mode }) => {
                   </div>
                 </Link>
 
-                {/* <Link to='/dictionary' activeclassname='active'>
+                <Link to='/pomodoro' activeclassname='active'>
                   <button>
                     <div
                       className=' w-18 h-28 p-2 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
@@ -204,18 +204,18 @@ const Navbar = ({ darkModeButton, mode }) => {
                       <IconContext.Provider
                         value={{ color: 'white', size: 40 }}
                       >
-                        <MdLanguage />
+                        <RxCountdownTimer/>
                       </IconContext.Provider>
                     </div>
                     <div>
-                      {isHovering && (
+                      {/* {isHovering && ( */}
                         <p className='text-teal font-fonts text-sm'>
-                          DICTIONARY
+                          TIMER
                         </p>
-                      )}
+                      {/* )} */}
                     </div>
                   </button>
-                </Link> */}
+                </Link>
 
                 <Link to='/games'>
                   <div className='relative group h-0'>

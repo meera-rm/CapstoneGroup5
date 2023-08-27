@@ -5,9 +5,8 @@ import NavBar from './Components/common/nav';
 import Footer from './Components/common/Footer';
 import AnimatedRoutes from './Components/common/AnimatedRoutes';
 
-import useLocalStorage from 'use-local-storage';
+// import useLocalStorage from 'use-local-storage';
 import { BsFillMoonFill } from 'react-icons/bs';
-
 import { BsFillSunFill } from 'react-icons/bs';
 
 const App = () => {

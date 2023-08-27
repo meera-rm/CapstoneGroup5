@@ -131,14 +131,14 @@
   };
 
   return (
-    <div class="container">
-      <h1 class="header">25 + 5 Clock</h1>
-      <div class="title">
+    <div class="timerContainer">
+      <h1 class="timerHeader">25 + 5 Clock</h1>
+      <div class="timerTitle">
         <div class="break-label"> Short Break </div>
         <div class="session-label">Long Break</div>
         <div class="session-label">Session Length</div>
       </div>
-      <div class="wrapper">
+      <div class="timerWrapper">
         <div class="shortbreak">
           <button
             type="button"
@@ -224,7 +224,7 @@
             })}
           </span>
         </div>
-        <div class="buttons">
+        <div class="startStopButtons">
           <button class="start_stop " onClick={handleStartStop}>
             {isPlaying ? "Stop" : "Start"}
           </button>

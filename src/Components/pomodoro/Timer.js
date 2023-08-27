@@ -104,7 +104,7 @@ import React,{useEffect,useState} from 'react';
   return (
     <div>
    
-     <div className="header">
+     <div className="timerHeader">
        <h1>Pomodoro Timer</h1>
      </div>
      <div className="timer-container">

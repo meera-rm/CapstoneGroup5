@@ -16,7 +16,7 @@ export default function ColorPanel() {
   };
   return (
     <main>  
-      <div className="container">
+      <div className="colorPanel_container">
          <div
             className="popup-box move"
             onMouseEnter={handleMouseEnter}
