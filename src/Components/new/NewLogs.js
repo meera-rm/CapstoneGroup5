@@ -38,11 +38,31 @@ const NewLogs = (props) => {
       .post(`${API}/api/logs/new`, newLog)
       .then(() => {
         console.log('added');
-        navigate(`/logs`);
-        toast.success("You have added a new log");
+        notify()
+        // navigate(`/logs`);
+        
       })
       .catch((c) => console.error('catch', c));
   };
+
+  const notify = () => {
+    toast.success(
+      '🦄 , You added a new book',
+      {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      }
+    )
+    setTimeout(() => {
+      navigate('/logs')
+    }, 2000)
+  }
 
   return (
     // <div className='add-trans'>

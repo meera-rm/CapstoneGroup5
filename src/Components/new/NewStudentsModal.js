@@ -40,12 +40,31 @@ const NewStudentsModal = (props) => {
       .post(`${API}/api/students/new`, student)
       .then(() => {
         console.log('added');
-        navigate(`/students`);
-        toast.success("You have added a new student");
+        notify()
+        // navigate(`/students`);
+       
       })
       .catch((c) => console.error('catch', c));
   };
 
+  const notify = () => {
+    toast.success(
+      '🦄 , You added a new book',
+      {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      }
+    )
+    setTimeout(() => {
+      navigate('/students')
+    }, 2000)
+  }
   return (
     <div className='flex items-center h-screen w-full bg-teal-lighter'>
       <div className='w-full bg-white rounded shadow-lg p-8 m-2 md:max-w-sm md:mx-auto'>
@@ -214,17 +233,7 @@ const NewStudentsModal = (props) => {
             </Link>
           </div>
         </form>
-        <ToastContainer 
-            position="top-center"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
+        <ToastContainer/>
 
       </div>
     </div>

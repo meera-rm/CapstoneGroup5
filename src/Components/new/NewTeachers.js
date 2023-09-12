@@ -49,11 +49,32 @@ const NewTeachers = () => {
       .post(`${API}/api/teachers/new`, teacher)
       .then(() => {
         console.log('added');
-        navigate(`/teachers`);
-        toast.success("You have added a new student");
+        notify()
+        // navigate(`/teachers`);
+        
       })
       .catch((c) => console.error('catch', c));
   };
+  const notify = () => {
+    toast.success(
+      '🦄 , You added a new book',
+      {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      }
+    )
+    setTimeout(() => {
+      navigate('/teachers')
+    }, 2000)
+  }
+
+
 
   return (
     // <div className='add-trans'>
@@ -352,17 +373,7 @@ const NewTeachers = () => {
             </Link>
           </div>
         </form>
-        <ToastContainer 
-            position="top-center"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
+        <ToastContainer/>
       </div>
     </div>
   );

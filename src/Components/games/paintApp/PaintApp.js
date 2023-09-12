@@ -6,10 +6,8 @@ import  ColorPanel from './ColorPanel';
 const PaintApp=()=>{
 
     return(
-         <div className=' '>
-            <h1 className=''>PaintApp</h1>
-       
-            {/* <div style>={{textAlign:'center'}}Paint App</div> */}
+         <div className='paintAppContainer'>
+            <div style={{textAlign:'center',fontSize:'40px',padding:'20px'}}>Paint App</div>
            <Tools/>
           
            <ColorPanel/>

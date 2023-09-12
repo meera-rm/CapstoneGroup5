@@ -150,7 +150,6 @@ const MyTimer = () => {
         <div className='shortbreak'>
           <button
            className='text-xl font-bold text-teal-600  border-2 border-teal-600 pl-2 pr-2'
-          //  style={{border: '1px solid black',padding:'0 10px'}}
             title='shortbreak'
             id='shortbreak-increment'
             onClick={handleIncrement}

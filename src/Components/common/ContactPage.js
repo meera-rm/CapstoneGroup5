@@ -1,5 +1,5 @@
 import emailjs from 'emailjs-com';
-import { toast } from 'react-toastify';
+import { toast ,ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import Swal from 'sweetalert2';
 
@@ -11,7 +11,7 @@ const USER_ID = 'rH-VJHjhM-GyJCZoy';
 const ContactForm = () => {
   const toastifySuccess = () => {
     toast('Form sent!', {
-      position: 'bottom-right',
+      position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,
       closeOnClick: true,
@@ -27,19 +27,19 @@ const ContactForm = () => {
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, USER_ID).then(
       (result) => {
         console.log(result.text);
-        Swal.fire({
-          icon: 'success',
-          title: 'Message Sent Successfully',
-        });
+        // Swal.fire({
+        //   icon: 'success',
+        //   title: 'Message Sent Successfully',
+        // });
         toastifySuccess();
       },
       (error) => {
         console.log(error.text);
-        Swal.fire({
-          icon: 'error',
-          title: 'Ooops, something went wrong',
-          text: error.text,
-        });
+        // Swal.fire({
+        //   icon: 'error',
+        //   title: 'Ooops, something went wrong',
+        //   text: error.text,
+        // });
       }
     );
     e.target.reset();
@@ -143,6 +143,7 @@ const ContactForm = () => {
           </button>
         </div>
       </form>
+      <ToastContainer/>
     </div>
   );
 };

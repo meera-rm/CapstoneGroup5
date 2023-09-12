@@ -42,11 +42,32 @@ const NewBooks = () => {
       .post(`${API}/api/books/new`, newBook)
       .then(() => {
         console.log('added');
-        navigate(`/books`);
-        toast.success("You have added a new book");
+        notify();
+        // navigate(`/books`);
+        
       })
       .catch((err) => console.error('catch', err));
   };
+
+  const notify = () => {
+    toast.success(
+      '🦄 , You added a new book',
+      {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      }
+    )
+    setTimeout(() => {
+      navigate('/books')
+    }, 2000)
+  }
+
 
   return (
     <div className='flex items-center h-screen w-full bg-teal-lighter'>
@@ -318,17 +339,7 @@ const NewBooks = () => {
             </Link>
           </div>
         </form>
-        <ToastContainer 
-            position="top-center"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
+        <ToastContainer/>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 .colorPanel_container {
     height: 100vh;
     background: whitesmoke;
-    /* border: 8px solid black; */
+    border: 8px solid black;
     width:800px;
     margin:0 auto;
     
@@ -22,7 +22,7 @@
     
 }
 .move:hover {
-    bottom: -222px;
+    bottom: -226px;
     height:260px;
     animation: change-opacity 4s;
     opacity:1;
@@ -40,7 +40,7 @@
   }
 
 .color-swatch {
-    margin:10px auto;
+    margin:0 auto;
     display:block;
     width:350px;
   }
