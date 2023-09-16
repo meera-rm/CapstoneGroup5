@@ -19,11 +19,11 @@ import Timer from '../pomodoro/MyTimer';
 
 import Games from '../games/AllGames/Games';
 import RockpaperScissor from '../games/rps/RockpaperScissor';
-import EtchSketch from '../games/EtchSketch';
+import EtchSketch from '../temp/EtchSketch';
 import MemoryGame from '../games/memorygame/MemoryGame';
 import PaintApp from '../games/paintApp/PaintApp';
 import GuessWord from '../games/guessword/GuessWord';
-import TicTacToe from '../games/TicTacToe';
+import TicTacToe from '../temp/TicTacToe';
 import CasualReading from '../books/bookCard/CasualReading';
 import ReadingLevelBooks from '../books/bookCard/ReadingLevelBooks';
 
