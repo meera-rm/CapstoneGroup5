@@ -454,16 +454,21 @@ const Navbar = ({ darkModeButton, mode }) => {
                     </div> */}
                   </div>
                 </Link>
-                <Link to='/info'>
+                {/* <Link to='/info'>
                   <p className='mt-2' onClick={handleNavLinkDisappear}>
                     INFO
                   </p>
-                </Link>
+                </Link> */}
                 {/* <Link to='/dictionary'>
                   <p className='mt-2' onClick={handleNavLinkDisappear}>
                     DICTIONARY
                   </p>
                 </Link> */}
+                <Link to='/timer'>
+                  <p className='mt-2' onClick={handleNavLinkDisappear}>
+                    TIMER
+                  </p>
+                </Link>
 
                 <Link to='/games'>
                   <div className='relative group h-0'>
