@@ -130,26 +130,36 @@ const MyTimer = () => {
   };
 
   return (
-    <div className='timerContainer'>
-      <h1 className='timerHeader text-center mt-10 mb-5 text-3xl font-bold text-teal-600'>
+    <div className='flow-root my-12 mx-auto'>
+      {/* timerContainer */}
+      <h1 className=' text-center mt-10 mb-5 text-3xl font-bold text-teal-600'>
+      {/* timerHeader */}
         Pomodoro Clock
       </h1>
-      <div className='timerTitle'>
-        <div className='break-label text-xl font-bold text-teal-600'>
+      <div className='flex flex-row justify-evenly gap-5 my-12 mx-4'>
+      {/* timerTitle */}
+        <div className='text-center text-xl font-bold text-teal-600'>
+        {/* break-label */}
           {' '}
           Short Break{' '}
         </div>
-        <div className='session-label text-xl font-bold text-teal-600'>
+        <div className='text-center text-xl font-bold text-teal-600'>
+        {/* session-label */}
           Long Break
         </div>
-        <div className='session-label text-xl font-bold text-teal-600'>
+        <div className=' text-center text-xl font-bold text-teal-600'>
+        {/* session-label */}
           Session Length
         </div>
       </div>
-      <div className='timerWrapper'>
-        <div className='shortbreak'>
+      <div className='flex flex-row justify-evenly gap-5 my-12 mx-auto'>
+      {/* timerWrapper */}
+        <div className=' flex flex-col md:flex-row '>
+        {/* shortbreak */}
+          
           <button
-           className='text-xl font-bold text-teal-600  border-2 border-teal-600 pl-2 pr-2'
+           className='text-xs font-semibold md:text-xl md:font-bold  text-teal-600 border-2 border-teal-600 pl-2 pr-2'
+            type='button'
             title='shortbreak'
             id='shortbreak-increment'
             onClick={handleIncrement}
@@ -157,12 +167,13 @@ const MyTimer = () => {
             +
           </button>
 
-          <div className='shortbreak-length text-xl font-bold text-teal-600'>
+          <div className=' text-sm font-semibold md:text-xl font-bold text-teal-600 pl-2 pr-2'>
+          {/* shortbreak-length */}
             {shortBreak}
           </div>
 
           <button
-           className='text-xl font-bold text-teal-600 border-2 border-teal-600 pl-2 pr-2'
+           className='text-xs font-semibold md:text-xl md:font-bold  text-teal-600 border-2 border-teal-600 pl-2 pr-2'
             type='button'
             title='shortbreak'
             id='shortbreak-decrement'
@@ -172,9 +183,10 @@ const MyTimer = () => {
           </button>
         </div>
 
-        <div className='longbreak'>
+        <div className=' flex flex-col md:flex-row '>
+        {/* longbreak */}
           <button
-           className='text-xl font-bold text-teal-600 border-2 border-teal-600 pl-2 pr-2'
+           className='text-xs font-semibold md:text-xl md:font-bold  text-teal-600 border-2 border-teal-600 pl-2 pr-2'
             type='button'
             title='longbreak'
             id='longbreak-increment'
@@ -183,12 +195,13 @@ const MyTimer = () => {
             +
           </button>
 
-          <div className='longbreak-length text-xl font-bold text-teal-600'>
+          <div className='text-sm font-semibold md:text-xl font-bold text-teal-600 pl-2 pr-2'>
+          {/* longbreak-length */}
             {longBreak}
           </div>
 
           <button
-           className='text-xl font-bold text-teal-600 border-2 border-teal-600 pl-2 pr-2'
+           className='text-xs font-semibold md:text-xl md:font-bold  text-teal-600 border-2 border-teal-600 pl-2 pr-2'
             type='button'
             title='longbreak'
             id='longbreak-decrement'
@@ -198,9 +211,10 @@ const MyTimer = () => {
           </button>
         </div>
 
-        <div className='session'>
+        <div className=' flex flex-col md:flex-row '>
+        {/* session */}
           <button
-           className='text-xl font-bold text-teal-600 border-2 border-teal-600 pl-2 pr-2'
+           className='text-xs font-semibold md:text-xl md:font-bold  text-teal-600 border-2 border-teal-600 pl-2 pr-2'
             type='button'
             title='session'
             id='session-increment'
@@ -209,12 +223,13 @@ const MyTimer = () => {
             +
           </button>
 
-          <div className='session-length text-xl font-bold text-teal-600 border-2 border-teal-600 pl-2 pr-2'>
+          <div className=' text-sm font-semibold md:text-xl font-bold text-teal-600 pl-2 pr-2'>
+          {/* session-length  */}
             {sessionLength}
           </div>
 
           <button
-           className='text-xl font-bold text-teal-600 border-2 border-teal-600 pl-2 pr-2'
+           className='text-xs font-semibold md:text-xl md:font-bold  text-teal-600 border-2 border-teal-600 pl-2 pr-2'
             type='button'
             title='session'
             id='session-decrement'
@@ -225,12 +240,15 @@ const MyTimer = () => {
         </div>
       </div>
 
-      <div className='timer'>
-        <div className='timer-label text-xl font-bold text-teal-600'>
+      <div className='text-center flow-root'>
+      {/* timer */}
+        <div className='text-xl font-bold text-teal-600'>
+        {/* timer-label  */}
           {activePhase} Length
         </div>
 
-        <div className='timer-left text-xl font-bold text-teal-600'>
+        <div className=' my-10 mx-0 text-xl font-bold text-teal-600'>
+        {/* timer-left */}
           <span>
             {Math.floor(timeLeft / 60).toLocaleString('en-US', {
               minimumIntegerDigits: 2,
@@ -245,16 +263,17 @@ const MyTimer = () => {
             })}
           </span>
         </div>
-        <div className='startStopButtons'>
+        <div className=' flex flex-row justify-center items-center gap-5'>
+        {/* startStopButtons */}
           <button
-            className=' text-xl font-bold text-teal-600 border-2 border-teal-600 pl-2 pr-2'
+            className='text-xl font-bold text-teal-600 border-2 border-teal-600 pl-2 pr-2'
             onClick={handleStartStop}
           >
             {isPlaying ? 'Stop' : 'Start'}
           </button>
 
           <button
-            className=' text-xl font-bold text-teal-600 border-2 border-teal-600 pl-2 pr-2'
+            className='text-xl font-bold text-teal-600 border-2 border-teal-600 pl-2 pr-2'
             onClick={handleReset}
           >
             Reset
