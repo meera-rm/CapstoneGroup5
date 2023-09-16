@@ -83,7 +83,7 @@
   z-index: 2;
   --d: 6px; /* folded part */
   --c: #14b8a6; /* color */
-  --f: 16px; /* ribbon font-size */
+  /* --f: 8px; ribbon font-size */
 }
 .memoryGameCard-back {
   background-color: #ddd;
@@ -131,7 +131,7 @@
   content: attr(data-ribbon);
   position: absolute;
   font-family: sans-serif;
-  font-size: var(--f);
+  font-size: 16px;
   top: 0;
   right: 0;
   transform: translate(29.29%, -100%) rotate(45deg);

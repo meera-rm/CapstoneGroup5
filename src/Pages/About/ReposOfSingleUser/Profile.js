@@ -54,7 +54,8 @@ export default function Profile(props) {
           </ul>
         </div>
 
-        <div className="flex items-center justify-between flex-wrap mt-5">
+        <div className="flex items-center justify-around flex-wrap mt-5">
+        {/*< div className='container m-auto grid grid-cols-1 md:grid-cols-2 '> */}
           <ul className="text-xs flex items-center justify-start">
             <li className="py-1 px-2 text-white bg-emerald-700 opacity-75 rounded-lg shadow inline-block mr-2">
               {props.language}

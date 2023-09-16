@@ -209,12 +209,12 @@ const MyTimer = () => {
             +
           </button>
 
-          <div class='session-length text-xl font-bold text-teal-600 border-2 border-teal-600 pl-2 pr-2'>
+          <div className='session-length text-xl font-bold text-teal-600 border-2 border-teal-600 pl-2 pr-2'>
             {sessionLength}
           </div>
 
           <button
-           className='text-xl font-bold text-teal-600'
+           className='text-xl font-bold text-teal-600 border-2 border-teal-600 pl-2 pr-2'
             type='button'
             title='session'
             id='session-decrement'
@@ -225,12 +225,12 @@ const MyTimer = () => {
         </div>
       </div>
 
-      <div class='timer'>
-        <div class='timer-label text-xl font-bold text-teal-600'>
+      <div className='timer'>
+        <div className='timer-label text-xl font-bold text-teal-600'>
           {activePhase} Length
         </div>
 
-        <div class='timer-left text-xl font-bold text-teal-600'>
+        <div className='timer-left text-xl font-bold text-teal-600'>
           <span>
             {Math.floor(timeLeft / 60).toLocaleString('en-US', {
               minimumIntegerDigits: 2,
@@ -245,16 +245,16 @@ const MyTimer = () => {
             })}
           </span>
         </div>
-        <div class='startStopButtons'>
+        <div className='startStopButtons'>
           <button
-            class='start_stop text-xl font-bold text-teal-600 border-2 border-teal-600 pl-2 pr-2'
+            className=' text-xl font-bold text-teal-600 border-2 border-teal-600 pl-2 pr-2'
             onClick={handleStartStop}
           >
             {isPlaying ? 'Stop' : 'Start'}
           </button>
 
           <button
-            class='reset text-xl font-bold text-teal-600 border-2 border-teal-600 pl-2 pr-2'
+            className=' text-xl font-bold text-teal-600 border-2 border-teal-600 pl-2 pr-2'
             onClick={handleReset}
           >
             Reset

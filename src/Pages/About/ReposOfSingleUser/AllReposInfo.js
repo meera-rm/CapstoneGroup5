@@ -18,11 +18,12 @@ function AllReposInfo() {
   useEffect(() => {
     const fetchRepos = async () => {
       const res = await fetch(
-        `https://api.github.com/users/${user}/repos?per_page=8&sort=updated`
+        `https://api.github.com/users/${user}/repos?per_page=20&sort=updated`
       );
       const data = await res.json();
       setItems(data);
       console.log(data);
+      // GET /repos/:owner/:repo
     };
 
     fetchRepos();
@@ -39,12 +40,13 @@ function AllReposInfo() {
       {!items ? (
         <Loading />
       ) : (
-        // <div className='grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 pb-20 m-auto'>
-        <div className='text-center m-auto'>
+           <div className='text-center m-auto'> 
+          {/* <div className='container m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10'>  */}
           <div className=' w-1/2 m-auto pt-10 pb-10'>
             {items
               .filter((item) => 
-                item.id===backendvalue   || item.id===frontendvalue   
+                item.id===backendvalue   
+                 || item.id===frontendvalue   
               )
               .map((item) => (
                 <Profile key={item.id} {...item} />
