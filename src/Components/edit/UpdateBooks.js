@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-
+import httpService from '../../httpService';
 const API = process.env.REACT_APP_API_URL;
 
 const UpdateBooks = () => {
@@ -20,8 +20,8 @@ const UpdateBooks = () => {
   });
 
   useEffect(() => {
-    axios
-      .get(`${API}/api/books/${id}`)
+    // httpService
+    axios.get(`${API}/api/books/${id}`)
       .then((res) => {
         setBook(res.data.payload);
       })
@@ -39,8 +39,8 @@ const UpdateBooks = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios
-      .put(`${API}/api/books/${id}`, book)
+    // axios
+      httpService.put(`${API}/api/books/${id}`, book)
       .then((res) => {
         navigate(`/books`);
       })
@@ -148,7 +148,7 @@ const UpdateBooks = () => {
             {/* </div>
           <div> */}
             <Link to={`/books/${id}`}>
-              <button className=' px-5  py-3 rounded bg-teal-500'>Back</button>
+              <button className='px-5 py-3 rounded bg-teal-500'>Back</button>
             </Link>
             {/* </div> */}
           </div>

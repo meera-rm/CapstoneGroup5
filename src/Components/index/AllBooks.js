@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import httpService from '../httpService';
 
 
 const API = process.env.REACT_APP_API_URL;
@@ -48,12 +49,31 @@ const AllBooks = () => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    axios
-      .get(`${API}/api/books`)
-      //  .then((response) => console.log(response.data))
-      .then((response) => setBookData(response.data.payload))
-      .catch((e) => console.log('catch', e));
-  }, []);
+    // https://medium.com/@deniswachira_/how-to-asynchronously-call-apis-inside-the-useeffect-hook-ce524431ce6#:~:text=In%20this%20method%2C%20we%20can,the%20declaration%20of%20the%20function.&text=I%20have%20used%20an%20arrow,keyword%20before%20the%20function%20definition.
+ 
+
+
+    const fetchBooks = async () =>{
+         const response = await httpService.get(`${API}/api/books`);
+         setBookData(response.data.payload)
+    } 
+    fetchBooks()
+     // promise approach
+    // axios.get(`${API}/api/books`)
+    //   //  .then((response) => console.log(response.data))
+    //   .then((response) => setBookData(response.data.payload))
+    //   .catch((e) => console.log('catch', e));
+   
+      // iifee approach
+
+    // (async () => {
+    //   const res = await httpService.get(`${API}/api/books);
+    //   setBookData(res.data.payload)
+    // })();
+ 
+}, []);
+    
+  
 
   const data = Object.values(bookData);
 
@@ -84,9 +104,8 @@ const AllBooks = () => {
     <div className=' md:col-span-2 '>
       {/* <div className='text-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 '>
         
-       
       </div> */}
-      <h2 className='text-center  mt-10 mb-5 text-5xl font-bold text-teal-600 '>
+      <h2 className='text-center mt-10 mb-5 text-5xl font-bold text-teal-600 '>
         Books
       </h2>
 

@@ -7,7 +7,7 @@ import { CgProfile } from 'react-icons/cg';
 import { NavLink as Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { MdInfoOutline } from 'react-icons/md';
-import {RxCountdownTimer }from 'react-icons/rx';
+import { RxCountdownTimer } from 'react-icons/rx';
 import { FaGamepad } from 'react-icons/fa';
 import { ImBooks } from 'react-icons/im';
 
@@ -70,7 +70,6 @@ const Navbar = ({ darkModeButton, mode }) => {
   //   new CircleType(circleInstance.current).dir(-1).radius(250);
   // }, []);
 
- 
   return (
     <React.Fragment>
       <section className='bg-teal-500'>
@@ -122,15 +121,14 @@ const Navbar = ({ darkModeButton, mode }) => {
                       >
                         <MdInfoOutline />
                       </IconContext.Provider>
-                      
                     </div>
                     <div>
-                      // {isHovering && (
-                        <p className='text-teal font-fonts text-sm'>INFO</p>
-                      // )}
+                      {/* // {isHovering && ( *
+                      <p className='text-teal font-fonts text-sm'>INFO</p>
+                      {/* // )} 
                     </div>
                   </button>
-                </Link>  */}
+                </Link> */}
 
                 <Link to='/profile' activeclassname='active'>
                   <button>
@@ -194,7 +192,7 @@ const Navbar = ({ darkModeButton, mode }) => {
                   </div>
                 </Link>
 
-                 <Link to='/timer' activeclassname='active'>
+                {/* <Link to='/timer' activeclassname='active'>
                   <button>
                     <div
                       className=' w-18 h-28 p-3 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
@@ -215,7 +213,7 @@ const Navbar = ({ darkModeButton, mode }) => {
                      
                     </div>
                   </button>
-                </Link> 
+                </Link>  */}
 
                 <Link to='/games'>
                   <div className='relative group h-0'>
@@ -378,7 +376,6 @@ const Navbar = ({ darkModeButton, mode }) => {
                         onClick={handleNavLinkDisappear}
                       >
                         {darkModeButton}
-                        
                       </p>
                     </IconContext.Provider>
                   </div>

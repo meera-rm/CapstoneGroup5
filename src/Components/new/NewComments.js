@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import {ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+// import httpService from '../httpService';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -35,8 +36,8 @@ const NewComments = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log('inhandlesumbit', newComment);
-    axios
-      .post(`${API}/api/comments/new`, newComment)
+    // httpService
+    axios.post(`${API}/api/comments/new`, newComment)
       .then(() => {
         console.log('added');
         notify();

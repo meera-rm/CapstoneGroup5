@@ -1,7 +1,7 @@
 import React ,{useState} from 'react';
 import { Link ,useNavigate  } from 'react-router-dom';
 import axios from 'axios';
-
+import httpService from '../httpService';
 import { MdDelete } from 'react-icons/md';
 import { MdTableView } from 'react-icons/md';
 import { FaEdit } from 'react-icons/fa';
@@ -21,8 +21,8 @@ const StudentEntry=({student})=>{
     //     navigate('/teachers');
     //   })
     //   .catch((e) => console.error(e));
-    axios
-      .delete(`${API}/api/students/${studentId}`)
+    // httpService
+    axios.delete(`${API}/api/students/${studentId}`)
       .then(() => {
         navigate('/students');
       })

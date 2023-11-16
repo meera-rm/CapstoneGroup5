@@ -7,19 +7,18 @@ import Antonym from './Antonym';
 import Example from './Example';
 import Meanings from './Meanings';
 import Synonym from './Synonym';
-
+import httpService from '../../httpService';
 
 const SearchResult = ({ searchWord, setSearchWord }) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  
-
   const fetchData = async (word) => {
     try {
       setLoading(true);
-      const res = await axios(
+      //const res= httpService.get(
+        const res = await axios.get(
         `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
       );
       setData(res.data);

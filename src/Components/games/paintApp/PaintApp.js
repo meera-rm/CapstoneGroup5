@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import  Tools from './Tools';
 import  ToolBox from './ToolBox';
+import  Canvas from './Canvas';
 import  ColorPanel from './ColorPanel';
 
 const PaintApp=()=>{
@@ -11,6 +12,7 @@ const PaintApp=()=>{
            <Tools/>
           
            <ColorPanel/>
+           <Canvas/>
         </div>
     )
 }

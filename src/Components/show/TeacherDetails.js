@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+// import httpService from '../httpService';
 import Pagination from '../features/Pagination';
 import Modal from '../features/Modal';
 import StudentEntry from './StudentEntry'
@@ -30,8 +30,8 @@ const TeacherDetails = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    axios
-      .get(`${API}/api/teachers/${id}`)
+    // httpService
+    axios.get(`${API}/api/teachers/${id}`)
       .then((response) => {
         setTeacher(response.data.payload);
       })
@@ -39,8 +39,8 @@ const TeacherDetails = () => {
   }, [id, navigate, teacher]);
 
   useEffect(() => {
-    axios
-      .get(`${API}/api/teachers/${id}/students`)
+    // httpService
+    axios.get(`${API}/api/teachers/${id}/students`)
       .then((response) => {
         // console.log(response.data)
         setStudent(response.data);
@@ -64,8 +64,8 @@ const TeacherDetails = () => {
     //     navigate('/teachers');
     //   })
     //   .catch((e) => console.error(e));
-    axios
-      .delete(`${API}/api/students/${studentId}`)
+    //  httpService
+    axios.delete(`${API}/api/students/${studentId}`)
       .then(() => {
         navigate('/students');
       })

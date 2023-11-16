@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import httpService from '../httpService';
 import Pagination from '../features/Pagination';
 import NewLogs from '../new/NewLogs';
 
@@ -32,8 +32,8 @@ const StudentLogsView = (props) => {
   let { id } = useParams();
 
   useEffect(() => {
-    axios
-      .get(`${API}/api/students/${id}`)
+    // httpService
+    axios.get(`${API}/api/students/${id}`)
       .then((response) => {
         setStudentData(response.data);
         // console.log(response.data);
@@ -42,8 +42,8 @@ const StudentLogsView = (props) => {
   }, [id, navigate]);
 
   useEffect(() => {
-    axios
-      .get(`${API}/api/students/${id}/logs`)
+    // httpService
+    axios.get(`${API}/api/students/${id}/logs`)
       .then((response) => {
         // console.log(response.data);
         setLogData(response.data);
@@ -52,6 +52,7 @@ const StudentLogsView = (props) => {
   }, [id, navigate]);
 
   useEffect(() => {
+    //  shttpService
     axios.get(`${API}/api/books`).then((response) => {
       // console.log(response.data.payload);
       setBook(response.data.payload);
@@ -60,8 +61,8 @@ const StudentLogsView = (props) => {
   }, [id, navigate]);
 
   useEffect(() => {
-    axios
-      .get(`${API}/api/comments`)
+    // httpService
+    axios.get(`${API}/api/comments`)
       .then((response) => {
         setComments(response.data.payload);
       })
@@ -70,8 +71,8 @@ const StudentLogsView = (props) => {
 
   //Delete functions
   const handleDelete = () => {
-    axios
-      .delete(`${API}/api/students/${id}`)
+    // httpService
+    axios.delete(`${API}/api/students/${id}`)
       .then(() => {
         navigate('/students');
       })

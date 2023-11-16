@@ -1,6 +1,7 @@
 import React ,{useState,useEffect} from 'react';
 import { Link  } from 'react-router-dom';
 import axios from 'axios';
+import httpService from '../httpService';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -9,8 +10,8 @@ const LogEntry =({log,index})=>{
    
    
   useEffect(() => {
-    axios
-      .get(`${API}/api/comments/logs/${log.log_id}`)
+    //  httpService
+    axios.get(`${API}/api/comments/logs/${log.log_id}`)
       .then((response) => {
         setComment(response.data.payload.teacher_comments);
         console.log(response.data.payload.teacher_comments);

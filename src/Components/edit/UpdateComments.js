@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+// import httpService from '../httpService';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -19,8 +20,8 @@ const UpdateComments = () => {
   });
 
   useEffect(() => {
-    axios
-      .get(`${API}/api/comments/${id}`)
+    //  httpService
+    axios.get(`${API}/api/comments/${id}`)
       .then((res) => {
         setComment(res.data.payload);
       })
@@ -38,8 +39,8 @@ const UpdateComments = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios
-      .put(`${API}/api/comments/${id}`, comment)
+    // httpService
+    axios.put(`${API}/api/comments/${id}`, comment)
       .then(
         (res) => {
           navigate(`/comments/:${id}`);

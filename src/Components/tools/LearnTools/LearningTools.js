@@ -5,6 +5,7 @@ import './LearningTools.scss';
 import words from '../db/words.json';
 import tremble from './tremble.png';
 import dictionary from './dictionary.png';
+import vocabimg from './vocabimg.png';
 
 const LearningTools = ({tools}) => {
 console.log(words)
@@ -45,7 +46,7 @@ console.log(words)
     <Link to='/flashcard'>
         <div className='learningTools__container'>
           <div className='learningTools__image'>
-            <img src={tremble} alt='' />
+            <img src={vocabimg} alt='' />
           </div>
           <div className='learningTools__text'>
             <h2>Vocabulary Words</h2>

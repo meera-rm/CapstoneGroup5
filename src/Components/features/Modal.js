@@ -2,6 +2,7 @@ import React from 'react';
 import NewLogs from '../new/NewLogs';
 import NewStudentsModal from '../new/NewStudentsModal';
 // import NewComments from '../new/NewComments';
+
 const Modal = ({ showModal, setShowModal, choice, teacher, studentData }) => {
   const name = choice === 1 ? 'Students' : 'Logs';
   return (

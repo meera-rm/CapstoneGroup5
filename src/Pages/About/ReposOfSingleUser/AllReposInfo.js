@@ -42,7 +42,7 @@ function AllReposInfo() {
       ) : (
            <div className='text-center m-auto'> 
           {/* <div className='container m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10'>  */}
-          <div className=' w-1/2 m-auto pt-10 pb-10'>
+          <div className='w-4/5 md:w-1/2 m-auto pt-10 pb-10'>
             {items
               .filter((item) => 
                 item.id===backendvalue   

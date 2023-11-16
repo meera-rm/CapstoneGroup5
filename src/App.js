@@ -70,7 +70,7 @@ const App = () => {
     <div className='App' >
       {/* data-theme={theme} */}
       <main>
-        <NavBar darkModeButton={darkModeButton} mode={mode} />
+       <NavBar darkModeButton={darkModeButton} mode={mode} /> 
         <AnimatedRoutes />
         <Footer />
       </main>

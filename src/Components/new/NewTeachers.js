@@ -4,6 +4,7 @@ import { useNavigate, useParams, Link } from 'react-router-dom';
 import avatarProfilePics from '../../utils/AvatarProfilePics';
 import {ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+// import httpService from '../httpService';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -45,8 +46,8 @@ const NewTeachers = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log('inhandlesumbit', teacher);
-    axios
-      .post(`${API}/api/teachers/new`, teacher)
+    // httpService
+    axios.post(`${API}/api/teachers/new`, teacher)
       .then(() => {
         console.log('added');
         notify()

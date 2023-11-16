@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-
+// import httpService from '../httpService';
 import Table from 'react-bootstrap/Table';
 
 const API = process.env.REACT_APP_API_URL;
@@ -11,8 +11,8 @@ const AllStudents = () => {
   let { teacherId } = useParams();
 
   useEffect(() => {
-    axios
-      .get(`${API}/api/students`)
+    // httpService
+    axios.get(`${API}/api/students`)
       //  .then((response) => console.log(response.data))
       .then((response) =>{
         console.log(response.data);

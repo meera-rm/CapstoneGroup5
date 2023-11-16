@@ -36,7 +36,7 @@ const UpcomingBooks = () => {
       </div>
       <div className='articleList__line'></div>
 
-      <div className='articleList__article'>
+       <div className='articleList__article'>
         <div className='articleList__number'>4</div>{' '}
         <span className='articleList__title'>
           <a href='https://www.penguinrandomhouse.com/books/692751/theres-a-ghost-in-this-house-by-oliver-jeffers/'>

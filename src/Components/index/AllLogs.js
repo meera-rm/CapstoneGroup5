@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 // import Table from 'react-bootstrap/Table';
 import Student from './Student.js';
+import httpService from '../httpService.js';
 const API = process.env.REACT_APP_API_URL;
 
 const AllLogs = () => {
@@ -13,8 +14,8 @@ const AllLogs = () => {
   let { id } = useParams();
 
   useEffect(() => {
-    axios
-      .get(`${API}/api/logs`)
+    // httpService
+    axios.get(`${API}/api/logs`)
       // .then((response) => console.log(response.data))
       .then((response) => setLogData(response.data))
       .catch((e) => console.error('catch', e));
@@ -29,8 +30,8 @@ const AllLogs = () => {
   // }, [logData]);
 
   useEffect(() => {
-    axios
-      .get(`${API}/api/students`)
+    //  httpService 
+    axios.get(`${API}/api/students`)
       // console.log(response.data.payload))
       .then((response) => {
         setStudentData(response.data);

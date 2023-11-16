@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate, useLocation } from 'react-router-dom';
-
+import httpService from '../httpService';
 import axios from 'axios';
 import Pagination from '../features/Pagination';
 import LogEntry from './LogEntry';
@@ -31,8 +31,8 @@ const StudentDetails = (props) => {
   const fromTeacherDetails = location.state?.fromTeacherDetails;
 
   useEffect(() => {
-    axios
-      .get(`${API}/api/students/${id}`)
+    // httpService
+      axios.get(`${API}/api/students/${id}`)
       .then((response) => {
         setStudent(response.data);
         // console.log(response.data);
@@ -41,8 +41,8 @@ const StudentDetails = (props) => {
   }, [id, navigate]);
 
   useEffect(() => {
-    axios
-      .get(`${API}/api/students/${id}/logs`)
+    // httpService
+    axios.get(`${API}/api/students/${id}/logs`)
       .then((response) => {
         // console.log(response.data);
         setLogData(response.data);
@@ -54,8 +54,8 @@ const StudentDetails = (props) => {
 
   //Delete functions
   const handleDelete = () => {
-    axios
-      .delete(`${API}/api/students/${id}`)
+    //  httpService
+    axios.delete(`${API}/api/students/${id}`)
       .then(() => {
         navigate('/students');
       })

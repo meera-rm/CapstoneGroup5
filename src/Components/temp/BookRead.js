@@ -221,3 +221,10 @@ export default BookCardList;
       //   {/* <div className='mt-14 grid text-center md:grid-cols-3 lg:grid-cols-4 gap-10 lg:gap-16'> */}
       //   {/* <div className='max-w-sm rounded overflow-hidden shadow-lg '> */}
       //   {/* <div className='container'>*/}
+
+
+      // // loading gif
+// {
+//   /* <div class="tenor-gif-embed" data-postid="17733403" data-share-method="host" data-aspect-ratio="1.33333" data-width="100%"><a href="https://tenor.com/view/gb-notebook-laptop-gif-17733403">Gb Notebook Sticker</a>from <a href="https://tenor.com/search/gb-stickers">Gb Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script> */
+// }
+// // https://tenor.com/view/gb-notebook-laptop-gif-17733403

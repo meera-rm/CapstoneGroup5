@@ -8,7 +8,7 @@ const CardSlider = () => {
 
 
   return (
-    <div class='cardSliderComponent'>
+    <div className='cardSliderComponent'>
       <CardSliderLeft/>
       <CardSliderRight />
     </div>

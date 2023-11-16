@@ -5,7 +5,7 @@
     font-size: 19px;
     font-weight: 900;
     line-height: 1.2em;
-  
+
     &__article {
       display: flex;
     }
@@ -35,7 +35,7 @@
   
     &__bgtext {
       display: flex;
-      position: relative;
+      position: absolute;
       font-family: Manuka Condensed, Impact, Helvetica, sans-serif;
       &::after {
         margin: 2.7em 0 0 -4.7em;
@@ -52,8 +52,18 @@
         color:#4cbfb9;
         top: 0;
         left: 0;
-        z-index: -1;
+        
       }
     }
+    /* Adjust the position for smaller screens (e.g., mobile) */
+    @media (max-width: 640px) {
+  &__bgtext::after {
+    margin-top:3.2em;
+    max-width:100%;
+    margin-left: -5.7em; /* Adjust the left margin to move it a little to the left */
+    //font-size: 30px; /* Adjust the font size for smaller screens if needed */
+      transform: scaleY(1.45); /* Adjust the scaling if needed */
+  }
+}
   }
   

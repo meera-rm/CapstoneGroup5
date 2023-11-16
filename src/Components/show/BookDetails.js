@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
-
+// import httpService from '../../Components/httpService';
+import { AiFillDelete } from 'react-icons/ai';
+import { BsPencilSquare } from 'react-icons/bs';
+import { BiArrowBack } from 'react-icons/bi';
 const API = process.env.REACT_APP_API_URL;
 
 const BookDetails = () => {
@@ -14,8 +16,8 @@ const BookDetails = () => {
   let { id } = useParams();
 
   useEffect(() => {
-    axios
-      .get(`${API}/api/books/${id}`)
+    // httpService
+    axios.get(`${API}/api/books/${id}`)
       .then((response) => {
         setBook(response.data.payload);
       })
@@ -25,7 +27,6 @@ const BookDetails = () => {
   // const filterBooksbyReadingLevel = (letter) =>{
   //   return book.filter((bookItem) => bookItem.reading_level === letter.toUpperCase())[0];
   // }
-
 
   //Delete functions
   const handleDelete = () => {
@@ -86,22 +87,24 @@ const BookDetails = () => {
           <div className='bg-teal-500 px-6 py-4 rounded text-white'>
             {' '}
             <Link to={'/books'}>
-              <button className='show-btns'>Back </button>
+              {/* <button className='show-btns'>Back </button> */}
+              <BiArrowBack  className='cursor-pointer' />
             </Link>
           </div>
           <div className='bg-teal-500 px-6 py-4 text-white rounded '>
             {' '}
             <Link to={`/books/${id}/edit`}>
-              <button className='show-btns'>Edit </button>
+              {/* <button className='show-btns'>Edit </button> */}
+              <BsPencilSquare  className='cursor-pointer' />
             </Link>
           </div>
           <div className='bg-teal-500 px-6 py-4 text-white rounded '>
             {' '}
             <Link to={'/books'}>
-              <button className='show-btns' onClick={handleDelete}>
-                {/* <button style={{ border: 'none' }} className='second'></button> */}
-                Delete
-              </button>
+              {/* <button className='show-btns' onClick={handleDelete}>
+               Delete      
+              </button> */}
+                <AiFillDelete className='cursor-pointer' onClick={handleDelete} />
             </Link>
           </div>
         </div>

@@ -38,18 +38,36 @@ import StudentShow from '../../Pages/Student/StudentShow';
 import StudentEdit from '../../Pages/Student/StudentEdit';
 // import StudentView from '../../Pages/Student/StudentView';
 
+// import AddSubscription from '../../Pages/Subscriptions/AddSubscription';
+// import ListSubscription from '../../Pages/Subscriptions/ListSubscription';
+// import EditSubscription from '../../Pages/Subscriptions/EditSubscription';
+
+import AddSubscription from '../subscriptions/AddSubscription';
+import ListSubscription from '../subscriptions/ListSubscription';
+import EditEmailModal from '../subscriptions/EditEmailModal';
+
+import Profile from '../index/Profile';
+import Information from '../../Pages/Information';
+import PrivacyPolicy from '../../Pages/PrivacyPolicy';
+import ParentDashboard from '../../Pages/ParentDashboard';
+
+import Note from '../../Pages/Notes/Note';
+import Notes from '../note/Notes';
+import NewNotes from '../note/NewNotes';
+import UpdateNotes from '../note/UpdateNotes';
+import ListNotes from '../note/ListNotes';
+import ShowNotes from '../note/ShowNotes';
+import NoteSideBar from '../note/NoteSideBar';
+import NotesHome from '../note/NotesHome';
 // import IndexLogs from '../../Pages/Logs/IndexLogs';
 // import NewLog from '../../Pages/Logs/NewLog';
 // import ShowLogs from '../../Pages/Logs/ShowLogs';
 // import EditLogs from '../../Pages/Logs/EditLogs';
-import Profile from '../index/Profile';
+
 // import IndexComments from '../../Pages/Comment/IndexComments';
 // import NewComment from '../../Pages/Comment/NewComment';
 // import ShowComments from '../../Pages/Comment/ShowComments';
 // import EditComments from '../../Pages/Comment/EditComments';
-import Information from '../../Pages/Information';
-import PrivacyPolicy from '../../Pages/PrivacyPolicy';
-import ParentDashboard from '../../Pages/ParentDashboard';
 
 // import SignUp from  '../../Pages/SignUp';
 // import TeacherSignUp from '../../Pages/TeacherSignUp';
@@ -80,7 +98,7 @@ const AnimatedRoutes = () => {
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
             <Route path='/profile' element={<Profile />} />
-            <Route path='/info' element={<Information />} />
+            {/* <Route path='/info' element={<Information />} /> */}
             <Route path='/policy' element={<PrivacyPolicy />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/dictionary' element={<Dictionary />} />
@@ -105,6 +123,12 @@ const AnimatedRoutes = () => {
               <Route path='tictactoe' element={<TicTacToe />} />
             </Route>
 
+            <Route path='/subscriptions'>
+              <Route index element={<ListSubscription />} />
+              <Route path='new' element={<AddSubscription />} />
+              <Route path=':id/edit' element={<EditEmailModal />} />
+            </Route>
+
             <Route path='/teachers'>
               <Route index element={<TeacherIndex />} />
               <Route path='new' element={<TeacherNew />} />
@@ -117,6 +141,17 @@ const AnimatedRoutes = () => {
               <Route path='new' element={<StudentNew />} />
               <Route path=':id' element={<StudentShow />} />
               <Route path=':id/edit' element={<StudentEdit />} />
+            </Route>
+
+            <Route path='/notes'>
+              <Route index element={<Notes />} />
+              {/* <Route path='sidebar' element={<NoteSideBar />} /> */}
+
+              <Route index element={<ListNotes />} />
+              <Route path='home' element={<NotesHome />} />
+              <Route path='new' element={<NewNotes />} />
+              <Route path=':id' element={<ShowNotes />} />
+              <Route path=':id/edit' element={<UpdateNotes />} />
             </Route>
 
             <Route path='/parent-dashboard' element={<ParentDashboard />} />

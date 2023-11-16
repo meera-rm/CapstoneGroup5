@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+// import httpService from '../httpService';
 // import  AllLogs from './AllLogs'
+import { AiFillDelete } from 'react-icons/ai';
+import { BsPencilSquare } from 'react-icons/bs';
+import { BiArrowBack } from 'react-icons/bi';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -14,8 +17,8 @@ const LogDetails = () => {
   let { id } = useParams();
 
   useEffect(() => {
-    axios
-      .get(`${API}/api/logs/${id}`)
+    // httpService
+    axios.get(`${API}/api/logs/${id}`)
       .then((response) => {
         setLog(response.data);
       })
@@ -24,8 +27,8 @@ const LogDetails = () => {
 
   //Delete functions
   const handleDelete = () => {
-    axios
-      .delete(`${API}/api/logs/${id}`)
+    // httpService
+    axios.delete(`${API}/api/logs/${id}`)
       .then(() => {
         navigate('/logs');
       })
@@ -70,9 +73,10 @@ const LogDetails = () => {
           <div>
             {' '}
             <Link to={'/students'}>
-              <button className=' bg-teal-500 px-6 py-4 text-white rounded '>
+              {/* <button className=' bg-teal-500 px-6 py-4 text-white rounded '>
                 Back{' '}
-              </button>
+              </button> */}
+               <BiArrowBack  className='cursor-pointer' />
             </Link>
           </div>
 
@@ -97,12 +101,13 @@ const LogDetails = () => {
 
             {' '}
             <Link to={'/students'}>
-              <button
+              {/* <button
                 className='bg-teal-500 px-6 py-4 text-white rounded'
                 onClick={handleDelete}
               >
                 Delete
-              </button>
+              </button> */}
+                 <AiFillDelete className='cursor-pointer' onClick={handleDelete} />
             </Link>
           </div>
         </div>

@@ -20,10 +20,10 @@
 [data-theme="light"] .App {
   /* Background color */
   background-color: #ffffff;
-  /* color: #333333; */
+  color: #333333;
 }
 [data-theme="dark"] .App{
   /* Background color */
-  background-color: 	#888888;
-  /* color: #ffffff; */
+  background-color: 	#A9A9A9;
+   color: #ffffff;
 }

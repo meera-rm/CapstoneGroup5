@@ -6,13 +6,13 @@ export default function Profile(props) {
   return (
     <>
       <article className="bg-white p-5 rounded shadow shadow-emerald-300">
-        <div className="flex items-center ">
+        <div className="md:flex items-center ">
           <img
             src={props.owner.avatar_url}
             alt={props.owner.login}
             className="w-16 h-16 shadow rounded-full"
           />
-          <ul className="ml-5">
+          <ul className="ml-5 ">
             <li>
               <h2 className="font-bold text-xl">{props.owner.login}</h2>
             </li>

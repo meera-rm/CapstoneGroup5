@@ -1,4 +1,4 @@
-.badges {
+.notes {
   padding: 40px;
   font-family: Roboto, sans-serif;
   color: #03958e;
@@ -11,14 +11,6 @@
     }
     
     &__container {
-        //   color: #555; 
-        // //  &__item{
-        //   display: grid;
-        //   grid-template-columns: 1fr 1fr ;
-        //   gap: 40px;
-        //   justify-content:center;
-        //   align-items: center;  
-        //   border: 2px solid #f5f5f5;
         display: grid;
             grid-template-columns: 1fr 1fr ;
             column-gap: 10px;
@@ -40,11 +32,11 @@
               
           }
           &__image{  
-              width:50%;
+              width:30%;
               img{
                 text-align:center;
                 @media screen and (max-width: 600px) {
-                  width: 100%;
+                  width: 50%;
                  text-align:center;
                   
                 }

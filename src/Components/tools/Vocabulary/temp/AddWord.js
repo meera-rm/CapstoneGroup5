@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from 'react';
-import axios from 'axios';
- import words from '.././db/words.json';
+// import axios from 'axios';
+ import words from '../../db/words.json';
+import httpService from '../../../httpService';
 
 const AddWord = ({ meaning , setMeaning}) => {
  
@@ -18,7 +19,8 @@ const AddWord = ({ meaning , setMeaning}) => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const res = await axios(
+      //const res = 
+        const res = await httpService.get(
         `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
       );
       setData(res.data);
@@ -103,8 +105,3 @@ const AddWord = ({ meaning , setMeaning}) => {
 
 export default AddWord;
 
-// // loading gif
-// {
-//   /* <div class="tenor-gif-embed" data-postid="17733403" data-share-method="host" data-aspect-ratio="1.33333" data-width="100%"><a href="https://tenor.com/view/gb-notebook-laptop-gif-17733403">Gb Notebook Sticker</a>from <a href="https://tenor.com/search/gb-stickers">Gb Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script> */
-// }
-// // https://tenor.com/view/gb-notebook-laptop-gif-17733403

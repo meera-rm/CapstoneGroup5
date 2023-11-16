@@ -6,7 +6,7 @@ const CardSliderRight = () => {
 
   const One = () => {
     return (
-      <div classNme='cardSliderRight__text'>
+      <div className='cardSliderRight__text'>
         <h1 className='cardSliderRight__header'>A child who reads</h1>
         <h6>will be an Adult who thinks</h6>
       </div>

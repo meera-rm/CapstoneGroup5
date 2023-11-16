@@ -50,13 +50,13 @@ let bookdata = [
   {
     title: 'tom sawuyer 6',
     author: 'mark twain',
-    grade: '1st Grade',
+    grade: '1stGrade',
     topic: 'science',
   },
   {
     title: 'tom sawuyer 7',
     author: 'mark twain',
-    grade: '1st grade',
+    grade: '1stGrade',
     topic: 'social studies',
   },
 ];
@@ -69,7 +69,7 @@ const Explore = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
  
   const booksByGrade =
-    gradeLevel !== 'All Grades'
+    gradeLevel !== 'AllGrades'
       ? bookdata.filter((ele) => ele.grade === gradeLevel)
       : bookdata;
 
@@ -103,9 +103,9 @@ const Explore = () => {
        />
 
         <div className='testbooklist'>
-          {booksByTopic.map((book) => {
+          {booksByTopic.map((book,index) => {
             return (
-              <div className='testbook' >
+              <div className='testbook'  key={index}>
                 <div>{book.title}</div>
                 <div>{book.author}</div>
               </div>

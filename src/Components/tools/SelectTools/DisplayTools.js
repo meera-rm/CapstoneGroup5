@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 
 import LearningTools from '../LearnTools/LearningTools';
-import BadgeInfo from '../Badges/BadgeInfo';
+import Note from '../../../Pages/Notes/Note';
 import './DisplayTools.scss';
 
 const DisplayTools = () => {
@@ -23,19 +23,19 @@ const DisplayTools = () => {
         </button>
         <button
           className={
-            active === 'earnbadge'
+            active === 'notes'
               ? 'toolChoice__button toolChoice__button-active'
               : 'toolChoice__button'
           }
-          value='earnbadge'
+          value='notes'
           onClick={(e) => setActive(e.target.value)}
         >
-          EarnBadge
+          Notesapp
         </button>
       </div>
 
       {active === 'learningtools' && <LearningTools />}
-      {active === 'earnbadge' && <BadgeInfo />}
+      {active === 'notes' && <Note />}
     
     </div>
   );
