@@ -27,6 +27,21 @@ export default new HttpService();
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //  wrapper using fetch method
 
 // class HttpService{

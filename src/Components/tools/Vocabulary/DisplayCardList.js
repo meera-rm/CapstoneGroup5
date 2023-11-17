@@ -5,10 +5,10 @@ import Example from '.././Dictionary/Example.js';
 import Synonym from '.././Dictionary/Synonym.js';
 import Antonym from '.././Dictionary/Antonym.js';
 
-const DisplayCardList = ({words}) => {
-   console.log('words',words);
+const DisplayCardList = ({personalDict}) => {
+   console.log('words',personalDict);
 
-   const [flipped, setFlipped] = useState(false);
+  //  const [flipped, setFlipped] = useState(false);
    const [showMore, setShowMore] = useState(false);
 
    const playAudio = (card) => {
@@ -23,17 +23,17 @@ const DisplayCardList = ({words}) => {
   return (
 
     <div className="displayCards">
-          {words.map((card) => (
+          {personalDict.map((card) => (
             <div  className="displayCard" key={card.dictionary_id}>
                <div className="displayCard-body">
                 <div className="displayCard-front">
                   <h2>{card.word.toUpperCase()}</h2>
                   <h2>PARTS OF SPEECH:</h2>
-                  <p>{words[0].meanings[0].partOfSpeech}</p>
+                  <p>{personalDict[0].meanings[0].partOfSpeech}</p>
                  
                </div>
                <div className="displayCard-back">
-               {/* <h3>
+               <h3>
            
             <span>Word:{'  '}</span>
              {card[0].word}<span>Phonetic:{'  '}</span>({card[0].phonetics})
@@ -46,20 +46,20 @@ const DisplayCardList = ({words}) => {
               {' '}
               🕪{' '}
             </span>
-             </h3> */}
+             </h3>
              {showMore && (
                  <div>
                    <h3 className='text-2xl font-bold mt-4'>
                     Meaning & Definitions:
                    </h3>
-                   <Meanings mean={words} />
+                   <Meanings mean={personalDict} />
                     <h3 className='text-2xl font-bold mt-4'>Example:</h3>
 
-                  <Example mean={words} />
+                  <Example mean={personalDict} />
                     <h3 className='text-2xl font-bold mt-4'>Synonym:</h3>
-                    <Synonym mean={words} />
+                    <Synonym mean={personalDict} />
                     <h3 className='text-2xl font-bold mt-4'>Antonym:</h3>
-                  <Antonym mean={words} />
+                  <Antonym mean={personalDict} />
                             {/* <h3><strong>Meaning:</strong></h3>
                   <h2>{card.definitions}</h2>
                   {!card.example ?'No Example found in the Dictionary':(<>
@@ -85,25 +85,3 @@ export default DisplayCardList;
 
 
 
-
-// import Meanings from '../../Dictionary/Meanings.js';
-// import Example from '../../Dictionary/Example.js';
-// import Synonym from '../../Dictionary/Synonym.js';
-// import Antonym from '../../Dictionary/Antonym.js';
-// {words && (
-//   <>
-//    <h3 className='text-2xl font-bold mt-4'>Parts Of Speech:</h3>
-//      <p>{words[0].meanings[0].partOfSpeech}</p>
-//      <h3 className='text-2xl font-bold mt-4'>
-//            Meaning & Definitions:
-//          </h3>
-//          <Meanings mean={words} />
-//          <h3 className='text-2xl font-bold mt-4'>Example:</h3>
-//          <Example mean={words} />
-//          <h3 className='text-2xl font-bold mt-4'>Synonym:</h3>
-//          <Synonym mean={words} />
-//          <h3 className='text-2xl font-bold mt-4'>Antonym:</h3>
-//          <Antonym mean={words} />
-       
-//          </>
-//    )}

@@ -44,7 +44,7 @@ const FlashCardList = ({ wordData, selectedGrade }) => {
                 <div className="listCard-front">
                   <h2>{card.word.toUpperCase()}</h2>
                   <h2>PARTS OF SPEECH:</h2>
-                  <p>{filteredData[0].meanings[0].partOfSpeech}</p>
+                  <p>{filteredData.partOfSpeech}</p>
                  
                </div>
                <div className="listCard-back">

@@ -19,82 +19,79 @@ const AddVocab = () => {
   const [grade, setGrade] = useState('');
   const [meaning, setMeaning] = useState('');
   const [partOfSpeech, setPartOfSpeech] = useState('');
-  const [definitions, setDefinitions] = useState([]);
-  const [examples, setExamples] = useState([]);
-  const [synonyms, setSynonyms] = useState([]);
-  const [antonyms, setAntonyms] = useState([]);
+  const [definition, setDefinition] = useState([]);
+  const [example, setExample] = useState([]);
+  const [synonym, setSynonym] = useState([]);
+  const [antonym, setAntonym] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
   const [userId, setUserId] = useState('');
   const [validationResult, setValidationResult] = useState('');
+  const [personalDict, setPersonalDict] = useState([]);
+
+  const synonymArr = [];
+  const definitionArr = [];
+  const antonymArr = [];
+  const exampleArr = [];
+  const speechArr = [];
 
   const extractDefinitions = (data) => {
-    const definitions = [];
+    
     data.forEach((item) => {
       item.meanings.forEach((meaning) => {
         meaning.definitions.forEach((definition) => {
-          definitions.push(definition.definition);
+          definitionArr.push(definition.definition);
         });
       });
     });
-    return definitions;
+    return definitionArr;
   };
 
   const extractExamples = (data) => {
-    const examples = [];
+    
     data.forEach((item) => {
       item.meanings.forEach((meaning) => {
         meaning.definitions.forEach((definition) => {
           if (definition.example) {
-            examples.push(definition.example);
+            exampleArr.push(definition.example);
           }
         });
       });
     });
-    return examples;
+    return exampleArr;
   };
 
-  // const extractMeanings = (data) => {
-  //   const meanings = [];
-  //   data.forEach((item) => {
-  //     item.meanings.forEach((meaning) => {
-  //       meanings.push(meaning.partOfSpeech);
-  //     });
-  //   });
-  //   return meanings;
-  // };
-
   const extractPartOfSpeech = (data) => {
-    const partOfSpeech = [];
+   
     data.forEach((item) => {
       item.meanings.forEach((meaning) => {
-        partOfSpeech.push(meaning.partOfSpeech);
+        speechArr.push(meaning.partOfSpeech);
       });
     });
-    return partOfSpeech;
+    return speechArr;
   };
 
   const extractAntonyms = (data) => {
-    const antonyms = [];
+
     data.forEach((item) => {
       item.meanings.forEach((meaning) => {
         meaning.antonyms.forEach((antonym) => {
-          antonyms.push(antonym);
+          antonymArr.push(antonym);
         });
       });
     });
-    return antonyms;
+    return antonymArr;
   };
 
   const extractSynonyms = (data) => {
-    const synonyms = [];
+    
     data.forEach((item) => {
       item.meanings.forEach((meaning) => {
         meaning.synonyms.forEach((synonym) => {
-          synonyms.push(synonym);
+          synonymArr.push(synonym);
         });
       });
     });
-    return synonyms;
+    return synonymArr;
   };
 
   const toggleCards = (e) => {
@@ -107,105 +104,121 @@ const AddVocab = () => {
   };
 
   const fetchWordMeaning = async (inputWord) => {
+   
     try {
       const response = await httpService.get(
         `https://api.dictionaryapi.dev/api/v2/entries/en/${inputWord}`
       );
 
       setWords(response);
-     
+
       let data = response;
       if (data) {
-        setDefinitions(extractDefinitions(data));
+        
+        setDefinition(extractDefinitions(data));
         // setMeaning(extractMeanings(data));
-        setExamples(extractExamples(data));
+        setExample(extractExamples(data));
         setPartOfSpeech(extractPartOfSpeech(data));
-        setAntonyms(extractAntonyms(data));
-        setSynonyms(extractSynonyms(data));
-        console.log('inaddvocab', words);
-        saveToPersonalDictionary(inputWord);
+        setAntonym(extractAntonyms(data ));
+        setSynonym(extractSynonyms(data ));
+        console.log('inaddvocab',extractAntonyms(data), words, speechArr,definitionArr,exampleArr,synonymArr,antonymArr);
+   
+        saveToPersonalDictionary(inputWord,speechArr,definitionArr,exampleArr,synonymArr,antonymArr);
       }
     } catch (error) {
       console.error('Error fetching word meaning:', error);
     }
   };
 
-  const saveToPersonalDictionary = async (inputWord) => {
-    
-    const newWord = {
+  const retrieveAllWords = async()=>{
+    try {
+      const response = await httpService.get(
+        `${API}/api/dictionary/`
+      );
+      if (response.status === 200) {
+        setPersonalDict(response)
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const saveToPersonalDictionary = async (inputWord, speechArr,definitionArr, exampleArr, synonymArr, antonymArr) => {
+
+    console.log('savedict',inputWord, speechArr, definitionArr, exampleArr, synonymArr, antonymArr)
+
+    const userWord = {
       word: inputWord,
       grade: grade,
-      partsofSpeech: partOfSpeech,
-      definitions: definitions,
-      example: examples,
-      synonyms: synonyms,
-      antonyms: antonyms,
-      users_id: '27'
+      partsofSpeech: speechArr,
+      definitions: definitionArr,
+      example: exampleArr,
+      synonyms: synonymArr,
+      antonyms: antonymArr,
+      users_id: 4,
     };
 
-    // const response= await httpService.post(`${API}/api/dictionary/addWordIfNotExists`, newWord);
     try {
-      const response = await axios.post(
-        `${API}/api/dictionary/addWordIfNotExists`,
-        newWord
-      );
-       console.log(response)
+      const response = await httpService.post(`${API}/api/dictionary/addWord`,userWord);
+
+      // const response = await fetch(`${API}/api/dictionary/addWord`, {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   },
+      //   body: JSON.stringify(userWord)
+      // });
+    
       if (response.ok) {
-         const data = response;
+        const data = response
+ 
         if (data.exists) {
-          setValidationResult('The word exists in the dictionary.');
-        } else {
-          setValidationResult('The word does not exist in the dictionary.');
-        }
-      } else {
-        setValidationResult('Error while checking the word.');
+           console.log('The word exists in the dictionary.');
+         } 
+        //  else {
+      //     setValidationResult('The word does not exist in the dictionary.');
+      //   }
+      // } else {
+      //   setValidationResult('Error while checking the word.');
       }
-      // Handle the case where the word is not found
+
       setMeaning('Word not found.');
       setPartOfSpeech('');
-      setDefinitions([]);
-      setExamples([]);
-      setSynonyms([]);
-      setAntonyms([]);
+      setDefinition([]);
+      setExample([]);
+      setSynonym([]);
+      setAntonym([]);
+
+      retrieveAllWords()
+      
       // notify()
     } catch (error) {
       console.error('Error:', error);
     }
-
-
-
-    // .then((response) => {
-    //   // Handle success response
-    //   console.log('Data saved to personal_dictionary:');
-    //   notify();
-    // })
-    // .catch((error) => {
-    //   // Handle error
-    //   console.error('Error saving data to personal_dictionary:', error);
-    // });
   };
 
- const checkWord = async (inputWord) => {
+  const checkWord = async (inputWord) => {
     let result = false;
     try {
-      const response = await axios.get(`${API}/api/dictionary/${inputWord}`);
+      const response = await httpService.get(
+        `${API}/api/dictionary/${inputWord}`
+      );
       if (response.status === 200) {
-        result = true
+        result = true;
       }
-    }
-    catch (error) {
+    } catch (error) {
       console.log(error);
     }
-   
-    return result
+    return result;
   };
 
-  const checkPersonalDictionary = async (inputWord) => {
-  // console.log(inputWord)
-   const found = await checkWord(inputWord);
-  //  console.log('found:', found)
-   if(!found) fetchWordMeaning(inputWord)
 
+  const checkPersonalDictionary = async (inputWord, selectedGrade) => {
+   
+    setGrade(selectedGrade)
+    const found = await checkWord(inputWord);
+    // console.log('found:', found , grade,inputWord);
+    if (!found) fetchWordMeaning(inputWord);
   };
 
   return (
@@ -229,13 +242,11 @@ const AddVocab = () => {
         />{' '}
       </div>
 
-      {words && words.length > 0 && <DisplayCardList words={words} />}
+      {personalDict && personalDict.length > 0 && <DisplayCardList  personalDict={personalDict} />}
     </div>
   );
 };
 export default AddVocab;
-
-
 
 // https://codepen.io/mattgreenberg/pen/ggOpOr
 // https://github.com/BLepers/1-click-flashcards
