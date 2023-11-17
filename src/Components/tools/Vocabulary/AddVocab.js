@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 // import { useLocation } from 'react-router-dom';
 import { Add, Remove } from '@mui/icons-material';
 import './AddVocab.scss';
@@ -17,7 +17,6 @@ const AddVocab = () => {
   const [words, setWords] = useState([]);
 
   const [grade, setGrade] = useState('');
-  const [meaning, setMeaning] = useState('');
   const [partOfSpeech, setPartOfSpeech] = useState('');
   const [definition, setDefinition] = useState([]);
   const [example, setExample] = useState([]);
@@ -34,8 +33,26 @@ const AddVocab = () => {
   const exampleArr = [];
   const speechArr = [];
 
+
+  useEffect(()=>{
+
+    const retrieveAllWords = async()=>{
+      try {
+        const response = await httpService.get(
+          `${API}/api/dictionary/`
+        );
+          setPersonalDict(response.payload)
+        
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    retrieveAllWords();
+  },[])
+
+
+
   const extractDefinitions = (data) => {
-    
     data.forEach((item) => {
       item.meanings.forEach((meaning) => {
         meaning.definitions.forEach((definition) => {
@@ -46,8 +63,8 @@ const AddVocab = () => {
     return definitionArr;
   };
 
+
   const extractExamples = (data) => {
-    
     data.forEach((item) => {
       item.meanings.forEach((meaning) => {
         meaning.definitions.forEach((definition) => {
@@ -60,8 +77,8 @@ const AddVocab = () => {
     return exampleArr;
   };
 
+
   const extractPartOfSpeech = (data) => {
-   
     data.forEach((item) => {
       item.meanings.forEach((meaning) => {
         speechArr.push(meaning.partOfSpeech);
@@ -70,8 +87,8 @@ const AddVocab = () => {
     return speechArr;
   };
 
-  const extractAntonyms = (data) => {
 
+  const extractAntonyms = (data) => {
     data.forEach((item) => {
       item.meanings.forEach((meaning) => {
         meaning.antonyms.forEach((antonym) => {
@@ -82,8 +99,8 @@ const AddVocab = () => {
     return antonymArr;
   };
 
+
   const extractSynonyms = (data) => {
-    
     data.forEach((item) => {
       item.meanings.forEach((meaning) => {
         meaning.synonyms.forEach((synonym) => {
@@ -94,9 +111,9 @@ const AddVocab = () => {
     return synonymArr;
   };
 
+
   const toggleCards = (e) => {
     if (!showCards) {
-      // TODO: change plus icon to loader
       setShowCards(true);
     } else {
       setShowCards(false);
@@ -116,36 +133,25 @@ const AddVocab = () => {
       if (data) {
         
         setDefinition(extractDefinitions(data));
-        // setMeaning(extractMeanings(data));
         setExample(extractExamples(data));
         setPartOfSpeech(extractPartOfSpeech(data));
         setAntonym(extractAntonyms(data ));
         setSynonym(extractSynonyms(data ));
-        console.log('inaddvocab',extractAntonyms(data), words, speechArr,definitionArr,exampleArr,synonymArr,antonymArr);
+        
+        // console.log('inaddvocab',extractAntonyms(data), words, speechArr,definitionArr,exampleArr,synonymArr,antonymArr);
    
-        saveToPersonalDictionary(inputWord,speechArr,definitionArr,exampleArr,synonymArr,antonymArr);
+        saveToPersonalDictionary(inputWord , speechArr,definitionArr,exampleArr,synonymArr,antonymArr);
       }
     } catch (error) {
       console.error('Error fetching word meaning:', error);
     }
   };
 
-  const retrieveAllWords = async()=>{
-    try {
-      const response = await httpService.get(
-        `${API}/api/dictionary/`
-      );
-      if (response.status === 200) {
-        setPersonalDict(response)
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
+ 
 
-  const saveToPersonalDictionary = async (inputWord, speechArr,definitionArr, exampleArr, synonymArr, antonymArr) => {
+  const saveToPersonalDictionary = async (inputWord , speechArr,definitionArr, exampleArr, synonymArr, antonymArr) => {
 
-    console.log('savedict',inputWord, speechArr, definitionArr, exampleArr, synonymArr, antonymArr)
+    // console.log('savedict',inputWord, speechArr, definitionArr, exampleArr, synonymArr, antonymArr)
 
     const userWord = {
       word: inputWord,
@@ -182,20 +188,18 @@ const AddVocab = () => {
       //   setValidationResult('Error while checking the word.');
       }
 
-      setMeaning('Word not found.');
       setPartOfSpeech('');
       setDefinition([]);
       setExample([]);
       setSynonym([]);
       setAntonym([]);
 
-      retrieveAllWords()
-      
       // notify()
     } catch (error) {
       console.error('Error:', error);
     }
   };
+
 
   const checkWord = async (inputWord) => {
     let result = false;
@@ -223,6 +227,7 @@ const AddVocab = () => {
 
   return (
     <div>
+      
       <div className='addVocab'>
         <h1 className='addVocab__title'>Add Words</h1>
         <div className='addVocab__toggleCards'>
@@ -241,12 +246,17 @@ const AddVocab = () => {
           customClickHandler={checkPersonalDictionary}
         />{' '}
       </div>
-
-      {personalDict && personalDict.length > 0 && <DisplayCardList  personalDict={personalDict} />}
+    
+      <DisplayCardList  personalDict={personalDict} />
     </div>
   );
 };
 export default AddVocab;
+
+
+
+
+
 
 // https://codepen.io/mattgreenberg/pen/ggOpOr
 // https://github.com/BLepers/1-click-flashcards
@@ -254,28 +264,4 @@ export default AddVocab;
 // const location = useLocation();
 // console.log('locationstate=', location.state);
 // const words = location.state?.vocabWords;
-// console.log('inaddvocabwords=', words);
 
-//setPartOfSpeech(data[0].meanings[0].partOfSpeech);
-//   setMeaning(data.map(val => val.meanings.map(means => means.definitions.map(def => (def.definition)))));
-
-//   setDefinitions(
-//     data.meanings[0].definitions.map((def) => def.definition)
-//   );
-
-//   setExamples(data.map((val) =>
-//   val.meanings.map((means) =>
-//     means.definitions.map((def) => def.example ? def.example : ''))));
-
-//   setSynonyms(data.map((val) =>
-//   val.meanings.map((means) =>
-//     means.definitions.map((def) => {
-//       return def.synonyms?.map((syn) =>syn);
-//     })
-//   )
-// ));
-//   setAntonyms(data.map((val) =>
-//   val.meanings.map((means) =>
-//     means.synonyms?.map((ant) => ant)
-//   )
-// ));

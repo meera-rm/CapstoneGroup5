@@ -29,14 +29,14 @@ const DisplayCardList = ({personalDict}) => {
                 <div className="displayCard-front">
                   <h2>{card.word.toUpperCase()}</h2>
                   <h2>PARTS OF SPEECH:</h2>
-                  <p>{personalDict[0].meanings[0].partOfSpeech}</p>
+                  <p>{personalDict.partsofspeech}</p>
                  
                </div>
                <div className="displayCard-back">
                <h3>
            
             <span>Word:{'  '}</span>
-             {card[0].word}<span>Phonetic:{'  '}</span>({card[0].phonetics})
+             {card.word}<span>Phonetic:{'  '}</span>({card.phonetics})
             <span
               onClick={() => {
                 playAudio();
