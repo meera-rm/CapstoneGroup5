@@ -1,7 +1,5 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-// import DisplayWordDetails from './DisplayWordDetails'
-// import PartsOfSpeech from './PartsOfSpeech';
 import { FcSpeaker } from 'react-icons/fc';
 import Antonym from './Antonym';
 import Example from './Example';
@@ -18,7 +16,7 @@ const SearchResult = ({ searchWord, setSearchWord }) => {
     try {
       setLoading(true);
       //const res= httpService.get(
-        const res = await axios.get(
+        const res = await httpService.get(
         `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
       );
       setData(res.data);

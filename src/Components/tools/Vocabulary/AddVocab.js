@@ -25,6 +25,7 @@ const AddVocab = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [userId, setUserId] = useState('');
   const [validationResult, setValidationResult] = useState('');
+  const [phonetic, setPhonetic] = useState('')
   const [personalDict, setPersonalDict] = useState([]);
 
   const synonymArr = [];
@@ -51,7 +52,16 @@ const AddVocab = () => {
   },[])
 
 
+  const extractPhonetic = async (data)=>{ 
+    const phoneticAudioWithMP3= data.map((word) => {
+      return word.phonetics.find((phonetic) =>
+        phonetic.audio.endsWith('.mp3')
+      );
+    })
+    return phoneticAudioWithMP3;
+  }
 
+//get definitions from the word object
   const extractDefinitions = (data) => {
     data.forEach((item) => {
       item.meanings.forEach((meaning) => {
@@ -63,7 +73,7 @@ const AddVocab = () => {
     return definitionArr;
   };
 
-
+//get examples from the word object
   const extractExamples = (data) => {
     data.forEach((item) => {
       item.meanings.forEach((meaning) => {
@@ -77,7 +87,7 @@ const AddVocab = () => {
     return exampleArr;
   };
 
-
+//get partofspeech from the word object
   const extractPartOfSpeech = (data) => {
     data.forEach((item) => {
       item.meanings.forEach((meaning) => {
@@ -87,7 +97,7 @@ const AddVocab = () => {
     return speechArr;
   };
 
-
+//get antonyms from the word object
   const extractAntonyms = (data) => {
     data.forEach((item) => {
       item.meanings.forEach((meaning) => {
@@ -99,7 +109,7 @@ const AddVocab = () => {
     return antonymArr;
   };
 
-
+//get synonyms from the word object
   const extractSynonyms = (data) => {
     data.forEach((item) => {
       item.meanings.forEach((meaning) => {
@@ -128,19 +138,24 @@ const AddVocab = () => {
       );
 
       setWords(response);
-
-      let data = response;
-      if (data) {
+     console.log(response)
+      // let data = response;
+      if (response) {
+     
+        setDefinition(extractDefinitions(response));
+        setExample(extractExamples(response));
+        setPartOfSpeech(extractPartOfSpeech(response));
+        setAntonym(extractAntonyms(response ));
+        setSynonym(extractSynonyms(response ));
+        const phoneticAudio = extractPhonetic(response)
+        console.log(phoneticAudio)
+        if (phoneticAudio) {
+          setPhonetic(phoneticAudio)
         
-        setDefinition(extractDefinitions(data));
-        setExample(extractExamples(data));
-        setPartOfSpeech(extractPartOfSpeech(data));
-        setAntonym(extractAntonyms(data ));
-        setSynonym(extractSynonyms(data ));
-        
-        // console.log('inaddvocab',extractAntonyms(data), words, speechArr,definitionArr,exampleArr,synonymArr,antonymArr);
+        }
+        // console.log('inaddvocab',extractAntonyms(response), words, speechArr,definitionArr,exampleArr,synonymArr,antonymArr);
    
-        saveToPersonalDictionary(inputWord , speechArr,definitionArr,exampleArr,synonymArr,antonymArr);
+        saveToPersonalDictionary(inputWord , speechArr,definitionArr,exampleArr,synonymArr,antonymArr,phoneticAudio);
       }
     } catch (error) {
       console.error('Error fetching word meaning:', error);
@@ -149,7 +164,7 @@ const AddVocab = () => {
 
  
 
-  const saveToPersonalDictionary = async (inputWord , speechArr,definitionArr, exampleArr, synonymArr, antonymArr) => {
+  const saveToPersonalDictionary = async (inputWord , speechArr,definitionArr, exampleArr, synonymArr, antonymArr,phoneticAudio) => {
 
     // console.log('savedict',inputWord, speechArr, definitionArr, exampleArr, synonymArr, antonymArr)
 
@@ -157,6 +172,7 @@ const AddVocab = () => {
       word: inputWord,
       grade: grade,
       partsofSpeech: speechArr,
+      phonetic:phoneticAudio,
       definitions: definitionArr,
       example: exampleArr,
       synonyms: synonymArr,
@@ -193,6 +209,7 @@ const AddVocab = () => {
       setExample([]);
       setSynonym([]);
       setAntonym([]);
+      setPhonetic('');
 
       // notify()
     } catch (error) {
@@ -207,6 +224,7 @@ const AddVocab = () => {
       const response = await httpService.get(
         `${API}/api/dictionary/${inputWord}`
       );
+      console.log('checkWord',response)
       if (response.status === 200) {
         result = true;
       }
@@ -258,10 +276,14 @@ export default AddVocab;
 
 
 
+
+
+
 // https://codepen.io/mattgreenberg/pen/ggOpOr
 // https://github.com/BLepers/1-click-flashcards
 // https://medium.com/frontendweb/how-to-pass-state-or-data-in-react-router-v6-c366db9ee2f4
 // const location = useLocation();
 // console.log('locationstate=', location.state);
 // const words = location.state?.vocabWords;
-
+// Postgresql command
+//https://www.commandprompt.com/education/understanding-postgresql-arrays-with-examples/#:~:text=PostgreSQL%20arrays%20are%20created%20by,tab_name(%20col_name%20data_type%5B%5D%2C%20)%3B
