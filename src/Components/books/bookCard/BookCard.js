@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link} from 'react-router-dom';
 import './BookCard.scss';
 
 const BookCard = ({ book }) => {
@@ -7,9 +8,9 @@ const BookCard = ({ book }) => {
     book_picture,
     book_title,
     book_author,
-    isbn_number,
-    publication,
-    reading_level,
+    // isbn_number,
+    // publication,
+    // reading_level,
   } = book;
 
   const [expanded, setExpanded] = useState(false);
@@ -19,12 +20,14 @@ const BookCard = ({ book }) => {
   };
 
   return (
-    <div >
-    
-      <div
+     <div className='bookCard'> 
+        {/* <div  style={{border:'2px solid red',width:'300px',margin:'20px 30px'}}>  */}
+        <Link className='text-center' to={`/books/` + book_id} key={book_id}>
+           
+        {/* <div
         className={`bookCard ${expanded ? 'expanded' : 'bookCard'}`}
         onClick={handleExpand}
-      >
+      > */}
         <img
           className='bookCard__image'
           width='150px'
@@ -33,12 +36,18 @@ const BookCard = ({ book }) => {
           // src='https://dummyimage.com/150x150/c2c2c2/00'
           alt=''
         />
-
-        <div
+        <div className='bookCard__textcontent'> 
+            <h2 className='bookCard__title'>BOOK TITLE:{''} {`${book_title.toUpperCase()}`}</h2>
+            <h2 className='bookCard__title'>AUTHOR:{''} {`${book_author}`}</h2>
+        </div>
+        {/* <div className='bookCard__textcontent'> 
+        <h2 className='bookCard_title'>{`${book_author}`}</h2>
+        </div> */}
+        {/* <div
           className={`bookCard__text ${expanded ? 'expanded' : ''}`}
           onClick={handleExpand}
-        >
-           <div className='bookCard__textcontent'> 
+        > */}
+          {/* <div className='bookCard__textcontent'> 
             <h2 className='bookCard__title'>{`${book_title.toUpperCase()}`}</h2>
            
             <ol className='bookCard__summary'>
@@ -66,10 +75,10 @@ const BookCard = ({ book }) => {
                 Publication: 
                 <span>{`${publication}`}</span> 
               </li>
-            </ol>
-          </div>
-          </div>
-          <svg
+            </ol> 
+          </div>*/}
+           {/* </div>  */}
+        {/*   <svg
             className={`bookCard__chevron ${expanded ? 'expanded' : ''}`}
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 100 35'
@@ -81,11 +90,13 @@ const BookCard = ({ book }) => {
               stroke='#000'
               strokeWidth='5'
             />
-          </svg>
+          </svg> */}
       
-      </div>
+      {/* </div> */}
+        </Link> 
+      {/* </div> */}
      
-    </div>
+     </div>
   );
 };
 export default BookCard;

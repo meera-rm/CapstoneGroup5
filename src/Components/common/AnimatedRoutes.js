@@ -10,8 +10,8 @@ import Contact from '../../Pages/Contact';
 import BookCardList from '../books/booksCardList/BookCardList';
 // import IndexBooks from '../../Pages/Books/IndexBooks';
 import NewBooks from '../../Pages/Books/NewBook';
-// import ShowBooks from '../../Pages/Books/ShowBooks';
-// import EditBooks from '../../Pages/Books/EditBooks';
+ import ShowBooks from '../../Pages/Books/ShowBooks';
+ import EditBooks from '../../Pages/Books/EditBooks';
 import Dictionary from '../tools/Dictionary/Dictionary';
 import FlashCard from '../tools/FlashCard/FlashCard';
 import AddVocab from '../tools/Vocabulary/AddVocab';
@@ -38,16 +38,12 @@ import StudentShow from '../../Pages/Student/StudentShow';
 import StudentEdit from '../../Pages/Student/StudentEdit';
 // import StudentView from '../../Pages/Student/StudentView';
 
-// import AddSubscription from '../../Pages/Subscriptions/AddSubscription';
-// import ListSubscription from '../../Pages/Subscriptions/ListSubscription';
-// import EditSubscription from '../../Pages/Subscriptions/EditSubscription';
-
 import AddSubscription from '../subscriptions/AddSubscription';
 import ListSubscription from '../subscriptions/ListSubscription';
 import EditEmailModal from '../subscriptions/EditEmailModal';
 
 import Profile from '../index/Profile';
-import Information from '../../Pages/Information';
+// import Information from '../../Pages/Information';
 import PrivacyPolicy from '../../Pages/PrivacyPolicy';
 import ParentDashboard from '../../Pages/ParentDashboard';
 
@@ -109,6 +105,8 @@ const AnimatedRoutes = () => {
             <Route path='/books'>
               <Route index element={<BookCardList />} />
               <Route path='new' element={<NewBooks />} />
+              <Route path=':id' element={<ShowBooks />} />
+              <Route path=':id/edit' element={<EditBooks />} />
               <Route path='level' element={<ReadingLevelBooks />} />
               <Route path='casual' element={<CasualReading />} />
             </Route>
