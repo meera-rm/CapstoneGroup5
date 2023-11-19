@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 import { randomWord } from './word';
 
@@ -40,6 +40,15 @@ const GuessWord = () => {
   const [wrongWords, setWrongWords] = useState([]);
   const [guessed, setGuessed] = useState(new Set());
   const [nWrong, setNWrong] = useState(0);
+const [gameEnded, setGameEnded] = useState(false);
+
+useEffect(() => {
+  if (counter + space === word.length) {
+    setGameEnded(true);
+  } else if (nWrong === 10 && lives === 0) {
+    setGameEnded(true);
+  }
+}, [counter, space, nWrong, lives, word.length]);
 
 
   const check = (geuss) => {
@@ -115,7 +124,20 @@ const GuessWord = () => {
   };
 
   const comments = () => {
-    
+    if (gameEnded) {
+            if (counter + space === word.length) {
+              return <p className='text-xl font-normal mt-4 mb-4'>You Win!</p>;
+            } else if (nWrong === 10 && lives === 0) {
+              return (
+                <div>
+                  <p className='text-xl font-normal mt-4 mb-4'>You Lose</p>
+                  <p className='text-2xl font-semibold'>Correct Word is: {word}</p>
+                </div>
+              );
+            }
+          } else {
+            return <div className='text-xl font-normal mt-4'>You have {lives} lives left</div>;
+          }
     let message = '';
     if (lives > 0) {
       message = `You have ${lives} lives left`;
@@ -135,6 +157,7 @@ const GuessWord = () => {
   };
 
   const play = () => {
+    reset();
     result();
     comments();
   };
@@ -157,18 +180,18 @@ const GuessWord = () => {
 
       <div className='text-xl font-normal mt-4'>{comments()}</div>
 
-      {counter + space === geusses.length ? (
+      {/* {counter + space === geusses.length ? (
         <p className='text-xl font-normal mt-4 mb-4'> You Win!</p>
       ) : nWrong === 10 && lives === 0 ? (
         <div>
           <p className='text-xl font-normal mt-4 mb-4'>You Lose</p>
           <p className='text-2xl font-semibold'>Correct Word is: {word}</p>
         </div>
-      ) : (
+      ) : ( */}
         <div className='grid sm:grid-cols-7 mt-4 mb-4 '>
           <div className='col-start-4 mx-auto'>{buttons()}</div>
         </div>
-      )}
+      {/* )} */}
       <div className='p-20'>
         <button
           className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mt-4 mr-10'
@@ -176,15 +199,16 @@ const GuessWord = () => {
         >
           Play{' '}
         </button>
-        <button
+        {/* <button
           className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mt-4 mr-10'
           onClick={() => reset()}
         >
           Reset
-        </button>
+        </button> */}
       </div>
     </div>
   );
 };
 
 export default GuessWord;
+
