@@ -1,10 +1,11 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 // import httpService from '../httpService';
 import Pagination from '../features/Pagination';
 import Modal from '../features/Modal';
-import StudentEntry from './StudentEntry'
+import StudentEntry from './StudentEntry';
 
 // import { MdDelete } from 'react-icons/md';
 // import { MdTableView } from 'react-icons/md';
@@ -31,7 +32,8 @@ const TeacherDetails = () => {
 
   useEffect(() => {
     // httpService
-    axios.get(`${API}/api/teachers/${id}`)
+    axios
+      .get(`${API}/api/teachers/${id}`)
       .then((response) => {
         setTeacher(response.data.payload);
       })
@@ -40,7 +42,8 @@ const TeacherDetails = () => {
 
   useEffect(() => {
     // httpService
-    axios.get(`${API}/api/teachers/${id}/students`)
+    axios
+      .get(`${API}/api/teachers/${id}/students`)
       .then((response) => {
         // console.log(response.data)
         setStudent(response.data);
@@ -65,7 +68,8 @@ const TeacherDetails = () => {
     //   })
     //   .catch((e) => console.error(e));
     //  httpService
-    axios.delete(`${API}/api/students/${studentId}`)
+    axios
+      .delete(`${API}/api/students/${studentId}`)
       .then(() => {
         navigate('/students');
       })
@@ -86,31 +90,35 @@ const TeacherDetails = () => {
   const currentRecords = student.slice(indexOfFirstRecord, indexOfLastRecord);
   const nPages = Math.ceil(student.length / studentsPerPage);
 
-  // const [message, setMessage] = useState(true);
-  // const onClick = () => setMessage(false);
+  
 
   return (
-    <div className='container mx-auto px-4 sm:px-8'>
-      <div>
-        <h2 className="font-bold mt-10 mb-5 text-center text-teal-600 text-5xl'">
+     
+     <div className='md:container md:mx-auto px-4 sm:px-8'> 
+       <div className>
+        <h2 className="flex justify-center items-center font-bold mt-10 mb-20 text-teal-600 text-3xl">
           Teacher Dashboard
         </h2>
       </div>
-      <p className='font-bold'>
-        Teacher Name:
-        <span className='font-semibold'>{teacher.teacher_name}</span>
-      </p>
-      <p className='font-bold'>
-        Teacher Grade:
-        <span className='font-semibold'>{teacher.teaching_grade}</span>
-      </p>
-      <p className='font-bold'>
-        School Name:{' '}
-        <span className='font-semibold'>{teacher.school_name}</span>
-      </p>
-      <div className='py-8'>
-        <div className=' mt-10 flex md:justify-center ml-6 space-x-6'>
-          {/* <Link to={'/logs/new'}> */}
+            
+       <div className='block text-left mt-15 md:w-1/2 md:mx-auto '>
+         <div className='font-bold'>
+           Teacher Name:
+           <span className='font-semibold'>{teacher.teacher_name}</span>
+         </div>
+         <div className='font-bold'>
+           Teacher Grade:
+           <span className='font-semibold'>{teacher.teaching_grade}</span>
+         </div>
+         <div className='font-bold'>
+           School Name:{' '}
+           <span className='font-semibold'>{teacher.school_name}</span>
+         </div>
+       </div>
+
+       <div className='py-8'>
+       <div className='mt-10 flex md:justify-center ml-6 space-x-6'>
+{/* //           {/* <Link to={'/logs/new'}> */}
           <button
             className='bg-indigo-500 text-center px-6 py-4 text-white rounded hover:bg-indigo-400'
             onClick={() => setShowModal(true)}
@@ -123,7 +131,7 @@ const TeacherDetails = () => {
               Back{' '}
             </button>
           </Link>
-        </div>
+        </div> 
         {showModal ? (
           <>
             <Modal
@@ -132,178 +140,66 @@ const TeacherDetails = () => {
               choice={choice}
               teacher={teacher}
               student={student}
-              // bookData={bookData}
             />
           </>
         ) : null}
+       
+         <div className='overflow-x-scroll mt-10'>
+         <table className='min-w-full leading-normal'>
+          {/* <table className='min-w-full leading-normal'> */}
+               <thead>
+                 <tr>
+                   <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                     Id
+                   </th>
+                   <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                     Student Name
+                   </th>
+                   <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                     Reading Level
+                   </th>
 
-        <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
-          <div className='inline-block min-w-full shadow-md rounded-lg overflow-hidden'>
-            <table className='min-w-full leading-normal'>
-              <thead>
-                <tr>
-                  <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
-                    Id
-                  </th>
-                  <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
-                    Student Name
-                  </th>
-                  <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
-                    Reading Level
-                  </th>
+                   <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                     View
+                   </th>
 
-                  <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
-                    View
-                  </th>
-               
-                  <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
-                    Comment
-                  </th>
-                  <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
-                    Edit
-                  </th>
-                  <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
-                    Delete
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {currentRecords?.map((student) => {
-                  return (
-                    <StudentEntry student={student} />
-                    // <tr key={student.student_id}>
-                    //   <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
-                    //     <Link
-                    //       className='font-bold text-black-700 hover:underline'
-                    //       to={`/students/${student.student_id}`}
-                    //     >
-                    //       {student.student_id}
-                    //     </Link>
-                    //   </td>
+                   <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                     Comment
+                   </th>
+                   <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                     Edit
+                   </th>
+                   <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                     Delete
+                   </th>
+                 </tr>
+               </thead>
+               <tbody>
+                 {currentRecords?.map((student) => {
+                   return (
+                     <StudentEntry student={student} />
+                      
+                   );
+                 })}
+               </tbody>
+             </table>
 
-                    //   <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
-                    //     <Link
-                    //       className='font-bold text-black-700 hover:underline'
-                    //       to={`/students/${student.student_id}`}
-                    //     >
-                    //       {student.student_name}
-                    //     </Link>
-                    //   </td>
-
-                    //   <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm '>
-                    //     <Link
-                    //       className='font-bold text-black-700 hover:underline'
-                    //       to={`/students/${student.student_id}`}
-                    //     >
-                    //       {student.reading_level}
-                    //       {/* <Book log={log} bookData={bookData} /> */}
-                    //     </Link>
-                    //   </td>
-
-                    //   <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
-                    //     {/* <div className='flex'> */}
-                    //     {/* <div className="flex-shrink-0 w-10 h-10"> */}
-                    //     <div className='ml-3 p-3 text-sm text-indigo-900'>
-                    //       {/* <Link to={{
-                    //         pathname:`/students/${student.student_id}`,
-                    //         state:{fromTeacherDetails: true },
-                    //         }}>  */}
-
-                    //       <Link
-                    //         to={`/students/${student.student_id}`}
-                    //         state={{ role: 'teacher' }}
-                    //       >
-                    //         <button
-                    //           className=' bg-teal-500 px-6 py-4 text-black rounded'
-                    //           //  onClick={(e) => setView(true)}
-                    //         >
-                    //           <MdTableView />{' '}
-                    //         </button>
-                    //         {/* {view && <StudentLogsView 
-                    //             bookData={bookData}
-                    //             student={student}
-                    //             teacher={teacher}
-                    //             />} */}
-                    //       </Link>
-                    //     </div>
-                    //   </td>
-
-                    //   {/* <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
-
-
-                    //       <Link to={`/students/${student.student_id}`}>
-
-                    //      // <Link
-                    //      //   to={`teachers/{id}/students/${student.student_id}}
-                    //      // >
-
-                    //         <button
-                    //           className=' bg-teal-500 px-6 py-4 text-black rounded '
-                    //           // onClick={(e) => setView(true)}
-                    //         >
-                    //           <MdTableView />{' '}
-                    //         </button>
-                    //         {/* {view && <StudentLogsView />} *
-                    //        </Link>
-                    //     </div>
-                    //   </td> */}
-
-                    //   <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                    //     <div className='ml-3 p-3 text-sm text-indigo-900'>
-                    //       <Link to={`/comments/new`}>
-                    //         <button
-                    //           className=' bg-teal-500 px-6 py-4 text-black rounded '
-                    //           onClick={onClick}
-                    //         >
-                    //           <MdAddComment />{' '}
-                    //         </button>
-                    //       </Link>
-                    //     </div>
-                    //   </td>
-
-                    //   <td>
-                    //     <div className='ml-3 p-3 text-sm text-indigo-900'>
-                    //       <Link to={`/students/${student.student_id}/edit`}>
-                    //         <button className=' bg-teal-500 px-6 py-4 text-black rounded '>
-                    //           <FaEdit />{' '}
-                    //         </button>
-                    //       </Link>
-                    //     </div>
-                    //   </td>
-                    //   <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                    //     <div className='ml-3 p-3 text-sm text-indigo-900'>
-                    //       <Link to={`/teachers`}>
-                    //         {/* // <Link to={`/teachers/${student.student_id}/edit`}> */}
-
-                    //         <button
-                    //           className=' bg-teal-500 px-6 py-4 text-black rounded '
-                    //           onClick={() => handleDelete}
-                    //         >
-                    //           <MdDelete />{' '}
-                    //         </button>
-                    //       </Link>
-                    //     </div>
-                    //     {/* </div> */}
-                    //   </td>
-                    // </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-
-            <Pagination
-              nPages={nPages}
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-            />
+             <Pagination
+               nPages={nPages}
+               currentPage={currentPage}
+               setCurrentPage={setCurrentPage}/>
+            </div>
           </div>
-        </div>
-      </div>
     </div>
   );
 };
 
 export default TeacherDetails;
+
+
+
+
+
 
 
 

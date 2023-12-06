@@ -60,10 +60,10 @@ import NotesHome from '../note/NotesHome';
 // import ShowLogs from '../../Pages/Logs/ShowLogs';
 // import EditLogs from '../../Pages/Logs/EditLogs';
 
-// import IndexComments from '../../Pages/Comment/IndexComments';
-// import NewComment from '../../Pages/Comment/NewComment';
-// import ShowComments from '../../Pages/Comment/ShowComments';
-// import EditComments from '../../Pages/Comment/EditComments';
+import IndexComments from '../../Pages/Comment/IndexComments';
+import NewComment from '../../Pages/Comment/NewComment';
+ import ShowComments from '../../Pages/Comment/ShowComments';
+import EditComments from '../../Pages/Comment/EditComments';
 
 // import SignUp from  '../../Pages/SignUp';
 // import TeacherSignUp from '../../Pages/TeacherSignUp';
@@ -139,6 +139,12 @@ const AnimatedRoutes = () => {
               <Route path='new' element={<StudentNew />} />
               <Route path=':id' element={<StudentShow />} />
               <Route path=':id/edit' element={<StudentEdit />} />
+            </Route>
+            <Route path='/comments'>
+              <Route index element={<IndexComments/>} />
+              <Route path='new' element={<NewComment />} />
+              <Route path=':id' element={<ShowComments />} />
+              <Route path=':id/edit' element={<EditComments/>} />
             </Route>
 
             <Route path='/notes'>

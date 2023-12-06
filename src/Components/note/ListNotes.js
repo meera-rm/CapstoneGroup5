@@ -18,7 +18,7 @@ const ListNotes = ({ note }) => {
   });
 
   return (
-    <div className='grid grid-cols-1 gap-20  md:grid-cols-2 '>
+    <div className='grid sm:grid-cols-1 gap-20 md:grid-cols-2 '>
       {note?.length === 0 && (
         <div>
           <p>You have no notes</p>
@@ -50,7 +50,7 @@ const ListNotes = ({ note }) => {
 
       {note?.map((ele) => {
         return (
-          <div className='shadow-2xl bg-teal-500 w-10/12 h-32 p-5' key={ele.note_id}>
+          <div className=' shadow-2xl bg-teal-500 w-10/12 h-32 p-5' key={ele.note_id}>
             <Link
               className='text-center'
               to={`/notes/` + ele.note_id}

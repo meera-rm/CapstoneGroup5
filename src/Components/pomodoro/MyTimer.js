@@ -130,7 +130,7 @@ const MyTimer = () => {
   };
 
   return (
-    <div className='flow-root my-12 mx-2 bg-teal-500 p-10 shadow-2xl sm:w-3/12 md:w-9/12 '>
+    <div className='flow-root my-12 mx-2 bg-teal-500 p-10 shadow-2xl sm:w-2/12 md:w-6/12 '>
       {/* timerContainer */}
       <h1 className=' text-center mt-10 mb-5 text-3xl font-bold text-black-500'>
       {/* timerHeader */}

@@ -10,9 +10,26 @@ const API = process.env.REACT_APP_API_URL;
 
 const StudentEntry=({student})=>{
     const [message, setMessage] = useState(true);
+    const [selectedReading, setSelectedReading] = useState(null);
+    const [teacherComments, setTeacherComments] = useState('');
     const onClick = () => setMessage(false);
 
     let navigate = useNavigate();
+
+
+    const handleCommentInputChange = (event) => {
+      setTeacherComments(event.target.value);
+    };
+  
+    const handleCommentSubmit = (readingId) => {
+      // Assuming there's a function to submit comments to the backend
+      // You can send the comments for the respective reading using its ID
+      // Example: submitCommentsToBackend(readingId, teacherComments);
+      console.log(`Comments submitted for Reading ID ${readingId}: ${teacherComments}`);
+    };
+
+
+
   //Delete functions
   const handleDelete = (studentId) => {
     // axios

@@ -192,28 +192,7 @@ const Navbar = ({ darkModeButton, mode }) => {
                   </div>
                 </Link>
 
-                {/* <Link to='/timer' activeclassname='active'>
-                  <button>
-                    <div
-                      className=' w-18 h-28 p-3 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500'
-                      onMouseOver={handleMouseOver}
-                      onMouseOut={handleMouseOut}
-                    >
-                      <IconContext.Provider
-                        value={{ color: 'white', size: 40 }}
-                      >
-                        <RxCountdownTimer/>
-                      </IconContext.Provider>
-                    </div>
-                    <div>
-                     
-                        <p className='text-teal font-fonts text-sm'>
-                          TIMER
-                        </p>
-                     
-                    </div>
-                  </button>
-                </Link>  */}
+               
 
                 <Link to='/games'>
                   <div className='relative group h-0'>
