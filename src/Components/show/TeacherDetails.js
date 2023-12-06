@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -90,35 +89,32 @@ const TeacherDetails = () => {
   const currentRecords = student.slice(indexOfFirstRecord, indexOfLastRecord);
   const nPages = Math.ceil(student.length / studentsPerPage);
 
-  
-
   return (
-     
-     <div className='md:container md:mx-auto px-4 sm:px-8'> 
-       <div className>
-        <h2 className="flex justify-center items-center font-bold mt-10 mb-20 text-teal-600 text-3xl">
+    <div className='md:container md:mx-auto px-4 sm:px-8'>
+      <div>
+        <h2 className='flex justify-center items-center font-bold mt-10 mb-20 text-teal-600 text-3xl'>
           Teacher Dashboard
         </h2>
       </div>
-            
-       <div className='block text-left mt-15 md:w-1/2 md:mx-auto '>
-         <div className='font-bold'>
-           Teacher Name:
-           <span className='font-semibold'>{teacher.teacher_name}</span>
-         </div>
-         <div className='font-bold'>
-           Teacher Grade:
-           <span className='font-semibold'>{teacher.teaching_grade}</span>
-         </div>
-         <div className='font-bold'>
-           School Name:{' '}
-           <span className='font-semibold'>{teacher.school_name}</span>
-         </div>
-       </div>
 
-       <div className='py-8'>
-       <div className='mt-10 flex md:justify-center ml-6 space-x-6'>
-{/* //           {/* <Link to={'/logs/new'}> */}
+      <div className='block text-left mt-15 md:w-1/2 md:mx-auto '>
+        <div className='font-bold'>
+          Teacher Name:
+          <span className='font-semibold'>{teacher.teacher_name}</span>
+        </div>
+        <div className='font-bold'>
+          Teacher Grade:
+          <span className='font-semibold'>{teacher.teaching_grade}</span>
+        </div>
+        <div className='font-bold'>
+          School Name:{' '}
+          <span className='font-semibold'>{teacher.school_name}</span>
+        </div>
+      </div>
+
+      <div className='py-8'>
+        <div className='mt-10 flex md:justify-center ml-6 space-x-6'>
+          {/* //           {/* <Link to={'/logs/new'}> */}
           <button
             className='bg-indigo-500 text-center px-6 py-4 text-white rounded hover:bg-indigo-400'
             onClick={() => setShowModal(true)}
@@ -131,7 +127,7 @@ const TeacherDetails = () => {
               Back{' '}
             </button>
           </Link>
-        </div> 
+        </div>
         {showModal ? (
           <>
             <Modal
@@ -143,63 +139,62 @@ const TeacherDetails = () => {
             />
           </>
         ) : null}
-       
-         <div className='overflow-x-scroll mt-10'>
-         <table className='min-w-full leading-normal'>
-          {/* <table className='min-w-full leading-normal'> */}
-               <thead>
-                 <tr>
-                   <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
-                     Id
-                   </th>
-                   <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
-                     Student Name
-                   </th>
-                   <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
-                     Reading Level
-                   </th>
 
-                   <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
-                     View
-                   </th>
+        {/* //this code works too
+        <div className='overflow-x-scroll mt-10'>
+          <table className='min-w-full leading-normal'>
+           
+            <thead> */}
+        <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
+          <div className='inline-block min-w-full shadow-md rounded-lg'>
+            <div className='table-wrp block min-h-96 overflow-x-auto'>
+              <table className='w-full'>
+                {/* Table Headers... */}
+                <thead>
+                  <tr>
+                    <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                      Id
+                    </th>
+                    <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                      Student Name
+                    </th>
+                    <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                      Reading Level
+                    </th>
 
-                   <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
-                     Comment
-                   </th>
-                   <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
-                     Edit
-                   </th>
-                   <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
-                     Delete
-                   </th>
-                 </tr>
-               </thead>
-               <tbody>
-                 {currentRecords?.map((student) => {
-                   return (
-                     <StudentEntry student={student} />
-                      
-                   );
-                 })}
-               </tbody>
-             </table>
+                    <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                      View
+                    </th>
 
-             <Pagination
-               nPages={nPages}
-               currentPage={currentPage}
-               setCurrentPage={setCurrentPage}/>
+                    <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                      Comment
+                    </th>
+                    <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                      Edit
+                    </th>
+                    <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                      Delete
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className='h-96 overflow-y-auto'>
+                  {currentRecords?.map((student) => {
+                    return <StudentEntry student={student} />;
+                  })}
+                </tbody>
+              </table>
+
+              <Pagination
+                nPages={nPages}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+              />
             </div>
           </div>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default TeacherDetails;
-
-
-
-
-
-
-
-
