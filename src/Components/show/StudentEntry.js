@@ -32,12 +32,7 @@ const StudentEntry=({student})=>{
 
   //Delete functions
   const handleDelete = (studentId) => {
-    // axios
-    //   .delete(`${API}/api/teachers/${id}`)
-    //   .then(() => {
-    //     navigate('/teachers');
-    //   })
-    //   .catch((e) => console.error(e));
+   
     // httpService
     axios.delete(`${API}/api/students/${studentId}`)
       .then(() => {
@@ -105,25 +100,6 @@ const StudentEntry=({student})=>{
                         </div>
                       </td>
 
-                      {/* <td className='px-5 py-5 border-2 border-gray-200 bg-white text-sm'>
-
-
-                          <Link to={`/students/${student.student_id}`}>
-
-                         // <Link
-                         //   to={`teachers/{id}/students/${student.student_id}}
-                         // >
-
-                            <button
-                              className=' bg-teal-500 px-6 py-4 text-black rounded '
-                              // onClick={(e) => setView(true)}
-                            >
-                              <MdTableView />{' '}
-                            </button>
-                            {/* {view && <StudentLogsView />} *
-                           </Link>
-                        </div>
-                      </td> */}
 
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                         <div className='ml-3 p-3 text-sm text-indigo-900'>

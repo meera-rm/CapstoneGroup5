@@ -12,7 +12,7 @@ const BookCard = ({ book }) => {
     // publication,
     // reading_level,
   } = book;
-
+console.log(book_id, book_picture, book_title, book_author)
   const [expanded, setExpanded] = useState(false);
 
   const handleExpand = () => {
@@ -37,7 +37,7 @@ const BookCard = ({ book }) => {
           alt=''
         />
         <div className='bookCard__textcontent'> 
-            <h2 className='bookCard__title'>BOOK TITLE:{''} {`${book_title.toUpperCase()}`}</h2>
+            <h2 className='bookCard__title'>BOOK TITLE:{''} {`${book_title}`}</h2>
             <h2 className='bookCard__title'>AUTHOR:{''} {`${book_author}`}</h2>
         </div>
         {/* <div className='bookCard__textcontent'> 

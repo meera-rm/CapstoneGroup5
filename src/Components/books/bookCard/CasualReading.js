@@ -3,39 +3,45 @@ import React, { useState, useEffect } from 'react';
 // import Toggle from '../Toggle.js';
 import { Link } from 'react-router-dom';
 import BookLoader from '../../loader/BookLoader';
-import SearchAndFilter from './SearchAndFilter.js';
 import EmptyView from '../../emptyView/EmptyView';
-const API = process.env.REACT_APP_API_URL;
+import BooksList from './BooksList';
+// const API = process.env.REACT_APP_API_URL;
 
 const CasualReading= () => {
-  const [bookData, setBookData] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  // const [bookData, setBookData] = useState([]);
+  // const [error, setError] = useState(null);
+  // const [loading, setLoading] = useState(false);
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   //httpService.
+  //    axios.get(`${API}/api/books`)
+  //     .then((response) => {
+  //       console.log(response.data.payload)
+  //       setBookData(response.data.payload);
+  //       setLoading(false);
+  //     })
+  //     .catch((error) => {
+  //       setError(false);
+  //     });
+  // }, []);
 
 
-  useEffect(() => {
-    setLoading(true);
-    axios
-      .get(`${API}/api/books`)
-      .then((response) => {
-        setBookData(response.data.payload);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(false);
-      });
-  }, []);
-
-   
-if (error) {
-      return <>{error.message}</>;
-  } else if (!loading) {
-      return <div className=''><BookLoader/></div>;
-  } else {
-    return (
-      <div>
-       
-      <div className='text-center text-teal-600 text-2xl mb-10 mt-10'>ReadingLevelBooks
+// if (error) {
+//     return <>{error.message}</>;
+// } else if (loading) {
+//     return (
+//     <div className='flex justify-center items-center mb-40  mt-40'>
+//         <div> Loading .... 
+//               <BookLoader/>
+//         </div>
+//    </div>
+//     )
+// } else {
+  return (
+    //rendering the data
+   <div>
+  <div className='text-center text-teal-600 text-2xl mb-10 mt-10'>Casual Reading Books
     
       <div className='text-right'>
         <Link to={`/books/new`}>
@@ -45,12 +51,11 @@ if (error) {
         </Link>
       </div>
      </div>
-      <SearchAndFilter/>
-      {!loading && bookData.length === 0 && <EmptyView styleKey="bold" message="Page Not Found"/>}
-     
+      <BooksList/>
+      {/* {!loading && bookData.length===0 &&<EmptyView styleKey='bold' message='Page Not Found' />} */}
   </div>
-     
-  );
+      
+    );
  }
-};
+
 export default CasualReading;
