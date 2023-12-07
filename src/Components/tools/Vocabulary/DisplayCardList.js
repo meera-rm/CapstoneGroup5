@@ -9,8 +9,8 @@ const DisplayCardList = ({personalDict}) => {
   //  const [flipped, setFlipped] = useState(false);
    const [showMore, setShowMore] = useState(false);
 
-    const playAudio = (card) => {
-    const audio = new Audio(card.phonetic.audio);
+    const playAudio = () => {
+    const audio = new Audio(personalDict[0].phonetics[0].audio);
     audio.play();
   };
 
@@ -38,9 +38,10 @@ const DisplayCardList = ({personalDict}) => {
                     <h3>
             {' '}
             <span>Word:{'  '}</span>
-            {card.word} <span>Phonetic:{'  '}</span>({card.phonetic})
-            <span onClick={() => { playAudio(card)}} className='cursor-pointer'
-            > 🕪{' '} </span>
+            {card.word} 
+            {/* <span>Phonetic:{'  '}</span>({card.phonetic})
+            <span onClick={() => { playAudio()}} className='cursor-pointer'
+            > 🕪{' '} </span> */}
           </h3> 
                    <h3 className='text-2xl font-bold mt-4'>
                     Meaning & Definitions:

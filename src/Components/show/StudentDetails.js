@@ -146,6 +146,36 @@ const StudentDetails = (props) => {
             <div className='table-wrp block min-h-96 overflow-x-auto'>
               <table className='w-full'>
                 {/* Table Headers... */}
+                <thead>
+                  <tr>
+                    <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                      Id
+                    </th>
+                    <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                      Student Name
+                    </th>
+                    <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                      Book Title
+                    </th>
+
+                    {/* <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                     Book Id
+                    </th> */}
+
+                    <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                      Minutes Read
+                    </th>
+                    <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                      Pages Read
+                    </th>
+                    <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                      Reading Inference
+                    </th>
+                    <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                      Comments
+                    </th>
+                  </tr>
+                </thead>
                 <tbody className='h-96 overflow-y-auto'>
                   {currentRecords.map((log, index) => {
                     return <LogEntry log={log} index={index} key={index} />;

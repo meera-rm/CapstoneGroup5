@@ -54,6 +54,7 @@ const SearchResult = ({ searchWord, setSearchWord }) => {
   }
 
   const playAudio = () => {
+    console.log(data[0].phonetic)
     const audio = new Audio(data[0].phonetics[0].audio);
     audio.play();
   };

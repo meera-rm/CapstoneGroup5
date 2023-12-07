@@ -45,14 +45,14 @@ const LogEntry =({log,index})=>{
                     {log.book_title}
                 </Link>
             </td>
-            <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm '>
+            {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm '>
                 <Link
                     className='font-bold text-black-700 hover:underline'
                     to={`/logs/${log.log_id}`}
                 >
                     {log.books_id}
                 </Link>
-            </td>
+            </td> */}
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                 <Link
                     className='font-bold text-black-700 hover:underline'
