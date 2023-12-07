@@ -102,6 +102,7 @@ const StudentEntry=({student})=>{
 
 
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                     
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
                           <Link to={`/comments/new`}>
                             <button
@@ -114,7 +115,7 @@ const StudentEntry=({student})=>{
                         </div>
                       </td>
 
-                      <td>
+                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
                           <Link to={`/students/${student.student_id}/edit`}>
                             <button className=' bg-teal-500 px-6 py-4 text-black rounded '>
