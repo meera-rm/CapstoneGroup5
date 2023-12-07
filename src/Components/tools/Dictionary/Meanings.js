@@ -2,7 +2,7 @@ const Meanings = ({ mean }) => {
   
     return (
       <div>
-        {mean?.map(val => val.meanings?.map(means => means.definitions?.map(def => (
+        {mean.map(val => val.meanings.map(means => means.definitions.map(def => (
           <div key={def.definition}>
             <li>{def.definition}</li>
             <hr />

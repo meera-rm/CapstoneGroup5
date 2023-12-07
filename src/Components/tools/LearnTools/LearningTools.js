@@ -8,7 +8,7 @@ import dictionary from './dictionary.png';
 import vocabimg from './vocabimg.png';
 
 const LearningTools = ({tools}) => {
-console.log(words)
+
    const [vocabWords, setVocabWords] = useState(words);
 
   // console.log('inflashcards', vocabWords);

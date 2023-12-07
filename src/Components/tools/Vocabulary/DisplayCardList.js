@@ -21,6 +21,7 @@ const DisplayCardList = ({personalDict}) => {
   return (
 
     <div className="displayCards">
+      
           {personalDict.map((card) => (
             <div  className="displayCard" key={card.dictionary_id}>
                <div className="displayCard-body">
@@ -34,13 +35,13 @@ const DisplayCardList = ({personalDict}) => {
                
              {showMore && (
                  <div>
-                   <h3>
+                    <h3>
             {' '}
             <span>Word:{'  '}</span>
             {card.word} <span>Phonetic:{'  '}</span>({card.phonetic})
             <span onClick={() => { playAudio(card)}} className='cursor-pointer'
             > 🕪{' '} </span>
-          </h3>
+          </h3> 
                    <h3 className='text-2xl font-bold mt-4'>
                     Meaning & Definitions:
                    </h3>

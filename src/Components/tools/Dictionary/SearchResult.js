@@ -16,11 +16,10 @@ const SearchResult = ({ searchWord, setSearchWord }) => {
     try {
       setLoading(true);
       //const res= httpService.get(
-        const res = await httpService.get(
-        `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
-      );
-      setData(res.data);
-      console.log(res.data);
+        const res = await httpService.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+     
+      console.log(res);
+      setData(res);
       setError(null);
     } catch (err) {
       setError(err);
