@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams, Link } from 'react-router-dom';
-import {ToastContainer, toast } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import httpService from '../httpService';
 const API = process.env.REACT_APP_API_URL;
@@ -12,7 +12,6 @@ const NewLogs = (props) => {
 
   //declare states
   const [newLog, setNewLog] = useState({
-    log_id: '',
     reading_inference: '',
     book_title: '',
     reading_minutes: '',
@@ -35,34 +34,31 @@ const NewLogs = (props) => {
     event.preventDefault();
     console.log('inhandlesumbit', newLog);
     //  httpService
-     axios.post(`${API}/api/logs/new`, newLog)
+    axios
+      .post(`${API}/api/logs/new`, newLog)
       .then(() => {
         console.log('added');
-        notify()
-        // navigate(`/logs`);
-        
+        notify();
+        navigate(`/students/student_id`);
       })
       .catch((c) => console.error('catch', c));
   };
 
   const notify = () => {
-    toast.success(
-      '🦄 , You added a new book',
-      {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      }
-    )
+    toast.success('🦄 , You added a new book', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+    });
     setTimeout(() => {
-      navigate('/logs')
-    }, 2000)
-  }
+      navigate('/logs');
+    }, 2000);
+  };
 
   return (
     // <div className='add-trans'>
@@ -234,31 +230,51 @@ const NewLogs = (props) => {
             onChange={handleTextChange}
             required
           />
+
         </div> */}
+          <div className='flex flex-col mb-4 md:w-half'>
+            <label
+              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
+              htmlFor='reading_minutes'
+            >
+              Book Id
+            </label>
+            <input
+              className='border py-2 px-3 text-grey-darkest'
+              id='books_id'
+              type='number'
+              name='books_id'
+              autoComplete='off'
+              value={newLog.books_id}
+              placeholder='Book Id'
+              onChange={handleTextChange}
+              required
+            />
+          </div>
 
           {/* <div className='add-btn'> */}
           <div className='md:justify-center ml-6 space-x-6 '>
             <input className=' px-5 py-3 rounded bg-teal-500' type='submit' />
             {/* <button lassName=' px-5  py-3 rounded bg-teal-500' className='second'></button> */}
 
-            <Link to={`/students`}>
+            <Link to={`/students/student_id`}>
               <button className=' px-5 py-3 rounded bg-teal-500'>
                 Cancel{' '}
               </button>
             </Link>
           </div>
         </form>
-        <ToastContainer 
-            position="top-center"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
+        <ToastContainer
+          position='top-center'
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
     </div>
     // // </div>*/}

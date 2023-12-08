@@ -101,7 +101,7 @@ const StudentEntry=({student})=>{
                       </td>
 
 
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                      {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                      
                         <div className='ml-3 p-3 text-sm text-indigo-900'>
                           <Link to={`/comments/new`}>
@@ -113,7 +113,7 @@ const StudentEntry=({student})=>{
                             </button>
                           </Link>
                         </div>
-                      </td>
+                      </td> */}
 
                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                         <div className='ml-3 p-3 text-sm text-indigo-900'>

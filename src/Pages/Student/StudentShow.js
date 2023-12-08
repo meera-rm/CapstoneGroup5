@@ -6,14 +6,14 @@ import StudentLogsView from '../../Components/show/StudentLogsView';
 
 const StudentShow = () => {
   // https://codesandbox.io/s/cool-cori-1nqk51?expanddevtools=1&fontsize=14&hidenavigation=1&module=/src/App.js&theme=dark&file=/src/App.js:516-591
-  const location = useLocation();
-   console.log(location)
-  const navigate=useNavigate();
-  const [state] = useState(location.state || {})
+  // const location = useLocation();
+ 
+  // const navigate=useNavigate();
+  // const [state] = useState(location.state || {})
 
-  useEffect(() => {
-    navigate(".", { replace: true });
-  }, [navigate]);
+  // useEffect(() => {
+  //   navigate(".", { replace: true });
+  // }, [navigate]);
   return (
     <div>
       <HelmetProvider>
