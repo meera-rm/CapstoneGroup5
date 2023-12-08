@@ -130,7 +130,7 @@ const Navbar = ({ darkModeButton, mode }) => {
                   </button>
                 </Link> */}
 
-                <Link to='/profile' activeclassname='active'>
+                {/* <Link to='/profile' activeclassname='active'>
                   <button>
                     <div
                       className=' w-18 h-28 p-3 rounded-full border border-teal-800 border-2 bg-teal-600 hover:bg-teal-500 hover:text-white'
@@ -147,7 +147,7 @@ const Navbar = ({ darkModeButton, mode }) => {
                       <p className='text-teal font-fonts text-sm'>PROFILE</p>
                     </div>
                   </button>
-                </Link>
+                </Link> */}
                 <Link to='/books' activeclassname='active'>
                   <div className='relative group h-0 '>
                     <button>

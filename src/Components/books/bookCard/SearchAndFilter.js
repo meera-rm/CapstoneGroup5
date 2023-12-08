@@ -35,8 +35,9 @@ const alphabets = [
   'Y',
   'Z',
 ];
+let filteredData =[];
 
-const SearchAndFilter = () => {
+const SearchAndFilter = ({reading}) => {
   const [bookData, setBookData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -64,10 +65,15 @@ const SearchAndFilter = () => {
       });
   }, []);
   const data = Object.values(bookData);
+  if(reading==='AZ')
+  { 
+     filteredData = bookData.filter(book => book.reading_level !== 'CR');
+}else {filteredData = bookData}
 
   function search(bookData) {
     // eslint-disable-next-line
-    return bookData.filter((book) => {
+   
+    return filteredData.filter((book) => {
       console.log(book);
       if (book.reading_level === filterParam) {
         return searchParam.some((newBook) => {
@@ -125,13 +131,16 @@ const SearchAndFilter = () => {
               <option key={'readinglevel'} value='choose'>
                 -- Select Reading Level--
               </option>
-
+              {reading==='AZ'?(<>
               {alphabets.map((item, index) => (
                 <option key={item + index} value={item}>
                   Filter By {item}
                 </option>
               ))}
-              {}
+              </>)
+              :(<option key={'CR'} value={'CR'}>
+              Filter By {'CR'}
+            </option>)}
             </select>
             <span className='focus'></span>
           </div>

@@ -1,45 +1,45 @@
-import axios from 'axios';
+// import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 // import httpService from '../../httpService';
 import { Link } from 'react-router-dom';
-import BookLoader from '../../loader/BookLoader';
+// import BookLoader from '../../loader/BookLoader';
 import SearchAndFilter from './SearchAndFilter.js';
-import EmptyView from '../../emptyView/EmptyView';
-const API = process.env.REACT_APP_API_URL;
+// import EmptyView from '../../emptyView/EmptyView';
+// const API = process.env.REACT_APP_API_URL;
 
 const ReadingLevelBooks = () => {
 
-
-  const [bookData, setBookData] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [reading, setReading]=useState('AZ')
+//   const [bookData, setBookData] = useState([]);
+//   const [error, setError] = useState(null);
+//   const [loading, setLoading] = useState(false);
   
-  useEffect(() => {
-    setLoading(true);
-    //httpService.
-     axios.get(`${API}/api/books`)
-      .then((response) => {
-        console.log(response.data.payload)
-        setBookData(response.data.payload);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(false);
-      });
-  }, []);
+//   useEffect(() => {
+//     setLoading(true);
+//     //httpService.
+//      axios.get(`${API}/api/books`)
+//       .then((response) => {
+//         console.log(response.data.payload)
+//         setBookData(response.data.payload);
+//         setLoading(false);
+//       })
+//       .catch((error) => {
+//         setError(false);
+//       });
+//   }, []);
 
 
-if (error) {
-    return <>{error.message}</>;
-} else if (loading) {
-    return (
-    <div className='flex justify-center items-center mb-40  mt-40'>
-        <div> Loading .... 
-              <BookLoader/>
-        </div>
-   </div>
-    )
-} else {
+// if (error) {
+//     return <>{error.message}</>;
+// } else if (loading) {
+//     return (
+//     <div className='flex justify-center items-center mb-40  mt-40'>
+//         <div> Loading .... 
+//               <BookLoader/>
+//         </div>
+//    </div>
+//     )
+// } else {
   return (
     //rendering the data
    <div>
@@ -53,11 +53,10 @@ if (error) {
         </Link>
       </div>
      </div>
-      <SearchAndFilter/>
-      {!loading && bookData.length===0 &&<EmptyView styleKey='bold' message='Page Not Found' />}
+      <SearchAndFilter reading={reading}/>
+      {/* {!loading && bookData.length===0 &&<EmptyView styleKey='bold' message='Page Not Found' />} */}
   </div>
       
     );
-   }
-};
+   };
 export default ReadingLevelBooks;

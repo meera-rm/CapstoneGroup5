@@ -2,19 +2,39 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import avatarProfilePics from '../../utils/AvatarProfilePics';
-import {ToastContainer, toast } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import httpService from '../httpService';
+import httpService from '../httpService';
 const API = process.env.REACT_APP_API_URL;
 
 const NewStudents = (props) => {
   const navigate = useNavigate();
   let { id } = useParams();
 
- 
-    const avatarNames=['felix' ,'jessica ','rascal','bella','bear','george','lucy','midnight','buster','pumpkin','mia','spooky','cali','bailey',
-    'fluffy','miss kitty','princess','salem','charlie','smokey','kitty','tina'];
-
+  const avatarNames = [
+    'felix',
+    'jessica ',
+    'rascal',
+    'bella',
+    'bear',
+    'george',
+    'lucy',
+    'midnight',
+    'buster',
+    'pumpkin',
+    'mia',
+    'spooky',
+    'cali',
+    'bailey',
+    'fluffy',
+    'miss kitty',
+    'princess',
+    'salem',
+    'charlie',
+    'smokey',
+    'kitty',
+    'tina',
+  ];
 
   //declare states
   const [student, setStudent] = useState({
@@ -32,11 +52,11 @@ const NewStudents = (props) => {
 
   const handleTextChange = (event) => {
     console.log(event.target.value);
-      setStudent({
+    setStudent({
       ...student,
       [event.target.id]: event.target.value,
     });
-  
+
     console.log('in text change', student);
   };
 
@@ -44,51 +64,45 @@ const NewStudents = (props) => {
     event.preventDefault();
     console.log('inhandlesumbit', student);
     // httpService
-    axios.post(`${API}/api/students/new`, student)
+    httpService
+      .post(`${API}/api/students/new`, student)
       .then(() => {
         console.log('added');
-        notify()
+        notify();
         // navigate(`/students`);
-        
       })
       .catch((c) => console.error('catch', c));
   };
 
   const notify = () => {
-    toast.success(
-      '🦄 , You added a new book',
-      {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      }
-    )
+    toast.success('🦄 , You added a new book', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+    });
     setTimeout(() => {
-      navigate('/students')
-    }, 2000)
-  }
+      navigate('/students');
+    }, 2000);
+  };
 
   return (
-    // <div className='add-trans'>
-    // <div className='flex flex-col text-center h-screen items-center justify-center '>
-    //   <div className='rounded-md py-4 px-6 text-black lg:w-2/5 md:w-3/5 w-4/5'>
     <div className='flex items-center h-screen w-full bg-teal-lighter'>
       <div className='w-full bg-white rounded shadow-lg p-8 m-2 md:max-w-sm md:mx-auto'>
         <form
           className='mb-4 md:flex md:flex-wrap md:justify-between'
           onSubmit={handleSubmit}
         >
-         <div className='flex flex-col mb-4 md:w-full'>
+          <div className='flex flex-col mb-4 md:w-full'>
             <label
               className='mb-2 uppercase font-bold text-lg text-grey-darkest'
               htmlFor='student-profilePic'
             >
-             Student profilepic
+              Student profilepic
             </label>
             <input
               className='border py-2 px-3 text-grey-darkest'
@@ -97,26 +111,9 @@ const NewStudents = (props) => {
               name='student-profilePic'
               value={student.student_profilePic}
               disabled={true}
-              
             />
           </div>
 
-          {/* <div className='mb-4'>
-            <label className='py-6' htmlFor='parent_name'>
-              Parent Name:{' '}
-            </label>
-            <input
-              className='border-2 border-black-700 outline'
-              id='parent_name'
-              type='text'
-              name='parent_name'
-              value={student.parent_name}
-              autoComplete='off'
-              placeholder='parent name'
-              onChange={handleTextChange}
-              required
-            />
-          </div> */}
           <div className='flex flex-col mb-4 md:w-full'>
             <label
               className='mb-2 uppercase font-bold text-lg text-grey-darkest '
@@ -136,22 +133,7 @@ const NewStudents = (props) => {
               required
             />
           </div>
-          {/* <div className='mb-4'>
-            <label className='py-6' htmlFor='student_name'>
-              Student Name:{' '}
-            </label>
-            <input
-              className='border-2 border-black-700 outline'
-              id='student_name'
-              type='text'
-              name='student_name'
-              value={student.student_name}
-              placeholder='student_name'
-              autoComplete='off'
-              onChange={handleTextChange}
-              required
-            />
-          </div> */}
+
           <div className='flex flex-col mb-4 md:w-full'>
             <label
               className='mb-2 uppercase font-bold text-lg text-grey-darkest'
@@ -171,22 +153,7 @@ const NewStudents = (props) => {
               required
             />
           </div>
-          {/* <div className='mb-4'>
-            <label className='py-6' htmlFor='parent_email'>
-              Parent Email:{' '}
-            </label>
-            <input
-              className='border-2 border-black-700 outline'
-              id='parent_email'
-              name='parent_email'
-              type='text'
-              value={student.parent_email}
-              placeholder='parent_email'
-              autoComplete='off'
-              onChange={handleTextChange}
-              required
-            />
-          </div> */}
+
           <div className='flex flex-col mb-4 md:w-full'>
             <label
               className='mb-2 uppercase font-bold text-lg text-grey-darkest'
@@ -206,22 +173,7 @@ const NewStudents = (props) => {
               required
             />
           </div>
-          {/* <div className='mb-4'>
-            <label className='py-6' htmlFor='student_email'>
-              Student Email{' '}
-            </label>
-            <input
-              className='border-2 border-black-700 outline'
-              id='student_email'
-              type='text'
-              name='student_email'
-              value={student.student_email}
-              autoComplete='off'
-              placeholder='student_email'
-              onChange={handleTextChange}
-              required
-            />
-          </div> */}
+
           <div className='flex flex-col mb-4 md:w-full'>
             <label
               className='mb-2 uppercase font-bold text-lg text-grey-darkest'
@@ -241,22 +193,7 @@ const NewStudents = (props) => {
               required
             />
           </div>
-          {/* <div className='mb-4'>
-            <label className='py-6' htmlFor='grade'>
-              Grade{' '}
-            </label>
-            <input
-              className='border-2 border-black-700 outline'
-              id='grade'
-              type='text'
-              name='grade'
-              value={student.grade}
-              autoComplete='off'
-              placeholder='grade'
-              onChange={handleTextChange}
-              required
-            />
-          </div> */}
+
           <div className='flex flex-col mb-4 md:w-full'>
             <label
               className='mb-2 uppercase font-bold text-lg text-grey-darkest'
@@ -276,22 +213,7 @@ const NewStudents = (props) => {
               required
             />
           </div>
-          {/* <div className='mb-4'>
-            <label className='py-6' htmlFor='academic_year'>
-              Academic Year:{' '}
-            </label>
-            <input
-              className='border-2 border-black-700 outline'
-              id='academic_year'
-              type='text'
-              name='academic_year'
-              value={student.academic_year}
-              onChange={handleTextChange}
-              autoComplete='off'
-              placeholder='academic_year'
-              required
-            />
-          </div> */}
+
           <div className='flex flex-col mb-4 md:w-full'>
             <label
               className='mb-2 uppercase font-bold text-lg text-grey-darkest'
@@ -311,22 +233,7 @@ const NewStudents = (props) => {
               required
             />
           </div>
-          {/* <div className='mb-4'>
-            <label className='py-6' htmlFor='reading_level'>
-              Reading Level:{' '}
-            </label>
-            <input
-              className='border-2 border-black-700 outline'
-              id='reading_level'
-              type='text'
-              name='reading_level'
-              value={student.reading_level}
-              onChange={handleTextChange}
-              autoComplete='off'
-              placeholder='reading_level'
-              required
-            />
-          </div> */}
+
           <div className='flex flex-col mb-4 md:w-full'>
             <label
               className='mb-2 uppercase font-bold text-lg text-grey-darkest'
@@ -346,18 +253,7 @@ const NewStudents = (props) => {
               required
             />
           </div>
-          {/* <div className='mb-4'>
-            <label className='py-6' htmlFor='reading_level'>
-              Teachers Id:{' '}
-            </label>
-            <input
-              className='select-none border-2 border-black-700 outline'
-              id='teachers_id'
-              type='text'
-              name='teachers_id'
-              value={id}
-            />
-          </div> */}
+
           <div className='flex flex-col mb-4 md:w-full'>
             <label
               className='mb-2 uppercase font-bold text-lg text-grey-darkest'
@@ -373,7 +269,7 @@ const NewStudents = (props) => {
               value={id}
             />
           </div>
-          {/* <div className='add-btn'> */}
+
           <div className='justify-center ml-6 space-x-6 '>
             <input className=' px-5  py-3 rounded bg-teal-500' type='submit' />
             {/* <button style={{ border: 'none' }} className='second'></button> */}
@@ -384,7 +280,7 @@ const NewStudents = (props) => {
             </Link>
           </div>
         </form>
-        <ToastContainer/>
+        <ToastContainer />
       </div>
     </div>
   );

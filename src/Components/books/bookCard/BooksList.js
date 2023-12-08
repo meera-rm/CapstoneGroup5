@@ -51,7 +51,7 @@ const BooksList = () => {
     
 
 
-    let filteredBookList = book;
+    let filteredBookList   = book;
 
     // if there is a search term
     if(searchTerm){

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import {ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import httpService from '../httpService';
 // import httpService from '../httpService';
 
 const API = process.env.REACT_APP_API_URL;
@@ -11,10 +12,6 @@ const NewComments = (props) => {
   console.log(props);
   const navigate = useNavigate();
   let { id } = useParams();
-
-  // const {log}=props
-  // const {log_id}=log
-  // date_read,reading_inference,reading_minutes,pages_read,books_id,students_id
 
   const [newComment, setNewComment] = useState({
   
@@ -37,11 +34,11 @@ const NewComments = (props) => {
     event.preventDefault();
     console.log('inhandlesumbit', newComment);
     // httpService
-    axios.post(`${API}/api/comments/new`, newComment)
+    httpService.post(`${API}/api/comments/new`, newComment)
       .then(() => {
         console.log('added');
         notify();
-        // navigate(`/logs`);
+        navigate(`/student/${id}`);
         
       })
       .catch((c) => console.error('catch', c));
@@ -67,35 +64,41 @@ const NewComments = (props) => {
   }
 
   return (
-    // <div className='add-trans'>
-    <div className='flex flex-col text-center h-screen items-center justify-center  '>
-      <div className='rounded-md  text-black lg:w-2/5 md:w-3/5 w-4/5'>
-        <form onSubmit={handleSubmit}>
-          <div className='mb-4'>
-            <label className='py-6' htmlFor='teacher_comments'>
-              Teachers Comments
+    
+    // <div className='flex flex-col text-center h-screen items-center justify-center  '>
+      // <div className='rounded-md  text-black lg:w-2/5 md:w-3/5 w-4/5'>
+      //   <form onSubmit={handleSubmit}>
+      <div className='flex items-center h-screen w-full bg-teal-lighter'>
+      <div className='w-full bg-white rounded shadow-lg p-6 m-4 md:max-w-sm md:mx-auto'>
+        <form
+          className='mb-4 md:flex md:flex-wrap md:justify-between'
+          onSubmit={handleSubmit}
+        >
+          <div className='flex flex-col mb-0 md:w-full'>
+            <label
+              className='mb-0 uppercase font-bold text-lg text-grey-darkest '
+              htmlFor='teacher_comments'
+            >
+              Teacher Comments
             </label>
-
             <input
-              className='border-2 border-black-700 outline'
+              className='border py-2 px-3 text-grey-darkest'
               id='teacher_comments'
+              type='text'
               name='teacher_comments'
               value={newComment.teacher_comments}
-              type='text'
               autoComplete='off'
+              placeholder='Teacher comments'
               onChange={handleTextChange}
-              placeholder='teacher_comments'
               required
             />
           </div>
-
-          <br />
-          {/* <div className='add-btn'> */}
-          <div className='justify-center ml-6 space-x-6 '>
-            <input className=' px-5  py-3 rounded bg-teal-500' type='submit' />
+          <div className='md:justify-center ml-6 space-x-6 mt-10'>
+            <input className=' px-5 py-3 rounded bg-teal-500' type='submit' />
             {/* <button lassName=' px-5  py-3 rounded bg-teal-500' className='second'></button> */}
-            <Link to={`/students/${id}`}>
-              <button className=' px-5  py-3 rounded bg-teal-500'>
+
+            <Link to={`/students`}>
+              <button className=' px-5 py-3 rounded bg-teal-500'>
                 Cancel{' '}
               </button>
             </Link>

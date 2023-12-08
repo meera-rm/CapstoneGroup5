@@ -19,6 +19,7 @@ const TeacherDetails = () => {
   const [teacher, setTeacher] = useState([]);
   const [student, setStudent] = useState([]);
   const [choice] = useState(1);
+  
   //  const [bookData, setBookData] = useState([]);
   // const [view, setView] = useState(false);
 

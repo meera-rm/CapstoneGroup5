@@ -75,19 +75,9 @@ const StudentDetails = (props) => {
 
   const onClick = () => setMessage(false);
 
-  // const [filters, setFilters] = useState({})
-  // const [sort, setSort] = useState({ order: 'asc', orderBy: 'id' })
-
-  // const filteredRows = useMemo(() => filterRows(rows, filters), [rows, filters])
-  // const sortedRows = useMemo(() => sortRows(filteredRows, sort), [filteredRows, sort])
 
   return (
-    //   <div className='container mx-auto px-4 sm:px-8'>
-    // <div>
-    //   <h2 className="font-bold mt-10 mb-5 text-center text-teal-600 text-5xl'">
-    //     Student Dashboard
-    //   </h2>
-    // </div>
+   
     <div className='md:container md:mx-auto px-4 sm:px-8'>
       <div>
         <h2 className='flex justify-center items-center font-bold mt-10 mb-20 text-teal-600 text-3xl'>
@@ -114,8 +104,7 @@ const StudentDetails = (props) => {
         </div>
       </div>
 
-      {/* <div className='py-8'>
-    <div className='sm:block mt-10 md:flex md:justify-center md:ml-6 md:space-x-6'> */}
+  
       <div className='py-8'>
         <div className='mt-10 flex md:justify-center ml-6 space-x-6'>
           <button

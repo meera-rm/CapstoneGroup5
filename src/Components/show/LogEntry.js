@@ -3,12 +3,17 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import httpService from '../httpService';
 import { MdAddComment } from 'react-icons/md';
+import Modal from '../features/Modal';
 const API = process.env.REACT_APP_API_URL;
 
 const LogEntry = ({ log, index }) => {
   const [comment, setComment] = useState('');
   const [message, setMessage] = useState(true);
   const onClick = () => setMessage(false);
+
+  const [choice] = useState(3);
+  //Popup code
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     //  httpService
@@ -21,25 +26,37 @@ const LogEntry = ({ log, index }) => {
       .catch((err) => console.log(err));
   }, [log.log_id]);
 
+
  
-  const renderAddCommentButton = () => {
-    if (!comment) {
-      return (
-        <Link to={`/comments/new`}>
-          <button
-            className=' bg-teal-500 px-6 py-4 text-black rounded '
-            onClick={onClick}
-            //   onClick={addComment}
-          >
-            <MdAddComment />{' '}
-          </button>
-        </Link>
-      );
+
+  const addComment = () => {
+    const newComment = prompt('Enter your comment:');
+    if (newComment !== null) {
+      axios.post(`${API}/api/comments/add`, {
+        log_id: log.log_id,
+        comment: newComment,
+      })
+      .then((response) => {
+        setComment(response.data.comment);
+        // Optionally, you may perform other operations after adding the comment
+      })
+      .catch((err) => {
+        console.error('Error adding comment:', err);
+        // Handle error scenarios here
+      });
     }
-    return null;
   };
 
   return (
+    <>
+       {showModal && (
+          <Modal
+            showModal={showModal}
+            setShowModal={setShowModal}
+            choice={choice}
+            comment={comment}
+          />
+        )}
     <tr key={log.log_id}>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <Link
@@ -99,11 +116,26 @@ const LogEntry = ({ log, index }) => {
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm '>
         <div className='ml-3 p-3 text-sm text-indigo-900'>
-          {/* {comment} */}
-          {comment || renderAddCommentButton()}
+         
+          {comment ? (
+        <div>
+           <div>{comment}</div>
+        </div>
+      ) : (
+        <>
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          onClick={() => setShowModal(true)}
+        >
+          <MdAddComment/>
+        </button>
+        </>
+      )}
+         
         </div>
       </td>
     </tr>
+    </>
   );
 };
 export default LogEntry;

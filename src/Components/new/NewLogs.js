@@ -34,7 +34,8 @@ const NewLogs = (props) => {
     event.preventDefault();
     console.log('inhandlesumbit', newLog);
     //  httpService
-    axios
+
+    httpService
       .post(`${API}/api/logs/new`, newLog)
       .then(() => {
         console.log('added');
@@ -61,29 +62,12 @@ const NewLogs = (props) => {
   };
 
   return (
-    // <div className='add-trans'>
-    // <div className='flex flex-col text-center h-screen items-center justify-center  '>
-    // <div className='rounded-md  text-black lg:w-2/5 md:w-3/5 w-4/5'>
     <div className='flex items-center h-screen w-full bg-teal-lighter'>
-      <div className='w-full bg-white rounded shadow-lg p-8 m-2 md:max-w-sm md:mx-auto'>
+      <div className='w-full bg-white rounded shadow-lg p-2 m-2 md:max-w-sm md:mx-auto'>
         <form
-          // className='bg-gray-200 shadow-md rounded px-8 pt-6 pb-8 w-full'
           className='mb-4 md:flex md:flex-wrap md:justify-between'
           onSubmit={handleSubmit}
         >
-          {/* <div className='mb-4'>
-          <label htmlFor='book_title'>Book Title</label>
-          <input
-            className='shadow appearance-none border rounded w-full py-2 px-1 text-black border-2 border-black-700 outline'
-            id='book_title'
-            name='book_title'
-            value={newLog.book_title}
-            type='text'
-            autoComplete='off'
-            onChange={handleTextChange}
-            placeholder='Book Title'
-          />
-        </div> */}
           <div className='flex flex-col mb-4 md:w-full'>
             <label
               className='mb-2 uppercase font-bold text-lg text-grey-darkest'
@@ -102,20 +86,7 @@ const NewLogs = (props) => {
               placeholder='Book Title'
             />
           </div>
-          {/* <div className='mb-4'>
-          <label htmlFor='reading_inference'>Reading Inference:</label>
-          <input
-            className='shadow appearance-none border rounded w-full py-2 px-1 text-black border-2 border-black-700 outline'
-            id='reading_inference'
-            name='reading_inference'
-            value={newLog.reading_inference}
-            type='text'
-            onChange={handleTextChange}
-            autoComplete='off'
-            placeholder='Reading Inference'
-            required
-          />
-        </div> */}
+
           <div className='flex flex-col mb-4 md:w-half'>
             <label
               className='mb-2 uppercase font-bold text-lg text-grey-darkest'
@@ -135,25 +106,7 @@ const NewLogs = (props) => {
               required
             />
           </div>
-          {/* <div className='mb-4'>
-          <label
-            className='block text-black text-sm font-bold mb-1'
-            htmlFor='pages_read'
-          >
-            Pages Read:
-          </label>
-          <input
-            className='shadow appearance-none border rounded w-full py-2 px-1 text-black border-2 border-black-700 outline'
-            id='pages_read'
-            type='number'
-            name='pages_read'
-            value={newLog.pages_read}
-            placeholder='Pages read'
-            autoComplete='off'
-            onChange={handleTextChange}
-            required
-          />
-        </div> */}
+
           <div className='flex flex-col mb-4 md:w-half'>
             <label
               className='mb-2 uppercase font-bold text-lg text-grey-darkest'
@@ -173,25 +126,7 @@ const NewLogs = (props) => {
               required
             />
           </div>
-          {/* <div className='mb-4'>
-          <label
-            className='block text-black text-sm font-bold mb-1'
-            htmlFor='reading_minutes'
-          >
-            Minutes Read:
-          </label>
-          <input
-            className='shadow appearance-none border rounded w-full py-2 px-1 text-black border-2 border-black-700 outline'
-            id='reading_minutes'
-            type='number'
-            name='reading_minutes'
-            autoComplete='off'
-            value={newLog.reading_minutes}
-            placeholder='Reading minutes'
-            onChange={handleTextChange}
-            required
-          />
-        </div> */}
+
           <div className='flex flex-col mb-4 md:w-half'>
             <label
               className='mb-2 uppercase font-bold text-lg text-grey-darkest'
@@ -212,26 +147,6 @@ const NewLogs = (props) => {
             />
           </div>
 
-          {/* <div className='mb-4'>
-
-          <label
-            className='block text-black text-sm font-bold mb-1'
-            htmlFor='books_id'
-          >
-            Book Id:
-          </label>
-          <input
-            className='select-none shadow appearance-none border rounded w-full py-2 px-1 text-black border-2 border-black-700 outline'
-            id='books_id'
-            type='text'
-            name='books_id'
-            value={newLog.books_id}
-            placeholder='books_id'
-            onChange={handleTextChange}
-            required
-          />
-
-        </div> */}
           <div className='flex flex-col mb-4 md:w-half'>
             <label
               className='mb-2 uppercase font-bold text-lg text-grey-darkest'
@@ -252,12 +167,11 @@ const NewLogs = (props) => {
             />
           </div>
 
-          {/* <div className='add-btn'> */}
           <div className='md:justify-center ml-6 space-x-6 '>
             <input className=' px-5 py-3 rounded bg-teal-500' type='submit' />
             {/* <button lassName=' px-5  py-3 rounded bg-teal-500' className='second'></button> */}
 
-            <Link to={`/students/student_id`}>
+            <Link to={`/students`}>
               <button className=' px-5 py-3 rounded bg-teal-500'>
                 Cancel{' '}
               </button>
@@ -277,7 +191,6 @@ const NewLogs = (props) => {
         />
       </div>
     </div>
-    // // </div>*/}
   );
 };
 
