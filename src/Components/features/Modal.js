@@ -3,14 +3,14 @@ import NewLogs from '../new/NewLogs';
 import NewStudentsModal from '../new/NewStudentsModal';
 import NewComments from '../new/NewComments';
 
-const Modal = ({ showModal, setShowModal, choice, teacher, studentData }) => {
+const Modal = ({ showModal, setShowModal, choice, teacher, studentData,student,log}) => {
   let name = '';
   // const name = choice === 1 ? 'Students' : 'Logs';
   if (choice === 1) {
     name = 'Students';
   } else if (choice === 2) {
     name = 'Logs';
-  } else {
+  } else if (choice === 3) {
     name = 'Comments';
   }
 
@@ -38,7 +38,7 @@ const Modal = ({ showModal, setShowModal, choice, teacher, studentData }) => {
             ) : choice === 2 ? (
               <NewLogs />
             ) : (
-              <NewComments />
+              <NewComments student={student} log={log}/>
             )}
           </div>
           <div className='flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b'>

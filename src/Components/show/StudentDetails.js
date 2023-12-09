@@ -167,7 +167,7 @@ const StudentDetails = (props) => {
                 </thead>
                 <tbody className='h-96 overflow-y-auto'>
                   {currentRecords.map((log, index) => {
-                    return <LogEntry log={log} index={index} key={index} />;
+                    return <LogEntry log={log} index={index} student={student} />;
                   })}
                 </tbody>
               </table>
