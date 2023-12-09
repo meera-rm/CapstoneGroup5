@@ -46,7 +46,7 @@ const LearningTools = ({tools}) => {
     <Link to='/flashcard'>
         <div className='learningTools__container'>
           <div className='learningTools__image'>
-            <img src={vocabimg} alt='' />
+            <img src={vocabimg} alt='' style={{height:'350px'}} />
           </div>
           <div className='learningTools__text'>
             <h2>Vocabulary Words</h2>

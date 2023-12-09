@@ -34,7 +34,6 @@ const NewLogs = (props) => {
     event.preventDefault();
     console.log('inhandlesumbit', newLog);
     //  httpService
-
     httpService
       .post(`${API}/api/logs/new`, newLog)
       .then(() => {
@@ -57,7 +56,7 @@ const NewLogs = (props) => {
       theme: 'light',
     });
     setTimeout(() => {
-      navigate('/logs');
+      navigate('/students/student_id');
     }, 2000);
   };
 
@@ -171,7 +170,7 @@ const NewLogs = (props) => {
             <input className=' px-5 py-3 rounded bg-teal-500' type='submit' />
             {/* <button lassName=' px-5  py-3 rounded bg-teal-500' className='second'></button> */}
 
-            <Link to={`/students`}>
+            <Link to={`/students/student_id`}>
               <button className=' px-5 py-3 rounded bg-teal-500'>
                 Cancel{' '}
               </button>

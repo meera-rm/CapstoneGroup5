@@ -81,7 +81,7 @@ const Explore = () => {
   return (
     <div className='explore'>
    
-      <img
+      {/* <img
         src={gradebanner}
         style={{
           width: '400px',
@@ -90,9 +90,9 @@ const Explore = () => {
           margin: '100px auto 60px',
         }}
         alt=''
-      />
+      /> */}
 
-      <div className='explore__container'>
+      {/* <div className='explore__container'>
         <GradeSelector gradeLevel={gradeLevel} setGradeLevel={setGradeLevel} />
         <AutoMenuSelector 
         topic={topic} 
@@ -100,9 +100,9 @@ const Explore = () => {
         selectedIndex={selectedIndex}
         setSelectedIndex={setSelectedIndex}
         
-       />
+       /> */}
 
-        <div className='testbooklist'>
+        {/* <div className='testbooklist'>
           {booksByTopic.map((book,index) => {
             return (
               <div className='testbook'  key={index}>
@@ -111,11 +111,9 @@ const Explore = () => {
               </div>
             );
           })}
-           
-        
-     
-        </div>
-      </div>
+          
+        </div> 
+      </div>*/}
     </div>
   );
 };
