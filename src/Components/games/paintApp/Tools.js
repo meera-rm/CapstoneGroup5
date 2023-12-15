@@ -1,10 +1,8 @@
-
-
 import React, { useState } from 'react';
 import './Tools.css';
 
 import { BiText } from 'react-icons/bi';
-import { FaCircle } from 'react-icons/fa6';
+import { FaCircle } from 'react-icons/fa';
 import { BsTriangle } from 'react-icons/bs';
 import { BiRectangle } from 'react-icons/bi';
 import { FaPenAlt, FaPencilAlt } from 'react-icons/fa';
@@ -17,11 +15,11 @@ import { BiShapePolygon } from 'react-icons/bi';
 import { TbClearAll } from 'react-icons/tb';
 import { TbPoint } from 'react-icons/tb';
 import { IoResizeOutline } from 'react-icons/io5';
-import { FaShapes } from 'react-icons/fa6';
-import { IoIosUndo } from "react-icons/io";
-import { IoIosRedo } from "react-icons/io";
+import { FaShapes } from 'react-icons/fa';
+import { IoIosUndo } from 'react-icons/io';
+import { IoIosRedo } from 'react-icons/io';
 
-const Tools = ({selectedTool, onToolChange}) => {
+const Tools = ({ selectedTool, onToolChange }) => {
   const [showPencilDropdown, setShowPencilDropdown] = useState(false);
   const [showShapesDropdown, setShowShapesDropdown] = useState(false);
   // const [tools,Selectedtools] = useState('pencil');
@@ -39,23 +37,17 @@ const Tools = ({selectedTool, onToolChange}) => {
   };
 
   const handlePencilOptionClick = (option) => {
-    console.log(option)
+    console.log(option);
 
     handleToolSelection(option);
-    
   };
 
   const handleShapesOptionClick = (option) => {
-
-    handleToolSelection(option)
-   
-    
+    handleToolSelection(option);
   };
 
   return (
     <div className='button-dropdown'>
-      
-     
       <div className='dropdown'>
         <div style={{ display: 'block', textAlign: 'center' }}>
           <button className='dropdown-button' onClick={togglePencilDropdown}>
@@ -77,7 +69,6 @@ const Tools = ({selectedTool, onToolChange}) => {
             </button>
           </div>
         )}
-       
       </div>
 
       <div className='dropdown'>
@@ -109,42 +100,59 @@ const Tools = ({selectedTool, onToolChange}) => {
             </button>
           </div>
         )}
-      
       </div>
       <div style={{ display: 'block', textAlign: 'center' }}>
-        <button className='single-button' onClick={() =>handleToolSelection('Text')}>
+        <button
+          className='single-button'
+          onClick={() => handleToolSelection('Text')}
+        >
           <BiText />
         </button>
         <p>Text</p>
       </div>
       <div style={{ display: 'block', textAlign: 'center' }}>
-        <button className='single-button' onClick={() =>handleToolSelection('Dot')}>
+        <button
+          className='single-button'
+          onClick={() => handleToolSelection('Dot')}
+        >
           <TbPoint />
         </button>
         <p>Dot</p>
       </div>
       <div style={{ display: 'block', textAlign: 'center' }}>
-        <button className='single-button' onClick={() => handleToolSelection('Line')}>
+        <button
+          className='single-button'
+          onClick={() => handleToolSelection('Line')}
+        >
           <IoResizeOutline />
         </button>
         <p>Line</p>
       </div>
       <div style={{ display: 'block', textAlign: 'center' }}>
-        <button className='single-button' onClick={() =>handleToolSelection('Fill')}>
+        <button
+          className='single-button'
+          onClick={() => handleToolSelection('Fill')}
+        >
           <IoColorFill />
         </button>
         <p>Fill</p>
       </div>
       <div style={{ display: 'block', textAlign: 'center' }}>
-        <button className='single-button' onClick={() =>handleToolSelection('Undo')}>
-          <IoIosUndo  />
+        <button
+          className='single-button'
+          onClick={() => handleToolSelection('Undo')}
+        >
+          <IoIosUndo />
         </button>
         <p>Undo</p>
       </div>
       <div style={{ display: 'block', textAlign: 'center' }}>
-        <button className='single-button' onClick={() =>handleToolSelection('Redo')}>
-      <IoIosRedo />
-      </button>
+        <button
+          className='single-button'
+          onClick={() => handleToolSelection('Redo')}
+        >
+          <IoIosRedo />
+        </button>
         <p>Redo</p>
       </div>
     </div>
