@@ -9,8 +9,8 @@ const DrawCanvas = ({ selectedTool, setSelectedTool, selectedColor , setSelected
   const [context, setContext] = useState(null);
 
   const [isDrawing, setIsDrawing] = useState(false);
-  // const [undoStack, setUndoStack] = useState([]);
-  // const [redoStack, setRedoStack] = useState([]);
+  const [undoStack, setUndoStack] = useState([]);
+  const [redoStack, setRedoStack] = useState([]);
   
   const [startX, setStartX] = useState(0);
   const [startY, setStartY] = useState(0);
@@ -99,95 +99,95 @@ const DrawCanvas = ({ selectedTool, setSelectedTool, selectedColor , setSelected
           toolContext.fill();            
           toolContext.lineCap = "round";
           break;
-        // case 'line':
-        //   console.log('clinetx',e.clientX,e.clientY )
-        //   context.clearRect(
-        //     0,
-        //     0,
-        //     canvasRef.current.width,
-        //     canvasRef.current.height
-        //   );
-        //   context.beginPath();
-        //   context.moveTo(startX, startY);
-        //   context.lineTo(
-        //     e.clientX - canvasRef.current.offsetLeft,
-        //     e.clientY - canvasRef.current.offsetTop
-        //   );
-        //   context.strokeStyle = selectedColor;
-        //   context.lineWidth = brushWidth;
-        //   context.stroke();
-        //   break;
-        // case 'square':
-        //   context.clearRect(
-        //     0,
-        //     0,
-        //     canvasRef.current.width,
-        //     canvasRef.current.height
-        //   );
-        //   const squareContext = toolDrawings['square'] || context;
-        //   const sideLength = Math.abs(
-        //     startX - (e.clientX - canvasRef.current.offsetLeft)
-        //   );
-        //   squareContext.strokeStyle = selectedColor;
-        //   squareContext.fillRect(startX, startY, sideLength, sideLength);
-        //   break;
-        // case 'dot':
-        //   context.clearRect(
-        //     0,
-        //     0,
-        //     canvasRef.current.width,
-        //     canvasRef.current.height
-        //   );
-        //   context.beginPath();
-        //   context.arc(startX, startY, brushWidth, 0, 2 * Math.PI);
-        //   context.strokeStyle = selectedColor;
-        //   context.fill();
-        //   break;
+        case 'line':
+          console.log('clinetx',e.clientX,e.clientY )
+          context.clearRect(
+            0,
+            0,
+            canvasRef.current.width,
+            canvasRef.current.height
+          );
+          context.beginPath();
+          context.moveTo(startX, startY);
+          context.lineTo(
+            e.clientX - canvasRef.current.offsetLeft,
+            e.clientY - canvasRef.current.offsetTop
+          );
+          context.strokeStyle = selectedColor;
+          context.lineWidth = brushWidth;
+          context.stroke();
+          break;
+        case 'square':
+          context.clearRect(
+            0,
+            0,
+            canvasRef.current.width,
+            canvasRef.current.height
+          );
+          const squareContext = toolDrawings['square'] || context;
+          const sideLength = Math.abs(
+            startX - (e.clientX - canvasRef.current.offsetLeft)
+          );
+          squareContext.strokeStyle = selectedColor;
+          squareContext.fillRect(startX, startY, sideLength, sideLength);
+          break;
+        case 'dot':
+          context.clearRect(
+            0,
+            0,
+            canvasRef.current.width,
+            canvasRef.current.height
+          );
+          context.beginPath();
+          context.arc(startX, startY, brushWidth, 0, 2 * Math.PI);
+          context.strokeStyle = selectedColor;
+          context.fill();
+          break;
 
-        // case 'rectangle':
-        //   context.clearRect(
-        //     0,
-        //     0,
-        //     canvasRef.current.width,
-        //     canvasRef.current.height
-        //   );
-        //   const rectangleContext = toolDrawings['rectangle'] || context;
-        //   const width = Math.abs(
-        //     startX - (e.clientX - canvasRef.current.offsetLeft)
-        //   );
-        //   const height = Math.abs(
-        //     startY - (e.clientY - canvasRef.current.offsetTop)
-        //   );
-        //   rectangleContext.strokeStyle = selectedColor;
-        //   rectangleContext.fillRect(startX, startY, width, height);
-        //   break;
-        // case 'circle':
-        //   // context.clearRect(
-        //   //   0,
-        //   //   0,
-        //   //   canvasRef.current.width,
-        //   //   canvasRef.current.height
-        //   // );
-        //   const circleContext = toolDrawings['circle'] || context;
-        //   const radius = Math.sqrt(
-        //     Math.pow(e.clientX - canvasRef.current.offsetLeft - startX, 2) +
-        //       Math.pow(e.clientY - canvasRef.current.offsetTop - startY, 2)
-        //   );
-        //   circleContext.beginPath();
-        //   circleContext.arc(startX, startY, radius, 0, 2 * Math.PI);
-        //   circleContext.strokeStyle = selectedColor;
-        //   circleContext.lineWidth = brushWidth;
-        //   circleContext.stroke();
-        //   break;
-        // case 'undo':
-        //   handleUndo()
-        //   break;
-        // case 'redo':
-        //   handleRedo()
-        //   break;
-        // case 'clear':
-        //     handleClear()
-        //     break;
+        case 'rectangle':
+          context.clearRect(
+            0,
+            0,
+            canvasRef.current.width,
+            canvasRef.current.height
+          );
+          const rectangleContext = toolDrawings['rectangle'] || context;
+          const width = Math.abs(
+            startX - (e.clientX - canvasRef.current.offsetLeft)
+          );
+          const height = Math.abs(
+            startY - (e.clientY - canvasRef.current.offsetTop)
+          );
+          rectangleContext.strokeStyle = selectedColor;
+          rectangleContext.fillRect(startX, startY, width, height);
+          break;
+        case 'circle':
+          // context.clearRect(
+          //   0,
+          //   0,
+          //   canvasRef.current.width,
+          //   canvasRef.current.height
+          // );
+          const circleContext = toolDrawings['circle'] || context;
+          const radius = Math.sqrt(
+            Math.pow(e.clientX - canvasRef.current.offsetLeft - startX, 2) +
+              Math.pow(e.clientY - canvasRef.current.offsetTop - startY, 2)
+          );
+          circleContext.beginPath();
+          circleContext.arc(startX, startY, radius, 0, 2 * Math.PI);
+          circleContext.strokeStyle = selectedColor;
+          circleContext.lineWidth = brushWidth;
+          circleContext.stroke();
+          break;
+        case 'undo':
+          handleUndo()
+          break;
+        case 'redo':
+          handleRedo()
+          break;
+        case 'clear':
+            handleClear()
+            break;
         default:
           break;
       }
@@ -205,41 +205,41 @@ const DrawCanvas = ({ selectedTool, setSelectedTool, selectedColor , setSelected
       );
       const updatedToolDrawings = { ...toolDrawings, [selectedTool]: context };
       setToolDrawings(updatedToolDrawings);
-      // setUndoStack([...undoStack, canvasData]);
-      // setRedoStack([]);
+      setUndoStack([...undoStack, canvasData]);
+      setRedoStack([]);
     }
   };
 
-  // const handleUndo = () => {
-  //   if (undoStack.length > 0) {
-  //     const lastState = undoStack[undoStack.length - 1];
-  //     setRedoStack([...redoStack, lastState]);
-  //     setUndoStack(undoStack.slice(0, -1));
-  //     context.putImageData(lastState, 0, 0);
-  //   }
-  // };
+  const handleUndo = () => {
+    if (undoStack.length > 0) {
+      const lastState = undoStack[undoStack.length - 1];
+      setRedoStack([...redoStack, lastState]);
+      setUndoStack(undoStack.slice(0, -1));
+      context.putImageData(lastState, 0, 0);
+    }
+  };
 
-  // const handleRedo = () => {
-  //   if (redoStack.length > 0) {
-  //     const nextState = redoStack[redoStack.length - 1];
-  //     setUndoStack([...undoStack, nextState]);
-  //     setRedoStack(redoStack.slice(0, -1));
-  //     context.putImageData(nextState, 0, 0);
-  //   }
-  // };
+  const handleRedo = () => {
+    if (redoStack.length > 0) {
+      const nextState = redoStack[redoStack.length - 1];
+      setUndoStack([...undoStack, nextState]);
+      setRedoStack(redoStack.slice(0, -1));
+      context.putImageData(nextState, 0, 0);
+    }
+  };
 
-  // const handleClear = () => {
-  //   if (context) {
-  //     context.clearRect(
-  //       0,
-  //       0,
-  //       canvasRef.current.width,
-  //       canvasRef.current.height
-  //     );
-  //     setUndoStack([]);
-  //     setRedoStack([]);
-  //   }
-  // };
+  const handleClear = () => {
+    if (context) {
+      context.clearRect(
+        0,
+        0,
+        canvasRef.current.width,
+        canvasRef.current.height
+      );
+      setUndoStack([]);
+      setRedoStack([]);
+    }
+  };
 
   return (
     <div className='menuBar'>
