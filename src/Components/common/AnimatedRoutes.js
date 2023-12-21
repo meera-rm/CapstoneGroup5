@@ -115,7 +115,7 @@ const AnimatedRoutes = () => {
               <Route index element={<Games />} />
               <Route path='rps' element={<RockpaperScissor />} />
               <Route path='memorygame' element={<MemoryGame />} />
-              {/* <Route path='paint' element={<PaintApp />} /> */}
+               <Route path='paint' element={<PaintApp />} /> 
               <Route path='guessword' element={<GuessWord />} />
               <Route path='etchsketch' element={<EtchSketch />} />
               <Route path='tictactoe' element={<TicTacToe />} />

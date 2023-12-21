@@ -12,9 +12,9 @@ const Games = () => {
           <Link to='/games/guessword' className='rpscolor'> 
             <div className='guessword'>Guess The Word</div>
           </Link>
-          {/* <Link to='/games/paint'  className='rpscolor'>
+           <Link to='/games/paint'  className='rpscolor'>
             <div className='paintapp'>Paint App</div>
-          </Link> */}
+          </Link> 
           <Link to='/games/memorygame'  className='rspcolor'>
             <div className='memorygame'>Memorygame</div>
           </Link>
