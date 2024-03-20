@@ -46,7 +46,7 @@ const App = () => {
     setMode(newMode);
   };
   let darkModeButton = (
-      <button id="themebutton" aria-label="themeswitch" className='switchThemeButton' onClick={switchMode}>
+      <button id="themebutton" aria-label="Aria Name" className='switchThemeButton' onClick={switchMode}>
         {mode === 'light' ? (
          <BsFillSunFill size={30} />
 

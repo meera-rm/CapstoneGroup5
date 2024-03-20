@@ -9,7 +9,7 @@ import r14 from '../Components/asset/read14.jpeg';
 import r15 from '../Components/asset/read15.jpeg';
 import r16 from '../Components/asset/read16.webp';
 import r17 from '../Components/asset/childread.png';
-const featuredProducts = [r10, r17, r13,img8, r11,  r14, r15,r16];
+const featuredProducts = [r10, r17, r13, img8, r11, r14, r15, r16];
 
 let count = 0;
 let slideInterval;
@@ -36,7 +36,7 @@ const Carousel = () => {
 
   const startSlider = () => {
     slideInterval = setInterval(() => {
-      handleOnNextClick()
+      handleOnNextClick();
     }, 10000);
   };
 
@@ -70,13 +70,17 @@ const Carousel = () => {
         </div>
 
         <div className='absolute w-full top-1/2 transform -translate-y-1/2 px-3 flex justify-between items-center'>
-          <button id="rightbutton" aria-label="Aria Name"
+          <button
+            id='rightbutton'
+            aria-label='Aria Name'
             className='bg-black text-white p-1 rounded-full bg-opacity-50 cursor-pointer hover:bg-opacity-100 transition'
             onClick={handleOnPrevClick}
           >
             <AiOutlineVerticalRight size={30} />
           </button>
-          <button id="leftbutton" aria-label="Aria Name"
+          <button
+            id='leftbutton'
+            aria-label='Aria Name'
             className='bg-black text-white p-1 rounded-full bg-opacity-50 cursor-pointer hover:bg-opacity-100 transition'
             onClick={handleOnNextClick}
           >
