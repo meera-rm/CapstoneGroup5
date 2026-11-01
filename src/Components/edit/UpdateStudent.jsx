@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../auth/AuthContext';
 // import httpService from '../httpService';
 
 const API = import.meta.env.VITE_API_URL;
@@ -9,6 +10,7 @@ const UpdateStudent = () => {
   let { id } = useParams();
 
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   const [student, setStudent] = useState({
     student_id: '',
@@ -184,7 +186,7 @@ const UpdateStudent = () => {
           <input className='px-5  py-3 rounded bg-teal-500' type='submit' />
           {/* </div>
           <div> */}
-          <Link to={`/teachers/${student.teachers_id}`}>
+          <Link to={user?.user_role === 'teacher' ? '/teacher-dashboard' : '/students'}>
             <button className='px-5  py-3 rounded bg-teal-500'>Back</button>
           </Link>
           {/* </div> */}

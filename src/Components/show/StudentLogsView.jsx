@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useAuth } from '../../auth/AuthContext';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import httpService from '../httpService';
@@ -18,6 +19,7 @@ import { FaEdit } from 'react-icons/fa';
 const API = import.meta.env.VITE_API_URL;
 
 const StudentLogsView = (props) => {
+  const { user } = useAuth();
 
 
   const [studentData, setStudentData] = useState([]);
@@ -122,16 +124,18 @@ const StudentLogsView = (props) => {
       <div className='py-8'>
         <div className=' mt-10 flex md:justify-center ml-6 space-x-6'>
           {/* <Link to={'/logs/new'}> */}
-          <button
-            className='bg-indigo-500 text-center px-6 py-4 text-white rounded hover:bg-indigo-400'
-            onClick={() => setShowModal(true)}
-          >
-            Add Logs{' '}
-          </button>
+          {user?.user_role === 'student' && (
+            <button
+              className='bg-indigo-500 text-center px-6 py-4 text-white rounded hover:bg-indigo-400'
+              onClick={() => setShowModal(true)}
+            >
+              Add Logs{' '}
+            </button>
+          )}
 
           {/* </Link> */}
 
-          <Link to={`/teachers/${studentData.teachers_id}`}>
+          <Link to={user?.user_role === 'teacher' ? '/teacher-dashboard' : `/teachers/${studentData.teachers_id}`}>
             <button className='bg-indigo-500 text-center px-6 py-4 text-white rounded hover:bg-indigo-400'>
               Back{' '}
             </button>
@@ -277,7 +281,7 @@ const StudentLogsView = (props) => {
                         {/* <div className='flex'> */}
                       {/* <div className="flex-shrink-0 w-10 h-10"> *
                            <div className='ml-3 p-3 text-sm text-indigo-900'>
-                            <Link to={`/students`}>
+                            <Link to={user?.user_role === 'teacher' ? '/teacher-dashboard' : '/students'}>
                               <button
                                 className=' bg-teal-500 px-6 py-4 text-black rounded '
                               >

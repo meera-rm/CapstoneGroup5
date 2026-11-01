@@ -1,15 +1,22 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate, useParams, Link } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams, Link } from 'react-router-dom';
 import avatarProfilePics from '../../utils/AvatarProfilePics';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import httpService from '../httpService';
+import { academicYearFor } from '../../utils/academicYear';
 const API = import.meta.env.VITE_API_URL;
 
 const NewStudents = (props) => {
   const navigate = useNavigate();
   let { id } = useParams();
+  // Opened from the teacher dashboard: /students/new?teacherId=5 pre-fills the teacher and year
+  const [searchParams] = useSearchParams();
+  const fromDashboard = searchParams.get('teacherId');
+  const teacherId = fromDashboard || id || '';
+  // Back to the teacher dashboard when the form was opened from there, otherwise the students list
+  const returnTo = fromDashboard ? '/teacher-dashboard' : '/students';
 
   const avatarNames = [
     'felix',
@@ -44,10 +51,10 @@ const NewStudents = (props) => {
     parent_name: '',
     parent_email: '',
     student_email: '',
-    grade: '',
-    academic_year: '',
+    grade: searchParams.get('grade') || '',
+    academic_year: searchParams.get('year') || (fromDashboard ? academicYearFor() : ''),
     reading_level: '',
-    teachers_id: id,
+    teachers_id: teacherId,
   });
 
   const handleTextChange = (event) => {
@@ -71,11 +78,17 @@ const NewStudents = (props) => {
         notify();
         // navigate(`/students`);
       })
-      .catch((c) => console.error('catch', c));
+      .catch((err) => {
+        console.error('catch', err);
+        toast.error(err.response?.data?.message || 'Could not add the student', {
+          position: 'top-right',
+          autoClose: 6000,
+        });
+      });
   };
 
   const notify = () => {
-    toast.success('🦄 , You added a new book', {
+    toast.success('🦄 , You added a new student', {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: false,
@@ -86,7 +99,7 @@ const NewStudents = (props) => {
       theme: 'light',
     });
     setTimeout(() => {
-      navigate('/students');
+      navigate(returnTo);
     }, 2000);
   };
 
@@ -266,14 +279,15 @@ const NewStudents = (props) => {
               id='teachers_id'
               type='text'
               name='teachers_id'
-              value={id}
+              value={student.teachers_id}
+              readOnly
             />
           </div>
 
           <div className='justify-center ml-6 space-x-6 '>
             <input className=' px-5  py-3 rounded bg-teal-500' type='submit' />
             {/* <button style={{ border: 'none' }} className='second'></button> */}
-            <Link to={`/students`}>
+            <Link to={returnTo}>
               <button className=' px-5  py-3 rounded bg-teal-500'>
                 Cancel{' '}
               </button>

@@ -27,7 +27,7 @@ const AllStudents = () => {
       <h2 className='text-center  mt-10 mb-5 text-5xl font-bold text-teal-600  '>
         Students
       </h2>
-      {['teacher', 'admin'].includes(useAuth().user?.user_role) && (
+      {useAuth().user?.user_role === 'admin' && (
         <div className='text-center '>
           <Link to={`/students/new`}>
             <button className=' btn bg-indigo-500 px-4 py-4 rounded text-white hover:bg-teal-400'>
@@ -43,7 +43,7 @@ const AllStudents = () => {
         <div className='overflow-x-auto'>
         <table className='w-full text-left border text-grey-darkest'>
           <thead>
-            <tr className='bg-teal-600 text-white'>
+          <tr className='bg-teal-500 text-white'>
               <th className='p-3'>Student</th>
               <th className='p-3'>Student #</th>
               <th className='p-3'>Parent email</th>

@@ -156,8 +156,11 @@ const AnimatedRoutes = () => {
 
             {/* Students: logged in can view, teacher/admin manage */}
             <Route path='/students'>
-              <Route element={<ProtectedRoute />}>
+              {/* The full student list is admin only; teachers use their own dashboard */}
+              <Route element={<ProtectedRoute roles={['admin']} />}>
                 <Route index element={<StudentIndex />} />
+              </Route>
+              <Route element={<ProtectedRoute />}>
                 <Route path=':id' element={<StudentShow />} />
               </Route>
               <Route element={<ProtectedRoute roles={['teacher', 'admin']} />}>

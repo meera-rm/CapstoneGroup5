@@ -4,11 +4,14 @@ import { useNavigate, useParams, Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import httpService from '../httpService';
+import { apiFetch } from '../../api';
 const API = import.meta.env.VITE_API_URL;
 
 const NewLogs = (props) => {
   const navigate = useNavigate();
   let { id } = useParams();
+  // After saving: back to that student's page, or the student dashboard when there's no student in the URL
+  const afterSave = id ? `/students/${id}` : '/student-dashboard';
 
   //declare states
   const [newLog, setNewLog] = useState({
@@ -30,22 +33,29 @@ const NewLogs = (props) => {
     console.log('in text change', newLog);
   };
 
-  const handleSubmit = (event) => {
+  // apiFetch sends the login token; the numbers and optional book id are sent in the types the database expects
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('inhandlesumbit', newLog);
-    //  httpService
-    httpService
-      .post(`${API}/api/logs/new`, newLog)
-      .then(() => {
-        console.log('added');
-        notify();
-        navigate(`/students/student_id`);
-      })
-      .catch((c) => console.error('catch', c));
+    try {
+      await apiFetch('/api/logs/new', {
+        method: 'POST',
+        body: JSON.stringify({
+          reading_inference: newLog.reading_inference.trim(),
+          book_title: newLog.book_title.trim(),
+          reading_minutes: Number(newLog.reading_minutes) || 0,
+          pages_read: Number(newLog.pages_read) || 0,
+          books_id: null, // books are typed by title; a book id must match an existing book
+          students_id: id ? Number(id) : undefined, // students are set by the server from their login
+        }),
+      });
+      notify();
+    } catch (err) {
+      toast.error(err.message || 'Could not save the log');
+    }
   };
 
   const notify = () => {
-    toast.success('🦄 , You added a new book', {
+    toast.success('🦄 , You added a new log', {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: false,
@@ -56,7 +66,7 @@ const NewLogs = (props) => {
       theme: 'light',
     });
     setTimeout(() => {
-      navigate('/students/student_id');
+      navigate(afterSave);
     }, 2000);
   };
 
@@ -146,35 +156,14 @@ const NewLogs = (props) => {
             />
           </div>
 
-          <div className='flex flex-col mb-4 md:w-half'>
-            <label
-              className='mb-2 uppercase font-bold text-lg text-grey-darkest'
-              htmlFor='reading_minutes'
-            >
-              Book Id
-            </label>
-            <input
-              className='border py-2 px-3 text-grey-darkest'
-              id='books_id'
-              type='number'
-              name='books_id'
-              autoComplete='off'
-              value={newLog.books_id}
-              placeholder='Book Id'
-              onChange={handleTextChange}
-              required
-            />
-          </div>
 
           <div className='md:justify-center ml-6 space-x-6 '>
             <input className=' px-5 py-3 rounded bg-teal-500' type='submit' />
             {/* <button lassName=' px-5  py-3 rounded bg-teal-500' className='second'></button> */}
 
-            <Link to={`/students/student_id`}>
-              <button className=' px-5 py-3 rounded bg-teal-500'>
-                Cancel{' '}
-              </button>
-            </Link>
+            <button type='button' onClick={() => navigate(-1)} className=' px-5 py-3 rounded bg-teal-500'>
+              Cancel
+            </button>
           </div>
         </form>
         <ToastContainer

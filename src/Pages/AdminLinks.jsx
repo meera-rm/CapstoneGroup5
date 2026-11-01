@@ -67,7 +67,7 @@ export default function AdminLinks() {
         <h2 className='text-xl font-bold mb-3'>Teachers</h2>
         <table className='w-full text-left border'>
           <thead>
-            <tr><th className='p-2'>Teacher</th><th className='p-2'>School</th><th className='p-2'>Login</th></tr>
+            <tr className='bg-teal-500 text-white'><th className='p-2'>Teacher</th><th className='p-2'>School</th><th className='p-2'>Login</th></tr>
           </thead>
           <tbody>
             {data.teachers.map((t) => (
@@ -85,7 +85,7 @@ export default function AdminLinks() {
         <h2 className='text-xl font-bold mb-3'>Students</h2>
         <table className='w-full text-left border'>
           <thead>
-            <tr><th className='p-2'>Student</th><th className='p-2'>Parent email</th><th className='p-2'>Login</th></tr>
+            <tr className='bg-teal-500 text-white'><th className='p-2'>Student</th><th className='p-2'>Parent email</th><th className='p-2'>Login</th></tr>
           </thead>
           <tbody>
             {data.students.map((s) => (

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useAuth } from '../../auth/AuthContext';
 import { Link, useParams, useNavigate, useLocation } from 'react-router-dom';
 import httpService from '../httpService';
 import axios from 'axios';
 import Pagination from '../features/Pagination';
 import LogEntry from './LogEntry';
 import Modal from '../features/Modal';
+import { academicYearFor } from '../../utils/academicYear';
 
 // import StudentLogsView from './StudentLogsView';
 // import NewLogs from '../new/NewLogs';
@@ -17,6 +19,7 @@ import Modal from '../features/Modal';
 const API = import.meta.env.VITE_API_URL;
 
 const StudentDetails = (props) => {
+  const { user } = useAuth();
   const [student, setStudent] = useState([]);
   const [logData, setLogData] = useState([]);
   // const [comment, setComment] = useState([]);
@@ -28,6 +31,9 @@ const StudentDetails = (props) => {
   let { id } = useParams();
   const location = useLocation();
   const fromTeacherDetails = location.state?.fromTeacherDetails;
+  // The school year shown on the page (from ?year=), defaulting to the current year
+  const year = new URLSearchParams(location.search).get('year') || academicYearFor();
+  const [teacherForYear, setTeacherForYear] = useState(null);
 
   useEffect(() => {
     // httpService
@@ -39,6 +45,14 @@ const StudentDetails = (props) => {
       })
       .catch(() => navigate('/not-found'));
   }, [id, navigate]);
+
+  // The teacher this student had in the selected school year
+  useEffect(() => {
+    axios
+      .get(`${API}/api/students/${id}/class?academicYear=${year}`)
+      .then((response) => setTeacherForYear(response.data.payload.teacher))
+      .catch(() => setTeacherForYear(null));
+  }, [id, year]);
 
   useEffect(() => {
     // httpService
@@ -79,13 +93,19 @@ const StudentDetails = (props) => {
   return (
    
     <div className='md:container md:mx-auto px-4 sm:px-8'>
-      <div>
-        <h2 className='flex justify-center items-center font-bold mt-10 mb-20 text-teal-600 text-3xl'>
-          Student Dashboard
-        </h2>
+      <div className='grid grid-cols-3 items-center mt-10 mb-20 px-4'>
+        <div />
+        <h2 className='text-center font-bold text-teal-600 text-3xl'>Student Dashboard</h2>
+        <div className='flex justify-end'>
+          <Link to={user?.user_role === 'teacher' ? '/teacher-dashboard' : '/students'}>
+            <button className='bg-indigo-500 px-6 py-3 text-white rounded hover:bg-indigo-400'>
+              Back
+            </button>
+          </Link>
+        </div>
       </div>
 
-      <div className='block text-left mt-15 md:w-1/2 md:mx-auto '>
+      <div className='block text-left mt-15 px-4 md:w-1/2 md:mr-auto '>
         <div className='font-bold'>
           Student Name:{'   '}
           <span className='font-semibold'>{student.student_name}</span>
@@ -99,26 +119,35 @@ const StudentDetails = (props) => {
           <span className='font-semibold'>{student.parent_email}</span>
         </div>
         <div className='font-bold'>
-          Teacher Id:{' '}
-          <span className='font-semibold'>{student.teachers_id}</span>
+          Student ID:{' '}
+          <span className='font-semibold'>{student.student_id}</span>
+        </div>
+        <div className='font-bold'>
+          Student Email:{' '}
+          <span className='font-semibold'>{student.student_email}</span>
+        </div>
+        <div className='font-bold'>
+          Class ({year}):{' '}
+          <span className='font-semibold'>{teacherForYear ? teacherForYear.class_name : 'Not enrolled this year'}</span>
+        </div>
+        <div className='font-bold'>
+          Teacher Name ({year}):{' '}
+          <span className='font-semibold'>{teacherForYear ? teacherForYear.teacher_name : 'Not enrolled this year'}</span>
         </div>
       </div>
 
   
       <div className='py-8'>
         <div className='mt-10 flex md:justify-center ml-6 space-x-6'>
-          <button
-            className='bg-indigo-500 text-center px-6 py-4 text-white rounded hover:bg-indigo-400'
-            onClick={() => setShowModal(true)}
-          >
-            Add Logs
-          </button>
-
-          <Link to={`/students`}>
-            <button className='bg-indigo-500 text-center px-6 py-4 text-white rounded hover:bg-indigo-400 '>
-              Back
+          {/* Only students add their own logs (on the student dashboard) */}
+          {user?.user_role === 'student' && (
+            <button
+              className='bg-indigo-500 text-center px-6 py-4 text-white rounded hover:bg-indigo-400'
+              onClick={() => setShowModal(true)}
+            >
+              Add Logs
             </button>
-          </Link>
+          )}
         </div>
 
         {showModal && (
@@ -137,30 +166,30 @@ const StudentDetails = (props) => {
                 {/* Table Headers... */}
                 <thead>
                   <tr>
-                    <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                    <th className='px-5 py-3 border-b-2 border-gray-200 bg-teal-500 text-left text-xs font-semibold text-white uppercase tracking-wider'>
                       Id
                     </th>
-                    <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                    <th className='px-5 py-3 border-b-2 border-gray-200 bg-teal-500 text-left text-xs font-semibold text-white uppercase tracking-wider'>
                       Student Name
                     </th>
-                    <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                    <th className='px-5 py-3 border-b-2 border-gray-200 bg-teal-500 text-left text-xs font-semibold text-white uppercase tracking-wider'>
                       Book Title
                     </th>
 
-                    {/* <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                    {/* <th className=' px-5 py-3 border-b-2 border-gray-200 bg-teal-500 text-center text-xs font-semibold text-white uppercase tracking-wider'>
                      Book Id
                     </th> */}
 
-                    <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                    <th className=' px-5 py-3 border-b-2 border-gray-200 bg-teal-500 text-center text-xs font-semibold text-white uppercase tracking-wider'>
                       Minutes Read
                     </th>
-                    <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                    <th className=' px-5 py-3 border-b-2 border-gray-200 bg-teal-500 text-center text-xs font-semibold text-white uppercase tracking-wider'>
                       Pages Read
                     </th>
-                    <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                    <th className=' px-5 py-3 border-b-2 border-gray-200 bg-teal-500 text-center text-xs font-semibold text-white uppercase tracking-wider'>
                       Reading Inference
                     </th>
-                    <th className=' px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>
+                    <th className=' px-5 py-3 border-b-2 border-gray-200 bg-teal-500 text-center text-xs font-semibold text-white uppercase tracking-wider'>
                       Comments
                     </th>
                   </tr>
