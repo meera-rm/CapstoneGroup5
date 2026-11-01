@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import httpService from '../../Components/httpService';
+import httpService from '../httpService';
 
 function ListSubscription() {
   const [subscriptions, setSubscriptions] = useState([]);
