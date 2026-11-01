@@ -17,7 +17,7 @@ class HttpService {
   }
 
   async delete(url) {
-    const { data } = await axios.put(url);
+    const { data } = await axios.delete(url);
     return data;
   }
 }

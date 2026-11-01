@@ -1,34 +1,14 @@
-const generateDiceBearPersonas = (seed) =>
-  `https://avatars.dicebear.com/api/personas/${seed}.svg`;
+// DiceBear HTTP API: free, no API key needed.
+// The old avatars.dicebear.com/api/... URLs were shut down, so use api.dicebear.com.
+const DICEBEAR_VERSION = '9.x';
 
-const generateDiceBearBottts = (seed) =>
-  `https://avatars.dicebear.com/api/bottts/${seed}.svg`;
+const dicebearUrl = (style, seed) =>
+  `https://api.dicebear.com/${DICEBEAR_VERSION}/${style}/svg?seed=${encodeURIComponent(seed)}`;
 
-const generateDiceBearPixelArt = (seed) =>
-  `https://avatars.dicebear.com/api/pixel-art/${seed}.svg`;
-  
-const generateDiceBearAvataaars = (seed) =>
-  `https://avatars.dicebear.com/api/avataaars/${seed}.svg`;
+const STYLES = ['personas', 'avataaars', 'bottts', 'pixel-art'];
 
-export const generateAvatar = () => {
-  const data = [];
-
-  for (let i = 0; i < 2; i++) {
-    const res = generateDiceBearPersonas(Math.random());
-    data.push(res);
-  }
-
-  for (let i = 0; i < 2; i++) {
-    const res = generateDiceBearAvataaars(Math.random());
-    data.push(res);
-  }
-  for (let i = 0; i < 2; i++) {
-    const res = generateDiceBearBottts(Math.random());
-    data.push(res);
-  }
-  for (let i = 0; i < 2; i++) {
-    const res = generateDiceBearPixelArt(Math.random());
-    data.push(res);
-  }
-  return data;
-};
+// Returns 8 avatar URLs: 2 of each style, each with a random seed.
+export const generateAvatar = () =>
+  STYLES.flatMap((style) =>
+    Array.from({ length: 2 }, () => dicebearUrl(style, Math.random().toString(36).slice(2)))
+  );
